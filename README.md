@@ -119,7 +119,7 @@ The app can run as one Next.js service, or split across Vercel and Render:
 1. Create a Neon Postgres project and set `DATABASE_URL` on the server.
 2. Deploy the repository to Render using [`render.yaml`](render.yaml). Set `FRONTEND_ORIGIN` to the Vercel production origin, without a trailing slash.
 3. Import the same repository into Vercel. Set `NEXT_PUBLIC_API_BASE_URL` to the Render service URL, without a trailing slash.
-4. Set the Firebase client settings (`NEXT_PUBLIC_FIREBASE_*` and `NEXT_PUBLIC_RECAPTCHA_ENTERPRISE_SITE_KEY`) in Vercel. Set `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, and `FIREBASE_PRIVATE_KEY` in Render.
+4. Set the Firebase client settings (`NEXT_PUBLIC_FIREBASE_*` and `NEXT_PUBLIC_RECAPTCHA_ENTERPRISE_SITE_KEY`) in Vercel. Set `FIREBASE_PROJECT_ID` in Render. ID and App Check token verification uses Google's public signing keys, so no service-account key is needed.
 5. Add the Vercel production domain to Firebase Auth *Authorized domains* and to the reCAPTCHA Enterprise key. Set `APP_CHECK_ENFORCE_API=true` on Render after the API App Check verification is configured.
 6. Run `npm run db:push` against the Neon database once to create the tables.
 

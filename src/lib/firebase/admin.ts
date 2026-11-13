@@ -1,5 +1,5 @@
 import "server-only";
-import { cert, getApps, initializeApp, type App } from "firebase-admin/app";
+import { getApps, initializeApp, type App } from "firebase-admin/app";
 import { getAppCheck } from "firebase-admin/app-check";
 import { getAuth } from "firebase-admin/auth";
 
@@ -12,12 +12,12 @@ function adminApp(): App {
     return app;
   }
   const projectId = process.env.FIREBASE_PROJECT_ID;
-  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-  const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
-  if (!projectId || !clientEmail || !privateKey) {
-    throw new Error("Firebase Admin credentials are not set (FIREBASE_PROJECT_ID / CLIENT_EMAIL / PRIVATE_KEY)");
+  if (!projectId) {
+    throw new Error("Firebase project ID is not set (FIREBASE_PROJECT_ID)");
   }
-  app = initializeApp({ credential: cert({ projectId, clientEmail, privateKey }) });
+  // Token verification uses Google's public signing keys and only needs the project ID.
+  // Avoid a service-account private key because this server doesn't call privileged APIs.
+  app = initializeApp({ projectId });
   return app;
 }
 
