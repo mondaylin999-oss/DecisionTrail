@@ -1,0 +1,57 @@
+{
+  "_instructions": "Copy this file to data/cases/<slug>.json, replace every REPLACE_ME, and delete keys you cannot source. Files starting with '_' are ignored. The seed script rejects any file that still contains REPLACE_ME, has a claim without a source, or has no outcome claim. Write summaries in YOUR OWN WORDS; never paste articles. Never use AI output or memory as a source.",
+  "slug": "REPLACE_ME-kebab-case-id",
+  "title": "REPLACE_ME short factual title",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "REPLACE_ME organisation or person",
+  "actor_type": "company",
+  "decision_date": "2000-01-01",
+  "date_precision": "year",
+  "context": "REPLACE_ME what the situation was, from sources",
+  "problem": "REPLACE_ME",
+  "alternatives_documented": null,
+  "decision_made": "REPLACE_ME what they decided",
+  "reason_documented": null,
+  "action_taken": "REPLACE_ME",
+  "expected_outcome_documented": null,
+  "observed_outcome": "REPLACE_ME what was observed afterwards (or 'Not documented')",
+  "outcome_category": "unknown",
+  "outcome_observed_at": null,
+  "observation_period": "REPLACE_ME e.g. 'about 12 months after announcement'",
+  "lessons": "REPLACE_ME implications, phrased cautiously",
+  "limitations": "REPLACE_ME what is NOT known; why it may not transfer",
+  "domain_facets": { "customer_segment": "b2b", "company_stage": "growth" },
+  "alternative_tags": ["free_plan", "paid_subscription"],
+  "constraint_tags": [],
+  "evidence_classification": "primary",
+  "verified_by": "REPLACE_ME your name",
+  "last_verified_at": "2026-11-13",
+  "sources": [
+    {
+      "url": "https://REPLACE_ME.example/official-announcement",
+      "publisher": "REPLACE_ME",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-13"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "REPLACE_ME one factual statement, paraphrased",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [{ "url": "https://REPLACE_ME.example/official-announcement", "support": "supports", "locator": "REPLACE_ME section or paragraph" }]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "REPLACE_ME what was observed, paraphrased",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [{ "url": "https://REPLACE_ME.example/official-announcement", "support": "supports", "locator": "REPLACE_ME" }]
+    }
+  ]
+}
