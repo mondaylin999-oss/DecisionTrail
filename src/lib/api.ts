@@ -15,7 +15,8 @@ export async function api<T = unknown>(
   const user = firebaseAuth().currentUser;
   if (!user) throw new ApiError("Not signed in", 401);
   const token = await user.getIdToken();
-  const res = await fetch(path, {
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "");
+  const res = await fetch(apiBaseUrl ? `${apiBaseUrl}${path}` : path, {
     method: init.method ?? "GET",
     headers: {
       Authorization: `Bearer ${token}`,
