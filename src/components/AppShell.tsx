@@ -39,7 +39,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   }
   if (!user) {
     return (
-      <Centered>
+      <Centered decorate>
         <h1 className="text-2xl font-semibold">DecisionTrail</h1>
         <p className="text-slate-600">Learn From the Past. Decide With Confidence.</p>
         <p className="text-sm text-slate-500">
@@ -92,10 +92,28 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 }
 
-function Centered({ children }: { children: ReactNode }) {
+function Centered({ children, decorate = false }: { children: ReactNode; decorate?: boolean }) {
   return (
-    <div className="flex min-h-screen items-center justify-center p-6">
-      <Card className="max-w-md space-y-4 text-center">{children}</Card>
+    <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden p-6">
+      {decorate && <SignInArtwork />}
+      <Card className="relative z-10 w-full max-w-md space-y-4 text-center">{children}</Card>
+    </div>
+  );
+}
+
+function SignInArtwork() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden sm:block">
+      <svg className="absolute -left-8 top-[9%] w-44 text-emerald-200/80" viewBox="0 0 176 224" fill="none">
+        <path d="M31 4 53 31 85 11 78 47 117 45 91 69 119 92 82 95 91 132 61 110 43 143 40 106 4 116 23 84 0 62 35 60Z" fill="currentColor" />
+        <circle cx="114" cy="156" r="5" fill="currentColor" />
+        <circle cx="137" cy="176" r="3" fill="currentColor" />
+      </svg>
+      <svg className="absolute -right-12 bottom-[12%] w-44 text-violet-200/80" viewBox="0 0 176 176" fill="none">
+        <path d="M89 10c12-10 31-6 37 9 17-2 29 13 24 28 15 9 16 29 3 41 8 16-1 34-18 37-5 17-23 24-38 14-14 11-33 5-38-11-18 0-29-16-22-32-13-12-10-32 6-41-5-18 8-33 26-32 3-7 8-11 20-13Z" fill="currentColor" />
+        <circle cx="44" cy="151" r="4" fill="currentColor" />
+        <circle cx="27" cy="132" r="2.5" fill="currentColor" />
+      </svg>
     </div>
   );
 }
