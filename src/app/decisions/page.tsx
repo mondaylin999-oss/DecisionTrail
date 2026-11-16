@@ -7,6 +7,7 @@ import { DemoBadge, OutcomeChip } from "@/components/marks";
 import { Button, Card, Input, Notice, Select } from "@/components/ui";
 import { api } from "@/lib/api";
 import { CATEGORIES, label, type OutcomeStatus } from "@/lib/vocab";
+import { useLanguage } from "@/lib/i18n";
 
 interface Row {
   id: string;
@@ -21,6 +22,7 @@ interface Row {
 
 export default function DecisionsPage() {
   const { me } = useAuth();
+  const { language, t } = useLanguage();
   const [rows, setRows] = useState<Row[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [q, setQ] = useState("");
@@ -56,12 +58,12 @@ export default function DecisionsPage() {
         <table className="w-full text-sm">
           <thead className="border-b border-slate-200 text-left text-xs uppercase text-slate-500">
             <tr>
-              <th className="p-3">Decision</th>
-              <th className="p-3">Category</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Decided</th>
-              <th className="p-3">Review due</th>
-              <th className="p-3">Outcome</th>
+              <th className="p-3">{t("Decision")}</th>
+              <th className="p-3">{t("Category")}</th>
+              <th className="p-3">{t("Status")}</th>
+              <th className="p-3">{t("Decision date")}</th>
+              <th className="p-3">{t("Review due")}</th>
+              <th className="p-3">{t("Outcome")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -73,10 +75,10 @@ export default function DecisionsPage() {
                   </Link>{" "}
                   {r.isDemo && <DemoBadge />}
                 </td>
-                <td className="p-3">{label(r.category)}</td>
-                <td className={r.status === "awaiting_review" ? "p-3 font-medium text-amber-700" : "p-3"}>{label(r.status)}</td>
-                <td className="p-3">{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString() : "—"}</td>
-                <td className="p-3">{r.reviewDueAt ? new Date(r.reviewDueAt).toLocaleDateString() : "—"}</td>
+                <td className="p-3">{t(label(r.category))}</td>
+                <td className={r.status === "awaiting_review" ? "p-3 font-medium text-amber-700" : "p-3"}>{t(label(r.status))}</td>
+                <td className="p-3">{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</td>
+                <td className="p-3">{r.reviewDueAt ? new Date(r.reviewDueAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</td>
                 <td className="p-3">
                   <OutcomeChip value={r.outcomeStatus} />
                 </td>
@@ -85,7 +87,7 @@ export default function DecisionsPage() {
             {rows && filtered.length === 0 && (
               <tr>
                 <td colSpan={6} className="p-6 text-center text-slate-500">
-                  No decisions yet.
+                  {t("No decisions yet.")}
                 </td>
               </tr>
             )}

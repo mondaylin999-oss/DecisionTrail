@@ -6,6 +6,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { DemoBadge, MatchBadge, OriginChip, OutcomeChip } from "@/components/marks";
 import { Badge, Button, Card, CardTitle, Field, Notice, Select, Spinner, Textarea } from "@/components/ui";
 import { api } from "@/lib/api";
+import { useLanguage } from "@/lib/i18n";
 import type { FieldOrigin, MatchLabel } from "@/lib/types";
 import { OUTCOME_STATUSES, label, type OutcomeStatus } from "@/lib/vocab";
 
@@ -47,6 +48,7 @@ const PROCESS = {
 export default function DecisionDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { me } = useAuth();
+  const { language, t } = useLanguage();
   const [d, setD] = useState<Detail | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [now] = useState(() => Date.now());
@@ -69,14 +71,14 @@ export default function DecisionDetailPage() {
 
   return (
     <>
-      <PageTitle title={r.title} subtitle={`${label(r.category)} · ${label(r.decisionType)}`} actions={r.isDemo ? <DemoBadge /> : undefined} />
+      <PageTitle title={r.title} subtitle={`${t(label(r.category))} · ${t(label(r.decisionType))}`} actions={r.isDemo ? <DemoBadge /> : undefined} />
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="space-y-3 md:col-span-2">
-          <CardTitle hint={`v${d.versions.at(-1)?.versionNo ?? 1} · original preserved`}>Decision record</CardTitle>
+          <CardTitle hint={`v${d.versions.at(-1)?.versionNo ?? 1} · ${t("original preserved")}`}>Decision record</CardTitle>
           <p className="text-sm text-slate-700">{r.context}</p>
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Options</div>
+            <div className="text-xs font-medium uppercase text-slate-500">{t("Options")}</div>
             <ul className="space-y-1 text-sm">
               {d.options.map((o) => (
                 <li key={o.id} className="flex items-center gap-2">
@@ -90,7 +92,7 @@ export default function DecisionDetailPage() {
           <Block title="Expected outcome" text={r.expectedOutcome} />
           {r.successCriteria.length > 0 && (
             <div>
-              <div className="text-xs font-medium uppercase text-slate-500">Success criteria</div>
+              <div className="text-xs font-medium uppercase text-slate-500">{t("Success criteria")}</div>
               <ul className="list-inside list-disc text-sm">
                 {r.successCriteria.map((c, i) => (
                   <li key={i}>
@@ -101,7 +103,7 @@ export default function DecisionDetailPage() {
             </div>
           )}
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Assumptions</div>
+            <div className="text-xs font-medium uppercase text-slate-500">{t("Assumptions")}</div>
             <ul className="space-y-1 text-sm">
               {d.assumptions.map((a) => (
                 <li key={a.id} className="flex items-center gap-2">
@@ -113,19 +115,19 @@ export default function DecisionDetailPage() {
         </Card>
         <Card className="space-y-3">
           <CardTitle>Status</CardTitle>
-          <p className="text-sm">{label(r.status)}</p>
-          <p className="text-sm text-slate-600">Decided: {r.decidedAt ? new Date(r.decidedAt).toLocaleDateString() : "—"}</p>
-          <p className="text-sm text-slate-600">Review due: {due ? due.toLocaleDateString() : "—"}</p>
+          <p className="text-sm">{t(label(r.status))}</p>
+          <p className="text-sm text-slate-600">{t("Decided: ")}{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</p>
+          <p className="text-sm text-slate-600">{t("Review due: ")}{due ? due.toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</p>
           <OutcomeChip value={latest?.outcome?.outcomeStatus} />
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Precedent consulted</div>
+            <div className="text-xs font-medium uppercase text-slate-500">{t("Precedent consulted")}</div>
             {d.matches.length === 0 ? (
-              <p className="text-sm text-slate-500">None recorded</p>
+            <p className="text-sm text-slate-500">{t("None recorded")}</p>
             ) : (
               <ul className="space-y-1">
                 {d.matches.map((m) => (
                   <li key={m.id} className="text-sm">
-                    <MatchBadge label={m.label} /> {m.externalCaseId ? "curated case" : "your decision"}
+                    <MatchBadge label={m.label} /> {t(m.externalCaseId ? "curated case" : "your decision")}
                   </li>
                 ))}
               </ul>
@@ -136,7 +138,7 @@ export default function DecisionDetailPage() {
 
       {latest && (
         <Card className="space-y-3">
-          <CardTitle hint={`reviewed ${new Date(latest.review.reviewedAt).toLocaleDateString()}`}>Expected vs actual</CardTitle>
+          <CardTitle hint={`${t("reviewed ")}${new Date(latest.review.reviewedAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US")}`}>Expected vs actual</CardTitle>
           <div className="grid gap-4 md:grid-cols-2">
             <Block title="You expected (frozen at decision time)" text={r.expectedOutcome} />
             <Block title="What actually happened" text={latest.review.whatHappened} />
@@ -157,10 +159,10 @@ export default function DecisionDetailPage() {
           </div>
           {Object.keys(latest.review.processChecklist).length > 0 && (
             <div className="text-sm">
-              <div className="text-xs font-medium uppercase text-slate-500">Process quality (judged separately from the outcome)</div>
-              {Object.entries(PROCESS).map(([k, t]) => (
+              <div className="text-xs font-medium uppercase text-slate-500">{t("Process quality (judged separately from the outcome)")}</div>
+              {Object.entries(PROCESS).map(([k, item]) => (
                 <div key={k}>
-                  {latest.review.processChecklist[k] ? "✓" : "–"} {t}
+                  {latest.review.processChecklist[k] ? "✓" : "–"} {t(item)}
                 </div>
               ))}
             </div>
@@ -174,15 +176,17 @@ export default function DecisionDetailPage() {
 }
 
 function Block({ title, text }: { title: string; text: string }) {
+  const { t } = useLanguage();
   return (
     <div>
-      <div className="text-xs font-medium uppercase text-slate-500">{title}</div>
+      <div className="text-xs font-medium uppercase text-slate-500">{t(title)}</div>
       <p className="whitespace-pre-wrap text-sm">{text || "—"}</p>
     </div>
   );
 }
 
 function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue: boolean; onDone: () => void; chosenLabel?: string }) {
+  const { t } = useLanguage();
   const [page, setPage] = useState(1);
   const [what, setWhat] = useState("");
   const [status, setStatus] = useState<OutcomeStatus>("achieved");
@@ -223,18 +227,18 @@ function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue:
   return (
     <Card className={overdue ? "space-y-4 border-amber-300" : "space-y-4"}>
       <CardTitle hint={`step ${page} of 3`}>{overdue ? "This decision is due for review" : "Record the outcome early"}</CardTitle>
-      <p className="text-xs text-slate-500">A good decision can have a bad outcome, and a poor one can get lucky. You&apos;ll judge outcome and process separately.</p>
+      <p className="text-xs text-slate-500">{t("A good decision can have a bad outcome, and a poor one can get lucky. You'll judge outcome and process separately.")}</p>
 
       {page === 1 && (
         <>
-          <Field label={`What actually happened${chosenLabel ? ` after choosing “${chosenLabel}”` : ""}?`}>
+          <Field label={`${t("What actually happened")}${chosenLabel ? ` (${chosenLabel})` : ""}?`}>
             <Textarea value={what} onChange={(e) => setWhat(e.target.value)} />
           </Field>
           <Field label="Did the expected outcome occur?">
-            <Select options={OUTCOME_STATUSES} labels={label} value={status} onChange={(e) => setStatus(e.target.value as OutcomeStatus)} />
+              <Select options={OUTCOME_STATUSES} labels={label} value={status} onChange={(e) => setStatus(e.target.value as OutcomeStatus)} />
           </Field>
           {criteria.map((c, i) => (
-            <Field key={i} label={`Criterion: ${c.metric}`}>
+              <Field key={i} label={`${t("Criterion")}: ${c.metric}`}>
               <Select options={["met", "partly", "not_met", "unknown"]} labels={label} value={c.result} onChange={(e) => setCriteria(criteria.map((x, j) => (j === i ? { ...x, result: e.target.value as typeof x.result } : x)))} />
             </Field>
           ))}
@@ -243,7 +247,7 @@ function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue:
 
       {page === 2 && (
         <>
-          {d.assumptions.length === 0 && <p className="text-sm text-slate-500">No assumptions were recorded.</p>}
+          {d.assumptions.length === 0 && <p className="text-sm text-slate-500">{t("No assumptions were recorded.")}</p>}
           {d.assumptions.map((a, i) => (
             <div key={a.id} className="grid gap-2 md:grid-cols-[1fr_10rem_1fr]">
               <span className="text-sm">{a.text}</span>

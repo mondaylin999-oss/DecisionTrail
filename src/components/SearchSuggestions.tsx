@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * Renders Google's required "Search suggestions" (searchEntryPoint.renderedContent)
@@ -7,6 +8,7 @@ import { useEffect, useRef } from "react";
  * can't clash with ours. Displaying it is a Grounding with Google Search requirement.
  */
 export function SearchSuggestions({ html }: { html: string | null | undefined }) {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const host = ref.current;
@@ -15,5 +17,5 @@ export function SearchSuggestions({ html }: { html: string | null | undefined })
     root.innerHTML = html;
   }, [html]);
   if (!html) return null;
-  return <div ref={ref} aria-label="Google Search suggestions" />;
+  return <div ref={ref} aria-label={t("Google Search suggestions")} />;
 }

@@ -4,6 +4,7 @@
  */
 import type { FieldOrigin, MatchLabel } from "@/lib/types";
 import { label as human, type OutcomeCategory, type OutcomeStatus, type PrivacyMode } from "@/lib/vocab";
+import { useLanguage } from "@/lib/i18n";
 import { Badge } from "./ui";
 
 export function InferenceBadge({ where }: { where: "ON_DEVICE" | "IN_CLOUD" | null | undefined }) {
@@ -34,7 +35,8 @@ const matchStyles: Record<MatchLabel, string> = {
 };
 
 export function MatchBadge({ label }: { label: MatchLabel }) {
-  return <Badge className={matchStyles[label]}>{label === "strong" ? "●" : label === "partial" ? "◐" : "○"} {human(label)} contextual match</Badge>;
+  const { t } = useLanguage();
+  return <Badge className={matchStyles[label]}>{label === "strong" ? "●" : label === "partial" ? "◐" : "○"} {t(human(label))} {t("contextual match")}</Badge>;
 }
 
 const outcomeStyles: Record<string, string> = {
@@ -48,8 +50,9 @@ const outcomeStyles: Record<string, string> = {
 };
 
 export function OutcomeChip({ value }: { value: OutcomeCategory | OutcomeStatus | null | undefined }) {
+  const { t } = useLanguage();
   if (!value) return <Badge className="border-slate-300 text-slate-500">Outcome not yet recorded</Badge>;
-  return <Badge className={outcomeStyles[value] ?? "border-slate-300 text-slate-600"}>Outcome: {human(value)}</Badge>;
+  return <Badge className={outcomeStyles[value] ?? "border-slate-300 text-slate-600"}>{t("Outcome: ")} {t(human(value))}</Badge>;
 }
 
 export function DemoBadge() {
@@ -66,9 +69,10 @@ export function PrivacyPill({ mode }: { mode: PrivacyMode }) {
 }
 
 export function AiText({ children }: { children: React.ReactNode }) {
+  const { t } = useLanguage();
   return (
     <p className="ai-text text-sm text-slate-700">
-      <span className="sr-only">AI interpretation: </span>
+      <span className="sr-only">{t("AI interpretation: ")}</span>
       {children}
     </p>
   );

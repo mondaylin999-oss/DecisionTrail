@@ -6,6 +6,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { Button, Card, CardTitle, Notice } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
+import { useLanguage } from "@/lib/i18n";
 
 interface Stats {
   total: number;
@@ -19,6 +20,7 @@ interface Stats {
 
 export default function Dashboard() {
   const { me } = useAuth();
+  const { language, t } = useLanguage();
   const [s, setS] = useState<Stats | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [now] = useState(() => Date.now());
@@ -44,7 +46,7 @@ export default function Dashboard() {
         <Card className="space-y-3">
           <CardTitle>Start your trail</CardTitle>
           <p className="text-sm text-slate-600">
-            The most useful first step is logging a decision you&apos;ve <strong>already made</strong> and its outcome, so future decisions can learn from it.
+            {t("The most useful first step is logging a decision you've already made and its outcome, so future decisions can learn from it.")}
           </p>
           <div className="flex gap-2">
             <Link href="/decisions/new?past=1">
@@ -81,7 +83,7 @@ export default function Dashboard() {
                         {u.title}
                       </Link>
                       <span className={overdue ? "font-medium text-amber-700" : "text-slate-500"}>
-                        {due ? (overdue ? "Review now" : due.toLocaleDateString()) : "No date"}
+                        {due ? (overdue ? t("Review now") : due.toLocaleDateString(language === "my" ? "my-MM" : "en-US")) : t("No date")}
                       </span>
                     </li>
                   );
@@ -104,22 +106,24 @@ export default function Dashboard() {
 }
 
 function Stat({ n, label, tone }: { n: number; label: string; tone?: "warn" }) {
+  const { t } = useLanguage();
   return (
     <Card className={tone === "warn" ? "border-amber-300" : undefined}>
       <div className="text-3xl font-semibold">{n}</div>
-      <div className="text-sm text-slate-600">{label}</div>
+      <div className="text-sm text-slate-600">{t(label)}</div>
     </Card>
   );
 }
 
 function Bars({ rows, empty }: { rows: { k: string; n: number }[]; empty: string }) {
-  if (!rows.length) return <p className="text-sm text-slate-500">{empty}</p>;
+  const { t } = useLanguage();
+  if (!rows.length) return <p className="text-sm text-slate-500">{t(empty)}</p>;
   const max = Math.max(...rows.map((r) => r.n), 1);
   return (
     <ul className="space-y-1.5">
       {rows.map((r) => (
         <li key={r.k} className="flex items-center gap-2 text-sm">
-          <span className="w-40 shrink-0 text-slate-700">{r.k}</span>
+          <span className="w-40 shrink-0 text-slate-700">{t(r.k)}</span>
           <span className="h-2 rounded bg-slate-700" style={{ width: `${(r.n / max) * 60}%` }} />
           <span className="text-slate-500">{r.n}</span>
         </li>

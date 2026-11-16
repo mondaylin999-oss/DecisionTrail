@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 import { Button } from "./ui";
 
 const THEME_KEY = "decisiontrail-theme";
@@ -12,6 +13,7 @@ function applyTheme(isDark: boolean) {
 
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem(THEME_KEY);
@@ -40,7 +42,7 @@ export function ThemeToggle() {
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       className="shrink-0"
     >
-      {isDark ? "Light mode" : "Dark mode"}
+      {t(isDark ? "Light mode" : "Dark mode")}
     </Button>
   );
 }

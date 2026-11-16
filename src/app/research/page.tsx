@@ -5,11 +5,13 @@ import { useAuth } from "@/components/AuthProvider";
 import { Badge, Card, Notice } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
+import { useLanguage } from "@/lib/i18n";
 
 interface Session { id: string; queryText: string; status: string; createdAt: string }
 
 export default function ResearchHistoryPage() {
   const { me } = useAuth();
+  const { language } = useLanguage();
   const [rows, setRows] = useState<Session[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function ResearchHistoryPage() {
           <Card key={r.id} className="space-y-1">
             <div className="flex items-center gap-2">
               <Badge className={r.status === "completed" ? "border-emerald-300 text-emerald-800" : "border-amber-300 text-amber-800"}>{label(r.status)}</Badge>
-              <span className="text-xs text-slate-500">{new Date(r.createdAt).toLocaleString()}</span>
+              <span className="text-xs text-slate-500">{new Date(r.createdAt).toLocaleString(language === "my" ? "my-MM" : "en-US")}</span>
             </div>
             <p className="font-mono text-xs text-slate-700">{r.queryText}</p>
           </Card>

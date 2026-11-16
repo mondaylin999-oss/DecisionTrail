@@ -11,6 +11,7 @@ import { Button, Card, CardTitle, Field, Input, Notice, Spinner, Textarea, cn } 
 import { extractDecision, prepareDeviceModel, type Where } from "@/lib/ai/tasks";
 import { RoutingError } from "@/lib/ai/router";
 import { api } from "@/lib/api";
+import { useLanguage } from "@/lib/i18n";
 import type { MatchResult, StructuredDecision, SuccessCriterion, Sufficiency } from "@/lib/types";
 
 type Step = "describe" | "structure" | "evidence" | "record";
@@ -25,6 +26,7 @@ export default function NewDecisionPage() {
 
 function NewDecision() {
   const { me, aiStatus, refreshAiStatus } = useAuth();
+  const { t } = useLanguage();
   const router = useRouter();
   const past = useSearchParams().get("past") === "1";
   const [step, setStep] = useState<Step>("describe");
@@ -41,14 +43,14 @@ function NewDecision() {
 
   async function structure() {
     setNotice(null);
-    setBusy("Preparing private AI…");
+    setBusy(t("Preparing private AI…"));
     try {
       if (aiStatus === "downloadable" || aiStatus === "downloading") {
         // This click is the user gesture Chrome requires before downloading Gemini Nano.
-        await prepareDeviceModel((p) => setBusy(`Downloading private AI model… ${Math.round(p * 100)}%`));
+        await prepareDeviceModel((p) => setBusy(`${t("Downloading private AI model…")} ${Math.round(p * 100)}%`));
         await refreshAiStatus();
       }
-      setBusy("Structuring your decision…");
+      setBusy(t("Structuring your decision…"));
       const r = await extractDecision(text, me!.privacyMode);
       const e = r.data;
       setD({
@@ -128,7 +130,7 @@ function NewDecision() {
       <ol className="flex gap-2 text-sm">
         {(["describe", "structure", "evidence", "record"] as Step[]).map((s, i) => (
           <li key={s} className={cn("rounded-full px-3 py-1", step === s ? "bg-slate-900 text-white" : "bg-slate-200 text-slate-600")}>
-            {i + 1}. {s[0].toUpperCase() + s.slice(1)}
+            {i + 1}. {t(s[0].toUpperCase() + s.slice(1))}
           </li>
         ))}
       </ol>
@@ -145,7 +147,7 @@ function NewDecision() {
           />
           <div className="flex flex-wrap items-center gap-2">
             <Button onClick={() => void structure()} disabled={!!busy || text.trim().length < 20}>
-              {busy ? <Spinner /> : "🔒"} Structure with private AI
+                {busy ? <Spinner /> : "🔒"} {t("Structure with private AI")}
             </Button>
             <Button variant="secondary" onClick={manual} disabled={!!busy}>
               Fill in manually
@@ -154,8 +156,8 @@ function NewDecision() {
           </div>
           <p className="text-xs text-slate-500">
             {me.privacyMode === "private"
-              ? "Private mode: structuring runs only on this device. If on-device AI is unavailable, you'll fill in the form yourself."
-              : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}
+              ? t("Private mode: structuring runs only on this device. If on-device AI is unavailable, you'll fill in the form yourself.")
+              : t("Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD.")}
           </p>
         </Card>
       )}
@@ -164,7 +166,7 @@ function NewDecision() {
         <>
           {where && (
             <Notice tone="info">
-              Structured by AI <InferenceBadge where={where} />. Review every field. Assumptions are unverified until you check them.
+              {t("Structured by AI")} <InferenceBadge where={where} />. {t("Review every field. Assumptions are unverified until you check them.")}
             </Notice>
           )}
           <StructureEditor value={d} onChange={setD} onApprove={() => void findPrecedent()} />
@@ -181,10 +183,10 @@ function NewDecision() {
           <SufficiencyBanner s={sufficiency} personal={personal.length} external={external.length} />
           <div className="flex gap-2" role="tablist">
             <TabBtn active={tab === "personal"} onClick={() => setTab("personal")}>
-              Your past decisions ({personal.length})
+              {t("Your past decisions")} ({personal.length})
             </TabBtn>
             <TabBtn active={tab === "external"} onClick={() => setTab("external")}>
-              Historical cases ({external.length})
+              {t("Historical cases")} ({external.length})
             </TabBtn>
           </div>
           <div className="space-y-3">
@@ -193,7 +195,7 @@ function NewDecision() {
             ))}
             {(tab === "personal" ? personal : external).length === 0 && (
               <p className="text-sm text-slate-500">
-                {tab === "personal" ? "None of your recorded decisions is comparable yet." : "No curated case is comparable enough to show."}
+                {t(tab === "personal" ? "None of your recorded decisions is comparable yet." : "No curated case is comparable enough to show.")}
               </p>
             )}
           </div>
@@ -213,21 +215,23 @@ function NewDecision() {
 }
 
 function TabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+  const { t } = useLanguage();
   return (
     <button role="tab" aria-selected={active} onClick={onClick} className={cn("rounded-md px-3 py-1.5 text-sm", active ? "bg-slate-900 text-white" : "bg-white text-slate-700 border border-slate-300")}>
-      {children}
+      {typeof children === "string" ? t(children) : children}
     </button>
   );
 }
 
 function SufficiencyBanner({ s, personal, external }: { s: Sufficiency; personal: number; external: number }) {
-  if (s === "sufficient") return <Notice tone="ok">Relevant precedent found: {personal} of your decisions and {external} curated cases. Compare them below.</Notice>;
+  const { t } = useLanguage();
+  if (s === "sufficient") return <Notice tone="ok">{t("Relevant precedent found:")} {personal} {t("of your decisions and")} {external} {t("curated cases. Compare them below.")}</Notice>;
   if (s === "partial")
-    return <Notice tone="warn">Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.</Notice>;
+    return <Notice tone="warn">{t("Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.")}</Notice>;
   return (
     <Notice tone="warn">
-      <strong>We couldn&apos;t find sufficiently relevant historical cases for your decision.</strong> Why: fewer than one strong match with a known outcome and fewer than two
-      partial matches ({personal} personal, {external} curated shown). You can research it on the web below, edit the structure to broaden it, or continue without research.
+      <strong>{t("We couldn't find sufficiently relevant historical cases for your decision.")}</strong> {t("Why: fewer than one strong match with a known outcome and fewer than two partial matches")}
+      ({personal} {t("personal")}, {external} {t("curated shown")}). {t("You can research it on the web below, edit the structure to broaden it, or continue without research.")}
     </Notice>
   );
 }
@@ -239,6 +243,7 @@ function addDays(n: number) {
 }
 
 function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision; past: boolean; matchesShown: number; onSaved: (id: string) => void }) {
+  const { t } = useLanguage();
   const options = d.alternatives.filter((a) => a.label.trim());
   const [chosen, setChosen] = useState<number | null>(null);
   const [reasons, setReasons] = useState("");
@@ -286,7 +291,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
 
   return (
     <Card className="space-y-4">
-      <CardTitle hint={`${matchesShown} matches will be saved with this record`}>Record your decision</CardTitle>
+      <CardTitle hint={`${matchesShown} ${t("matches will be saved with this record")}`}>Record your decision</CardTitle>
       <Field label="Your choice">
         <div className="space-y-1">
           {options.map((o, i) => (

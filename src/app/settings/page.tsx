@@ -7,6 +7,7 @@ import { Button, Card, CardTitle, Notice, cn } from "@/components/ui";
 import { STATUS_TEXT } from "@/lib/ai/availability";
 import { prepareDeviceModel } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
+import { useLanguage } from "@/lib/i18n";
 import type { PrivacyMode } from "@/lib/vocab";
 
 const MODES: { mode: PrivacyMode; title: string; body: string[] }[] = [
@@ -31,6 +32,7 @@ interface Consent { id: string; scope: string; purpose: string; service: string;
 
 export default function SettingsPage() {
   const { me, setPrivacyMode, aiStatus, refreshAiStatus } = useAuth();
+  const { t } = useLanguage();
   const [pending, setPending] = useState<PrivacyMode | null>(null);
   const [consents, setConsents] = useState<Consent[]>([]);
   const [msg, setMsg] = useState<string | null>(null);
@@ -52,7 +54,7 @@ export default function SettingsPage() {
     }
     await setPrivacyMode(m);
     setPending(null);
-    setMsg(`Privacy mode set to ${m.replace("_", " ")}.`);
+    setMsg(`${t("Privacy mode set to")} ${t(m === "cloud_research" ? "Cloud Research" : m[0].toUpperCase() + m.slice(1))}.`);
   }
 
   async function download() {
@@ -60,7 +62,7 @@ export default function SettingsPage() {
     try {
       await prepareDeviceModel((p) => setProgress(p));
       await refreshAiStatus();
-      setMsg("On-device model is ready.");
+      setMsg(t("On-device model is ready."));
     } catch (e) {
       setMsg(`Couldn't prepare on-device AI: ${e instanceof Error ? e.message : String(e)}`);
     } finally {
@@ -74,23 +76,21 @@ export default function SettingsPage() {
       {msg && <Notice tone="info">{msg}</Notice>}
       <Card className="space-y-4">
         <CardTitle hint={<PrivacyPill mode={me.privacyMode} />}>Privacy mode</CardTitle>
-        <p className="text-sm text-slate-600">
-          Privacy modes control where AI <em>processing</em> happens. Your saved decisions are stored in your DecisionTrail account so you can access them later.
-        </p>
+        <p className="text-sm text-slate-600">{t("Privacy modes control where AI processing happens. Your saved decisions are stored in your DecisionTrail account so you can access them later.")}</p>
         <div className="grid gap-3 md:grid-cols-3">
           {MODES.map((m) => (
             <div key={m.mode} className={cn("space-y-2 rounded-lg border p-4", me.privacyMode === m.mode ? "border-slate-900" : "border-slate-200")}>
               <div className="font-semibold">{m.title}</div>
               <ul className="list-inside list-disc text-sm text-slate-600">
                 {m.body.map((b) => (
-                  <li key={b}>{b}</li>
+                  <li key={b}>{t(b)}</li>
                 ))}
               </ul>
               {me.privacyMode === m.mode ? (
-                <p className="text-sm font-medium">Current mode</p>
+                <p className="text-sm font-medium">{t("Current mode")}</p>
               ) : (
                 <Button variant={pending === m.mode ? "danger" : "secondary"} onClick={() => void choose(m.mode)}>
-                  {pending === m.mode ? "Confirm: allow cloud processing" : `Switch to ${m.title}`}
+                  {pending === m.mode ? t("Confirm: allow cloud processing") : t(`Switch to ${m.title}`)}
                 </Button>
               )}
             </div>
@@ -100,15 +100,15 @@ export default function SettingsPage() {
 
       <Card className="space-y-3">
         <CardTitle>On-device AI</CardTitle>
-        <p className="text-sm">{aiStatus ? STATUS_TEXT[aiStatus] : "Checking…"}</p>
+        <p className="text-sm">{aiStatus ? t(STATUS_TEXT[aiStatus]) : t("Checking…")}</p>
         {(aiStatus === "downloadable" || aiStatus === "downloading") && (
           <Button onClick={() => void download()} disabled={progress !== null}>
-            {progress !== null ? `Downloading… ${Math.round(progress * 100)}%` : "Download on-device model"}
+            {progress !== null ? `${t("Downloading…")} ${Math.round(progress * 100)}%` : t("Download on-device model")}
           </Button>
         )}
         {(aiStatus === "unavailable" || aiStatus === "unsupported_browser") && (
-          <p className="text-sm text-slate-600">
-            Needs desktop Chrome (Windows 10/11, macOS 13+, Linux or Chromebook Plus), at least 22 GB free disk space, and a GPU with more than 4 GB VRAM or 16 GB RAM with 4+ CPU cores. Check{" "}
+            <p className="text-sm text-slate-600">
+            {t("Needs desktop Chrome (Windows 10/11, macOS 13+, Linux or Chromebook Plus), at least 22 GB free disk space, and a GPU with more than 4 GB VRAM or 16 GB RAM with 4+ CPU cores. Check")}{" "}
             <code>chrome://on-device-internals</code>.
           </p>
         )}
