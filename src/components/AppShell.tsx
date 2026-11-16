@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { STATUS_TEXT } from "@/lib/ai/availability";
 import { useAuth } from "./AuthProvider";
 import { PrivacyPill } from "./marks";
+import { ThemeToggle } from "./ThemeToggle";
 import { Badge, Button, Card, Notice, Spinner, cn } from "./ui";
 
 const NAV = [
@@ -72,6 +73,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex items-center justify-end gap-3 border-b border-slate-200 bg-white px-6 py-3">
+          <ThemeToggle />
           {me && (
             <Link href="/settings" aria-label="Privacy mode settings">
               <PrivacyPill mode={me.privacyMode} />
@@ -96,6 +98,7 @@ function Centered({ children, decorate = false }: { children: ReactNode; decorat
   return (
     <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden p-6">
       {decorate && <SignInArtwork />}
+      {decorate && <div className="absolute right-6 top-6 z-20"><ThemeToggle /></div>}
       <Card className="relative z-10 w-full max-w-md space-y-4 text-center">{children}</Card>
     </div>
   );

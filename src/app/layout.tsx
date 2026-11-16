@@ -9,6 +9,11 @@ import "./globals.css";
 // Self-hosted fonts: builds work offline and send no requests to Google Fonts.
 const geistSans = GeistSans;
 const geistMono = GeistMono;
+const themeBootstrap = `try {
+  const savedTheme = localStorage.getItem("decisiontrail-theme");
+  const isDark = savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.classList.toggle("dark", isDark);
+} catch {}`;
 
 export const metadata: Metadata = {
   title: "DecisionTrail: Learn From the Past. Decide With Confidence.",
@@ -17,7 +22,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+      </head>
       <body className="min-h-full">
         <AuthProvider>
           {/* The app is client-rendered per user; the shell reads the URL, so it streams in. */}

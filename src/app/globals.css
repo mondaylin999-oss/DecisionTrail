@@ -3,6 +3,7 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -17,6 +18,58 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+.dark {
+  --background: #0b1120;
+  --foreground: #f1f5f9;
+  color-scheme: dark;
+}
+
+.dark .bg-white { background-color: #111827; }
+.dark .bg-slate-50 { background-color: #0f172a; }
+.dark .bg-slate-100 { background-color: #1e293b; }
+.dark .bg-slate-200 { background-color: #334155; }
+.dark .bg-slate-700 { background-color: #64748b; }
+.dark .text-slate-900 { color: #f8fafc; }
+.dark .text-slate-700 { color: #e2e8f0; }
+.dark .text-slate-600 { color: #cbd5e1; }
+.dark .text-slate-500 { color: #94a3b8; }
+.dark .text-slate-400 { color: #94a3b8; }
+.dark .border-slate-900 { border-color: #64748b; }
+.dark .border-slate-500 { border-color: #64748b; }
+.dark .border-slate-300 { border-color: #475569; }
+.dark .border-slate-200 { border-color: #334155; }
+.dark .divide-slate-200 > :not(:last-child) { border-color: #334155; }
+.dark .divide-slate-100 > :not(:last-child) { border-color: #1e293b; }
+.dark .hover\:bg-slate-100:hover { background-color: #334155; }
+.dark .hover\:bg-slate-700:hover { background-color: #475569; }
+
+.dark .bg-sky-50 { background-color: #082f49; }
+.dark .border-sky-200 { border-color: #0369a1; }
+.dark .text-sky-900 { color: #bae6fd; }
+.dark .bg-emerald-50 { background-color: #052e24; }
+.dark .border-emerald-200 { border-color: #047857; }
+.dark .border-emerald-300 { border-color: #059669; }
+.dark .text-emerald-800,
+.dark .text-emerald-900 { color: #a7f3d0; }
+.dark .bg-amber-50 { background-color: #3b2c0b; }
+.dark .border-amber-200,
+.dark .border-amber-300 { border-color: #92400e; }
+.dark .text-amber-700,
+.dark .text-amber-800,
+.dark .text-amber-900 { color: #fde68a; }
+.dark .bg-red-50 { background-color: #3f1017; }
+.dark .border-red-200,
+.dark .border-red-300 { border-color: #991b1b; }
+.dark .text-red-800,
+.dark .text-red-900 { color: #fecaca; }
+.dark .text-violet-800 { color: #c4b5fd; }
+
+.dark input,
+.dark textarea,
+.dark select { background-color: #111827; color: #f1f5f9; }
+.dark input::placeholder,
+.dark textarea::placeholder { color: #94a3b8; }
 
 /* AI interpretation: visually distinct from user-written and source-backed text */
 .ai-text {
