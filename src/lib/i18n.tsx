@@ -384,7 +384,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = window.localStorage.getItem(LANGUAGE_KEY);
-    if (saved === "en" || saved === "my") setLanguageState(saved);
+    if (saved === "en" || saved === "my") queueMicrotask(() => setLanguageState(saved));
   }, []);
 
   useEffect(() => {

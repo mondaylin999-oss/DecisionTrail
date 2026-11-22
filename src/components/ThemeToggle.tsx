@@ -22,7 +22,7 @@ export function ThemeToggle() {
       : window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     applyTheme(initialIsDark);
-    setIsDark(initialIsDark);
+    queueMicrotask(() => setIsDark(initialIsDark));
   }, []);
 
   function toggleTheme() {
