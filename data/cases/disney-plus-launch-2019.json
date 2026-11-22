@@ -1,0 +1,82 @@
+{
+  "problem": "Disney wanted a direct relationship with viewers of its own films and shows.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "disney-plus-launch-2019",
+  "title": "Disney launches Disney+ at $6.99 a month and reports 10 million sign-ups in a day",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "The Walt Disney Company",
+  "actor_type": "company",
+  "decision_date": "2019-11-12",
+  "date_precision": "day",
+  "context": "Disney entered the streaming market against Netflix and others.",
+  "decision_made": "Launch Disney+ at $6.99 a month, with a $12.99 bundle with Hulu and ESPN+.",
+  "action_taken": "Launched on 12 November 2019 in the US, Canada and the Netherlands, with a seven-day free trial and a year free offered to some Verizon customers.",
+  "observed_outcome": "Disney reported over 10 million sign-ups within a day and shares reached a record high. Launch-day glitches occurred, and it was unclear how many sign-ups were paying.",
+  "outcome_category": "positive",
+  "observation_period": "1 day",
+  "lessons": "A strong content library and low price can produce a fast start, but sign-ups are not the same as paying subscribers.",
+  "limitations": "Very short window. Sign-ups include free trials and promotions, and Disney did not say whether presales were included.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "paid_subscription",
+    "free_trial",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://press.disneyplus.com/news/dtci-disney-plus-sign-ups",
+      "publisher": "Disney+",
+      "source_type": "primary",
+      "published_at": "2019-11-13",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cnbc.com/amp/2019/11/13/disney-10-million-subscribers-vs-competition.html",
+      "publisher": "CNBC",
+      "source_type": "news",
+      "published_at": "2019-11-13",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Disney launched Disney+ at $6.99 a month on 12 November 2019.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://press.disneyplus.com/news/dtci-disney-plus-sign-ups",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Disney said Disney+ had more than 10 million sign-ups one day after launch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://press.disneyplus.com/news/dtci-disney-plus-sign-ups",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    }
+  ]
+}

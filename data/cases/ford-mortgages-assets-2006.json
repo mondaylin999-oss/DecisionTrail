@@ -1,0 +1,82 @@
+{
+  "problem": "Ford needed cash to fund its turnaround and survive losses.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "time_pressure"
+  ],
+  "slug": "ford-mortgages-assets-2006",
+  "title": "Ford borrows about $23 billion against its assets before the financial crisis",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Ford Motor Company",
+  "actor_type": "company",
+  "decision_date": "2006-12-01",
+  "date_precision": "year",
+  "context": "Ford posted a record loss in 2006 under new CEO Alan Mulally.",
+  "decision_made": "Raise roughly $23.4 to $24 billion in loans by mortgaging key assets, including factories, subsidiaries and trademarks.",
+  "action_taken": "Pursued the One Ford plan; reports say lenders took the blue oval logo as collateral.",
+  "observed_outcome": "Ford withstood more than $30 billion in losses from 2006 to 2008 and, unlike GM and Chrysler, avoided a government bailout and bankruptcy. It reported a profit in 2009.",
+  "outcome_category": "positive",
+  "observation_period": "About 3 years",
+  "lessons": "Securing a large cash cushion before a downturn can decide whether a company survives it.",
+  "limitations": "Loan totals differ by source ($23.4 to $24 billion). Some of the supporting articles are retrospectives and opinion pieces, so the link between the loan and avoiding a bailout is partly interpretation.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2011/05/25/fords-forgotten-man/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-05-25",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cbsnews.com/news/ford-posts-127b-loss-in-2006-worst-ever",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2007-01-25",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Ford raised almost $24 billion in 2006 by mortgaging key assets.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/05/25/fords-forgotten-man/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The cash cushion let Ford stay afloat without a bailout, unlike GM and Chrysler.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/05/25/fords-forgotten-man/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

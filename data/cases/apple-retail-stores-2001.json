@@ -1,0 +1,81 @@
+{
+  "problem": "Customers had little chance to see and try Apple products in a good setting.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "apple-retail-stores-2001",
+  "title": "Apple opens its own retail stores despite predictions they would fail",
+  "category": "growth",
+  "decision_type": "yes_no",
+  "actor_name": "Apple",
+  "actor_type": "company",
+  "decision_date": "2001-05-19",
+  "date_precision": "day",
+  "context": "Apple sold its computers mainly through third-party retailers.",
+  "decision_made": "Open Apple-owned retail stores, with 25 planned in 2001.",
+  "action_taken": "The first two stores opened on 19 May 2001 at Tysons Corner, Virginia and Glendale, California.",
+  "observed_outcome": "Critics such as BusinessWeek said the stores would not work. Apple later operated about 534 stores in 27 countries, and Fortune called the decision the right one by a wide margin.",
+  "outcome_category": "positive",
+  "observation_period": "About 24 years",
+  "lessons": "Skeptical press predictions about a retail strategy are not strong evidence, and control of the customer experience can be valuable.",
+  "limitations": "The later success depended on Apple's products such as the iPhone, so the stores' effect alone is hard to isolate. The BusinessWeek piece was known only through secondary quotes.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "buy"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.apple.com/newsroom/2001/05/15Apple-to-Open-25-Retail-Stores-in-2001/",
+      "publisher": "Apple",
+      "source_type": "primary",
+      "published_at": "2001-05-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2011/08/26/how-apple-became-the-best-retailer-in-america",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-08-26",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Apple announced 25 retail stores for 2001, with the first two opening on 19 May.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.apple.com/newsroom/2001/05/15Apple-to-Open-25-Retail-Stores-in-2001/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune's 2011 retrospective described the store decision as right and recalled the skeptical press coverage in 2001.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/08/26/how-apple-became-the-best-retailer-in-america",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

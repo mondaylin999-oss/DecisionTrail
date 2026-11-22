@@ -1,0 +1,81 @@
+{
+  "problem": "Online delivery of movies was becoming possible.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "netflix-streaming-launch-2007",
+  "title": "Netflix adds streaming to every subscription at no extra cost",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Netflix",
+  "actor_type": "company",
+  "decision_date": "2007-01-16",
+  "date_precision": "day",
+  "context": "Netflix was a DVD-by-mail service with about 6 million subscribers.",
+  "decision_made": "Launch Watch Now streaming inside existing subscription plans, with hours of streaming tied to the plan.",
+  "action_taken": "Launched on 16 January 2007 with about 1,000 titles in a browser applet that required Windows XP, and rolled it out to all subscribers by June.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "A small, included feature can be the start of a larger shift when the underlying technology matures.",
+  "limitations": "Only the launch was checked here, not later adoption. The company later made streaming central to its business.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "paid_subscription"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://about.netflix.com/news/netflix-offers-subscribers-the-option-of-instantly-watching-movies-on-their",
+      "publisher": "Netflix",
+      "source_type": "primary",
+      "published_at": "2007-01-16",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://digitaltrends.com/home-theater/netflix-watch-now-offers-video-streaming/",
+      "publisher": "Digital Trends",
+      "source_type": "news",
+      "published_at": "2007-01-16",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Netflix offered Watch Now streaming to subscribers at no additional cost, starting 16 January 2007.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://about.netflix.com/news/netflix-offers-subscribers-the-option-of-instantly-watching-movies-on-their",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "The initial library was about 1,000 titles and used a Windows-only browser applet.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://digitaltrends.com/home-theater/netflix-watch-now-offers-video-streaming/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Offer a legal, simple way to buy music for the iPod.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "apple-itunes-music-store-2003",
+  "title": "Apple launches the iTunes Music Store with 99-cent songs and no subscription",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Apple",
+  "actor_type": "company",
+  "decision_date": "2003-04-28",
+  "date_precision": "day",
+  "context": "Online music was dominated by file sharing and subscription services.",
+  "decision_made": "Sell songs individually at 99 cents each with no subscription fee, from major labels.",
+  "action_taken": "Launched on 28 April 2003 with about 200,000 songs.",
+  "observed_outcome": "Apple reported over one million songs sold in the first week against an internal goal of one million in the first month; TIME later summarised more than 50 million songs in the first year.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 year",
+  "lessons": "Simple pricing and legal convenience can beat piracy and subscriptions when paired with a device ecosystem.",
+  "limitations": "First-week figure is from Apple's own press release. Apple also sold the iPod, so the store's profit contribution was not measured here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "one_time_purchase",
+    "paid_subscription"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.apple.com/newsroom/2003/05/05iTunes-Music-Store-Sells-Over-One-Million-Songs-in-First-Week/",
+      "publisher": "Apple",
+      "source_type": "primary",
+      "published_at": "2003-05-05",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://apple.com/newsroom/2003/04/28Apple-Launches-the-iTunes-Music-Store",
+      "publisher": "Apple",
+      "source_type": "primary",
+      "published_at": "2003-04-28",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Apple launched the iTunes Music Store with songs at 99 cents and no subscription fees.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://apple.com/newsroom/2003/04/28Apple-Launches-the-iTunes-Music-Store",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Apple said the store sold over one million songs in its first week.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.apple.com/newsroom/2003/05/05iTunes-Music-Store-Sells-Over-One-Million-Songs-in-First-Week/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    }
+  ]
+}
