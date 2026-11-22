@@ -1,0 +1,81 @@
+{
+  "problem": "Microsoft wanted .NET to reach Linux and Mac developers and attract community contributions.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-dotnet-core-open-source-2014",
+  "title": "Microsoft open-sources .NET Core under the MIT license",
+  "category": "technology",
+  "decision_type": "yes_no",
+  "actor_name": "Microsoft",
+  "actor_type": "company",
+  "decision_date": "2014-11-12",
+  "date_precision": "day",
+  "context": "The .NET framework was proprietary, with parts viewable under a restrictive licence.",
+  "decision_made": "Release .NET Core, including the runtime and class libraries, as open source under the MIT licence with a patent covenant.",
+  "action_taken": "Announced at the Connect() event and committed to working with the Mono community.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Opening code can serve a strategy of platform reach, though the scope of what is opened matters to the community.",
+  "limitations": "Coverage disagrees on whether the entire framework or only a subset was opened. Later adoption was not checked.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "open_source",
+    "other"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/net-core-is-open-source",
+      "publisher": "Microsoft .NET Blog",
+      "source_type": "primary",
+      "published_at": "2014-11-12",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2014/11/opensource-NET",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2014-11-13",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft said .NET Core, including the runtime and framework libraries, would be open source under the MIT licence.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/dotnet/net-core-is-open-source",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Coverage described the move as bringing .NET to Linux and Mac.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2014/11/opensource-NET",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

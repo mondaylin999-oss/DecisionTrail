@@ -8,7 +8,7 @@ It never predicts outcomes and never picks an option for you.
 
 Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference** (Gemini Nano on-device in Chrome + cloud Gemini).
 
-> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). The case library ships with **34 research-draft cases** built from linked public sources; a human should verify each before relying on it (see [Curated cases](#curated-cases)).
+> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). The case library ships with **42 research-draft cases** built from linked public sources; a human should verify each before relying on it (see [Curated cases](#curated-cases)).
 
 ---
 
@@ -102,7 +102,7 @@ npm run build
 ---
 
 ## Curated cases
-The external library is the product's credibility. `data/cases/` holds 34 research-draft cases (marked "pending human review"), each built from linked public sources, mostly secondary news coverage. Verify them against primary sources before treating them as authoritative. Nothing in the library may come from AI memory.
+The external library is the product's credibility. `data/cases/` holds 42 research-draft cases (marked "pending human review"), each built from linked public sources, mostly secondary news coverage. Verify them against primary sources before treating them as authoritative. Nothing in the library may come from AI memory.
 
 1. Copy `data/cases/_TEMPLATE.json` to `data/cases/<slug>.json`.
 2. Fill every field from real sources, **in your own words** (no copied articles). Link each claim to at least one source. State the limitations.

@@ -1,0 +1,81 @@
+{
+  "problem": "Revenue dropped sharply and the company needed to reduce costs.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "airbnb-pandemic-layoffs-2020",
+  "title": "Airbnb cuts about a quarter of its workforce and refocuses on its core",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "Airbnb",
+  "actor_type": "company",
+  "decision_date": "2020-05-05",
+  "date_precision": "day",
+  "context": "Travel collapsed in 2020 and Airbnb expected 2020 revenue to fall below half of 2019's.",
+  "decision_made": "Lay off about 1,900 employees, around 25 percent, and pause investments outside the core business such as transportation and an entertainment studio.",
+  "action_taken": "Chesky's memo offered 14 weeks of base pay plus one week per year of service.",
+  "observed_outcome": "Second-quarter 2020 revenue was down 72 percent year over year, and the company reported some profitable quarters, including Q3, in its November 2020 IPO filing.",
+  "outcome_category": "mixed",
+  "observation_period": "About 6 months",
+  "lessons": "Cutting to a focused core during a shock can preserve the business, but the human cost is large.",
+  "limitations": "Headcount differs slightly by source. The filing reports results but does not isolate the effect of the layoffs.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://news.airbnb.com/a-message-from-co-founder-and-ceo-brian-chesky/",
+      "publisher": "Airbnb",
+      "source_type": "primary",
+      "published_at": "2020-05-05",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2020/11/16/airbnb-ipo-initial-public-offering-coronavirus-impact/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2020-11-16",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Airbnb said about 1,900 employees, around 25 percent of the company, would leave.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.airbnb.com/a-message-from-co-founder-and-ceo-brian-chesky/",
+          "support": "supports",
+          "locator": "CEO message"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Airbnb's IPO filing showed Q2 2020 revenue down 72 percent and some profitable quarters.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2020/11/16/airbnb-ipo-initial-public-offering-coronavirus-impact/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

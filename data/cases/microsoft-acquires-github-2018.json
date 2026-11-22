@@ -1,0 +1,81 @@
+{
+  "problem": "Microsoft wanted to strengthen its developer ecosystem.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-acquires-github-2018",
+  "title": "Microsoft acquires GitHub for $7.5 billion and promises independence",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Microsoft",
+  "actor_type": "company",
+  "decision_date": "2018-06-04",
+  "date_precision": "day",
+  "context": "GitHub was the main host for open source code, and Microsoft had a history of conflict with the open source community.",
+  "decision_made": "Acquire GitHub for $7.5 billion in Microsoft stock.",
+  "action_taken": "Promised GitHub would keep a developer-first approach, operate independently and remain open; a Microsoft vice president became GitHub's CEO.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Acquirers with a sceptical audience often pair a deal with public commitments to independence.",
+  "limitations": "Only the announcement and early commentary were checked. Whether the commitments were kept was not.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "build"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/",
+      "publisher": "Microsoft",
+      "source_type": "primary",
+      "published_at": "2018-06-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.pcworld.com/article/3277615/microsoft-buys-github-for-7-5-billion.html",
+      "publisher": "PCWorld",
+      "source_type": "news",
+      "published_at": "2018-06-04",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft agreed to buy GitHub for $7.5 billion in stock.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Coverage noted Microsoft's contentious history with the open source community.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.pcworld.com/article/3277615/microsoft-buys-github-for-7-5-billion.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "problem": "Offer storage as a service with no minimum fee.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "amazon-s3-launch-2006",
+  "title": "Amazon launches S3 pay-as-you-go storage for developers",
+  "category": "technology",
+  "decision_type": "yes_no",
+  "actor_name": "Amazon Web Services",
+  "actor_type": "company",
+  "decision_date": "2006-03-14",
+  "date_precision": "day",
+  "context": "Developers had to buy and run their own storage infrastructure.",
+  "decision_made": "Launch Amazon S3 at $0.15 per gigabyte per month plus $0.20 per gigabyte transferred.",
+  "action_taken": "Announced in a March 2006 press release with an application programming interface.",
+  "observed_outcome": "AWS reported twenty years later that the service still runs and that storage prices fell by roughly 85 percent since launch.",
+  "outcome_category": "positive",
+  "observation_period": "About 20 years",
+  "lessons": "Selling infrastructure as a metered service can create a durable platform, with prices falling as scale grows.",
+  "limitations": "Self-reported by AWS. Sources give 13 or 14 March as the date. Revenue and share figures were not found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "managed_service",
+    "usage_based",
+    "cloud"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://press.aboutamazon.com/news-releases/news-release-details/amazon-web-services-launches-amazon-s3-simple-storage-service",
+      "publisher": "Amazon",
+      "source_type": "primary",
+      "published_at": "2006-03-14",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next",
+      "publisher": "AWS News Blog",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "AWS launched S3 at $0.15 per GB per month and $0.20 per GB transferred, with no minimum fee.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://press.aboutamazon.com/news-releases/news-release-details/amazon-web-services-launches-amazon-s3-simple-storage-service",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "AWS says its storage price is down about 85 percent since the 2006 launch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://aws.amazon.com/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next",
+          "support": "supports",
+          "locator": "anniversary post"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Customers rated the product poorly compared with rivals.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "dominos-pizza-turnaround-2009",
+  "title": "Domino's rebuilds its pizza recipe and admits the old one was weak",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Domino's Pizza",
+  "actor_type": "company",
+  "decision_date": "2009-12-01",
+  "date_precision": "month",
+  "context": "Domino's core pizza was criticised by customers and the company's domestic sales were roughly flat in 2009.",
+  "decision_made": "Reformulate the core pizza and openly acknowledge past flaws in advertising.",
+  "action_taken": "Launched the new recipe in late December 2009 with ads showing customer criticism and employee responses.",
+  "observed_outcome": "Domestic same-store sales rose 14.3 percent in Q1 2010. The CEO credited the new pizza and the candour of the marketing; some analysts credited the advertising or curiosity more than the recipe.",
+  "outcome_category": "positive",
+  "observation_period": "About 3 months",
+  "lessons": "Admitting a product weakness while fixing it can win back attention, but the cause of the sales jump is hard to separate.",
+  "limitations": "Short observation window, curiosity effects, and mixed analyst views on cause. Company statements are self-reported.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.nrn.com/restaurant-finance/domino-s-new-pizza-delivers-sales-surge-2010",
+      "publisher": "Nation's Restaurant News",
+      "source_type": "news",
+      "published_at": "2010-05-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://time.com/archive/6907490/dominos-new-recipe-brutal-truth-in-advertising/",
+      "publisher": "TIME",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Domino's reformulated its core pizza and ran ads that acknowledged the old product's flaws.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://time.com/archive/6907490/dominos-new-recipe-brutal-truth-in-advertising/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Domestic same-store sales rose 14.3 percent in the first quarter of 2010.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nrn.com/restaurant-finance/domino-s-new-pizza-delivers-sales-surge-2010",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "problem": "Whether to invest heavily in original programming.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "netflix-house-of-cards-original-2011",
+  "title": "Netflix commits to two seasons of House of Cards without a pilot",
+  "category": "product",
+  "decision_type": "yes_no",
+  "actor_name": "Netflix",
+  "actor_type": "company",
+  "decision_date": "2011-03-17",
+  "date_precision": "month",
+  "context": "Netflix was mainly a licensor of other studios' content and had never produced a major original series.",
+  "decision_made": "Commit to at least 26 episodes of House of Cards, reportedly about $100 million, with no pilot.",
+  "action_taken": "Netflix's chief content officer used viewing data to justify the bet; the amount was a rumour that Netflix did not confirm.",
+  "observed_outcome": "Netflix's content chief said the show became its most-watched programme; one outside estimate said the investment was earned back through new subscribers, but Netflix gave no hard numbers.",
+  "outcome_category": "positive",
+  "observation_period": "About 2 years",
+  "lessons": "Viewing data can support a large creative bet, but figures about returns are often outside estimates.",
+  "limitations": "The $100 million figure was reported, not confirmed. Netflix declined to release viewing numbers. The payback estimate came from a third party.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "build",
+    "buy",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2011/03/17/netflix-buys-its-first-original-show-starring-kevin-spacey/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-03-17",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.nbcnews.com/business/netflix-secrets-behind-coolest-kids-tv-block-8C11132450",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://news.yahoo.com/netflix-already-recouped-100-million-house-cards-investment-011527993.html",
+      "publisher": "Yahoo News",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Netflix committed to a minimum of 26 episodes of House of Cards, reported at about $100 million.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/03/17/netflix-buys-its-first-original-show-starring-kevin-spacey/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "Netflix's viewing data was said to have supported the bet.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/business/netflix-secrets-behind-coolest-kids-tv-block-8C11132450",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "An outside calculation estimated the investment was recouped through added subscribers.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.yahoo.com/netflix-already-recouped-100-million-house-cards-investment-011527993.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

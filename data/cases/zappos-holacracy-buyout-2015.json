@@ -1,0 +1,80 @@
+{
+  "problem": "Leadership wanted the company to become self-organising.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "zappos-holacracy-buyout-2015",
+  "title": "Zappos adopts Holacracy and offers severance to those who are not on board",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "Zappos",
+  "actor_type": "company",
+  "decision_date": "2015-03-01",
+  "date_precision": "month",
+  "context": "Zappos moved to a self-management system called Holacracy with no traditional managers.",
+  "decision_made": "Adopt Holacracy company-wide and offer severance to staff who did not want to take part.",
+  "action_taken": "CEO Tony Hsieh's March 2015 memo set an end-of-April deadline for the offer.",
+  "observed_outcome": "About 14 percent of roughly 1,500 employees took the offer, and a later round brought the total departures to about 18 percent. Zappos said many took it for the money rather than because of Holacracy.",
+  "outcome_category": "mixed",
+  "observation_period": "About 1 year",
+  "lessons": "Major organisational changes can cause a large wave of departures, even when exits are voluntary.",
+  "limitations": "Zappos's counter-view comes from an unverified internal document. The causes of departures are disputed.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2015/05/08/zappos-quit-employees/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2015-05-08",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2016/01/14/zappos-holacracy-losing-employees/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2016-01-14",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Zappos offered severance to employees who were not on board with Holacracy.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2015/05/08/zappos-quit-employees/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Reports put departures at about 14 percent and later around 18 percent of the workforce.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2016/01/14/zappos-holacracy-losing-employees/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

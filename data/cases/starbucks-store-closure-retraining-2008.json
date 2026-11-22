@@ -1,0 +1,80 @@
+{
+  "problem": "Quality and customer connection had weakened.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "starbucks-store-closure-retraining-2008",
+  "title": "Starbucks closes about 7,100 stores for an afternoon to retrain baristas",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "Starbucks",
+  "actor_type": "company",
+  "decision_date": "2008-02-26",
+  "date_precision": "day",
+  "context": "Starbucks leadership believed espresso quality had slipped as the company grew.",
+  "decision_made": "Close company-operated US stores for several hours to retrain about 135,000 employees.",
+  "action_taken": "Staff watched a video from CEO Howard Schultz and practised espresso standards on 26 February 2008.",
+  "observed_outcome": "Not documented in the sources used. A rival ran a 99-cent coffee promotion that day.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "A visible, costly signal can show seriousness about quality, but its effects are hard to measure.",
+  "limitations": "Closure hours differ by source. Sales and quality effects were not found.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.cbsnews.com/news/starbucks-employees-take-espresso-101",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2008-02-26",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.npr.org/2011/03/25/134857975/excerpt-onward",
+      "publisher": "NPR (excerpt of Schultz's book)",
+      "source_type": "news",
+      "published_at": "2011-03-25",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Starbucks closed about 7,100 US stores for an afternoon to retrain employees on espresso.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/starbucks-employees-take-espresso-101",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "Schultz described the move as admitting that espresso quality had slipped.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2011/03/25/134857975/excerpt-onward",
+          "support": "supports",
+          "locator": "book excerpt"
+        }
+      ]
+    }
+  ]
+}
