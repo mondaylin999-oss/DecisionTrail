@@ -1,0 +1,80 @@
+{
+  "problem": "About 9 percent of English tweets reached the limit, which frustrated users.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "twitter-280-character-limit-2017",
+  "title": "Twitter doubles its character limit from 140 to 280",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Twitter",
+  "actor_type": "company",
+  "decision_date": "2017-11-07",
+  "date_precision": "month",
+  "context": "Many English-language tweets hit the 140 character limit and users struggled to fit their thoughts.",
+  "decision_made": "Raise the limit to 280 characters after a trial.",
+  "action_taken": "Ran a trial with a subset of users, then rolled out in November 2017.",
+  "observed_outcome": "In the trial only 5 percent of tweets were longer than 140 characters and about 1 percent hit the new limit, so timelines did not fill with long tweets.",
+  "outcome_category": "positive",
+  "observation_period": "Trial and first year",
+  "lessons": "A looser constraint relieved frustration without changing the feel of the product much.",
+  "limitations": "Figures come mainly from Twitter itself. Academic work found that 280 characters still shapes how people write, and long-term effects on engagement were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2017/11/08/562798423/some-twitter-users-embrace-longer-tweets-some-stay-terse",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2017-11-08",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://techcrunch.com/2018/10/30/twitters-doubling-of-character-count-from-140-to-280-had-little-impact-on-length-of-tweets",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2018-10-30",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Twitter doubled its character limit to 280 after a trial.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2017/11/08/562798423/some-twitter-users-embrace-longer-tweets-some-stay-terse",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Only about 1 percent of tweets hit the 280 limit, and about 12 percent were longer than 140.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2018/10/30/twitters-doubling-of-character-count-from-140-to-280-had-little-impact-on-length-of-tweets",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

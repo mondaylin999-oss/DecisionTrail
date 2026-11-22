@@ -1,0 +1,81 @@
+{
+  "problem": "Users had to visit profiles to see updates, and Facebook wanted a central stream.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "facebook-news-feed-launch-2006",
+  "title": "Facebook launches News Feed, faces a user revolt, and adds privacy controls",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Facebook",
+  "actor_type": "company",
+  "decision_date": "2006-09-05",
+  "date_precision": "day",
+  "context": "Facebook introduced News Feed and Mini Feed, which broadcast friends' profile changes to each user.",
+  "decision_made": "Launch News Feed to all users.",
+  "action_taken": "After protests, Zuckerberg posted \"Calm down. Breathe. We hear you\" and added controls to limit what was shared.",
+  "observed_outcome": "A group against News Feed grew to nearly 100,000 members in a day. A planned boycott and protest were called off on 8 September once privacy safeguards were added, and the features stayed.",
+  "outcome_category": "mixed",
+  "observation_period": "About 3 days",
+  "lessons": "A feature can be kept despite loud backlash if the company adds controls that address the main concern.",
+  "limitations": "Only the first days were checked. Long-term growth effects were not documented in the sources used.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2006/09/06/facebook-users-revolt-facebook-replies",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2006-09-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.chronicle.com/article/after-a-redesign-facebook-hastily-offers-new-privacy-protections/",
+      "publisher": "Chronicle of Higher Education",
+      "source_type": "news",
+      "published_at": "2006-09-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Facebook launched News Feed and Mini Feed on 5 September 2006.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2006/09/06/facebook-users-revolt-facebook-replies",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Facebook added controls to limit sharing and the planned boycott and protest were called off on 8 September.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.chronicle.com/article/after-a-redesign-facebook-hastily-offers-new-privacy-protections/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

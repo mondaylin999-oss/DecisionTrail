@@ -1,0 +1,82 @@
+{
+  "problem": "Apple wanted control over its mapping experience.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "apple-maps-ios6-apology-2012",
+  "title": "Apple replaces Google Maps in iOS 6 and publicly apologises",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Apple",
+  "actor_type": "company",
+  "decision_date": "2012-09-28",
+  "date_precision": "day",
+  "context": "iOS 6 dropped Google Maps in favour of Apple's own Maps app.",
+  "decision_made": "Ship its own Maps app in iOS 6 in place of Google Maps.",
+  "action_taken": "Within nine days of release CEO Tim Cook published an open letter saying Apple was extremely sorry for the frustration and pointing users to alternatives, including Google's.",
+  "observed_outcome": "Apple publicly acknowledged the app fell short and recommended competing map services in the meantime.",
+  "outcome_category": "negative",
+  "observation_period": "9 days",
+  "lessons": "Replacing a trusted service with an unfinished one can force a public apology.",
+  "limitations": "Only the apology period was checked. Later improvement of Apple Maps was not covered here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "buy",
+    "launch_now"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://fortune.com/2012/09/28/tim-cook-apologizes-for-apples-new-maps-app/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2012-09-28",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.macrumors.com/2012/09/28/tim-cook-publishes-open-letter-on-maps-for-ios-6/",
+      "publisher": "MacRumors",
+      "source_type": "news",
+      "published_at": "2012-09-28",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Apple replaced Google Maps with its own Maps app in iOS 6.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2012/09/28/tim-cook-apologizes-for-apples-new-maps-app/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Tim Cook published an open letter apologising and suggesting competing map apps.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.macrumors.com/2012/09/28/tim-cook-publishes-open-letter-on-maps-for-ios-6/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

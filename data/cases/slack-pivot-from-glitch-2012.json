@@ -1,0 +1,81 @@
+{
+  "problem": "The game was not succeeding as a business.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "slack-pivot-from-glitch-2012",
+  "title": "Tiny Speck shuts down its game Glitch and ships its internal chat tool as Slack",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Tiny Speck (Slack)",
+  "actor_type": "startup",
+  "decision_date": "2012-12-01",
+  "date_precision": "month",
+  "context": "Tiny Speck built an online game called Glitch and developed an internal chat tool along the way.",
+  "decision_made": "Shut down Glitch and turn the internal communication tool into a product called Slack.",
+  "action_taken": "Glitch closed in December 2012; a July 2013 memo to the team, \"We Don't Sell Saddles Here\", set out how to position Slack.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "A tool built for internal use can become the real product when the original idea does not work.",
+  "limitations": "Only the pivot and the positioning memo were checked here, not results. The memo is not the pivot announcement.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "stop",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://subtraction.com/2014/02/18/we-dont-sell-saddles-here",
+      "publisher": "Subtraction",
+      "source_type": "other",
+      "published_at": "2014-02-18",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://medium.com/p/4c59524d650d",
+      "publisher": "Stewart Butterfield (Medium)",
+      "source_type": "primary",
+      "published_at": "2014-02-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Tiny Speck shut down Glitch in December 2012 and shipped its internal chat tool as Slack.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://subtraction.com/2014/02/18/we-dont-sell-saddles-here",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "A July 2013 memo to the team argued Slack was selling a reduction in information overload rather than chat software.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://medium.com/p/4c59524d650d",
+          "support": "supports",
+          "locator": "memo"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "The product tried to do too many things and users were interested in one.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "instagram-burbn-pivot-2010",
+  "title": "Burbn's founders cut features and rebuild the app around photo sharing",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Burbn (Instagram)",
+  "actor_type": "startup",
+  "decision_date": "2010-10-06",
+  "date_precision": "month",
+  "context": "Burbn was a location check-in app with many features, and the founders noticed that people mostly used its photo features.",
+  "decision_made": "Remove other planned features, rebuild around photo sharing and rename the app Instagram.",
+  "action_taken": "Launched on the Apple App Store on 6 October 2010.",
+  "observed_outcome": "Reports say about 25,000 users on day one, 100,000 downloads in the first week and about one million users by mid-December 2010.",
+  "outcome_category": "positive",
+  "observation_period": "About 2 months",
+  "lessons": "Following what users actually do, and cutting everything else, can reveal a stronger product.",
+  "limitations": "Sources are mostly secondary and the first-day figure is sometimes described as uploads rather than users. Survivorship bias applies, since many pivots fail.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2012/04/09/instagram-story-facebook-acquisition/",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2012-04-09",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2011/09/13/technology/startups/instagram_burbn/index.htm",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2011-09-13",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "The founders cut Burbn's other features and rebuilt the app around photo sharing as Instagram.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2011/09/13/technology/startups/instagram_burbn/index.htm",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Instagram reached about one million users within roughly two months of its October 2010 launch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2012/04/09/instagram-story-facebook-acquisition/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

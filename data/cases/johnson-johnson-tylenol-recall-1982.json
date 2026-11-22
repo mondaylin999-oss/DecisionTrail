@@ -1,0 +1,83 @@
+{
+  "problem": "Protect the public and the brand after product tampering.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "regulated"
+  ],
+  "slug": "johnson-johnson-tylenol-recall-1982",
+  "title": "Johnson & Johnson recalls Tylenol and launches tamper-resistant packaging",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "Johnson & Johnson",
+  "actor_type": "company",
+  "decision_date": "1982-10-01",
+  "date_precision": "month",
+  "context": "Seven people died after taking Tylenol capsules laced with cyanide in the Chicago area in 1982.",
+  "decision_made": "Recall about 31 million bottles and relaunch with tamper-resistant packaging.",
+  "action_taken": "Unveiled triple-sealed packaging on 11 November 1982, 43 days after the first deaths.",
+  "observed_outcome": "Tylenol's market share fell from about 37 percent to about 7 percent during the crisis and was back to about 30 percent within a year. The packaging became an industry standard.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 year",
+  "lessons": "Acting quickly and visibly on safety, even at large cost, can preserve trust in a brand.",
+  "limitations": "Recall cost and share figures vary by source (about $100 million most often cited). Other factors, such as coupons, contributed to the recovery. One unsourced claim of a 70 percent recovery in five months was excluded.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2012/10/07/the-fight-to-save-tylenol-fortune-1982",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2012-10-07",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://retailbrew.com/stories/2022/10/13/total-recall-how-the-tylenol-murders-of-1982-ushered-in-tamper-resistant-packaging",
+      "publisher": "Retail Brew",
+      "source_type": "news",
+      "published_at": "2022-10-13",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "J&J recalled about 31 million Tylenol bottles and relaunched with tamper-resistant packaging.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://retailbrew.com/stories/2022/10/13/total-recall-how-the-tylenol-murders-of-1982-ushered-in-tamper-resistant-packaging",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Tylenol's market share fell to about 7 percent and recovered to about 30 percent within a year.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2012/10/07/the-fight-to-save-tylenol-fortune-1982",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

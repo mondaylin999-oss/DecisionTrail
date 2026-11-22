@@ -1,0 +1,82 @@
+{
+  "problem": "Replacement phones also caught fire.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "time_pressure"
+  ],
+  "slug": "samsung-galaxy-note-7-recall-2016",
+  "title": "Samsung recalls and then discontinues the Galaxy Note 7",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Samsung",
+  "actor_type": "company",
+  "decision_date": "2016-10-11",
+  "date_precision": "day",
+  "context": "Some Galaxy Note 7 phones overheated and caught fire soon after launch in August 2016.",
+  "decision_made": "Stop sales and exchanges and discontinue the Note 7 less than two months after launch.",
+  "action_taken": "Investigated with independent firms and reported the cause in January 2017.",
+  "observed_outcome": "Samsung estimated the total recall cost at at least $5.3 billion. In January 2017 it said batteries were the cause, with independent investigators agreeing.",
+  "outcome_category": "negative",
+  "observation_period": "About 3 months",
+  "lessons": "A fast, decisive shutdown can limit further harm, but pushing a design to the limit can be very costly.",
+  "limitations": "Cost estimates vary (up to $17 billion in some analyst scenarios). Brand and later sales effects were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2016/10/11/samsung-galaxy-note-7-discontinued/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2016-10-11",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.aljazeera.com/economy/2017/1/23/samsung-blames-galaxy-note-7-fires-on-faulty-batteries",
+      "publisher": "Al Jazeera",
+      "source_type": "news",
+      "published_at": "2017-01-23",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Samsung discontinued the Galaxy Note 7 less than two months after launch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2016/10/11/samsung-galaxy-note-7-discontinued/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Samsung attributed the fires to batteries in January 2017 and independent investigators agreed.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.aljazeera.com/economy/2017/1/23/samsung-blames-galaxy-note-7-fires-on-faulty-batteries",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "How to handle replacement requests from owners of affected chips.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "intel-pentium-fdiv-replacement-1994",
+  "title": "Intel limits Pentium replacements, then offers to replace every flawed chip",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "Intel",
+  "actor_type": "company",
+  "decision_date": "1994-12-20",
+  "date_precision": "day",
+  "context": "Intel's Pentium processor had a floating-point division flaw (the FDIV bug) that became public in late 1994.",
+  "decision_made": "First replace chips only for users who showed a need, then, under pressure, offer to replace every flawed Pentium on request.",
+  "action_taken": "Announced the full replacement offer on 20 December 1994 and booked a $475 million pretax charge in the fourth quarter.",
+  "observed_outcome": "The restrictive approach angered buyers. After the full offer, few owners asked for replacement; one report said most people kept their chips and that Intel might reverse part of the charge.",
+  "outcome_category": "reversed",
+  "observation_period": "About 1 month",
+  "lessons": "Restricting remedies for a visible flaw can cost more in trust than an open offer would have cost in chips.",
+  "limitations": "Breakdown of returns and scrapped chips is an outside estimate. Whether the charge was partly reversed was not confirmed.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.intel.com/content/www/us/en/history/history-1994-annual-report.html",
+      "publisher": "Intel",
+      "source_type": "primary",
+      "published_at": "1995-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://sites.pitt.edu/~mitnick/EBEweb/Pentiumkeep95.html",
+      "publisher": "Dow Jones (reprinted)",
+      "source_type": "news",
+      "published_at": "1995-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Intel moved from questioning users before replacing chips to replacing all flawed Pentiums on request on 20 December 1994.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://sites.pitt.edu/~mitnick/EBEweb/Pentiumkeep95.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Intel took a $475 million pretax charge in Q4 1994 to cover replacement and write-off.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.intel.com/content/www/us/en/history/history-1994-annual-report.html",
+          "support": "supports",
+          "locator": "annual report"
+        }
+      ]
+    }
+  ]
+}
