@@ -1,0 +1,80 @@
+{
+  "problem": "Low user traction after about three years.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-stadia-shutdown-2022",
+  "title": "Google shuts down Stadia and refunds purchases",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2022-09-29",
+  "date_precision": "day",
+  "context": "Google's cloud game streaming service Stadia had not gained the traction the company expected.",
+  "decision_made": "Shut down Stadia on 18 January 2023.",
+  "action_taken": "Announced in September 2022 with refunds for hardware and game purchases; Stadia Pro subscriptions were not refunded.",
+  "observed_outcome": "The service ended as scheduled. Google said the underlying technology could be used in other products.",
+  "outcome_category": "negative",
+  "observation_period": "About 4 months from announcement to closure",
+  "lessons": "Refunding purchases can soften the impact of a shutdown, but a public statement that a product is not closing erodes trust if it closes soon after.",
+  "limitations": "Google had said in July 2022 that Stadia was not shutting down. Financial results were not established.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://blog.google/products-and-platforms/products/stadia/message-on-stadia-streaming-strategy/",
+      "publisher": "Google",
+      "source_type": "primary",
+      "published_at": "2022-09-29",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.axios.com/2022/09/29/google-stadia-shutdown",
+      "publisher": "Axios",
+      "source_type": "news",
+      "published_at": "2022-09-29",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google announced Stadia would shut down on 18 January 2023 and refund hardware and game purchases.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://blog.google/products-and-platforms/products/stadia/message-on-stadia-streaming-strategy/",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Google said Stadia had not gained the expected traction with users.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://blog.google/products-and-platforms/products/stadia/message-on-stadia-streaming-strategy/",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    }
+  ]
+}

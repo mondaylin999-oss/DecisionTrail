@@ -1,0 +1,80 @@
+{
+  "problem": "The company wanted to test whether shorter weeks could improve work-life balance without hurting output.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-japan-four-day-week-2019",
+  "title": "Microsoft Japan trials a four-day work week",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "Microsoft Japan",
+  "actor_type": "company",
+  "decision_date": "2019-08-01",
+  "date_precision": "month",
+  "context": "Microsoft Japan ran a pilot called the Work Life Choice Challenge with about 2,300 employees.",
+  "decision_made": "Close offices every Friday in August 2019 and give employees the day off.",
+  "action_taken": "Also limited meetings to 30 minutes and encouraged remote communication.",
+  "observed_outcome": "Sales per employee rose almost 40 percent versus August 2018; 92 percent of employees were happy with the four-day week.",
+  "outcome_category": "positive",
+  "observation_period": "One month trial",
+  "lessons": "A short trial with other efficiency changes can show gains, but the result may not be a clean effect of the shorter week.",
+  "limitations": "One month only, sales per employee is a narrow metric, other changes ran at the same time, managers reported pushback and results varied by department.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2019/11/04/776163853/microsoft-japan-says-4-day-workweek-boosted-workers-productivity-by-40",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2019-11-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cnbc.com/2019/11/04/microsoft-japan-4-day-work-week-experiment-sees-productivity-jump-40percent.html",
+      "publisher": "CNBC",
+      "source_type": "news",
+      "published_at": "2019-11-04",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft Japan closed offices on Fridays in August 2019 as a trial.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2019/11/04/776163853/microsoft-japan-says-4-day-workweek-boosted-workers-productivity-by-40",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Sales per employee rose by almost 40 percent compared with August 2018.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cnbc.com/2019/11/04/microsoft-japan-4-day-work-week-experiment-sees-productivity-jump-40percent.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

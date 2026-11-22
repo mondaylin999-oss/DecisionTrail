@@ -1,0 +1,82 @@
+{
+  "problem": "The service did not reach enough customers to sustain itself.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "quibi-launch-and-shutdown-2020",
+  "title": "Quibi launches a short-video streaming service and shuts down six months later",
+  "category": "business_strategy",
+  "decision_type": "stop_continue",
+  "actor_name": "Quibi",
+  "actor_type": "startup",
+  "decision_date": "2020-10-21",
+  "date_precision": "day",
+  "context": "Quibi raised about $1.75 billion, launched in April 2020 and struggled to find viewers.",
+  "decision_made": "Wind down the business and return cash to shareholders.",
+  "action_taken": "Founders published a letter on 21 October 2020 saying they had considered and exhausted every option.",
+  "observed_outcome": "The service shut down about six months after launch. The founders cited either the idea or the timing as the likely cause.",
+  "outcome_category": "negative",
+  "observation_period": "About 6 months",
+  "lessons": "Heavy funding does not guarantee product-market fit, and a founder's own explanation may not identify the true cause.",
+  "limitations": "Subscriber numbers were not disclosed by the company. Reasons are the founders' own view.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.cbsnews.com/news/quibi-shutting-down",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2020-10-21",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.axios.com/2020/10/21/quibi-shutting-down-streaming",
+      "publisher": "Axios",
+      "source_type": "news",
+      "published_at": "2020-10-21",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Quibi's leaders chose to wind down the service and return cash to shareholders.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.axios.com/2020/10/21/quibi-shutting-down-streaming",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The service shut down about six months after launching.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/quibi-shutting-down",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    }
+  ]
+}

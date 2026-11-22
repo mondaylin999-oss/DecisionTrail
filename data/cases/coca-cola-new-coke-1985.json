@@ -1,0 +1,81 @@
+{
+  "problem": "The company wanted to re-energize the brand against a strong rival.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "coca-cola-new-coke-1985",
+  "title": "Coca-Cola replaces its flagship formula with New Coke, then brings the original back",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "The Coca-Cola Company",
+  "actor_type": "company",
+  "decision_date": "1985-04-23",
+  "date_precision": "day",
+  "context": "Facing competition from Pepsi, Coca-Cola changed the formula of its flagship drink for the first time in 99 years.",
+  "decision_made": "Replace the original formula with a new one, called New Coke.",
+  "action_taken": "Launched in April 1985; the original formula returned on 11 July 1985 as Coca-Cola Classic.",
+  "observed_outcome": "Consumers flooded the company with calls and letters, and the original returned after 79 days. The new-taste drink was later renamed Coke II and is no longer sold in the US.",
+  "outcome_category": "reversed",
+  "observation_period": "79 days",
+  "lessons": "Customers can have strong attachment to an existing product that taste tests alone do not capture.",
+  "limitations": "One source gives a different return date (15 July). Sales effects over the longer term were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever",
+      "publisher": "The Coca-Cola Company",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://time.com/3950205/new-coke-history-america/",
+      "publisher": "TIME",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Coca-Cola changed its flagship formula in April 1985 and launched New Coke.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever",
+          "support": "supports",
+          "locator": "company history page"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The original formula returned on 11 July 1985, ending 79 days of New Coke alone.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever",
+          "support": "supports",
+          "locator": "company history page"
+        }
+      ]
+    }
+  ]
+}

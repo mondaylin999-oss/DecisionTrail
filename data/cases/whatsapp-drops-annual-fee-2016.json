@@ -1,0 +1,81 @@
+{
+  "problem": "The fee kept some people without credit or debit cards from using the app.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "whatsapp-drops-annual-fee-2016",
+  "title": "WhatsApp drops its $1 annual subscription fee",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "WhatsApp",
+  "actor_type": "company",
+  "decision_date": "2016-01-18",
+  "date_precision": "day",
+  "context": "WhatsApp charged about $1 per year after a free first year.",
+  "decision_made": "Make the app free and explore charging businesses for messaging instead.",
+  "action_taken": "CEO Jan Koum announced it at a conference in Munich; no third-party ads were planned.",
+  "observed_outcome": "The long-term effect on usage or revenue was not found in the sources used.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Not documented",
+  "lessons": "A small fee can still be a barrier in markets where payment methods are limited.",
+  "limitations": "Parent company Facebook funded the app, so the choice may not transfer to independent businesses. Results are not documented here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.engadget.com/2016/01/18/whatsapp-is-dropping-the-1-annual-fee/",
+      "publisher": "Engadget",
+      "source_type": "news",
+      "published_at": "2016-01-18",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.nbcnews.com/tech/social-media/free-messaging-whatsapp-drop-1-subscription-fee-n499001",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": "2016-01-18",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "WhatsApp dropped its roughly $1 annual subscription fee.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.engadget.com/2016/01/18/whatsapp-is-dropping-the-1-annual-fee/",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "The CEO argued the fee was a barrier for people without cards.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/tech/social-media/free-messaging-whatsapp-drop-1-subscription-fee-n499001",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

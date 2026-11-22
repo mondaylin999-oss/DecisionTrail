@@ -1,0 +1,80 @@
+{
+  "problem": "Meetings were seen as eating into productive work time.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "shopify-calendar-purge-2023",
+  "title": "Shopify cancels recurring meetings across the company",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "Shopify",
+  "actor_type": "company",
+  "decision_date": "2023-01-03",
+  "date_precision": "day",
+  "context": "Shopify employees spent large amounts of time in recurring meetings.",
+  "decision_made": "Remove all recurring meetings with more than two people, limit large meetings and set meeting-free days.",
+  "action_taken": "Announced in January 2023, with a cooling-off period before meetings could be re-added.",
+  "observed_outcome": "Shopify said the purge freed more than 76,500 hours. Experts quoted in coverage were divided on whether it would raise productivity.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Not documented",
+  "lessons": "A hard reset of meetings can reveal which ones matter, but the benefit depends on what replaces them.",
+  "limitations": "Hours freed is a company claim, not a measured productivity result. No follow-up outcome was found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2023/01/03/shopify-cutting-meetings-worker-productivity/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2023-01-03",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2023/01/10/shopify-canceling-meetings-does-that-make-staff-happier-productive-experts-divided/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2023-01-10",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Shopify removed recurring meetings with more than two people.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2023/01/03/shopify-cutting-meetings-worker-productivity/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Experts were divided on whether cancelling meetings makes staff happier or more productive.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2023/01/10/shopify-canceling-meetings-does-that-make-staff-happier-productive-experts-divided/",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Users and critics objected to the removed Start button and the Start screen.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-windows-8-start-button-2013",
+  "title": "Microsoft restores the Start button and boot-to-desktop in Windows 8.1",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Microsoft",
+  "actor_type": "company",
+  "decision_date": "2013-05-30",
+  "date_precision": "day",
+  "context": "Windows 8 removed the Start button, which had been part of the desktop since Windows 95, and defaulted to a full-screen Start screen.",
+  "decision_made": "Bring back a Start button and add an option to boot straight to the desktop in Windows 8.1.",
+  "action_taken": "Announced on the Windows Blog in May 2013, with a preview in June and a free update later that year.",
+  "observed_outcome": "The Start button returned, though it did not restore the old menu. The change was described by media as a response to backlash.",
+  "outcome_category": "reversed",
+  "observation_period": "About 7 months after Windows 8 launch",
+  "lessons": "Removing a familiar interface element can force a partial rollback even when the new design is intentional.",
+  "limitations": "Partial reversal only. Sales and satisfaction effects were not measured in the sources used.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2013/05/30/windows-8-1-to-get-start-button-boot-to-desktop-option/amp/",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2013-05-30",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.engadget.com/2013/05/30/microsoft-windows-8-1-unveiled/",
+      "publisher": "Engadget",
+      "source_type": "news",
+      "published_at": "2013-05-30",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft announced Windows 8.1 would bring back a Start button and offer boot-to-desktop.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2013/05/30/windows-8-1-to-get-start-button-boot-to-desktop-option/amp/",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The returning button did not bring back the full old Start menu.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.engadget.com/2013/05/30/microsoft-windows-8-1-unveiled/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

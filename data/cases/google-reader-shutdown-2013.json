@@ -1,0 +1,81 @@
+{
+  "problem": "Google wanted to focus on fewer products.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-reader-shutdown-2013",
+  "title": "Google announces it will shut down Google Reader",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2013-03-13",
+  "date_precision": "day",
+  "context": "Google Reader was an RSS reader with a loyal user base but declining usage, part of a round of Google closures.",
+  "decision_made": "Retire Google Reader on 1 July 2013.",
+  "action_taken": "Announced as part of spring cleaning; users could export subscriptions through Google Takeout.",
+  "observed_outcome": "The announcement caused a public outcry and online petitions of tens of thousands of signatures; the service was retired as planned.",
+  "outcome_category": "mixed",
+  "observation_period": "About 3.5 months from announcement to shutdown",
+  "lessons": "Shutting down a small but loyal product can generate disproportionate goodwill costs.",
+  "limitations": "Petition counts vary by source and date. No data on business impact of the closure was found.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2013/03/13/rip-google-reader/amp/",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2013-03-13",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://marketplace.org/2013/03/15/google-cancels-reader-sets-eyes-overtaking-web",
+      "publisher": "Marketplace",
+      "source_type": "news",
+      "published_at": "2013-03-15",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google announced Google Reader would be retired on 1 July 2013 as part of a round of closures.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2013/03/13/rip-google-reader/amp/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Large online petitions asked Google to keep Reader.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://marketplace.org/2013/03/15/google-cancels-reader-sets-eyes-overtaking-web",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}
