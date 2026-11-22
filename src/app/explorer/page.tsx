@@ -4,6 +4,7 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { OutcomeChip } from "@/components/marks";
+import { OnlineSearch } from "@/components/OnlineSearch";
 import { Badge, Card, CardTitle, Notice, Select, SkeletonCard, SkeletonGroup } from "@/components/ui";
 import { api } from "@/lib/api";
 import { CATEGORIES, OUTCOME_CATEGORIES, label, type OutcomeCategory } from "@/lib/vocab";
@@ -71,6 +72,7 @@ function Explorer() {
     <>
       <PageTitle title="Historical explorer" subtitle="Curated, source-checked decisions, including failures and reversals. Classification describes where a claim comes from, not whether it is true." />
       {err && <Notice tone="error">{err}</Notice>}
+      <OnlineSearch />
       <div className="flex gap-2">
         <Select className="max-w-xs" options={["all", ...CATEGORIES]} labels={(v) => (v === "all" ? "All categories" : label(v))} value={cat} onChange={(e) => setCat(e.target.value)} />
         <Select className="max-w-xs" options={["all", ...OUTCOME_CATEGORIES]} labels={(v) => (v === "all" ? "All outcomes" : label(v))} value={outcome} onChange={(e) => setOutcome(e.target.value)} />

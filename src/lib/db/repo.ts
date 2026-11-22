@@ -523,3 +523,32 @@ export async function stats(uid: string) {
 export async function logAi(uid: string, e: { task: string; inferenceSource: "ON_DEVICE" | "IN_CLOUD" | null; success: boolean; errorCode?: string; latencyMs: number }) {
   await getDb().insert(s.aiProcessingLogs).values({ userId: uid, ...e });
 }
+
+// ───────────── saved online references (personal, unverified) ─────────────
+
+export async function listWebReferences(uid: string) {
+  const db = getDb();
+  return db.select().from(s.webReferences).where(eq(s.webReferences.userId, uid)).orderBy(desc(s.webReferences.savedAt)).limit(100);
+}
+
+export async function saveWebReference(
+  uid: string,
+  ref: { url: string; title: string; snippet: string; publisher: string; query: string },
+) {
+  const db = getDb();
+  const [row] = await db
+    .insert(s.webReferences)
+    .values({ userId: uid, url: ref.url, title: ref.title, snippet: ref.snippet, publisher: ref.publisher, queryText: ref.query })
+    .onConflictDoNothing()
+    .returning({ id: s.webReferences.id });
+  return row?.id ?? null; // null: the user had already saved this URL
+}
+
+export async function deleteWebReference(uid: string, id: string) {
+  const db = getDb();
+  const rows = await db
+    .delete(s.webReferences)
+    .where(and(eq(s.webReferences.id, id), eq(s.webReferences.userId, uid)))
+    .returning({ id: s.webReferences.id });
+  return rows.length > 0;
+}

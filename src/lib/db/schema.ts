@@ -350,3 +350,24 @@ export const aiProcessingLogs = pgTable("ai_processing_logs", {
   latencyMs: integer("latency_ms"),
   createdAt: createdAt(),
 });
+
+// ───────────────────────── Saved online references ─────────────────────────
+
+/**
+ * A result the user saved from the live online search. Personal and unverified:
+ * it never enters the curated external_cases library on its own.
+ */
+export const webReferences = pgTable(
+  "web_references",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    url: text("url").notNull(),
+    title: text("title").notNull(),
+    snippet: text("snippet").notNull().default(""),
+    publisher: text("publisher").notNull().default("Wikipedia"),
+    queryText: text("query_text").notNull().default(""),
+    savedAt: timestamp("saved_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex("web_references_user_url_idx").on(t.userId, t.url)],
+);
