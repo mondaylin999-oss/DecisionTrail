@@ -1,0 +1,82 @@
+{
+  "problem": "Free users who wanted privacy had to pay or move to competitors.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "github-free-private-repos-2019",
+  "title": "GitHub makes private repositories free for small teams",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "GitHub",
+  "actor_type": "company",
+  "decision_date": "2019-01-07",
+  "date_precision": "day",
+  "context": "GitHub previously charged for private repositories, while public repositories were free.",
+  "decision_made": "Give free accounts unlimited private repositories, limited to three collaborators per repository.",
+  "action_taken": "Announced in January 2019 together with a simplified Enterprise offering; the paid developer plan was renamed GitHub Pro.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Capping collaborators rather than repositories keeps the free tier useful for individuals while leaving teams a reason to pay.",
+  "limitations": "No adoption or revenue results were found. GitHub's owner, Microsoft, may have had different incentives from an independent company.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "freemium",
+    "free_plan",
+    "paid_subscription"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://github.blog/news-insights/company-news/new-year-new-github/",
+      "publisher": "GitHub",
+      "source_type": "primary",
+      "published_at": "2019-01-07",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://techcrunch.com/2019/01/07/github-free-users-now-get-unlimited-private-repositories",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2019-01-07",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "GitHub Free accounts got unlimited private repositories with up to three collaborators each.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://github.blog/news-insights/company-news/new-year-new-github/",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "action",
+      "claim_text": "The announcement was paired with a unified Enterprise offering.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2019/01/07/github-free-users-now-get-unlimited-private-repositories",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

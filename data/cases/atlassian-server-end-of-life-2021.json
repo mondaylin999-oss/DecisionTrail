@@ -1,0 +1,82 @@
+{
+  "problem": "The company wanted to concentrate on Cloud and Data Center offerings.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "atlassian-server-end-of-life-2021",
+  "title": "Atlassian stops selling Server products and pushes customers to Cloud and Data Center",
+  "category": "business_strategy",
+  "decision_type": "stop_continue",
+  "actor_name": "Atlassian",
+  "actor_type": "company",
+  "decision_date": "2020-10-01",
+  "date_precision": "month",
+  "context": "Atlassian sold self-hosted Server versions of Jira, Confluence and other products.",
+  "decision_made": "End new Server sales on 2 February 2021, raise maintenance prices, and end support in February 2024.",
+  "action_taken": "Offered migration tools and trials for Cloud, and recommended Data Center for stricter requirements.",
+  "observed_outcome": "Server went off sale in February 2021 and, per Atlassian's page, support ended on 15 February 2024.",
+  "outcome_category": "inconclusive",
+  "observation_period": "About 3 years",
+  "lessons": "A vendor can force migration through end-of-sale dates and price increases, with customer pushback as a cost.",
+  "limitations": "Customer satisfaction, churn and revenue effects were not found. Sources differ slightly on dates.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "cloud",
+    "self_hosted",
+    "managed_service"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.atlassian.com/blog/announcements/journey-to-cloud",
+      "publisher": "Atlassian",
+      "source_type": "primary",
+      "published_at": "2020-10-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.atlassian.com/licensing/server-end-of-support",
+      "publisher": "Atlassian",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Atlassian said it would stop selling new Server licences and cease Server feature development on 2 February 2021.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.atlassian.com/blog/announcements/journey-to-cloud",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Atlassian's page states Server products are no longer supported as of 15 February 2024.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.atlassian.com/licensing/server-end-of-support",
+          "support": "supports",
+          "locator": "support page"
+        }
+      ]
+    }
+  ]
+}

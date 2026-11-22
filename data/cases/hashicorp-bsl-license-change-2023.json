@@ -1,0 +1,81 @@
+{
+  "problem": "The company wanted to limit commercial competitors using its code.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "hashicorp-bsl-license-change-2023",
+  "title": "HashiCorp moves Terraform and other tools to the Business Source License",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "HashiCorp",
+  "actor_type": "company",
+  "decision_date": "2023-08-10",
+  "date_precision": "day",
+  "context": "Terraform, Vault, Consul and other HashiCorp tools were licensed under the Mozilla Public License 2.0.",
+  "decision_made": "Switch future releases to the Business Source License 1.1.",
+  "action_taken": "Announced on 10 August 2023.",
+  "observed_outcome": "The community forked Terraform as OpenTofu, accepted by the Linux Foundation in September 2023. One analyst found little evidence of significant business harm to HashiCorp.",
+  "outcome_category": "mixed",
+  "observation_period": "About 1 to 2 years",
+  "lessons": "Relicensing can trigger a community fork even when the business effect is small.",
+  "limitations": "IBM completed its acquisition of HashiCorp in February 2025, which complicates reading the later results. Business impact is based on commentary, not company data.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "open_source",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://opentofu.org/blog/opentofu-announces-fork-of-terraform/",
+      "publisher": "OpenTofu",
+      "source_type": "primary",
+      "published_at": "2023-09-20",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://thenewstack.io/linux-foundation-joins-opentf-to-fork-for-terraform-into-opentofu/",
+      "publisher": "The New Stack",
+      "source_type": "news",
+      "published_at": "2023-09-20",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "HashiCorp moved Terraform and its other core tools to the Business Source License.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://thenewstack.io/linux-foundation-joins-opentf-to-fork-for-terraform-into-opentofu/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The community created the OpenTofu fork, which became a Linux Foundation project.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://opentofu.org/blog/opentofu-announces-fork-of-terraform/",
+          "support": "supports",
+          "locator": "fork announcement"
+        }
+      ]
+    }
+  ]
+}

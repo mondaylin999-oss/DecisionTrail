@@ -1,0 +1,82 @@
+{
+  "problem": "Heroku said fraud and abuse of free plans consumed large engineering and security effort.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "heroku-ends-free-plans-2022",
+  "title": "Heroku ends its free product plans",
+  "category": "pricing",
+  "decision_type": "stop_continue",
+  "actor_name": "Heroku (Salesforce)",
+  "actor_type": "company",
+  "decision_date": "2022-08-25",
+  "date_precision": "day",
+  "context": "Heroku offered free dynos, free Postgres and free Redis plans.",
+  "decision_made": "Stop offering free product plans from 28 November 2022.",
+  "action_taken": "Announced in August 2022, began deleting inactive accounts in October, and introduced new low-cost plans.",
+  "observed_outcome": "The free plans ended as scheduled on 28 November 2022. Effects on usage and revenue were not found.",
+  "outcome_category": "inconclusive",
+  "observation_period": "About 3 months from announcement",
+  "lessons": "A free tier can attract abuse; removing it moves costs to users who may leave for alternatives.",
+  "limitations": "Reasons are the company's own. No usage or revenue figures were found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "stop",
+    "paid_subscription"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.heroku.com/blog/next-chapter/",
+      "publisher": "Heroku",
+      "source_type": "primary",
+      "published_at": "2022-08-25",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://devcenter.heroku.com/changelog-items/2502",
+      "publisher": "Heroku Dev Center",
+      "source_type": "primary",
+      "published_at": "2022-11-28",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Heroku announced it would stop offering free product plans starting 28 November 2022.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.heroku.com/blog/next-chapter/",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "As of 28 November 2022 free dynos and hobby-dev data plans were no longer available.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://devcenter.heroku.com/changelog-items/2502",
+          "support": "supports",
+          "locator": "changelog"
+        }
+      ]
+    }
+  ]
+}

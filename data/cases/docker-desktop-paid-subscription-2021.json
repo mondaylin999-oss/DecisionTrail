@@ -1,0 +1,82 @@
+{
+  "problem": "Docker needed sustainable revenue from its widely used developer tool.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "docker-desktop-paid-subscription-2021",
+  "title": "Docker Desktop requires paid subscriptions for larger companies",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Docker",
+  "actor_type": "company",
+  "decision_date": "2021-08-31",
+  "date_precision": "day",
+  "context": "Docker Desktop had been free for all users, including large companies.",
+  "decision_made": "Keep Docker Desktop free for personal use, education, open source and small businesses, and require a paid subscription for larger ones.",
+  "action_taken": "New terms took effect on 31 August 2021 with a grace period to 31 January 2022. The free plan was renamed Docker Personal.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Thresholds based on company size let a vendor monetize heavy commercial use while keeping individuals free.",
+  "limitations": "Thresholds were fewer than 250 employees and under $10 million revenue. Some press described them more loosely. Revenue and migration effects were not found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "freemium",
+    "paid_subscription",
+    "open_source"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.theregister.com/2021/08/31/docker_desktop_no_longer_free",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2021-08-31",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.docker.com/press-release/docker-updates-product-subscriptions/",
+      "publisher": "Docker",
+      "source_type": "primary",
+      "published_at": "2021-08-31",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Docker Desktop stayed free for small businesses and personal use while larger companies needed a paid subscription.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.com/2021/08/31/docker_desktop_no_longer_free",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "action",
+      "claim_text": "Docker published updated product subscriptions in a press release.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.docker.com/press-release/docker-updates-product-subscriptions/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    }
+  ]
+}

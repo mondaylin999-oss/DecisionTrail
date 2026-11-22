@@ -1,0 +1,82 @@
+{
+  "problem": "The company wanted to cut costs and speed up customer service.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "klarna-ai-customer-service-reversal-2025",
+  "title": "Klarna leans on AI for customer service, then rehires human agents",
+  "category": "hiring",
+  "decision_type": "choose_one",
+  "actor_name": "Klarna",
+  "actor_type": "company",
+  "decision_date": "2025-05-08",
+  "date_precision": "month",
+  "context": "Klarna said its AI assistant handled about two-thirds of customer chats and did the work of 700 agents, and the company froze hiring.",
+  "decision_made": "Rely heavily on AI for customer service instead of hiring human agents.",
+  "action_taken": "In 2025 the CEO said cost had been too dominant a factor and the company began recruiting human agents again, while expanding AI use.",
+  "observed_outcome": "The CEO said the AI approach led to lower quality; Klarna started recruiting human agents in a new model. Coverage differs on whether this is a full retreat or a hybrid.",
+  "outcome_category": "reversed",
+  "observation_period": "About 1 year",
+  "lessons": "Optimising mainly for cost can lower service quality; a hybrid of AI and people may work better.",
+  "limitations": "Based on secondary coverage of CEO statements, not the full interview. Results beyond quality remarks were not documented.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "hire",
+    "build",
+    "outsource"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.bloomberg.com/news/articles/2025-05-08/klarna-turns-from-ai-to-real-person-customer-service",
+      "publisher": "Bloomberg",
+      "source_type": "news",
+      "published_at": "2025-05-08",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.entrepreneur.com/business-news/klarna-ceo-reverses-course-by-hiring-more-humans-not-ai/491396",
+      "publisher": "Entrepreneur",
+      "source_type": "news",
+      "published_at": "2025-05-09",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Klarna had pushed AI to replace human customer service work and froze hiring.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.entrepreneur.com/business-news/klarna-ceo-reverses-course-by-hiring-more-humans-not-ai/491396",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The CEO said the AI push lowered service quality and Klarna began recruiting human agents again.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.bloomberg.com/news/articles/2025-05-08/klarna-turns-from-ai-to-real-person-customer-service",
+          "support": "supports",
+          "locator": "headline and summary"
+        }
+      ]
+    }
+  ]
+}

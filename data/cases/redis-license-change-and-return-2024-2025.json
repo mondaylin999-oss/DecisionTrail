@@ -1,0 +1,81 @@
+{
+  "problem": "The company wanted to prevent others from offering Redis as a service without contributing back.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "redis-license-change-and-return-2024-2025",
+  "title": "Redis changes its license in 2024, then adds AGPL in 2025",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Redis",
+  "actor_type": "company",
+  "decision_date": "2024-03-01",
+  "date_precision": "month",
+  "context": "Redis was BSD licensed until it moved to source-available licences to limit cloud providers.",
+  "decision_made": "Move from BSD to RSALv2 and SSPLv1 in March 2024.",
+  "action_taken": "In May 2025 Redis 8 added the AGPLv3 open source licence as an option.",
+  "observed_outcome": "The 2024 change triggered the Valkey fork. In 2025 Redis added AGPL, and critics said it might be too late or too restrictive.",
+  "outcome_category": "reversed",
+  "observation_period": "About 14 months",
+  "lessons": "Licence changes can fragment a community, and partial reversals may not restore trust.",
+  "limitations": "Some sources describe the 2025 change as a full return and others as an added option. Long-term adoption effects are not documented.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "open_source",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.theregister.com/2025/05/01/redis_returns_to_open_source/",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2025-05-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2025/05/redis-agpl-license",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2025-05-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Redis moved from BSD to more restrictive source-available licences in 2024.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.com/2025/05/01/redis_returns_to_open_source/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Redis 8 added the AGPLv3 licence in May 2025, after the community had created the Valkey fork.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2025/05/redis-agpl-license",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

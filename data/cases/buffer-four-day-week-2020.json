@@ -1,0 +1,82 @@
+{
+  "problem": "Employees were under strain and the company wanted to ease stress.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "buffer-four-day-week-2020",
+  "title": "Buffer moves to a four-day work week",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Buffer",
+  "actor_type": "company",
+  "decision_date": "2020-05-01",
+  "date_precision": "month",
+  "context": "Buffer ran a one-month pilot in May 2020 to help staff cope with pandemic stress.",
+  "decision_made": "Move to a four-day work week for the rest of 2020 and later keep it.",
+  "action_taken": "Surveyed staff during and after the trial and published results.",
+  "observed_outcome": "Buffer's survey showed higher autonomy and work happiness and lower stress; many staff said productivity was similar. Later surveys showed stress rising slightly and customer service needed a staggered rotation.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 to 3 years",
+  "lessons": "A shorter week can improve wellbeing in a small remote team, but support roles may need different coverage.",
+  "limitations": "Self-reported surveys, no productivity targets during the trial, and a small, remote, pandemic-era team. Results may not transfer to other companies.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://buffer.com/resources/4-day-workweek-2021/",
+      "publisher": "Buffer",
+      "source_type": "primary",
+      "published_at": "2021-02-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://buffer.com/resources/4-day-workweek-2020/",
+      "publisher": "Buffer",
+      "source_type": "primary",
+      "published_at": "2020-06-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Buffer moved to a four-day work week for the rest of 2020.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://buffer.com/resources/4-day-workweek-2020/",
+          "support": "supports",
+          "locator": "post title"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Buffer's surveys reported higher happiness and lower stress during the four-day week.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://buffer.com/resources/4-day-workweek-2021/",
+          "support": "supports",
+          "locator": "results post"
+        }
+      ]
+    }
+  ]
+}
