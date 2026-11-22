@@ -1,0 +1,81 @@
+{
+  "problem": "Intel had to price memory cheaply against competitors, which hurt overall profits.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "intel-exits-dram-business-1985",
+  "title": "Intel exits the memory chip business to focus on microprocessors",
+  "category": "business_strategy",
+  "decision_type": "stop_continue",
+  "actor_name": "Intel",
+  "actor_type": "company",
+  "decision_date": "1985-10-10",
+  "date_precision": "day",
+  "context": "Intel invented DRAM memory and saw itself as the DRAM company, but memory had become a drain on profits.",
+  "decision_made": "Leave the DRAM business and concentrate on microprocessors.",
+  "action_taken": "Announced to staff on 10 October 1985 and announced the 80386 microprocessor a week later.",
+  "observed_outcome": "Grove later called it the best business decision the company ever made. The sources used do not give measured financial results.",
+  "outcome_category": "positive",
+  "observation_period": "Reflected on later",
+  "lessons": "Asking what a new leader would do can free a company from sunk-cost attachment to a core business.",
+  "limitations": "The positive judgement is the decision-maker's own in retrospect. The anecdote about imagining being fired is from a secondary account. Financial results were not checked.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.gsb.stanford.edu/faculty-research/case-studies/intel-corporation-dram-decision",
+      "publisher": "Stanford GSB",
+      "source_type": "case_study",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://commoncog.com/c/cases/intel-transition-memories-processors/",
+      "publisher": "Commoncog",
+      "source_type": "case_study",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Moore and Grove recommended leaving DRAM in 1985 and Intel announced its withdrawal from the market.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://commoncog.com/c/cases/intel-transition-memories-processors/",
+          "support": "supports",
+          "locator": "case summary"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Grove later described the move as the best business decision the company ever made.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://commoncog.com/c/cases/intel-transition-memories-processors/",
+          "support": "supports",
+          "locator": "case summary"
+        }
+      ]
+    }
+  ]
+}

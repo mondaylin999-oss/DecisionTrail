@@ -1,0 +1,80 @@
+{
+  "problem": "Improve school quality through choice and competition.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "sweden-free-school-reform-1992",
+  "title": "Sweden introduces school vouchers and free choice of independent schools",
+  "category": "education",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Sweden",
+  "actor_type": "public_body",
+  "decision_date": "1992-01-01",
+  "date_precision": "year",
+  "context": "Public schools were local monopolies and few private schools existed.",
+  "decision_made": "Allow publicly funded independent schools and let families choose, with similar funding for both types.",
+  "action_taken": "Reform took effect in 1992 and independent schools grew slowly.",
+  "observed_outcome": "A main study found that a higher share of independent schools improved average results and long-run outcomes, mainly through competition effects, with gains appearing about a decade after the reform. Other studies of Swedish choice reforms found results from near zero to positive.",
+  "outcome_category": "mixed",
+  "observation_period": "About 10 to 20 years",
+  "lessons": "Effects of school choice can be slow, work through system-wide competition, and depend on how they are measured.",
+  "limitations": "Only abstracts were read for competing studies. Results depend on the outcome measure, and effects are not the same as individual student gains.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.ifau.se/globalassets/pdf/se/2012/wp12-19-Independent-schools-and-long-run-educational-outcomes.pdf",
+      "publisher": "IFAU working paper",
+      "source_type": "academic",
+      "published_at": "2012-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cesifo.org/DocDL/cesifo1_wp3866.pdf",
+      "publisher": "CESifo working paper",
+      "source_type": "academic",
+      "published_at": "2012-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "The 1992 reform introduced vouchers and free choice between public and independent schools.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.ifau.se/globalassets/pdf/se/2012/wp12-19-Independent-schools-and-long-run-educational-outcomes.pdf",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Böhlmark and Lindahl found that more independent-school students improved average performance, with effects appearing about a decade after the reform.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cesifo.org/DocDL/cesifo1_wp3866.pdf",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    }
+  ]
+}

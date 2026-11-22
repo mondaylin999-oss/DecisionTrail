@@ -1,0 +1,80 @@
+{
+  "problem": "Secure Apple's future and Microsoft's own position.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-invests-in-apple-1997",
+  "title": "Microsoft invests $150 million in Apple and commits to Office for Mac",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Microsoft",
+  "actor_type": "company",
+  "decision_date": "1997-08-06",
+  "date_precision": "day",
+  "context": "Apple was struggling and Microsoft's Office was important to Mac users.",
+  "decision_made": "Invest $150 million in non-voting Apple stock and commit to continuing Office and Internet Explorer for the Mac.",
+  "action_taken": "Announced at Macworld Boston on 6 August 1997; Apple agreed to bundle Internet Explorer and the companies signed a patent cross-licence.",
+  "observed_outcome": "Not documented in the sources used. Sources disagree on what happened to the stake later.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "A rival can help a struggling partner when it depends on the partner's platform and wants to ease regulatory pressure.",
+  "limitations": "Commitment length is reported as five years in some sources. Later handling of the stake is conflicting (a sale for $550 million versus a conversion to common stock) and was not reconciled.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://news.microsoft.com/1997/08/06/microsoft-and-apple-affirm-commitment-to-build-next-generation-software-for-macintosh/",
+      "publisher": "Microsoft",
+      "source_type": "primary",
+      "published_at": "1997-08-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://tidbits.com/1997/08/11/microsoft-is-jobs-1/",
+      "publisher": "TidBITS",
+      "source_type": "news",
+      "published_at": "1997-08-11",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft said it would invest $150 million in non-voting Apple stock and keep developing Office for the Mac.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.microsoft.com/1997/08/06/microsoft-and-apple-affirm-commitment-to-build-next-generation-software-for-macintosh/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "TidBITS noted the non-voting stock gave Microsoft no control over Apple.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://tidbits.com/1997/08/11/microsoft-is-jobs-1/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

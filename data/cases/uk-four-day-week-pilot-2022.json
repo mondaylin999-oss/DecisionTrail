@@ -1,0 +1,80 @@
+{
+  "problem": "Test whether shorter hours at the same pay could keep output while improving staff wellbeing.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "uk-four-day-week-pilot-2022",
+  "title": "61 UK companies trial a four-day week with no pay cut",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "61 UK organisations (4 Day Week Campaign, Autonomy)",
+  "actor_type": "company",
+  "decision_date": "2022-06-01",
+  "date_precision": "month",
+  "context": "A coordinated six-month pilot ran from June to December 2022 with about 2,900 workers.",
+  "decision_made": "Move to a four-day week at the same pay for six months.",
+  "action_taken": "Researchers measured revenue, staff turnover and wellbeing during the trial.",
+  "observed_outcome": "56 of 61 companies (92 percent) continued the four-day week and 18 made it permanent. Revenue rose 1.4 percent on average and staff departures fell 57 percent. A one-year follow-up found at least 54 of the 61 still operating it.",
+  "outcome_category": "positive",
+  "observation_period": "6 months plus one year follow-up",
+  "lessons": "Shorter weeks can hold revenue and cut turnover for organisations that choose to try them.",
+  "limitations": "Companies opted in, so they may be unusually suited to it. The headline results come from the organisers' report, not an independent evaluation.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2023/02/21/1158507132/uk-study-companies-four-day-workweek",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2023-02-21",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://autonomy.work/portfolio/uk4dwpilotresults/",
+      "publisher": "Autonomy",
+      "source_type": "primary",
+      "published_at": "2023-02-21",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "61 UK companies trialled a four-day week from June to December 2022.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2023/02/21/1158507132/uk-study-companies-four-day-workweek",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "56 of the 61 companies planned to continue the four-day week after the pilot.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://autonomy.work/portfolio/uk4dwpilotresults/",
+          "support": "supports",
+          "locator": "report page"
+        }
+      ]
+    }
+  ]
+}

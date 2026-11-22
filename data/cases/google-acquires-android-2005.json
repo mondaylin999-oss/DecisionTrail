@@ -1,0 +1,81 @@
+{
+  "problem": "Google wanted a way to reach people on mobile phones.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-acquires-android-2005",
+  "title": "Google acquires Android Inc. and builds an open mobile operating system",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2005-07-01",
+  "date_precision": "year",
+  "context": "Android started as a digital camera software company and shifted to mobile phones as standalone cameras declined.",
+  "decision_made": "Acquire Android Inc. in 2005, reportedly for about $50 million, and back an open-source phone OS.",
+  "action_taken": "Founder Andy Rubin joined Google; the first Android phone, the T-Mobile G1, shipped in late 2008.",
+  "observed_outcome": "IDC put Android at about 68 percent of global smartphone shipments in Q2 2012, and later figures were near 80 percent by one source.",
+  "outcome_category": "positive",
+  "observation_period": "About 7 years",
+  "lessons": "An early, inexpensive acquisition of a small team can anchor a very large platform.",
+  "limitations": "The $50 million price is reported, not confirmed. Closing dates differ (May or July 2005). Market share figures come from different firms and years and are not directly comparable.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "open_source"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2011/08/16/how-android-came-to-dominate/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-08-16",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.theregister.co.uk/2012/09/20/google_android_is_four_years_old/",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2012-09-20",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google acquired Android Inc. in 2005, reportedly for about $50 million.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/08/16/how-android-came-to-dominate/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "IDC put Android at 68 percent of the Q2 2012 global smartphone market.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.co.uk/2012/09/20/google_android_is_four_years_old/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

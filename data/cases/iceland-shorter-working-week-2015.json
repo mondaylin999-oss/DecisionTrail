@@ -1,0 +1,80 @@
+{
+  "problem": "Test whether a shorter week could keep services running and improve wellbeing.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "iceland-shorter-working-week-2015",
+  "title": "Iceland trials a shorter working week for public workers with no pay cut",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "Reykjavik City Council and the Icelandic government",
+  "actor_type": "public_body",
+  "decision_date": "2015-01-01",
+  "date_precision": "year",
+  "context": "Trade unions and civil society groups campaigned for shorter hours.",
+  "decision_made": "Move about 2,500 public-sector workers from 40 hours to 35 or 36 hours at the same pay.",
+  "action_taken": "Trials ran from 2015, with shorter and more focused meetings among the main changes.",
+  "observed_outcome": "Productivity stayed the same or improved in most workplaces, staff reported less stress and better work-life balance, and unions later renegotiated contracts so that about 86 percent of the workforce moved or gained the right to request shorter hours.",
+  "outcome_category": "positive",
+  "observation_period": "About 4 to 6 years",
+  "lessons": "Public-sector trials with union backing can lead to broad adoption when output holds.",
+  "limitations": "The findings come from researchers involved with the trials, not an independent evaluation. Timelines differ by source (2015 to 2017 or 2019). A later study reported lower uptake figures.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2021/07/06/1013348626/iceland-finds-major-success-moving-to-",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2021-07-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.axios.com/2021/07/06/iceland-working-hours",
+      "publisher": "Axios",
+      "source_type": "news",
+      "published_at": "2021-07-06",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Iceland moved about 2,500 public-sector workers to a 35 or 36 hour week at the same pay.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.axios.com/2021/07/06/iceland-working-hours",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Productivity stayed the same or improved in most workplaces and staff reported less stress.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2021/07/06/1013348626/iceland-finds-major-success-moving-to-",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

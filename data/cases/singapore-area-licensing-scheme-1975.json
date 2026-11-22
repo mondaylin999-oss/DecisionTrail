@@ -1,0 +1,80 @@
+{
+  "problem": "Cut peak-hour traffic in the city centre by 25 to 30 percent.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "singapore-area-licensing-scheme-1975",
+  "title": "Singapore introduces the world's first area licensing scheme for the city centre",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Singapore",
+  "actor_type": "public_body",
+  "decision_date": "1975-06-02",
+  "date_precision": "day",
+  "context": "Traffic in the central business district was congested.",
+  "decision_made": "Charge a supplementary licence fee to enter a restricted central zone.",
+  "action_taken": "Launched on 2 June 1975, using manual enforcement and a flat fee, and replaced by Electronic Road Pricing on 1 April 1998.",
+  "observed_outcome": "Reports say the scheme virtually eliminated congestion inside the zone. After ERP, weekday traffic entering the zone fell 24 percent and speeds rose from 30-35 to 40-45 km/h. A 45 percent early reduction in one factsheet was not verified.",
+  "outcome_category": "positive",
+  "observation_period": "About 23 years",
+  "lessons": "Road pricing can cut congestion, but a flat fee and manual enforcement limited the first design.",
+  "limitations": "Figures are from secondary sources and the primary studies were not checked. The flat fee did not account for multiple trips per day.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.itf-oecd.org/sites/default/files/docs/congestion-control-singapore.pdf",
+      "publisher": "ITF/OECD",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://cmap.illinois.gov/news-updates/how-singapore-improved-traffic-with-congestion-pricing",
+      "publisher": "CMAP",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Singapore launched the Area Licensing Scheme on 2 June 1975, charging drivers to enter a restricted central zone.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.itf-oecd.org/sites/default/files/docs/congestion-control-singapore.pdf",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Electronic Road Pricing reduced traffic in the restricted zone and gave more reliable travel times.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://cmap.illinois.gov/news-updates/how-singapore-improved-traffic-with-congestion-pricing",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

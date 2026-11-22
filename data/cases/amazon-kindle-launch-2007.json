@@ -1,0 +1,81 @@
+{
+  "problem": "Customers wanted an easy way to buy and read digital books.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "amazon-kindle-launch-2007",
+  "title": "Amazon launches the Kindle e-reader at $399",
+  "category": "product",
+  "decision_type": "yes_no",
+  "actor_name": "Amazon",
+  "actor_type": "company",
+  "decision_date": "2007-11-19",
+  "date_precision": "day",
+  "context": "Amazon sold books online and had not previously made its own consumer device.",
+  "decision_made": "Build and sell its own e-reader with built-in wireless book purchasing.",
+  "action_taken": "Introduced at a press event on 19 November 2007 at $399.",
+  "observed_outcome": "Amazon said its initial stock sold out in five and a half hours, and the device stayed out of stock for months. The launch inventory was never disclosed.",
+  "outcome_category": "positive",
+  "observation_period": "About 5 months",
+  "lessons": "Strong initial demand can outstrip supply when volumes are not planned.",
+  "limitations": "The sell-out figure is from Amazon itself and launch volumes were undisclosed, so it may reflect small inventory. Later sales and profitability were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "launch_now"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://press.aboutamazon.com/2007/11/introducing-amazon-kindle",
+      "publisher": "Amazon",
+      "source_type": "primary",
+      "published_at": "2007-11-19",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.aboutamazon.com/news/devices/kindle-at-10",
+      "publisher": "Amazon",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Amazon introduced the Kindle on 19 November 2007 at $399.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://press.aboutamazon.com/2007/11/introducing-amazon-kindle",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Amazon said the Kindle sold out of its initial inventory in five and a half hours.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.aboutamazon.com/news/devices/kindle-at-10",
+          "support": "supports",
+          "locator": "company page"
+        }
+      ]
+    }
+  ]
+}
