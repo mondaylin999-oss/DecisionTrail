@@ -1,0 +1,80 @@
+{
+  "problem": "Duolingo wanted to move faster with AI and not wait for the technology to be perfect.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "duolingo-ai-first-memo-2025",
+  "title": "Duolingo announces an AI-first approach, then clarifies after backlash",
+  "category": "hiring",
+  "decision_type": "choose_one",
+  "actor_name": "Duolingo",
+  "actor_type": "company",
+  "decision_date": "2025-04-28",
+  "date_precision": "day",
+  "context": "CEO Luis von Ahn posted an all-hands email on LinkedIn about becoming AI-first.",
+  "decision_made": "Gradually stop using contractors for work AI can handle, and add headcount only in limited cases.",
+  "action_taken": "After internal and online pushback the CEO posted a follow-up in May saying the memo was not well done, and later said he did not give enough context.",
+  "observed_outcome": "A very small number of hourly contractors doing repetitive work were phased out. The CEO said the company has never laid off full-time employees and does not plan to.",
+  "outcome_category": "reversed",
+  "observation_period": "About 4 months",
+  "lessons": "Strategy memos written for staff are read by customers too, and tone and context can overwhelm the message.",
+  "limitations": "Coverage tied the backlash to a 10 percent contractor reduction in January 2024. The CEO's later statements are self-reported.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.entrepreneur.com/business-news/duolingo-ceo-clarifies-ai-stance-after-backlash-read-the-memo/492141",
+      "publisher": "Entrepreneur",
+      "source_type": "news",
+      "published_at": "2025-05-23",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2025/08/18/duolingo-ceo-admits-controversial-ai-memo-did-not-give-enough-context-insists-company-never-laid-off-full-time-employees/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2025-08-18",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Duolingo's CEO said the company would gradually stop using contractors for work AI can handle.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.entrepreneur.com/business-news/duolingo-ceo-clarifies-ai-stance-after-backlash-read-the-memo/492141",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "In August 2025 the CEO said he had not given enough context and that Duolingo has never laid off full-time employees.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2025/08/18/duolingo-ceo-admits-controversial-ai-memo-did-not-give-enough-context-insists-company-never-laid-off-full-time-employees/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "Leadership wanted employees focused on the company's core mission.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "coinbase-apolitical-mission-2020",
+  "title": "Coinbase declares a mission-focused, apolitical workplace and offers severance",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Coinbase",
+  "actor_type": "company",
+  "decision_date": "2020-09-27",
+  "date_precision": "month",
+  "context": "The policy followed a June 2020 walkout and internal debate about activism at work.",
+  "decision_made": "Avoid political activism unrelated to the mission and discourage political discussion at work, with severance for anyone uncomfortable.",
+  "action_taken": "Offered four months' severance to those with under three years and six months to longer-tenured staff.",
+  "observed_outcome": "About 60 employees, roughly 5 percent of the workforce, accepted the offer according to the CEO's memo.",
+  "outcome_category": "mixed",
+  "observation_period": "About 2 weeks",
+  "lessons": "A clear, voluntary exit offer let the company define its culture, at the cost of losing a share of staff.",
+  "limitations": "The number could be slightly higher after negotiations. Reports differ on which roles left, and later business effects were not checked.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2020/10/08/coinbase-employees-depart-politics-controversy/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2020-10-08",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.axios.com/2020/10/01/coinbase-controversy",
+      "publisher": "Axios",
+      "source_type": "news",
+      "published_at": "2020-10-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Coinbase said it would avoid political activism beyond issues affecting the company and offered severance to employees uncomfortable with that.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.axios.com/2020/10/01/coinbase-controversy",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "About 5 percent of staff accepted the severance package, per the CEO's memo.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2020/10/08/coinbase-employees-depart-politics-controversy/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

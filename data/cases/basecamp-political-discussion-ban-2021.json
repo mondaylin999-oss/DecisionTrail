@@ -1,0 +1,82 @@
+{
+  "problem": "Leaders wanted to reduce internal conflict and keep the company focused on its work.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "basecamp-political-discussion-ban-2021",
+  "title": "Basecamp bans societal and political discussions on its internal platform",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Basecamp",
+  "actor_type": "company",
+  "decision_date": "2021-04-26",
+  "date_precision": "day",
+  "context": "Basecamp's CEO announced new policies on 26 April 2021 after internal disputes.",
+  "decision_made": "Bar societal and political discussions on company platforms, stop taking public positions on unrelated political issues, and offer severance to those who did not want to stay.",
+  "action_taken": "Offered severance of up to six months for staff with more than three years and three months for others.",
+  "observed_outcome": "Reports said 18 of 57 employees, about a third, took the severance. The CEO later apologised for the handling but said the new policies stood.",
+  "outcome_category": "mixed",
+  "observation_period": "About 2 weeks",
+  "lessons": "A policy that narrows employee voice can trigger a large voluntary exit even when severance is generous.",
+  "limitations": "Figures come from press reports, and longer-term business effects were not found. The policy and handling were criticised separately.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2021/04/30/basecamp-employee-exodus-political-talk-ban/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2021-04-30",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.theregister.com/2021/05/05/basecamp_political_discussion_apology/",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2021-05-05",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Basecamp's CEO barred societal and political discussions from the company's internal platform on 26 April 2021.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2021/04/30/basecamp-employee-exodus-political-talk-ban/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Reports said 18 of 57 employees took the severance package, and the policies stood after an apology.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.com/2021/05/05/basecamp_political_discussion_apology/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

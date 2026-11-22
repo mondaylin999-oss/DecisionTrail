@@ -1,0 +1,81 @@
+{
+  "problem": "IBM said it wanted better collaboration and a faster pace of work.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "ibm-ends-remote-work-2017",
+  "title": "IBM tells many remote workers to relocate to an office or leave",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "IBM",
+  "actor_type": "company",
+  "decision_date": "2017-05-18",
+  "date_precision": "month",
+  "context": "IBM had been a pioneer of remote work, and remote staff were reported at up to 40 percent of its workforce.",
+  "decision_made": "Require remote staff in affected units to move to a regional office within 30 days or leave.",
+  "action_taken": "Started in marketing and software and systems units in 2016 to 2017, with the policy expected to spread.",
+  "observed_outcome": "Reaction was critical and other firms were also recalling remote workers. A 2024 report showed IBM again requiring U.S. managers to return to the office or leave.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Reaction only",
+  "lessons": "Even long-standing remote programmes can be reversed when leaders prioritise in-person collaboration.",
+  "limitations": "No data on productivity or retention was found. The initial scope was reported by media and not detailed by IBM.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.theregister.com/2017/02/08/ibm_no_more_telecommuting/",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2017-02-08",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.foxbusiness.com/features/ibm-a-pioneer-of-remote-work-calls-workers-back-to-the-office",
+      "publisher": "Fox Business (WSJ)",
+      "source_type": "news",
+      "published_at": "2017-05-18",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "IBM gave remote workers a choice between relocating to a regional office and leaving the company.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.foxbusiness.com/features/ibm-a-pioneer-of-remote-work-calls-workers-back-to-the-office",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "IBM said the change would improve collaboration and accelerate the pace of work.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.com/2017/02/08/ibm_no_more_telecommuting/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Leadership argued that speed and quality were being sacrificed when people work from home.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "yahoo-ends-work-from-home-2013",
+  "title": "Yahoo ends remote work for employees starting in June 2013",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "Yahoo",
+  "actor_type": "company",
+  "decision_date": "2013-02-22",
+  "date_precision": "month",
+  "context": "A memo from Yahoo's HR head was leaked in February 2013.",
+  "decision_made": "Require remote employees to work from a Yahoo office by June.",
+  "action_taken": "The memo reached full-time remote workers and, per some reports, those working from home a day or two a week.",
+  "observed_outcome": "Reaction was largely critical, including from long-time telecommuters, though some defended it. Yahoo and its leaders declined to comment on the controversy. No productivity results were found.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Reaction only",
+  "lessons": "A bold policy communicated through a leaked memo can overshadow its substance.",
+  "limitations": "Only reaction was documented. Fortune said the rule was in practice less drastic than the memo implied.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/blogs/alltechconsidered/2013/02/23/172792467/working-from-home-the-end-of-productivity-or-the-future-of-work",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2013-02-25",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2013/02/26/yahoos-new-work-policy-bold-move-bad-delivery/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2013-02-26",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Yahoo told employees with remote arrangements to work from an office starting in June 2013.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/blogs/alltechconsidered/2013/02/23/172792467/working-from-home-the-end-of-productivity-or-the-future-of-work",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune called it a bold move with bad delivery and noted the rule was less drastic in practice than the memo implied.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2013/02/26/yahoos-new-work-policy-bold-move-bad-delivery/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

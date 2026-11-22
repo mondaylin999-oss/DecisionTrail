@@ -1,0 +1,81 @@
+{
+  "problem": "The company was restructuring and struggling, and its CEO criticised the programme.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "best-buy-ends-rowe-2013",
+  "title": "Best Buy ends its Results Only Work Environment for corporate staff",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "Best Buy",
+  "actor_type": "company",
+  "decision_date": "2013-03-04",
+  "date_precision": "month",
+  "context": "Best Buy launched ROWE, which let corporate employees work anywhere on their own schedules if results were met, in 2005.",
+  "decision_made": "End ROWE for headquarters employees, with managers keeping some discretion for flexibility.",
+  "action_taken": "Announced in March 2013, days after Yahoo's remote work reversal.",
+  "observed_outcome": "The programme ended with no plan to reinstate it. The sources used contain no measured effects.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Not documented",
+  "lessons": "Flexible work programmes can be dropped during a turnaround when leaders prioritise presence.",
+  "limitations": "Bloomberg's article was paywalled, so details come from excerpts. The CEO's quote that ROWE was fundamentally flawed is from a secondary account.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.bloomberg.com/news/articles/2013-03-07/how-best-buy-has-changed-its-tune-on-flexible-work",
+      "publisher": "Bloomberg",
+      "source_type": "news",
+      "published_at": "2013-03-07",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.startribune.com/best-buy-ends-flexible-work-program-for-its-corporate-employees/195156871",
+      "publisher": "Star Tribune",
+      "source_type": "news",
+      "published_at": "2013-03-05",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Best Buy said it would end its Results-Only Work Environment for corporate employees.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.bloomberg.com/news/articles/2013-03-07/how-best-buy-has-changed-its-tune-on-flexible-work",
+          "support": "supports",
+          "locator": "excerpt"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "There were no plans to reinstate ROWE, though managers kept some discretion to allow flexibility.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.startribune.com/best-buy-ends-flexible-work-program-for-its-corporate-employees/195156871",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "Find out whether managers affect results and what good ones do.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-project-oxygen-2008",
+  "title": "Google studies what makes a good manager and trains managers on the findings",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2008-01-01",
+  "date_precision": "year",
+  "context": "Google had questioned whether managers mattered and decided to test it with data.",
+  "decision_made": "Analyse performance reviews, surveys and manager awards for more than 10,000 observations, then build training on the habits found.",
+  "action_taken": "Published a list of manager behaviours, first eight and later ten, with coaching and not micromanaging among them.",
+  "observed_outcome": "Google's HR chief said 75 percent of the worst-performing managers improved significantly. One source reported the average manager score rising from 83 to 88 percent between 2010 and 2012.",
+  "outcome_category": "positive",
+  "observation_period": "About 4 years",
+  "lessons": "Looking at internal data can test strong beliefs about management and give concrete training targets.",
+  "limitations": "Results are reported by the company and its HR leader. The number of habits varies by source, and a \"favorability\" metric was not found in this form.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://rework.withgoogle.com/intl/en/guides/following-the-data-the-research-behind-great-managers",
+      "publisher": "Google re:Work",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.weforum.org/stories/2015/04/the-9-habits-of-the-best-managers-according-to-googles-hr-boss/",
+      "publisher": "World Economic Forum",
+      "source_type": "news",
+      "published_at": "2015-04-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google began Project Oxygen in 2008, analysing over 10,000 manager observations to identify what makes a great manager.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://rework.withgoogle.com/intl/en/guides/following-the-data-the-research-behind-great-managers",
+          "support": "supports",
+          "locator": "guide"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Laszlo Bock said 75 percent of Google's worst-performing managers improved significantly.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.weforum.org/stories/2015/04/the-9-habits-of-the-best-managers-according-to-googles-hr-boss/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

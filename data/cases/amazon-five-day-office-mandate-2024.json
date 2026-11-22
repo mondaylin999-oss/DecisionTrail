@@ -1,0 +1,80 @@
+{
+  "problem": "Leadership argued it was easier to learn and collaborate in person.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "amazon-five-day-office-mandate-2024",
+  "title": "Amazon requires corporate staff in the office five days a week",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Amazon",
+  "actor_type": "company",
+  "decision_date": "2024-09-16",
+  "date_precision": "month",
+  "context": "CEO Andy Jassy announced in September 2024 that employees would return to the office five days a week from January 2025.",
+  "decision_made": "Move from three to five office days a week, with exceptions for intensive coding work or a sick child with manager consent.",
+  "action_taken": "Offered commuter benefits and subsidised parking; the company denied it was a backdoor layoff.",
+  "observed_outcome": "Employee reaction was largely negative, including a remote-work Slack channel with more than 30,000 members and reports of people applying elsewhere. AWS's CEO said nine in ten employees he spoke with were excited.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Reaction in the first weeks",
+  "lessons": "Return-to-office mandates can produce strong immediate backlash, and leaders and staff may report very different sentiment.",
+  "limitations": "Mostly Fortune coverage from September to November 2024. Effects on attrition or productivity were not found.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2024/09/17/amazon-andy-jassy-rto-mandate-employees-angry/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2024-09-17",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cbsnews.com/news/amazon-rto-return-to-office-five-days-a-week",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2024-09-16",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Amazon told employees to return to the office five days a week from January 2025.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/amazon-rto-return-to-office-five-days-a-week",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Amazon employees criticised the policy in internal messages and some said they were looking for new jobs.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2024/09/17/amazon-andy-jassy-rto-mandate-employees-angry/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}
