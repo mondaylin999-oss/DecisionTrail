@@ -1,0 +1,80 @@
+{
+  "problem": "Unemployment benefits were seen as complex and a possible disincentive to take short-term work.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "finland-basic-income-experiment-2017",
+  "title": "Finland tests an unconditional basic income with 2,000 unemployed people",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Finland and Kela",
+  "actor_type": "public_body",
+  "decision_date": "2017-01-01",
+  "date_precision": "year",
+  "context": "Finland wanted to test whether an unconditional payment could improve employment and reduce benefit complexity.",
+  "decision_made": "Pay 2,000 unemployed people aged 25 to 58 a monthly EUR 560 with no conditions, for two years.",
+  "action_taken": "Ran a randomised experiment in 2017 and 2018 with a control group on ordinary unemployment benefit.",
+  "observed_outcome": "Employment effects were small: recipients averaged about 49.6 days in work against 49.3 for the control group. Recipients reported greater life satisfaction and less mental strain.",
+  "outcome_category": "mixed",
+  "observation_period": "Two years, final report in May 2020",
+  "lessons": "A basic income may improve reported wellbeing without much effect on employment over two years.",
+  "limitations": "A new activation model in 2018 complicates reading the employment effects. The wellbeing survey had no baseline, so changes cannot be attributed to the payment with certainty.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
+      "publisher": "Ministry of Social Affairs and Health",
+      "source_type": "primary",
+      "published_at": "2020-05-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.helsinki.fi/en/news/society-and-learning/basic-income-experiment-finland-yields-surprising-results",
+      "publisher": "University of Helsinki",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Finland paid 2,000 unemployed people EUR 560 a month without conditions in a 2017-2018 experiment.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
+          "support": "supports",
+          "locator": "results release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Employment effects were small while recipients reported better wellbeing.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
+          "support": "supports",
+          "locator": "results release"
+        }
+      ]
+    }
+  ]
+}

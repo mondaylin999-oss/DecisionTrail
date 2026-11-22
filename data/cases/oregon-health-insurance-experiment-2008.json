@@ -1,0 +1,80 @@
+{
+  "problem": "More people wanted coverage than there were places.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "oregon-health-insurance-experiment-2008",
+  "title": "Oregon allocates Medicaid places by lottery",
+  "category": "other",
+  "decision_type": "choose_one",
+  "actor_name": "State of Oregon",
+  "actor_type": "public_body",
+  "decision_date": "2008-03-01",
+  "date_precision": "year",
+  "context": "Oregon could only afford to add a limited number of low-income adults to its Medicaid programme.",
+  "decision_made": "Draw names by lottery for the available places.",
+  "action_taken": "Researchers compared lottery winners with non-winners.",
+  "observed_outcome": "Winners were about 25 percentage points more likely to be insured, used more care, had lower medical debt and reported better health; depression fell but blood pressure, cholesterol and employment showed no significant effect in the first two years.",
+  "outcome_category": "mixed",
+  "observation_period": "First one to two years",
+  "lessons": "Insurance can improve access, finances and mental health quickly while measured physical health measures may take longer to move.",
+  "limitations": "Results are specific to the population, plan and period. Only early findings were checked here.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.nber.org/programs-projects/projects-and-centers/oregon-health-insurance-experiment",
+      "publisher": "NBER",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://news.mit.edu/2011/medicaid-study-0708",
+      "publisher": "MIT News",
+      "source_type": "academic",
+      "published_at": "2011-07-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Oregon used a lottery in 2008 to assign limited Medicaid places among applicants.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nber.org/programs-projects/projects-and-centers/oregon-health-insurance-experiment",
+          "support": "supports",
+          "locator": "project page"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Lottery winners had higher coverage, more care use and lower medical debt in the first year.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.mit.edu/2011/medicaid-study-0708",
+          "support": "supports",
+          "locator": "news release"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Rising consumption of sugary drinks and related health effects.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "seattle-sweetened-beverage-tax-2018",
+  "title": "Seattle introduces a tax on sweetened beverages",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "City of Seattle",
+  "actor_type": "public_body",
+  "decision_date": "2018-01-01",
+  "date_precision": "year",
+  "context": "Seattle wanted to reduce sugary drink consumption and fund health and education programmes.",
+  "decision_made": "Tax sweetened beverages from January 2018.",
+  "action_taken": "The city commissioned an evaluation with university and public health partners.",
+  "observed_outcome": "Prices of taxed drinks rose by almost the full tax, with no effect found on food prices or small business closures. A 2024 study found lower-income households cut purchases by nearly 50 percent versus 18 percent for higher-income ones; self-reported consumption results were less clear.",
+  "outcome_category": "mixed",
+  "observation_period": "About 6 years",
+  "lessons": "Taxes can shift purchases, but effects differ by income and measurement method.",
+  "limitations": "Consumption findings depend on the data source. Health effects were reported in separate studies and were not verified here.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "price_increase",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://washington.edu/news/2024/10/21/sweetened-beverage-taxes-decrease-consumption-in-lower-income-households-by-nearly-50-uw-study-finds",
+      "publisher": "University of Washington",
+      "source_type": "academic",
+      "published_at": "2024-10-21",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://sph.washington.edu/news-events/news/seattles-soda-tax-almost-entirely-passed-consumers-researchers-find",
+      "publisher": "UW School of Public Health",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Seattle introduced a tax on sweetened beverages in 2018.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://sph.washington.edu/news-events/news/seattles-soda-tax-almost-entirely-passed-consumers-researchers-find",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A University of Washington study found lower-income households cut sweetened beverage purchases by nearly 50 percent.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://washington.edu/news/2024/10/21/sweetened-beverage-taxes-decrease-consumption-in-lower-income-households-by-nearly-50-uw-study-finds",
+          "support": "supports",
+          "locator": "news release"
+        }
+      ]
+    }
+  ]
+}

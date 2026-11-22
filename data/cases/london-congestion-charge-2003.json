@@ -1,0 +1,80 @@
+{
+  "problem": "Reduce congestion and journey times in the central zone.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "london-congestion-charge-2003",
+  "title": "London introduces a congestion charge for central London",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Transport for London",
+  "actor_type": "public_body",
+  "decision_date": "2003-02-17",
+  "date_precision": "day",
+  "context": "Central London traffic was heavily congested.",
+  "decision_made": "Charge drivers a daily fee to enter the central charging zone during working hours.",
+  "action_taken": "Began on 17 February 2003 and published annual monitoring reports.",
+  "observed_outcome": "TfL reported about 15 to 21 percent less traffic entering the zone and 22 to 30 percent less congestion in early years. Later assessments said congestion returned close to earlier levels and that effects are hard to separate from wider trends.",
+  "outcome_category": "positive",
+  "observation_period": "About 3 years",
+  "lessons": "A price on road use can cut traffic quickly, but gains may erode over time.",
+  "limitations": "Key figures are from the operator, TfL. Independent studies say the effect is hard to attribute. Figures vary by year and measure.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://tfl.gov.uk/info-for/media/press-releases/2004/april/tfl-publish-ccharge-annual-report",
+      "publisher": "Transport for London",
+      "source_type": "primary",
+      "published_at": "2004-04-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://tfl.gov.uk/info-for/media/press-releases/2006/june/congestion-charging-three-years-on--cleaner-air-safer-roads-and-reduced-congestion",
+      "publisher": "Transport for London",
+      "source_type": "primary",
+      "published_at": "2006-06-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "London introduced a congestion charge for a central zone on 17 February 2003.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://tfl.gov.uk/info-for/media/press-releases/2004/april/tfl-publish-ccharge-annual-report",
+          "support": "supports",
+          "locator": "annual report release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "After three years TfL reported traffic entering the zone down 21 percent and congestion 22 percent lower than in 2002.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://tfl.gov.uk/info-for/media/press-releases/2006/june/congestion-charging-three-years-on--cleaner-air-safer-roads-and-reduced-congestion",
+          "support": "supports",
+          "locator": "three-year release"
+        }
+      ]
+    }
+  ]
+}

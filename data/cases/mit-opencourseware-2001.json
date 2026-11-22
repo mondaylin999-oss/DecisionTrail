@@ -1,0 +1,81 @@
+{
+  "problem": "How to use the web to spread knowledge without selling it.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "mit-opencourseware-2001",
+  "title": "MIT decides to publish materials for nearly all its courses free online",
+  "category": "education",
+  "decision_type": "yes_no",
+  "actor_name": "MIT",
+  "actor_type": "public_body",
+  "decision_date": "2001-04-01",
+  "date_precision": "month",
+  "context": "Universities were debating whether and how to sell online courses.",
+  "decision_made": "Make materials for nearly all courses freely available online over ten years.",
+  "action_taken": "Announced by President Charles Vest in April 2001 with an initial goal of over 500 courses; foundations granted $11 million to launch.",
+  "observed_outcome": "By 2004 about half of MIT's roughly 950 professors were taking part, and MIT paid a $3,000 stipend per course added. Other universities said they would review their own online plans.",
+  "outcome_category": "positive",
+  "observation_period": "About 3 years",
+  "lessons": "Giving content away can still be sustainable if funded and if faculty are given an incentive to contribute.",
+  "limitations": "No formal evaluation of learning outcomes or usage was found in the sources used. Early evidence is anecdotal.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "open_source"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://news.mit.edu/2001/ocw",
+      "publisher": "MIT News",
+      "source_type": "primary",
+      "published_at": "2001-04-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.technologyreview.com/2004/06/01/274850/teach-locally-educate-globally/",
+      "publisher": "MIT Technology Review",
+      "source_type": "news",
+      "published_at": "2004-06-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "MIT announced it would make materials for nearly all courses freely available online over ten years.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.mit.edu/2001/ocw",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "About half of MIT's professors were participating by 2004.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.technologyreview.com/2004/06/01/274850/teach-locally-educate-globally/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

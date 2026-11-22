@@ -1,0 +1,80 @@
+{
+  "problem": "The company wanted to align its marketing with its environmental message.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "patagonia-dont-buy-this-jacket-2011",
+  "title": "Patagonia runs a Black Friday ad telling people not to buy a jacket",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Patagonia",
+  "actor_type": "company",
+  "decision_date": "2011-11-25",
+  "date_precision": "day",
+  "context": "Patagonia placed a New York Times ad on Black Friday 2011 discouraging unnecessary purchases.",
+  "decision_made": "Run an ad urging customers to think before buying and to repair gear.",
+  "action_taken": "Published the ad and later explained its purpose and answered questions.",
+  "observed_outcome": "No measured sales result for the ad was found. The only figure located was a forecast of 15 to 25 percent growth for 2011.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Claims that this ad boosted sales are often repeated without data, so treat them with caution.",
+  "limitations": "Several articles mix this ad with Patagonia's 2016 Black Friday donation, which raised over $10 million. The 2011 sales effect is not documented in reliable sources found.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.patagonia.com/stories/dont-buy-this-jacket-black-friday-and-the-new-york-times/story-18615.html",
+      "publisher": "Patagonia",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.outsideonline.com/outdoor-gear/gear-news/not-buyin-it/",
+      "publisher": "Outside",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Patagonia ran a Black Friday 2011 ad asking customers not to buy a jacket unless they needed it.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.patagonia.com/stories/dont-buy-this-jacket-black-friday-and-the-new-york-times/story-18615.html",
+          "support": "supports",
+          "locator": "company story"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Outside reported that Patagonia expected 2011 sales growth of 15 to 25 percent, a forecast rather than a result.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.outsideonline.com/outdoor-gear/gear-news/not-buyin-it/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

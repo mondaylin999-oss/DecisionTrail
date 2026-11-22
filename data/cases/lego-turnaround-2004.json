@@ -1,0 +1,82 @@
+{
+  "problem": "Overexpansion and brand dilution had drained cash.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "lego-turnaround-2004",
+  "title": "Lego sells non-core assets and refocuses on its core toy business",
+  "category": "business_strategy",
+  "decision_type": "stop_continue",
+  "actor_name": "The Lego Group",
+  "actor_type": "company",
+  "decision_date": "2004-01-01",
+  "date_precision": "year",
+  "context": "Lego had expanded into theme parks, video games and clothing and was close to bankruptcy in 2004.",
+  "decision_made": "Sell peripheral businesses including control of the Legoland parks, cut costs and refocus on core products.",
+  "action_taken": "New CEO Jorgen Vig Knudstorp sold a 70 percent stake in the parks for $460 million to Blackstone and cut jobs.",
+  "observed_outcome": "Lego was profitable again by 2006, and by 2014 it passed Mattel as the world's largest toy company by revenue and profit.",
+  "outcome_category": "positive",
+  "observation_period": "About 10 years",
+  "lessons": "Focusing on a core business and selling assets can rescue an overextended company.",
+  "limitations": "Debt and job-cut figures differ across sources. Some figures come from blog posts and business summaries.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://knowledge.wharton.upenn.edu/article/innovation-almost-bankrupted-lego-until-it-rebuilt-with-a-better-blueprint/",
+      "publisher": "Knowledge at Wharton",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.britannica.com/print/article/2028353",
+      "publisher": "Britannica",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Lego sold a 70 percent stake in its Legoland parks for $460 million and refocused on core products.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://knowledge.wharton.upenn.edu/article/innovation-almost-bankrupted-lego-until-it-rebuilt-with-a-better-blueprint/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Britannica credits the CEO with turning Lego around and reports it became the largest toy maker by 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.britannica.com/print/article/2028353",
+          "support": "supports",
+          "locator": "entry"
+        }
+      ]
+    }
+  ]
+}
