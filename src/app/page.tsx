@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import { Button, Card, CardTitle, Notice } from "@/components/ui";
+import { Button, Card, CardTitle, Notice, cn } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 import { useLanguage } from "@/lib/i18n";
@@ -108,9 +108,10 @@ export default function Dashboard() {
 function Stat({ n, label, tone }: { n: number; label: string; tone?: "warn" }) {
   const { t } = useLanguage();
   return (
-    <Card className={tone === "warn" ? "border-amber-300" : undefined}>
-      <div className="text-3xl font-semibold">{n}</div>
-      <div className="text-sm text-slate-600">{t(label)}</div>
+    <Card className={cn("pop relative overflow-hidden", tone === "warn" && "border-amber-300")}>
+      <span aria-hidden className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-violet-400/40 to-fuchsia-400/40 blur-xl" />
+      <div className="gradient-text relative text-4xl font-black">{n}</div>
+      <div className="relative mt-1 text-sm font-medium text-slate-600">{t(label)}</div>
     </Card>
   );
 }
@@ -124,7 +125,7 @@ function Bars({ rows, empty }: { rows: { k: string; n: number }[]; empty: string
       {rows.map((r) => (
         <li key={r.k} className="flex items-center gap-2 text-sm">
           <span className="w-40 shrink-0 text-slate-700">{t(r.k)}</span>
-          <span className="h-2 rounded bg-slate-700" style={{ width: `${(r.n / max) * 60}%` }} />
+          <span className="h-2.5 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500" style={{ width: `${(r.n / max) * 60}%` }} />
           <span className="text-slate-500">{r.n}</span>
         </li>
       ))}
