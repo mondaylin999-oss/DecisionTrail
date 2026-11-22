@@ -1,0 +1,83 @@
+{
+  "problem": "The new owner wanted to cut costs and move faster, and advertisers were already pulling back.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "time_pressure"
+  ],
+  "slug": "twitter-mass-layoffs-2022",
+  "title": "Twitter lays off about half its staff after the Musk acquisition",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "Twitter",
+  "actor_type": "company",
+  "decision_date": "2022-11-04",
+  "date_precision": "day",
+  "context": "Elon Musk completed his $44 billion acquisition of Twitter in late October 2022.",
+  "decision_made": "Lay off roughly half of about 7,500 employees within about a week of the takeover.",
+  "action_taken": "Cuts were made company-wide; within days the company reached out to dozens of laid-off employees asking them to return.",
+  "observed_outcome": "Reports said some employees were laid off by mistake and were asked back; several major advertisers suspended spending. Longer-term results were not found in the sources used.",
+  "outcome_category": "mixed",
+  "observation_period": "About 1 week",
+  "lessons": "Fast, broad cuts can remove people the company still needs and may have to be partly reversed.",
+  "limitations": "Only the immediate aftermath was covered. Staff counts differ by source and the longer-term advertiser and business effects were not checked.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2022/11/04/1134263184/twitter-layoffs-elon-musk",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2022-11-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2022/11/06/twitter-trying-to-rehire-workers-elon-musk-fired-days-ago-sources-say/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2022-11-06",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Twitter laid off about half of its staff within a week of Musk's takeover.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2022/11/04/1134263184/twitter-layoffs-elon-musk",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Twitter asked dozens of laid-off employees to return, some reportedly laid off by mistake.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2022/11/06/twitter-trying-to-rehire-workers-elon-musk-fired-days-ago-sources-say/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

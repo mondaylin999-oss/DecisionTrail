@@ -1,0 +1,82 @@
+{
+  "problem": "Offer a legal service people prefer to piracy while paying the labels.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "spotify-freemium-launch-2008",
+  "title": "Spotify launches in Europe with an invite-only free tier and paid Premium",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Spotify",
+  "actor_type": "startup",
+  "decision_date": "2008-10-07",
+  "date_precision": "day",
+  "context": "Music labels worried that streaming would hurt sales and piracy was widespread.",
+  "decision_made": "Offer a free ad-supported version by invitation only alongside a paid Premium subscription open to everyone.",
+  "action_taken": "Launched on 7 October 2008 with the support of the four major labels and many independents.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Invite-only access to the free tier let the company control growth while it built label relationships.",
+  "limitations": "Only the launch structure was checked. Several sources disagree on which countries were included at launch.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "freemium",
+    "free_plan",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://qz.com/1416233/spotify-europes-most-valuable-startup-is-10-years-old",
+      "publisher": "Quartz",
+      "source_type": "news",
+      "published_at": "2018-10-07",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://thenextweb.com/eu/2011/07/14/spotify-the-story-so-far/",
+      "publisher": "The Next Web",
+      "source_type": "news",
+      "published_at": "2011-07-14",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Spotify launched with a free ad-supported tier and a paid Premium subscription.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://thenextweb.com/eu/2011/07/14/spotify-the-story-so-far/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Free accounts were by invitation only while paid subscriptions were open to everyone.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://qz.com/1416233/spotify-europes-most-valuable-startup-is-10-years-old",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

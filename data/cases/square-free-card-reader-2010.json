@@ -1,0 +1,88 @@
+{
+  "problem": "Small sellers could not easily accept card payments.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "square-free-card-reader-2010",
+  "title": "Square gives away its card reader and earns a fee per transaction",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Square",
+  "actor_type": "startup",
+  "decision_date": "2010-05-01",
+  "date_precision": "month",
+  "context": "Accepting cards required a terminal; a rival charged $180 for a reader plus a monthly fee.",
+  "decision_made": "Give the reader away free and charge 2.75 percent per swipe, or 3.5 percent plus 15 cents for keyed entry.",
+  "action_taken": "Launched in May 2010; hardware shortages and a processing issue slowed the rollout in June.",
+  "observed_outcome": "Block, Square's successor, said giving away the hardware and software accepted early losses to reach the scale needed for long-term profitability.",
+  "outcome_category": "positive",
+  "observation_period": "Long term",
+  "lessons": "Giving away the entry hardware can build a merchant network when revenue comes from usage.",
+  "limitations": "The outcome statement is from the company's own later description. Reader cost per unit and the length of losses were not found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "usage_based"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://fortune.com/2011/01/31/a-twitter-guy-takes-on-big-banks/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-01-31",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://techcrunch.com/2010/06/18/square-delays",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2010-06-18",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://sequoiacap.com/podcast/crucible-moments-block",
+      "publisher": "Sequoia Capital",
+      "source_type": "interview",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Square gave away its card reader for free and charged a percentage fee per transaction.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/01/31/a-twitter-guy-takes-on-big-banks/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Block described the free-hardware approach as accepting early losses to achieve the scale needed for long-term profitability.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://sequoiacap.com/podcast/crucible-moments-block",
+          "support": "supports",
+          "locator": "podcast page"
+        }
+      ]
+    }
+  ]
+}

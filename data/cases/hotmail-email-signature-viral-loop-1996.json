@@ -1,0 +1,83 @@
+{
+  "problem": "The company had little money for marketing.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "budget_limited"
+  ],
+  "slug": "hotmail-email-signature-viral-loop-1996",
+  "title": "Hotmail adds a free-email tagline to every message sent by its users",
+  "category": "growth",
+  "decision_type": "yes_no",
+  "actor_name": "Hotmail",
+  "actor_type": "startup",
+  "decision_date": "1996-07-01",
+  "date_precision": "year",
+  "context": "Hotmail launched free web email in 1996 with a small venture round of about $300,000.",
+  "decision_made": "Append a tagline inviting recipients to get free email at Hotmail to every outgoing message.",
+  "action_taken": "Investor Tim Draper pushed for the tagline; the founders initially resisted altering users' email.",
+  "observed_outcome": "Hotmail reportedly passed 100,000 subscribers in its first 30 days and a million within six months; Microsoft later bought it in a deal reported at about $400 million. User counts at sale differ by source.",
+  "outcome_category": "positive",
+  "observation_period": "About 18 months",
+  "lessons": "Building the marketing into the product itself can produce growth with almost no budget.",
+  "limitations": "User-count figures conflict (1 million, 10 million or 12 million at sale depending on source). The exact \"P.S. I love you\" wording was not confirmed. The sale price is reported, not confirmed.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2009/10/18/ps-i-love-you-get-your-free-email-at-hotmail",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2009-10-18",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.techspot.com/article/2376-hotmail/",
+      "publisher": "TechSpot",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "A tagline was added to every Hotmail message after an investor pushed for it.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2009/10/18/ps-i-love-you-get-your-free-email-at-hotmail",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Hotmail grew quickly and was sold to Microsoft in a deal reported at about $400 million.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.techspot.com/article/2376-hotmail/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "Founder Yvon Chouinard did not want to sell or go public and wanted the company's profits to serve environmental goals.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "patagonia-purpose-trust-ownership-2022",
+  "title": "Patagonia's founder transfers ownership to a trust and a climate nonprofit",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Patagonia",
+  "actor_type": "company",
+  "decision_date": "2022-09-14",
+  "date_precision": "day",
+  "context": "Patagonia was a privately held company valued at about $3 billion.",
+  "decision_made": "Give all voting stock (2 percent) to the Patagonia Purpose Trust and all non-voting stock (98 percent) to the Holdfast Collective, a climate nonprofit.",
+  "action_taken": "Announced in September 2022; the company stays for-profit with unchanged leadership, and profits after reinvestment go to climate causes, estimated around $100 million a year.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Ownership structure can lock in a company's mission, trading off the option of selling or going public.",
+  "limitations": "Only the announcement and structure were checked. The $100 million figure is an estimate. The Holdfast Collective is a 501(c)(4), which allows political activity but gives no income tax deduction.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2022/09/15/1123104499/patagonia-founder-climate-change",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2022-09-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.nbcnews.com/science/environment/patagonia-founder-gives-company-away-ensuring-profits-go-fight-climate-rcna47793",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": "2022-09-15",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Patagonia's voting stock went to a purpose trust and its non-voting stock to the Holdfast Collective.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/science/environment/patagonia-founder-gives-company-away-ensuring-profits-go-fight-climate-rcna47793",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Chouinard estimated the arrangement could direct about $100 million a year to climate causes.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2022/09/15/1123104499/patagonia-founder-climate-change",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

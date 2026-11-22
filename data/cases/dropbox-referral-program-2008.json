@@ -1,0 +1,84 @@
+{
+  "problem": "Acquiring users through paid advertising was expensive for a product people had to understand first.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "budget_limited",
+    "small_team"
+  ],
+  "slug": "dropbox-referral-program-2008",
+  "title": "Dropbox adds a two-sided referral program that rewards storage",
+  "category": "growth",
+  "decision_type": "choose_one",
+  "actor_name": "Dropbox",
+  "actor_type": "startup",
+  "decision_date": "2008-09-01",
+  "date_precision": "year",
+  "context": "Dropbox was an early-stage file-sync startup with about 100,000 registered users in September 2008.",
+  "decision_made": "Give extra free storage to both the person who refers and the friend who joins.",
+  "action_taken": "Modelled the programme on PayPal's signup bonus and ran it as a permanent part of the product.",
+  "observed_outcome": "Founder Drew Houston's slides say the programme permanently raised signups by 60 percent, and registered users grew from 100,000 in September 2008 to 4 million in January 2010.",
+  "outcome_category": "positive",
+  "observation_period": "About 15 months",
+  "lessons": "A reward that benefits both sides and gives something the company can afford can turn users into a growth channel.",
+  "limitations": "Figures are from the founder's own 2010 slides, not an independent study. Other growth drivers, such as product quality, are not separated. A claim about 2 billion free storage was not found in the sources.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "freemium",
+    "free_plan"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.slideshare.net/slideshow/dropbox-startup-lessons-learned-3836587/3836587",
+      "publisher": "Drew Houston (SlideShare)",
+      "source_type": "primary",
+      "published_at": "2010-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://hackernoon.com/how-dropbox-grew-3900percent-using-referral-marketing-0qp3u7s",
+      "publisher": "HackerNoon",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Dropbox created a two-sided referral programme that gave storage to both referrer and friend.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.slideshare.net/slideshow/dropbox-startup-lessons-learned-3836587/3836587",
+          "support": "supports",
+          "locator": "slides"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Houston's slides state that the programme permanently increased signups by 60 percent.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.slideshare.net/slideshow/dropbox-startup-lessons-learned-3836587/3836587",
+          "support": "supports",
+          "locator": "slides"
+        }
+      ]
+    }
+  ]
+}

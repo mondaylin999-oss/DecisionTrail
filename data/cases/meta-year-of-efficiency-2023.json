@@ -1,0 +1,81 @@
+{
+  "problem": "Costs had grown and the company wanted to be leaner and flatter.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "meta-year-of-efficiency-2023",
+  "title": "Meta cuts about 21,000 jobs and declares a year of efficiency",
+  "category": "hiring",
+  "decision_type": "stop_continue",
+  "actor_name": "Meta",
+  "actor_type": "company",
+  "decision_date": "2023-03-14",
+  "date_precision": "month",
+  "context": "After heavy hiring and spending, Meta cut about 11,000 jobs in November 2022 and 10,000 more in March 2023.",
+  "decision_made": "Cut jobs, flatten management and cancel underperforming projects during 2023, framed as a year of efficiency.",
+  "action_taken": "Announced on the Q4 2022 earnings call and followed with a second round of layoffs.",
+  "observed_outcome": "Fortune reported that the announcement plus strong first-quarter results sent shares up about 23 percent in one day, and the CEO's wealth rose sharply.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 year",
+  "lessons": "Cost discipline can be rewarded by investors, but the human cost is large and the stock reaction mixes several causes.",
+  "limitations": "The 23 percent move combined layoffs and earnings, so cause cannot be separated. The sources do not cover morale, product effects or later hiring.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2023/03/14/1163326100/facebook-parent-meta-slashes-10-000-jobs-in-its-year-of-efficiency",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2023-03-14",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2024/02/02/meta-stock-earnings-zuckerberg-year-of-efficiency-layoffs-dividend/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2024-02-02",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Meta announced a second round of about 10,000 job cuts in March 2023 as part of a year of efficiency.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2023/03/14/1163326100/facebook-parent-meta-slashes-10-000-jobs-in-its-year-of-efficiency",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune linked the efficiency push and strong earnings to a roughly 23 percent one-day share rise.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2024/02/02/meta-stock-earnings-zuckerberg-year-of-efficiency-layoffs-dividend/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

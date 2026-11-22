@@ -1,0 +1,82 @@
+{
+  "problem": "Set pay fairly without negotiation bias.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "buffer-open-salaries-2013",
+  "title": "Buffer publishes its salary formula and every individual salary",
+  "category": "hiring",
+  "decision_type": "yes_no",
+  "actor_name": "Buffer",
+  "actor_type": "startup",
+  "decision_date": "2013-12-01",
+  "date_precision": "month",
+  "context": "Buffer was a small remote company that already valued transparency.",
+  "decision_made": "Use a published formula based on role, seniority, experience and location, and share all salaries publicly.",
+  "action_taken": "Published the formula in December 2013 and has kept transparent salaries for about a decade.",
+  "observed_outcome": "A 2015 LinkedIn article reported that Buffer received many more applications and that candidates were pre-screened for valuing transparency; Buffer said it once got 1,500 applications in just over a week for a content role. No measured before-and-after data was found.",
+  "outcome_category": "inconclusive",
+  "observation_period": "About 10 years",
+  "lessons": "Pay transparency can act as a filter on who applies, though the effect is hard to quantify.",
+  "limitations": "Evidence is company statements and an interview. The formula has changed since 2013. No measurement of the effect on retention or cost was found.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://buffer.com/resources/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries",
+      "publisher": "Buffer",
+      "source_type": "primary",
+      "published_at": "2013-12-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://talent.linkedin.com/blog/index.php/2015/03/what-happened-when-these-companies-made-their-employee-salaries-public",
+      "publisher": "LinkedIn Talent Blog",
+      "source_type": "news",
+      "published_at": "2015-03-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Buffer published a salary formula and its individual salaries.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://buffer.com/resources/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries",
+          "support": "supports",
+          "locator": "post"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A 2015 article said Buffer received many more job applications and that applicants were pre-screened for valuing transparency.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://talent.linkedin.com/blog/index.php/2015/03/what-happened-when-these-companies-made-their-employee-salaries-public",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}
