@@ -1,0 +1,83 @@
+{
+  "problem": "The company wanted to charge for API access.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "twitter-api-free-tier-end-2023",
+  "title": "Twitter ends free API access and introduces paid tiers",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Twitter",
+  "actor_type": "company",
+  "decision_date": "2023-02-01",
+  "date_precision": "month",
+  "context": "Twitter's API was free for many developers, researchers and bot makers.",
+  "decision_made": "End free API access and offer paid tiers, including a $100 per month basic tier.",
+  "action_taken": "Announced in Feb 2023; the timeline shifted several times and free access was gone by April.",
+  "observed_outcome": "Developers and researchers reacted strongly; some said they would shut down apps or bots. Revenue effects were not established by the sources used.",
+  "outcome_category": "mixed",
+  "observation_period": "About 2 to 3 months",
+  "lessons": "Removing a free tier abruptly can break a dependent ecosystem even if some users pay.",
+  "limitations": "Reaction is documented; long-term business results are not. The company had unusual circumstances in 2023.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "paid_subscription",
+    "usage_based",
+    "price_increase"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2023/02/01/twitter-to-end-free-access-to-its-api",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2023-02-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://techcrunch.com/2023/02/08/twitter-says-the-basic-tier-of-its-api-will-cost-100-per-month/",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2023-02-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Twitter announced it would end free API access and offer paid tiers.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2023/02/01/twitter-to-end-free-access-to-its-api",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Developers and researchers criticised the change and some said they would shut down projects.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2023/02/08/twitter-says-the-basic-tier-of-its-api-will-cost-100-per-month/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Cloud spend was high relative to a stable, predictable workload.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "37signals-cloud-exit-2023",
+  "title": "37signals leaves the public cloud for owned hardware",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "37signals",
+  "actor_type": "company",
+  "decision_date": "2022-10-01",
+  "date_precision": "year",
+  "context": "37signals ran Basecamp and HEY on public cloud services with large monthly bills.",
+  "decision_made": "Move applications off the public cloud to hardware the company owns.",
+  "action_taken": "Migrated apps and later reported on the savings.",
+  "observed_outcome": "By Sept 2023 cloud spend excluding S3 was reported down about 60 percent; hardware cost of about $700,000 was recouped during 2023. Later projections raised savings to over $10 million over five years.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 to 2 years",
+  "lessons": "Predictable, steady workloads with in-house operations skill may cost less on owned hardware.",
+  "limitations": "Self-reported by the company that made the choice. Depends on having a capable ops team and stable demand, which many companies lack. Projections are not results.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "cloud",
+    "self_hosted"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://world.hey.com/dhh/our-cloud-exit-has-already-yielded-1m-year-in-savings-db358dea",
+      "publisher": "HEY World (David Heinemeier Hansson)",
+      "source_type": "primary",
+      "published_at": "2023-09-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.theregister.com/2023/09/18/37_signals_cloud_repatriation_savings/",
+      "publisher": "The Register",
+      "source_type": "news",
+      "published_at": "2023-09-18",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "37signals moved its applications off the public cloud.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://world.hey.com/dhh/our-cloud-exit-has-already-yielded-1m-year-in-savings-db358dea",
+          "support": "supports",
+          "locator": "post title"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Cloud spend excluding S3 was reported down about 60 percent, from about $180,000 to under $80,000 per month.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.theregister.com/2023/09/18/37_signals_cloud_repatriation_savings/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

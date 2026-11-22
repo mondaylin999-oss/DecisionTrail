@@ -1,0 +1,83 @@
+{
+  "problem": "Storage cost was a large part of cost of revenue.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "dropbox-infrastructure-optimization-2016",
+  "title": "Dropbox moves most storage off AWS to its own infrastructure",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "Dropbox",
+  "actor_type": "company",
+  "decision_date": "2016-10-01",
+  "date_precision": "year",
+  "context": "Dropbox stored most user files on AWS S3.",
+  "decision_made": "Build its own storage infrastructure and move most files onto it.",
+  "action_taken": "Completed the Infrastructure Optimization project in Q4 2016; kept under 10 percent of storage on AWS.",
+  "observed_outcome": "The S-1 reportedly showed $74.6 million in operating cost savings over two years.",
+  "outcome_category": "positive",
+  "observation_period": "About 2 years",
+  "lessons": "At very large scale and steady demand, owning infrastructure can beat renting it.",
+  "limitations": "Dropbox's scale is unusual and required heavy engineering investment. Savings figures come from press coverage of the company's filing.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "buy",
+    "self_hosted",
+    "cloud"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.geekwire.com/2018/dropbox-saved-almost-75-million-two-years-building-tech-infrastructure/",
+      "publisher": "GeekWire",
+      "source_type": "news",
+      "published_at": "2018-02-23",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2018/02/23/dropbox-ipo-cloud-stock/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2018-02-23",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Dropbox moved most user data from AWS onto its own infrastructure.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2018/02/23/dropbox-ipo-cloud-stock/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Dropbox reported $74.6 million of operating cost savings over two years in its S-1.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.geekwire.com/2018/dropbox-saved-almost-75-million-two-years-building-tech-infrastructure/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

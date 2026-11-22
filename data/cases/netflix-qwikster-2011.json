@@ -1,0 +1,82 @@
+{
+  "problem": "Netflix wanted its streaming and DVD businesses to evolve independently.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "netflix-qwikster-2011",
+  "title": "Netflix plans to split DVD and streaming into Qwikster, then cancels",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Netflix",
+  "actor_type": "company",
+  "decision_date": "2011-09-18",
+  "date_precision": "day",
+  "context": "In 2011 Netflix raised prices and announced that its DVD-by-mail service would be separated from streaming under the name Qwikster.",
+  "decision_made": "Split DVD rental into a separate brand and website, Qwikster, with separate accounts.",
+  "action_taken": "CEO Reed Hastings posted an apology but kept the plan; about three weeks later Netflix dropped Qwikster and kept one site and one account.",
+  "observed_outcome": "The split was cancelled on 10 Oct 2011 and the price increase stayed. Reports say Netflix lost subscribers in Q3 2011; estimates differ by source.",
+  "outcome_category": "reversed",
+  "observation_period": "About 3 weeks from announcement to reversal",
+  "lessons": "Customer-facing changes that add friction (two sites, two accounts) can be reversed quickly if the backlash is strong, even when the underlying strategy is unchanged.",
+  "limitations": "Subscriber-loss figures vary between sources (about 800,000 vs about 2 million). The price increase and the split were combined, so their effects cannot be separated.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop",
+    "price_increase"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/sections/thetwo-way/2011/10/10/141209082/",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2011-10-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.engadget.com/2011/10/10/netflix-backtracks-on-qwikster-will-keep-dvds-and-streaming-und/",
+      "publisher": "Engadget",
+      "source_type": "news",
+      "published_at": "2011-10-10",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Netflix planned to split its DVD service into a separate Qwikster brand alongside a price increase.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/sections/thetwo-way/2011/10/10/141209082/",
+          "support": "supports",
+          "locator": "coverage of the reversal"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Netflix dropped Qwikster and kept DVDs and streaming under one site and account, while the price increase remained.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.engadget.com/2011/10/10/netflix-backtracks-on-qwikster-will-keep-dvds-and-streaming-und/",
+          "support": "supports",
+          "locator": "headline and body"
+        }
+      ]
+    }
+  ]
+}

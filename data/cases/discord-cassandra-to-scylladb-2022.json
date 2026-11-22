@@ -1,0 +1,82 @@
+{
+  "problem": "Hot partitions and latency issues kept the team firefighting.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "discord-cassandra-to-scylladb-2022",
+  "title": "Discord migrates message storage from Cassandra to ScyllaDB",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Discord",
+  "actor_type": "company",
+  "decision_date": "2022-05-01",
+  "date_precision": "month",
+  "context": "Discord's message store grew from 12 Cassandra nodes in 2017 to 177 nodes with trillions of messages by 2022.",
+  "decision_made": "Migrate trillions of messages to ScyllaDB with no downtime.",
+  "action_taken": "Built a custom Rust migrator and a data access layer; switched over in May 2022.",
+  "observed_outcome": "The largest cluster shrank from 177 Cassandra nodes to 72 ScyllaDB nodes, with lower tail latencies. Exact latency numbers vary by source.",
+  "outcome_category": "positive",
+  "observation_period": "Reported in the 2023 blog post",
+  "lessons": "At large scale, database choice and a purpose-built migration tool can change both cost and reliability.",
+  "limitations": "Self-reported. Only blog excerpts and secondary summaries were checked. Depends on Discord's access patterns and team capability.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "document_db",
+    "managed_service",
+    "self_hosted"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://discord.com/blog/how-discord-stores-trillions-of-messages",
+      "publisher": "Discord",
+      "source_type": "primary",
+      "published_at": "2023-03-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2023/06/discord-cassandra-scylladb/",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2023-06-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Discord migrated its message storage from Cassandra to ScyllaDB.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://discord.com/blog/how-discord-stores-trillions-of-messages",
+          "support": "supports",
+          "locator": "post body"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The largest cluster went from 177 Cassandra nodes to 72 ScyllaDB nodes with improved tail latencies.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2023/06/discord-cassandra-scylladb/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

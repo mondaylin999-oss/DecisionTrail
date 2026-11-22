@@ -1,0 +1,81 @@
+{
+  "problem": "Adobe sought recurring revenue and faster product updates.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "adobe-creative-cloud-subscription-2013",
+  "title": "Adobe shifts Creative Suite to the Creative Cloud subscription",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Adobe",
+  "actor_type": "company",
+  "decision_date": "2013-05-01",
+  "date_precision": "year",
+  "context": "Adobe moved its creative software from boxed perpetual licences toward a subscription.",
+  "decision_made": "Make Creative Cloud subscriptions the main way to buy its creative tools.",
+  "action_taken": "Grew subscriptions through fiscal 2014.",
+  "observed_outcome": "Creative Cloud subscriptions reached about 3.45 million by the end of fiscal 2014, up by over two million; recurring revenue rose to 66 percent of Q4 revenue from 44 percent a year earlier.",
+  "outcome_category": "positive",
+  "observation_period": "About 18 months",
+  "lessons": "Subscription models can lift recurring revenue, but results depend on existing customer lock-in.",
+  "limitations": "The 2013 announcement itself was not retrieved. Adobe had strong lock-in and brand, so results may not transfer to smaller companies. Customer dissatisfaction is not measured here.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "paid_subscription",
+    "one_time_purchase"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://venturebeat.com/technology/adobe-sees-strong-q4-with-644k-new-paying-creative-cloud-subscribers",
+      "publisher": "VentureBeat",
+      "source_type": "news",
+      "published_at": "2014-12-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2014/06/18/for-adobe-cloud-traction-leads-to-record-high-stock-price/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2014-06-18",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Adobe moved its creative software toward Creative Cloud subscriptions.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2014/06/18/for-adobe-cloud-traction-leads-to-record-high-stock-price/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Creative Cloud subscriptions grew by over two million to 3.454 million in fiscal 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://venturebeat.com/technology/adobe-sees-strong-q4-with-644k-new-paying-creative-cloud-subscribers",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

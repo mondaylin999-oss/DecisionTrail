@@ -1,0 +1,82 @@
+{
+  "problem": "Unity wanted new revenue from its game engine beyond seat-based subscriptions.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "unity-runtime-fee-2023-2024",
+  "title": "Unity introduces a per-install Runtime Fee, then cancels it",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Unity",
+  "actor_type": "company",
+  "decision_date": "2023-09-12",
+  "date_precision": "month",
+  "context": "Unity announced a fee charged per game install for developers above revenue thresholds.",
+  "decision_made": "Charge a Runtime Fee per install.",
+  "action_taken": "Changed the policy after developer backlash in Sept 2023, then cancelled the fee in Sept 2024 and returned to seat-based pricing with higher Pro and Enterprise prices.",
+  "observed_outcome": "Strong developer backlash; the CEO resigned in 2023; the fee was cancelled effective 12 Sept 2024.",
+  "outcome_category": "reversed",
+  "observation_period": "About 12 months to cancellation",
+  "lessons": "Retroactive pricing changes for existing customers can erode trust faster than they raise revenue.",
+  "limitations": "The cause of the CEO's departure and the revenue effects were not established by the sources used.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "usage_based",
+    "price_increase",
+    "paid_subscription"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://unity.com/blog/unity-is-canceling-the-runtime-fee",
+      "publisher": "Unity",
+      "source_type": "primary",
+      "published_at": "2024-09-12",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.videogameschronicle.com/news/unity-has-cancelled-its-controversial-runtime-fee/",
+      "publisher": "Video Games Chronicle",
+      "source_type": "news",
+      "published_at": "2024-09-12",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Unity introduced a Runtime Fee charged per install.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.videogameschronicle.com/news/unity-has-cancelled-its-controversial-runtime-fee/",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Unity cancelled the Runtime Fee for games customers and reverted to seat-based subscriptions.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://unity.com/blog/unity-is-canceling-the-runtime-fee",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    }
+  ]
+}

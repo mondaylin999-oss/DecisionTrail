@@ -1,0 +1,82 @@
+{
+  "problem": "The service could not scale to monitor thousands of streams affordably.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "prime-video-monitoring-to-monolith-2023",
+  "title": "Prime Video moves a monitoring service from distributed components to a single process",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Amazon Prime Video",
+  "actor_type": "company",
+  "decision_date": "2023-03-01",
+  "date_precision": "month",
+  "context": "A video quality monitoring service built from distributed serverless components hit scaling limits and high cost.",
+  "decision_made": "Rebuild it so components run together inside a single service on EC2/ECS instead of across separate serverless parts.",
+  "action_taken": "Removed intermediate S3 storage for frames and orchestrated components within one instance.",
+  "observed_outcome": "The team reported infrastructure cost reductions of over 90 percent for this service.",
+  "outcome_category": "positive",
+  "observation_period": "Reported in the original post",
+  "lessons": "For a tightly coupled, high-throughput workload, fewer network hops can matter more than fine-grained decomposition.",
+  "limitations": "Applies to one internal service, not Prime Video overall. Commentators disputed whether the result is truly a monolith. The primary post was not read directly; figures come from secondary coverage.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "monolith",
+    "microservices",
+    "serverless"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2023-05-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://thenewstack.io/return-of-the-monolith-amazon-dumps-microservices-for-video-monitoring/",
+      "publisher": "The New Stack",
+      "source_type": "news",
+      "published_at": "2023-05-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "The team moved the monitoring workload to a single-service design on EC2 and ECS.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Operational cost for this service was reported as reduced by about 90 percent.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs",
+          "support": "supports",
+          "locator": "article summary"
+        }
+      ]
+    }
+  ]
+}

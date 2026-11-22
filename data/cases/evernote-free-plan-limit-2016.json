@@ -1,0 +1,82 @@
+{
+  "problem": "The company wanted more revenue from its large free user base.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "evernote-free-plan-limit-2016",
+  "title": "Evernote limits the free plan to two devices and raises Premium price",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Evernote",
+  "actor_type": "company",
+  "decision_date": "2016-06-28",
+  "date_precision": "day",
+  "context": "Evernote offered a free Basic plan and paid Plus and Premium plans.",
+  "decision_made": "Limit free Basic to two devices and raise Plus and Premium prices.",
+  "action_taken": "Premium moved from $5.99 to $7.99 per month; existing users got a grace period.",
+  "observed_outcome": "Coverage shows negative user reaction. Long-term subscriber or revenue effects were not found in the sources used.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Reaction in the first days",
+  "lessons": "Tightening a free tier at the same time as a price rise can invite comparison with cheaper alternatives.",
+  "limitations": "Only the immediate reaction is documented, not retention or revenue.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "freemium",
+    "price_increase",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://9to5mac.com/2016/06/28/evernote-price-increase-basic-two-device-limit/",
+      "publisher": "9to5Mac",
+      "source_type": "news",
+      "published_at": "2016-06-28",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.computerworld.com/article/3089500/evernote-changes-its-pricing-plans-and-users-worry.html",
+      "publisher": "Computerworld",
+      "source_type": "news",
+      "published_at": "2016-06-29",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Evernote capped free Basic at two devices and raised Plus and Premium prices.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://9to5mac.com/2016/06/28/evernote-price-increase-basic-two-device-limit/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Users expressed worry and anger, and some said they would switch to alternatives.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.computerworld.com/article/3089500/evernote-changes-its-pricing-plans-and-users-worry.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

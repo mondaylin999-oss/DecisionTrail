@@ -1,0 +1,83 @@
+{
+  "problem": "Services had very different load patterns, and scaling and updating many services became a heavy burden.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "segment-microservices-back-to-monolith-2018",
+  "title": "Segment consolidates destination microservices back into one service",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Segment",
+  "actor_type": "company",
+  "decision_date": "2018-07-10",
+  "date_precision": "month",
+  "context": "Segment had split each customer-data destination into its own service and repository.",
+  "decision_made": "Move back from many destination microservices to a single monolithic service.",
+  "action_taken": "Published an account of the change in July 2018.",
+  "observed_outcome": "Segment described the consolidation as the right choice for this platform, while keeping microservices elsewhere.",
+  "outcome_category": "positive",
+  "observation_period": "Described in the July 2018 post",
+  "lessons": "Microservices can add operational cost when many services share the same shape of work and need to change together.",
+  "limitations": "Self-reported by the company. Specific to Segment's destinations platform and team size.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "microservices",
+    "monolith"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://segment.com/blog/goodbye-microservices",
+      "publisher": "Segment",
+      "source_type": "primary",
+      "published_at": "2018-07-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2018/07/segment-microservices",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2018-07-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Segment moved from many destination microservices back to a single service.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://segment.com/blog/goodbye-microservices",
+          "support": "supports",
+          "locator": "post title and body"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The company presented the consolidation as successful for this platform.",
+      "stated_or_inferred": "inferred",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2018/07/segment-microservices",
+          "support": "supports",
+          "locator": "news summary"
+        }
+      ]
+    }
+  ]
+}
