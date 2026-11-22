@@ -1,0 +1,81 @@
+{
+  "problem": "Reduce consumption of sugar-sweetened beverages.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "mexico-soda-tax-2014",
+  "title": "Mexico introduces a one-peso-per-litre tax on sugar-sweetened drinks",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Mexico",
+  "actor_type": "public_body",
+  "decision_date": "2014-01-01",
+  "date_precision": "year",
+  "context": "Mexico had high consumption of sugary drinks and rising obesity.",
+  "decision_made": "Apply an excise tax of about 1 peso per litre from January 2014.",
+  "action_taken": "Researchers tracked store purchase data for 2012 to 2015.",
+  "observed_outcome": "Prices rose by about the tax amount. Purchases of taxed drinks fell by about 5.5 percent in 2014 and 9.7 percent in 2015, with the biggest drops among lowest-income households, while purchases of untaxed drinks rose slightly.",
+  "outcome_category": "positive",
+  "observation_period": "2 years",
+  "lessons": "A tax passed fully into prices can reduce purchases, especially among lower-income households.",
+  "limitations": "Estimates use store purchase data and a counterfactual model, and the 2014 figure was revised from 6 percent to 5.5 percent in a later paper. Health outcomes were not measured here.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "price_increase",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.bmj.com/content/352/bmj.h6704",
+      "publisher": "BMJ",
+      "source_type": "academic",
+      "published_at": "2016-01-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5442881",
+      "publisher": "Health Affairs (via PMC)",
+      "source_type": "academic",
+      "published_at": "2017-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Mexico introduced an excise tax on sugar-sweetened beverages of about one peso per litre in 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.bmj.com/content/352/bmj.h6704",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A follow-up study found taxed beverage purchases fell 5.5 percent in 2014 and 9.7 percent in 2015.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5442881",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    }
+  ]
+}

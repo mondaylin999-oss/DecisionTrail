@@ -1,0 +1,80 @@
+{
+  "problem": "Provide recreation and physical activity space in a dense city.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "bogota-ciclovia-open-streets",
+  "title": "Bogota closes main streets to cars every Sunday and holiday for people",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "City of Bogota",
+  "actor_type": "public_body",
+  "decision_date": "1974-01-01",
+  "date_precision": "year",
+  "context": "Bogota ran a Ciclovia programme closing about 100 km of streets 72 times a year.",
+  "decision_made": "Close main streets to motor traffic on Sundays and holidays for walking, cycling and exercise.",
+  "action_taken": "Run by Bogota's sports institute; an economic analysis compared four Ciclovia programmes.",
+  "observed_outcome": "A 2012 study found a cost-benefit ratio of 3.23 to 4.26 for Bogota, at about US $6.0 per capita per year, and surveys found most participants met leisure physical activity recommendations (59.5 percent).",
+  "outcome_category": "positive",
+  "observation_period": "Decades",
+  "lessons": "Low-cost recurring street closures can deliver health benefits relative to cost.",
+  "limitations": "The start date is reported as 1974 in one source and not confirmed for 1976. Estimates depend on programme directors' inputs and local surveys.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://link.springer.com/doi/10.1007/s11524-011-9628-8",
+      "publisher": "Journal of Urban Health",
+      "source_type": "academic",
+      "published_at": "2012-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3558786",
+      "publisher": "American Journal of Public Health (via PMC)",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Bogota's Ciclovia takes place 72 times a year on nearly 100 kilometres of streets.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://link.springer.com/doi/10.1007/s11524-011-9628-8",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The economic analysis reported a cost-benefit ratio of 3.23 to 4.26 for Bogota.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://link.springer.com/doi/10.1007/s11524-011-9628-8",
+          "support": "supports",
+          "locator": "paper"
+        }
+      ]
+    }
+  ]
+}

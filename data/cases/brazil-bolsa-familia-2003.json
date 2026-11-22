@@ -1,0 +1,80 @@
+{
+  "problem": "Reduce poverty and its health effects.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "brazil-bolsa-familia-2003",
+  "title": "Brazil launches Bolsa Familia, a conditional cash transfer for poor households",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Brazil",
+  "actor_type": "public_body",
+  "decision_date": "2003-01-01",
+  "date_precision": "year",
+  "context": "Brazil had widespread poverty and child mortality related to poverty.",
+  "decision_made": "Pay cash to poor households on condition that they meet health and education requirements.",
+  "action_taken": "Launched in 2003 as a nationwide programme.",
+  "observed_outcome": "A 2025 Lancet Public Health study found the programme prevented over 8.2 million hospitalisations and 713,083 deaths between 2004 and 2019, though effects faded when transfers stopped. A 2013 Lancet analysis found it contributed to lower childhood mortality. One study found only weak links with cardiovascular and all-cause mortality.",
+  "outcome_category": "positive",
+  "observation_period": "About 15 years",
+  "lessons": "Conditional cash transfers can improve health outcomes at national scale, with effects that depend on continued payment.",
+  "limitations": "These are observational studies that attribute effects with statistical models. Results on school attendance and poverty were not covered in the sources used. A separate study found weak mortality associations.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://revistapesquisa.fapesp.br/en/bolsa-familia-program-prevented-8-2-million-hospitalizations-and-713000-deaths-between-2004-and-2019",
+      "publisher": "Pesquisa FAPESP",
+      "source_type": "news",
+      "published_at": "2025-06-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://academic.oup.com/ije/article/51/6/1847/6726398",
+      "publisher": "International Journal of Epidemiology",
+      "source_type": "academic",
+      "published_at": "2022-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Brazil's Bolsa Familia is a conditional cash transfer programme launched in 2003.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://revistapesquisa.fapesp.br/en/bolsa-familia-program-prevented-8-2-million-hospitalizations-and-713000-deaths-between-2004-and-2019",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A Lancet Public Health study estimated the programme prevented 8.2 million hospitalisations and 713,083 deaths between 2004 and 2019.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://revistapesquisa.fapesp.br/en/bolsa-familia-program-prevented-8-2-million-hospitalizations-and-713000-deaths-between-2004-and-2019",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

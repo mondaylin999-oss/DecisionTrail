@@ -1,0 +1,80 @@
+{
+  "problem": "Reduce road deaths and injuries.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "oslo-vision-zero-city-centre-2019",
+  "title": "Oslo restricts cars in the city centre and records no pedestrian or cyclist deaths",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "City of Oslo",
+  "actor_type": "public_body",
+  "decision_date": "2019-01-01",
+  "date_precision": "year",
+  "context": "Oslo adopted a Vision Zero goal for traffic deaths.",
+  "decision_made": "Remove regular street parking and close the city centre to through traffic, lower speed limits, add traffic calming near schools and expand bike lanes.",
+  "action_taken": "The centre restriction took effect in early 2019 and initially drew resident backlash.",
+  "observed_outcome": "The city reported zero pedestrian and cyclist deaths in 2019 and again in 2023. Overall there was one traffic death in 2019, down from five in 2018.",
+  "outcome_category": "positive",
+  "observation_period": "1 year, with a repeat result in 2023",
+  "lessons": "Combining speed reduction, street design and restrictions can cut deaths quickly, though one year of data is noisy for rare events.",
+  "limitations": "Some sources wrongly claim zero road deaths overall. Serious injuries were not eliminated, and the figures are from the city itself. Several sources are advocacy or trade coverage.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://content.tfl.gov.uk/vision-zero-case-study-oslo.pdf",
+      "publisher": "Transport for London",
+      "source_type": "case_study",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://urban-mobility-observatory.transport.ec.europa.eu/news-events/news/two-european-capitals-cut-pedestrian-and-cyclist-deaths-zero-after-traffic-changes-2020-03-24_en",
+      "publisher": "EU Urban Mobility Observatory",
+      "source_type": "primary",
+      "published_at": "2020-03-24",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Oslo removed regular street parking in the city centre and closed it to through traffic from early 2019.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://content.tfl.gov.uk/vision-zero-case-study-oslo.pdf",
+          "support": "supports",
+          "locator": "case study"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Oslo and Helsinki recorded zero pedestrian and cyclist deaths in 2019.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://urban-mobility-observatory.transport.ec.europa.eu/news-events/news/two-european-capitals-cut-pedestrian-and-cyclist-deaths-zero-after-traffic-changes-2020-03-24_en",
+          "support": "supports",
+          "locator": "news item"
+        }
+      ]
+    }
+  ]
+}

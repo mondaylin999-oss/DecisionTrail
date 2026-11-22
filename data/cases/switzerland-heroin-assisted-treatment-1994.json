@@ -1,0 +1,82 @@
+{
+  "problem": "Existing treatments were not reaching the most dependent users.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "regulated"
+  ],
+  "slug": "switzerland-heroin-assisted-treatment-1994",
+  "title": "Switzerland prescribes medical heroin to heavily dependent users",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Switzerland",
+  "actor_type": "public_body",
+  "decision_date": "1994-01-01",
+  "date_precision": "year",
+  "context": "Switzerland had open drug scenes and many heavily dependent users involved in crime.",
+  "decision_made": "Prescribe heroin under medical supervision, initially to 1,000 users and later up to 3,000.",
+  "action_taken": "Evaluated retention, crime, health and deaths, with a six-year follow-up cohort of 366 participants.",
+  "observed_outcome": "Evaluations found large reductions in illicit drug use and drug-related crime, no fatal overdoses of the prescribed drug, and retention of 89 percent at six months. Some figures come from the programme's own researchers.",
+  "outcome_category": "positive",
+  "observation_period": "About 6 years",
+  "lessons": "Medical prescription can retain very dependent users in treatment and reduce related harm.",
+  "limitations": "Start year differs by source, the follow-up is a single cohort, and evaluations were not designed to measure effects on drug markets. Several sources are from advocates and programme researchers.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12644733/",
+      "publisher": "PubMed (6-year follow-up)",
+      "source_type": "academic",
+      "published_at": "2003-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19922519/",
+      "publisher": "PubMed (policy change case study)",
+      "source_type": "academic",
+      "published_at": "2010-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Switzerland introduced heroin prescription for heavily dependent users in the 1990s.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19922519/",
+          "support": "supports",
+          "locator": "abstract page"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A six-year follow-up evaluated the long-term effects of heroin-assisted treatment in Switzerland.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12644733/",
+          "support": "supports",
+          "locator": "abstract page"
+        }
+      ]
+    }
+  ]
+}

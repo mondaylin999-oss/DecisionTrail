@@ -1,0 +1,80 @@
+{
+  "problem": "Shelter-based approaches were not ending long-term homelessness.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "finland-housing-first-2008",
+  "title": "Finland adopts Housing First, giving homeless people permanent homes without preconditions",
+  "category": "other",
+  "decision_type": "choose_one",
+  "actor_name": "Government of Finland and the Y-Foundation",
+  "actor_type": "public_body",
+  "decision_date": "2008-01-01",
+  "date_precision": "year",
+  "context": "Finland had long-term homelessness and relied heavily on shelters.",
+  "decision_made": "Provide permanent housing first, with support services, instead of requiring people to become housing-ready.",
+  "action_taken": "Converted shelters into housing; the number of shelter and hostel beds in Helsinki reportedly fell from 2,121 in 1985 to 52 in 2016.",
+  "observed_outcome": "The European Commission reports homelessness fell for 11 consecutive years by 2023, with a 40 percent fall from 2008 to 2019, and the Y-Foundation reports long-term homelessness decreasing for over a decade.",
+  "outcome_category": "positive",
+  "observation_period": "About 10 to 15 years",
+  "lessons": "Housing first can reduce homelessness when paired with supply of homes and support, though it is limited in scope.",
+  "limitations": "Much of the evidence is from the Y-Foundation, which is an advocate. A headline claim of a 75 percent reduction was not verified. Sources mix different periods.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://home-affairs.ec.europa.eu/projects/finland-housing-first-model-reduces-migrant-homelessness_en",
+      "publisher": "European Commission",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.weforum.org/stories/2019/04/how-finland-is-tackling-homelessness/",
+      "publisher": "World Economic Forum",
+      "source_type": "news",
+      "published_at": "2019-04-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Finland introduced a Housing First approach to homelessness in 2008.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.weforum.org/stories/2019/04/how-finland-is-tackling-homelessness/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The European Commission reports overall homelessness declined for 11 consecutive years by 2023.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://home-affairs.ec.europa.eu/projects/finland-housing-first-model-reduces-migrant-homelessness_en",
+          "support": "supports",
+          "locator": "project page"
+        }
+      ]
+    }
+  ]
+}

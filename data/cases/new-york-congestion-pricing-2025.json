@@ -1,0 +1,80 @@
+{
+  "problem": "Reduce congestion and raise money for transit.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "new-york-congestion-pricing-2025",
+  "title": "New York City begins congestion pricing for central Manhattan",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "MTA and State of New York",
+  "actor_type": "public_body",
+  "decision_date": "2025-01-05",
+  "date_precision": "day",
+  "context": "Manhattan's central business district had heavy traffic and the transit system needed funding.",
+  "decision_made": "Charge vehicles entering the congestion relief zone below 60th Street.",
+  "action_taken": "Began on 5 January 2025 and published first-year results on the anniversary.",
+  "observed_outcome": "State and MTA reports say traffic in the zone fell about 11 percent, with about 27 million fewer vehicles entering, speeds on bridges and tunnels improved up to 51 percent, and net revenue was projected to exceed $550 million against a $500 million goal. A Cornell study found a 22 percent drop in PM2.5 inside the zone for six months.",
+  "outcome_category": "positive",
+  "observation_period": "1 year",
+  "lessons": "Congestion pricing can reduce traffic and fund transit in a very large city.",
+  "limitations": "The main figures come from the government and the MTA, and counts differ by source (23.7 million versus 27 million fewer vehicles). The toll amount was not confirmed in the sources used. Disputes and legal fights continued.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.mta.info/press-release/icymi-less-traffic-better-transit-its-first-anniversary-governor-hochul-celebrates",
+      "publisher": "MTA",
+      "source_type": "primary",
+      "published_at": "2026-01-05",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.masstransitmag.com/management/news/55342305/nyc-marks-one-year-of-congestion-pricing-with-faster-travel-cleaner-air-safer-streets-and-more-revenue-than-expected",
+      "publisher": "Mass Transit",
+      "source_type": "news",
+      "published_at": "2026-01-05",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "New York began congestion pricing on 5 January 2025.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.mta.info/press-release/icymi-less-traffic-better-transit-its-first-anniversary-governor-hochul-celebrates",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The MTA reports traffic in the congestion relief zone down 11 percent and over $550 million in projected first-year net revenue.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.mta.info/press-release/icymi-less-traffic-better-transit-its-first-anniversary-governor-hochul-celebrates",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    }
+  ]
+}

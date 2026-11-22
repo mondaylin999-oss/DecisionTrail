@@ -1,0 +1,81 @@
+{
+  "problem": "Officials wanted to reduce saturated fat consumption.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "denmark-fat-tax-repeal-2012",
+  "title": "Denmark introduces a tax on saturated fat and abolishes it within about a year",
+  "category": "other",
+  "decision_type": "stop_continue",
+  "actor_name": "Government of Denmark",
+  "actor_type": "public_body",
+  "decision_date": "2012-11-10",
+  "date_precision": "month",
+  "context": "Denmark introduced the world's first fat tax in October 2011.",
+  "decision_made": "Abolish the tax, announced in November 2012.",
+  "action_taken": "The government cited higher consumer prices, administrative costs for companies and risks to jobs, and a planned sugar tax was cancelled too.",
+  "observed_outcome": "A study of households near the German border found more butter bought across the border during the tax, but overall butter consumption did not fall significantly. Critics said the repeal was to appease business interests.",
+  "outcome_category": "reversed",
+  "observation_period": "About 1 year",
+  "lessons": "A narrowly targeted food tax can raise compliance costs and shift purchases, undermining both health goals and support.",
+  "limitations": "The end date differs by source (late 2012 or January 2013). Whether the fall in fat consumption or cross-border shopping was due to the tax or the recession cannot be known from the sources.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "stop",
+    "price_increase"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.aljazeera.com/amp/economy/2012/11/10/denmark-to-scrap-fat-tax",
+      "publisher": "Al Jazeera",
+      "source_type": "news",
+      "published_at": "2012-11-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25840733/",
+      "publisher": "PubMed",
+      "source_type": "academic",
+      "published_at": "2015-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Denmark announced in November 2012 that it would scrap its tax on saturated fat.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.aljazeera.com/amp/economy/2012/11/10/denmark-to-scrap-fat-tax",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The paper titled the rise and fall of the world's first fat tax examined the tax's effects.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25840733/",
+          "support": "supports",
+          "locator": "abstract page"
+        }
+      ]
+    }
+  ]
+}
