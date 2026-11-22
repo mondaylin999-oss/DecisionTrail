@@ -1,0 +1,81 @@
+{
+  "problem": "Wave had not seen the user adoption Google wanted, and users found its tools hard to grasp.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-wave-discontinued-2010",
+  "title": "Google stops developing Wave a year after release",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2010-08-04",
+  "date_precision": "day",
+  "context": "Google Wave was a real-time collaboration tool introduced in May 2009.",
+  "decision_made": "Stop developing Wave as a stand-alone product and maintain it until the end of the year.",
+  "action_taken": "Announced on the Official Google Blog, offered export tools and said the technology would be reused in other projects.",
+  "observed_outcome": "The product was shut down; Google reused parts of the technology and open-sourced components.",
+  "outcome_category": "negative",
+  "observation_period": "About 15 months from announcement",
+  "lessons": "A powerful but unfamiliar product can fail to find users even with strong backing.",
+  "limitations": "Commentary on causes, such as usability or lack of Internet Explorer support, is opinion.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "open_source"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2010/08/04/google-waves-goodbye/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2010-08-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2010/08/04/technology/google_wave_rip/",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2010-08-04",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google said it would stop developing Wave as a stand-alone product.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2010/08/04/google-waves-goodbye/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "Google said Wave had not seen the user adoption it would have liked.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2010/08/04/technology/google_wave_rip/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

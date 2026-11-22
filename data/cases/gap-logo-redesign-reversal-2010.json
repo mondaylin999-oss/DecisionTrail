@@ -1,0 +1,81 @@
+{
+  "problem": "The company wanted to update its brand look.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "gap-logo-redesign-reversal-2010",
+  "title": "Gap launches a new logo and reverts to the old one within a week",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Gap",
+  "actor_type": "company",
+  "decision_date": "2010-10-11",
+  "date_precision": "day",
+  "context": "In early October 2010 Gap replaced its classic blue box logo on its website and said it would seek customer ideas for improving the design.",
+  "decision_made": "Roll out a new logo, then return to the original blue box after the reaction.",
+  "action_taken": "Gap said all roads were leading back to the blue box and conceded that crowdsourcing ideas had not been the best move.",
+  "observed_outcome": "After online protests the company reverted to the original logo about six days after the change.",
+  "outcome_category": "reversed",
+  "observation_period": "About 6 days",
+  "lessons": "Visible changes to a familiar identity can be reversed quickly under public pressure, and inviting input late can look like indecision.",
+  "limitations": "Sources differ slightly on dates. The business effect of the episode was not measured in the sources used.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.gapinc.com/en-us/articles/2010/10/gap-listens-to-customers-and-will-keep-classic-blu",
+      "publisher": "Gap Inc.",
+      "source_type": "primary",
+      "published_at": "2010-10-11",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2010/10/12/news/companies/gap_logo/index.htm",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2010-10-12",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Gap said it would keep the classic blue box logo and stop using the new one.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.gapinc.com/en-us/articles/2010/10/gap-listens-to-customers-and-will-keep-classic-blu",
+          "support": "supports",
+          "locator": "company statement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Gap reverted to its original logo after an outcry, and conceded crowdsourcing was not the best move.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2010/10/12/news/companies/gap_logo/index.htm",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

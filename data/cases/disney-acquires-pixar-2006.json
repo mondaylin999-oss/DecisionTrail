@@ -1,0 +1,81 @@
+{
+  "problem": "Disney wanted a stronger animation pipeline and a better relationship with Pixar's leadership.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "disney-acquires-pixar-2006",
+  "title": "Disney acquires Pixar in an all-stock deal valued at $7.4 billion",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "The Walt Disney Company",
+  "actor_type": "company",
+  "decision_date": "2006-01-24",
+  "date_precision": "day",
+  "context": "Disney and Pixar had a distribution relationship and talks on extending it had stalled.",
+  "decision_made": "Acquire Pixar for about $7.4 billion in stock, making Steve Jobs Disney's largest shareholder.",
+  "action_taken": "Left the two studios separate, kept Pixar in Emeryville and gave John Lasseter a senior creative role.",
+  "observed_outcome": "Not documented in the sources used. Disney said at the time the deal would lower earnings for two years and add to earnings by 2008.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Acquirers sometimes buy relationships and talent as much as assets, and say upfront when payback will come.",
+  "limitations": "Only the announcement and projections were checked here. Sources differ on Lasseter's title.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "build"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.nbcnews.com/id/11003466/ns/business-us_business/t/disney-buying-pixar-billion/",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": "2006-01-24",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.history.com/this-day-in-history/january-24/walt-disney-announces-7-4-billion-purchase-of-pixar",
+      "publisher": "History.com",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Disney agreed to buy Pixar in an all-stock deal valued at $7.4 billion.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/id/11003466/ns/business-us_business/t/disney-buying-pixar-billion/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Disney said the deal would lower earnings for two years and add to them by 2008.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/id/11003466/ns/business-us_business/t/disney-buying-pixar-billion/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

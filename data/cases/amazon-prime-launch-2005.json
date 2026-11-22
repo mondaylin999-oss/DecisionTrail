@@ -1,0 +1,81 @@
+{
+  "problem": "Shipping costs discouraged customers from ordering more often.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "amazon-prime-launch-2005",
+  "title": "Amazon launches Prime with free two-day shipping for $79 a year",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Amazon",
+  "actor_type": "company",
+  "decision_date": "2005-02-02",
+  "date_precision": "day",
+  "context": "Amazon charged per order for shipping and wanted to encourage more frequent purchases.",
+  "decision_made": "Offer a membership with unlimited free two-day shipping for $79 a year.",
+  "action_taken": "Launched in February 2005 amid skepticism about the cost of providing the shipping.",
+  "observed_outcome": "Amazon said tens of thousands of customers joined in the first month. Later reports put Prime above 100 million subscribers by 2018 and over 200 million in 2021, and the fee rose to $99, $119 and $139.",
+  "outcome_category": "positive",
+  "observation_period": "About 16 years",
+  "lessons": "A flat fee that removes a small friction can build loyalty and raise purchase frequency.",
+  "limitations": "Membership figures are company-reported. Whether Prime shipping was profitable in the early years is not covered here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "paid_subscription",
+    "price_decrease"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://money.cnn.com/2018/04/28/technology/amazon-prime-timeline/index.html",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2018-04-28",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2012/02/21/amazons-prime-and-punishment/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2012-02-21",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Amazon launched Prime in 2005 with free two-day shipping for $79 a year.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2018/04/28/technology/amazon-prime-timeline/index.html",
+          "support": "supports",
+          "locator": "timeline"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Prime had over 100 million subscribers by 2018.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2018/04/28/technology/amazon-prime-timeline/index.html",
+          "support": "supports",
+          "locator": "timeline"
+        }
+      ]
+    }
+  ]
+}

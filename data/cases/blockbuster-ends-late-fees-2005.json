@@ -1,0 +1,102 @@
+{
+  "problem": "Customers disliked late fees and Netflix offered rentals without them.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "blockbuster-ends-late-fees-2005",
+  "title": "Blockbuster ends late fees and later reinstates them",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Blockbuster",
+  "actor_type": "company",
+  "decision_date": "2005-01-01",
+  "date_precision": "month",
+  "context": "Late fees were a major profit source and a common customer complaint for video rental stores.",
+  "decision_made": "Eliminate late fees from 1 January 2005, selling the item to customers after a one-week grace period.",
+  "action_taken": "Advertised \"No Late Fees\"; the company projected late fees would have contributed about $250 to $300 million to 2005 operating income.",
+  "observed_outcome": "Attorneys general in dozens of states settled with Blockbuster over the \"No Late Fees\" advertising for about $630,000 in costs, and the company reported a second-quarter 2005 loss and retracted its 2005 guidance. Late fees were reinstated by 2010.",
+  "outcome_category": "negative",
+  "observation_period": "About 5 years",
+  "lessons": "Giving up a major revenue stream for a marketing message can backfire if the terms are not clear and the business is already declining.",
+  "limitations": "Coverage attributes the loss partly to wider industry decline. A $400 million loss figure and a Texas lawsuit were not confirmed and are not included.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "price_decrease",
+    "stop"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.cbsnews.com/news/blockbuster-dumping-late-fees",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2004-12-14",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://chainstoreage.com/news/blockbuster-settles-no-late-fees-debacle",
+      "publisher": "Chain Store Age",
+      "source_type": "news",
+      "published_at": "2005-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.dallasnews.com/business/2010/03/03/blockbuster-reinstates-late-fees-on-video-rentals/",
+      "publisher": "Dallas Morning News",
+      "source_type": "news",
+      "published_at": "2010-03-03",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Blockbuster announced it would drop late fees from 1 January 2005.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/blockbuster-dumping-late-fees",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Attorneys general in many states settled with Blockbuster over its \"No Late Fees\" advertising.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://chainstoreage.com/news/blockbuster-settles-no-late-fees-debacle",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Blockbuster reinstated late fees on video rentals in 2010.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.dallasnews.com/business/2010/03/03/blockbuster-reinstates-late-fees-on-video-rentals/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

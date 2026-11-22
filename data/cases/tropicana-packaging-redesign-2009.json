@@ -1,0 +1,81 @@
+{
+  "problem": "The company wanted a refreshed look for the brand.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "tropicana-packaging-redesign-2009",
+  "title": "Tropicana redesigns its carton, sees sales fall, and returns to the old design",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Tropicana (PepsiCo)",
+  "actor_type": "company",
+  "decision_date": "2009-01-08",
+  "date_precision": "day",
+  "context": "PepsiCo launched new cartons for Tropicana Pure Premium on 8 January 2009.",
+  "decision_made": "Replace the familiar orange-with-straw carton with a new design.",
+  "action_taken": "Announced on 23 February 2009 that it would scrap the new design.",
+  "observed_outcome": "Unit sales reportedly fell 20 percent and dollar sales 19 percent between 1 January and 22 February 2009. The company said it had underestimated the emotional bond customers had with the old carton.",
+  "outcome_category": "reversed",
+  "observation_period": "About 7 weeks",
+  "lessons": "Customers can be strongly attached to a recognisable package, and a redesign can cost real sales before it is tested widely.",
+  "limitations": "Sales data was reported via trade press from retail tracking data. Cost estimates range from about $27 million to $50 million and include different items. Competitors' gains were reported by AOL.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.bloomberg.com/news/articles/2009-04-02/tropicana-fiasco-from-arnell-is-gift-that-keeps-giving",
+      "publisher": "Bloomberg",
+      "source_type": "news",
+      "published_at": "2009-04-02",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure",
+      "publisher": "Everything PR",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "PepsiCo launched new Tropicana Pure Premium cartons in January 2009 and scrapped them in February.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://everything-pr.com/tropicana-packaging-redesign-failure",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Unit sales fell about 20 percent in the weeks after the redesign, according to retail tracking data.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://everything-pr.com/tropicana-packaging-redesign-failure",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

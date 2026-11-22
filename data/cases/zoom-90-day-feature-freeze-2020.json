@@ -1,0 +1,83 @@
+{
+  "problem": "The company had fallen short of privacy and security expectations.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "time_pressure"
+  ],
+  "slug": "zoom-90-day-feature-freeze-2020",
+  "title": "Zoom freezes new features for 90 days to fix privacy and security",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Zoom",
+  "actor_type": "company",
+  "decision_date": "2020-04-01",
+  "date_precision": "day",
+  "context": "Zoom's usage surged in early 2020 and security and privacy problems came to light.",
+  "decision_made": "Pause work on features not related to privacy, safety or security for 90 days.",
+  "action_taken": "CEO Eric Yuan apologised, promised a third-party review, a transparency report and weekly webinars.",
+  "observed_outcome": "Zoom published a follow-up on 1 July 2020 reporting on the 90-day programme. Coverage said the freeze was over but security stayed a priority; whether paused features returned was not established.",
+  "outcome_category": "inconclusive",
+  "observation_period": "90 days",
+  "lessons": "A public, time-boxed commitment to fix trust issues can be easier to hold the company to than a general promise.",
+  "limitations": "The result is described mainly by the company's own report. Effects on user trust and growth were not measured in the sources used.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://techcrunch.com/2020/04/02/zoom-freezes-feature-development-to-fix-security-and-privacy-issues",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2020-04-02",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.zoom.com/vi/blog/ceo-report-90-days-done-whats-next-for-zoom/",
+      "publisher": "Zoom",
+      "source_type": "primary",
+      "published_at": "2020-07-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Zoom paused work on non-security and non-privacy features for 90 days.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2020/04/02/zoom-freezes-feature-development-to-fix-security-and-privacy-issues",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Zoom published a CEO report on the 90 days on 1 July 2020.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.zoom.com/vi/blog/ceo-report-90-days-done-whats-next-for-zoom/",
+          "support": "supports",
+          "locator": "blog post"
+        }
+      ]
+    }
+  ]
+}
