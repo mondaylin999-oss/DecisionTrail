@@ -7,7 +7,7 @@ import { InferenceBadge } from "@/components/marks";
 import { MatchCard } from "@/components/MatchCard";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
-import { Button, Card, CardTitle, Field, Input, Notice, Spinner, Textarea, cn } from "@/components/ui";
+import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
 import { extractDecision, prepareDeviceModel, type Where } from "@/lib/ai/tasks";
 import { RoutingError } from "@/lib/ai/router";
 import { api } from "@/lib/api";
@@ -18,7 +18,14 @@ type Step = "describe" | "structure" | "evidence" | "record";
 
 export default function NewDecisionPage() {
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense
+      fallback={
+        <SkeletonGroup className="space-y-4">
+          <Skeleton className="h-9 w-1/2" />
+          <SkeletonCard lines={4} />
+        </SkeletonGroup>
+      }
+    >
       <NewDecision />
     </Suspense>
   );

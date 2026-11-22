@@ -110,6 +110,34 @@ export function Notice({ tone = "info", children }: { tone?: "info" | "warn" | "
   return <div role="status" className={cn("rounded-2xl border px-4 py-2.5 text-sm", tones[tone])}>{typeof children === "string" ? t(children) : children}</div>;
 }
 
+/** Placeholder block shown while data loads. Decorative: wrap groups in <SkeletonGroup>. */
+export function Skeleton({ className }: { className?: string }) {
+  return <div aria-hidden className={cn("skeleton rounded-xl", className)} />;
+}
+
+/** Announces "Loading" once to screen readers while its skeleton children render. */
+export function SkeletonGroup({ className, children }: { className?: string; children: ReactNode }) {
+  const { t } = useLanguage();
+  return (
+    <div role="status" aria-busy="true" className={className}>
+      <span className="sr-only">{t("Loading…")}</span>
+      {children}
+    </div>
+  );
+}
+
+/** A card-shaped placeholder with a title line and `lines` text lines. */
+export function SkeletonCard({ lines = 3, className }: { lines?: number; className?: string }) {
+  return (
+    <Card className={cn("space-y-3", className)}>
+      <Skeleton className="h-5 w-2/5" />
+      {Array.from({ length: lines }, (_, i) => (
+        <Skeleton key={i} className={cn("h-3.5", i === lines - 1 ? "w-3/5" : "w-full")} />
+      ))}
+    </Card>
+  );
+}
+
 export function Spinner() {
   return <span aria-hidden className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />;
 }

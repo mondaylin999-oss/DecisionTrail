@@ -8,7 +8,7 @@ import { useAuth } from "./AuthProvider";
 import { LanguageToggle } from "./LanguageToggle";
 import { PrivacyPill } from "./marks";
 import { ThemeToggle } from "./ThemeToggle";
-import { Badge, Button, Card, Notice, Spinner, cn } from "./ui";
+import { Badge, Button, Card, Notice, Skeleton, SkeletonGroup, cn } from "./ui";
 
 const NAV = [
   { href: "/", label: "Dashboard", icon: "🏠" },
@@ -43,7 +43,12 @@ export function AppShell({ children }: { children: ReactNode }) {
   if (!ready) {
     return (
       <Centered>
-        <Spinner />
+        <SkeletonGroup className="space-y-3">
+          <Skeleton className="mx-auto h-14 w-14 rounded-2xl" />
+          <Skeleton className="mx-auto h-8 w-2/3" />
+          <Skeleton className="mx-auto h-4 w-5/6" />
+          <Skeleton className="mx-auto h-11 w-full rounded-full" />
+        </SkeletonGroup>
       </Centered>
     );
   }

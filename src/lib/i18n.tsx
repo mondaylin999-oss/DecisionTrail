@@ -216,6 +216,7 @@ const MY: Record<string, string> = {
   "Checking…": "စစ်ဆေးနေသည်…",
   "Download on-device model": "စက်ပေါ်ရှိ မော်ဒယ်ကို ဒေါင်းလုဒ်လုပ်ရန်",
   "Downloading…": "ဒေါင်းလုဒ်လုပ်နေသည်…",
+  "Loading…": "ဖွင့်နေသည်…",
   "Consent history": "ခွင့်ပြုချက်မှတ်တမ်း",
   "what you authorized, and when": "သင်ခွင့်ပြုခဲ့သည့်အရာနှင့် အချိန်",
   "No cloud consents yet.": "Cloud အသုံးပြုရန် ခွင့်ပြုချက် မရှိသေးပါ။",

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import { Badge, Card, Notice } from "@/components/ui";
+import { Badge, Card, Notice, SkeletonCard, SkeletonGroup } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 import { useLanguage } from "@/lib/i18n";
@@ -24,6 +24,13 @@ export default function ResearchHistoryPage() {
       <PageTitle title="Research history" subtitle="Saved live-research sessions. Findings are research candidates, not verified cases." />
       {err && <Notice tone="error">{err}</Notice>}
       {rows?.length === 0 && <Notice tone="info">No research yet. Start one from a decision&apos;s evidence step.</Notice>}
+      {!rows && !err && (
+        <SkeletonGroup className="space-y-2">
+          {[0, 1, 2].map((i) => (
+            <SkeletonCard key={i} lines={1} />
+          ))}
+        </SkeletonGroup>
+      )}
       <div className="space-y-2">
         {rows?.map((r) => (
           <Card key={r.id} className="space-y-1">

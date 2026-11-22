@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { DemoBadge, MatchBadge, OriginChip, OutcomeChip } from "@/components/marks";
-import { Badge, Button, Card, CardTitle, Field, Notice, Select, Spinner, Textarea } from "@/components/ui";
+import { Badge, Button, Card, CardTitle, Field, Notice, Select, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea } from "@/components/ui";
 import { api } from "@/lib/api";
 import { useLanguage } from "@/lib/i18n";
 import type { FieldOrigin, MatchLabel } from "@/lib/types";
@@ -61,7 +61,14 @@ export default function DecisionDetailPage() {
   }, [me, load]);
 
   if (err) return <Notice tone="error">{err}</Notice>;
-  if (!d) return <Spinner />;
+  if (!d)
+    return (
+      <SkeletonGroup className="space-y-4">
+        <Skeleton className="h-9 w-1/2" />
+        <SkeletonCard lines={4} />
+        <SkeletonCard lines={3} />
+      </SkeletonGroup>
+    );
 
   const r = d.record;
   const chosen = d.options.find((o) => o.id === r.chosenOptionId);

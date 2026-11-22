@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import { Button, Card, CardTitle, Notice, cn } from "@/components/ui";
+import { Button, Card, CardTitle, Notice, Skeleton, SkeletonCard, SkeletonGroup, cn } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 import { useLanguage } from "@/lib/i18n";
@@ -42,6 +42,22 @@ export default function Dashboard() {
         }
       />
       {err && <Notice tone="error">{err}</Notice>}
+      {!s && !err && (
+        <SkeletonGroup className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-4">
+            {[0, 1, 2, 3].map((i) => (
+              <Card key={i} className="space-y-3">
+                <Skeleton className="h-9 w-16" />
+                <Skeleton className="h-3.5 w-3/4" />
+              </Card>
+            ))}
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <SkeletonCard lines={4} />
+            <SkeletonCard lines={4} />
+          </div>
+        </SkeletonGroup>
+      )}
       {s && s.total === 0 && (
         <Card className="space-y-3">
           <CardTitle>Start your trail</CardTitle>

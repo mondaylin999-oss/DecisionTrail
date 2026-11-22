@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { DemoBadge, OutcomeChip } from "@/components/marks";
-import { Button, Card, Input, Notice, Select } from "@/components/ui";
+import { Button, Card, Input, Notice, Select, Skeleton } from "@/components/ui";
 import { api } from "@/lib/api";
 import { CATEGORIES, label, type OutcomeStatus } from "@/lib/vocab";
 import { useLanguage } from "@/lib/i18n";
@@ -84,6 +84,17 @@ export default function DecisionsPage() {
                 </td>
               </tr>
             ))}
+            {!rows && !err &&
+              [0, 1, 2, 3, 4].map((i) => (
+                <tr key={`sk-${i}`} aria-hidden>
+                  <td className="p-3"><Skeleton className="h-4 w-48" /></td>
+                  <td className="p-3"><Skeleton className="h-4 w-20" /></td>
+                  <td className="p-3"><Skeleton className="h-4 w-24" /></td>
+                  <td className="p-3"><Skeleton className="h-4 w-20" /></td>
+                  <td className="p-3"><Skeleton className="h-4 w-20" /></td>
+                  <td className="p-3"><Skeleton className="h-5 w-28 rounded-full" /></td>
+                </tr>
+              ))}
             {rows && filtered.length === 0 && (
               <tr>
                 <td colSpan={6} className="p-6 text-center text-slate-500">
