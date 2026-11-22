@@ -1,0 +1,82 @@
+{
+  "problem": "The sensor expected 20 input fields but the update supplied 21, causing an out-of-bounds memory read and a system crash; a Content Validator bug let the problematic content through.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "time_pressure"
+  ],
+  "slug": "crowdstrike-faulty-update-2024",
+  "title": "CrowdStrike ships a faulty content update that crashes millions of Windows devices",
+  "category": "operations",
+  "decision_type": "yes_no",
+  "actor_name": "CrowdStrike",
+  "actor_type": "company",
+  "decision_date": "2024-07-19",
+  "date_precision": "day",
+  "context": "A Falcon sensor content update went out at 04:09 UTC on 19 July 2024.",
+  "decision_made": "Release the content update to all customers at once, then revert it at 05:27 UTC.",
+  "action_taken": "Published a root cause analysis in August 2024 and committed to staged deployment starting with a canary group, customer control over rollout, more testing including fuzzing, and added bounds checks.",
+  "observed_outcome": "More than eight million devices worldwide reportedly crashed. Systems that came online after the revert or did not connect in the window were not impacted.",
+  "outcome_category": "negative",
+  "observation_period": "Hours of impact, with remediation over following weeks",
+  "lessons": "Even content updates need staged rollout, validation and bounds checking when they run at kernel level.",
+  "limitations": "The 8.5 million figure was not found in the sources, which say more than eight million. Financial and legal consequences were not covered here.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/",
+      "publisher": "CrowdStrike",
+      "source_type": "postmortem",
+      "published_at": "2024-08-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.techtarget.com/cybersecurity/news/366602392/CrowdStrike-details-errors-that-led-to-mass-IT-outage",
+      "publisher": "TechTarget",
+      "source_type": "news",
+      "published_at": "2024-08-07",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "CrowdStrike's update expected 20 input fields but supplied 21, causing an out-of-bounds read and system crash.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/",
+          "support": "supports",
+          "locator": "root cause analysis"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "CrowdStrike committed to staged deployment starting with canary deployments for Rapid Response Content.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.techtarget.com/cybersecurity/news/366602392/CrowdStrike-details-errors-that-led-to-mass-IT-outage",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

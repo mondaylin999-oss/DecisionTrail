@@ -1,0 +1,81 @@
+{
+  "problem": "Vertically scaled single points of failure, such as relational databases in its own data centre, put the service at risk.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "netflix-move-to-aws-2008",
+  "title": "Netflix moves from its own data centres to AWS after a database failure",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Netflix",
+  "actor_type": "company",
+  "decision_date": "2008-08-01",
+  "date_precision": "month",
+  "context": "In August 2008 a major database corruption stopped Netflix shipping DVDs for three days.",
+  "decision_made": "Move to the cloud, choosing AWS for its scale and range of services, and rebuild systems rather than lift and shift.",
+  "action_taken": "Migrated over about seven years, finishing in early 2016 when its last in-house data centre was shut; the content delivery network stayed in-house.",
+  "observed_outcome": "Netflix completed the migration and said cloud costs per streaming start ended up a fraction of those in the data centre; cost saving was a side effect of the move.",
+  "outcome_category": "positive",
+  "observation_period": "About 7 years",
+  "lessons": "A failure can justify a deep architectural change, and redesigning for the cloud matters more than moving servers.",
+  "limitations": "Cost and reliability claims come from Netflix. The original tech blog post was not opened directly, and the company's later cloud bills were not checked.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "cloud",
+    "managed_service"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://about.netflix.com/news/completing-the-netflix-cloud-migration",
+      "publisher": "Netflix",
+      "source_type": "primary",
+      "published_at": "2016-02-11",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2016/03/Netflix-Cloud-Migration",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2016-03-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Netflix began moving to the cloud after a database corruption in August 2008 kept it from shipping DVDs for three days.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://about.netflix.com/news/completing-the-netflix-cloud-migration",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Netflix completed its migration and shut its last in-house data centre in early 2016.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2016/03/Netflix-Cloud-Migration",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

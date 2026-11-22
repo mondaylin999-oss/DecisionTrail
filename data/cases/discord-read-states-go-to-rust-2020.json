@@ -1,0 +1,81 @@
+{
+  "problem": "The Go service showed latency spikes every few minutes, attributed to garbage collection of evicted cache entries.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "discord-read-states-go-to-rust-2020",
+  "title": "Discord rewrites its Read States service from Go to Rust",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Discord",
+  "actor_type": "company",
+  "decision_date": "2020-02-01",
+  "date_precision": "month",
+  "context": "Read States tracks which channels and messages each user has read, and is accessed on every connection, message and read.",
+  "decision_made": "Rewrite the service in Rust, which frees memory as soon as entries are no longer used.",
+  "action_taken": "Published an engineering post in February 2020 explaining the change.",
+  "observed_outcome": "Discord reported the Rust version removed the periodic latency spikes. Secondary sources cite specific millisecond-to-microsecond improvements that were not confirmed against the original post.",
+  "outcome_category": "positive",
+  "observation_period": "At rewrite",
+  "lessons": "For services with strict latency needs and large caches, garbage collection pauses can dominate tail latency.",
+  "limitations": "Specific numbers were not verified. The result applies to one service with a particular access pattern, and rewriting has its own costs.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "build",
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://discord.com/blog/why-discord-is-switching-from-go-to-rust",
+      "publisher": "Discord",
+      "source_type": "primary",
+      "published_at": "2020-02-04",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2002/10/news038.html",
+      "publisher": "@IT",
+      "source_type": "news",
+      "published_at": "2020-02-10",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Discord rewrote its Read States service from Go to Rust.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://discord.com/blog/why-discord-is-switching-from-go-to-rust",
+          "support": "supports",
+          "locator": "blog post"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A summary of the post said the Go version's latency spiked every few minutes because of garbage collection and that Rust frees memory immediately.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://atmarkit.itmedia.co.jp/ait/articles/2002/10/news038.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

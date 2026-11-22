@@ -1,0 +1,82 @@
+{
+  "problem": "Serve high traffic efficiently with a small engineering team.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "stack-overflow-scale-up-monolith",
+  "title": "Stack Overflow scales up a monolith on a small number of powerful servers",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Stack Overflow",
+  "actor_type": "company",
+  "decision_date": "2013-11-22",
+  "date_precision": "year",
+  "context": "Stack Overflow served very large traffic with a mostly monolithic application and few servers.",
+  "decision_made": "Prefer a scale-up strategy, buying bigger machines with more memory when limits are hit, and keep nearly all work in a web tier and database.",
+  "action_taken": "Documented the architecture publicly in posts and talks from 2013 to 2016.",
+  "observed_outcome": "A High Scalability update described about 560 million page views a month on about 25 servers with web servers at low CPU load; a 2015 talk cited about 4 billion requests a month.",
+  "outcome_category": "positive",
+  "observation_period": "Several years",
+  "lessons": "A well-tuned monolith on strong hardware can serve very large traffic, and distributing is not always needed.",
+  "limitations": "Figures differ across sources and years. The 2016 post's own server and page-view counts were not retrieved. Stack Overflow's scale and read-heavy workload may not match other products.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "monolith",
+    "self_hosted",
+    "relational_db"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/",
+      "publisher": "High Scalability",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://nickcraver.com/blog/2013/11/22/what-it-takes-to-run-stack-overflow",
+      "publisher": "Nick Craver",
+      "source_type": "primary",
+      "published_at": "2013-11-22",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Stack Overflow used a scale-up strategy, buying bigger machines when it hit limits.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "High Scalability reported about 560 million page views a month on about 25 servers.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

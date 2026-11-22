@@ -1,0 +1,83 @@
+{
+  "problem": "The new code was not installed correctly on all servers and reused a flag that reactivated an old dormant function.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "regulated",
+    "time_pressure"
+  ],
+  "slug": "knight-capital-deployment-failure-2012",
+  "title": "Knight Capital deploys new trading code incorrectly and loses about $440 million",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "Knight Capital",
+  "actor_type": "company",
+  "decision_date": "2012-08-01",
+  "date_precision": "day",
+  "context": "Knight prepared for the NYSE's Retail Liquidity Program and deployed new code to its order router in late July 2012.",
+  "decision_made": "Deploy the update for the programme's launch on 1 August 2012.",
+  "action_taken": "The router sent millions of unintended orders over about 45 minutes, resulting in over 4 million executions in 154 stocks.",
+  "observed_outcome": "Knight took a pre-tax loss of about $440 million (the SEC cited more than $460 million) and paid a $12 million SEC penalty without admitting or denying the findings.",
+  "outcome_category": "negative",
+  "observation_period": "45 minutes plus later enforcement",
+  "lessons": "Incomplete deployments, leftover code and weak kill-switch procedures can turn a routine release into a company-threatening loss.",
+  "limitations": "Details of the rollback and timing come from low-reliability sources and are not included. Loss figures differ by whether SEC or company figures are used.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://www.sec.gov/news/press-release/2013-222",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "source_type": "primary",
+      "published_at": "2013-10-16",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2012/08/02/why-knight-lost-440-million-in-45-minutes/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2012-08-02",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "The SEC said Knight incorrectly deployed new code in its router while preparing for the NYSE's Retail Liquidity Program.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.sec.gov/news/press-release/2013-222",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Knight reported a pre-tax loss of about $440 million from the incident.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2012/08/02/why-knight-lost-440-million-in-45-minutes/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

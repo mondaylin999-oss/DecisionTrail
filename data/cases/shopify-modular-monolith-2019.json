@@ -1,0 +1,81 @@
+{
+  "problem": "Keep a very large codebase maintainable and productive for developers.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "shopify-modular-monolith-2019",
+  "title": "Shopify modularises its Rails monolith instead of moving to microservices",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Shopify",
+  "actor_type": "company",
+  "decision_date": "2019-07-01",
+  "date_precision": "year",
+  "context": "Shopify's core monolith had over 2.8 million lines of Ruby code and 500,000 commits.",
+  "decision_made": "Componentise the monolith with enforced boundaries instead of splitting into microservices, because of the complexity of distributed systems.",
+  "action_taken": "Started componentisation around 2017 and released the Packwerk boundary-checking tool in September 2020.",
+  "observed_outcome": "Not documented in the sources used. Shopify later wrote a retrospective on Packwerk.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Enforced module boundaries can bring some benefits of microservices without distributed-system costs.",
+  "limitations": "Only excerpts of Shopify's posts were seen. Packwerk's privacy checks were later removed, and results on developer productivity were not verified.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "monolith",
+    "microservices"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://shopify.engineering/shopify-monolith",
+      "publisher": "Shopify Engineering",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2019/07/shopify-modular-monolith",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2019-07-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Shopify chose a modular monolith over microservices because of the complexity of distributed systems.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.infoq.com/news/2019/07/shopify-modular-monolith",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "action",
+      "claim_text": "Shopify released the Packwerk tool for enforcing boundaries between packages of Ruby files in 2020.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://shopify.engineering/shopify-monolith",
+          "support": "supports",
+          "locator": "engineering blog"
+        }
+      ]
+    }
+  ]
+}

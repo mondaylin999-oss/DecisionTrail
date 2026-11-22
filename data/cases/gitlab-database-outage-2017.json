@@ -1,0 +1,80 @@
+{
+  "problem": "While trying to repair replication an engineer removed data from the primary database server.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "gitlab-database-outage-2017",
+  "title": "GitLab accidentally removes production data and publishes a candid postmortem",
+  "category": "operations",
+  "decision_type": "choose_one",
+  "actor_name": "GitLab",
+  "actor_type": "company",
+  "decision_date": "2017-01-31",
+  "date_precision": "day",
+  "context": "On 31 January 2017 replication between GitLab.com's primary and secondary database servers lagged and then failed.",
+  "decision_made": "Restore from a six-hour-old backup, and publish live updates and a full postmortem openly.",
+  "action_taken": "Service was restored after roughly 18 hours; Git repositories and wikis were unavailable but not affected by the data loss.",
+  "observed_outcome": "About six hours of database data was lost, affecting an estimated 5,000 projects, 5,000 comments and 700 new user accounts.",
+  "outcome_category": "negative",
+  "observation_period": "About 18 hours of outage",
+  "lessons": "Open, timely incident communication can preserve trust even when the incident is severe.",
+  "limitations": "The claim that backups failed was not confirmed; the sources describe a replication failure and restoration from a six-hour-old backup. Trust effects were not measured.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/",
+      "publisher": "GitLab",
+      "source_type": "postmortem",
+      "published_at": "2017-02-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/news/2017/02/gitlab-outage-postmortem",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": "2017-02-13",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "GitLab published a postmortem attributing the outage to accidental removal of data from its primary database server.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/",
+          "support": "supports",
+          "locator": "postmortem"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The postmortem estimated about 5,000 projects, 5,000 comments and 700 new user accounts were affected.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/",
+          "support": "supports",
+          "locator": "postmortem"
+        }
+      ]
+    }
+  ]
+}

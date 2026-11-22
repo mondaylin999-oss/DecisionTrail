@@ -1,0 +1,81 @@
+{
+  "problem": "Search latency and front-end load were too high for the volume of queries.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "twitter-search-blender-java-2011",
+  "title": "Twitter replaces its Ruby on Rails search front end with a Java server",
+  "category": "technology",
+  "decision_type": "choose_one",
+  "actor_name": "Twitter",
+  "actor_type": "company",
+  "decision_date": "2011-04-01",
+  "date_precision": "month",
+  "context": "Twitter search ran on a Rails front end and a MySQL back end that had been replaced earlier by a real-time Lucene-based engine.",
+  "decision_made": "Replace the Rails front end with Blender, a Java server built on Netty.",
+  "action_taken": "Launched Blender in April 2011 and said it would remove Ruby on Rails from the search stack entirely.",
+  "observed_outcome": "Twitter reported 95th-percentile latency falling threefold, from 800 ms to 250 ms, front-end CPU load cut in half and 10 times more requests per machine.",
+  "outcome_category": "positive",
+  "observation_period": "At launch",
+  "lessons": "Moving a hot path to a runtime that suits concurrent request handling can cut latency and cost.",
+  "limitations": "Figures are from Twitter's own post and the change was one of several, including the earlier back-end switch to Lucene. The result applies to search, not the whole company.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://blog.twitter.com/2011/twitter-search-now-3x-faster",
+      "publisher": "Twitter",
+      "source_type": "primary",
+      "published_at": "2011-04-06",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.infoq.com/articles/twitter-java-use",
+      "publisher": "InfoQ",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Twitter replaced its Ruby on Rails search front end with a Java server called Blender.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://blog.twitter.com/2011/twitter-search-now-3x-faster",
+          "support": "supports",
+          "locator": "blog post"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Twitter reported 95th-percentile search latency dropping from 800 ms to 250 ms after Blender launched.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://blog.twitter.com/2011/twitter-search-now-3x-faster",
+          "support": "supports",
+          "locator": "blog post"
+        }
+      ]
+    }
+  ]
+}
