@@ -1,0 +1,81 @@
+{
+  "problem": "Reach many more students than a campus lecture hall.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "stanford-free-online-ai-course-2011",
+  "title": "Stanford professors offer an introductory AI course free online",
+  "category": "education",
+  "decision_type": "yes_no",
+  "actor_name": "Sebastian Thrun and Peter Norvig (Stanford)",
+  "actor_type": "individual",
+  "decision_date": "2011-10-10",
+  "date_precision": "month",
+  "context": "Introduction to Artificial Intelligence was a standard Stanford course taught on campus.",
+  "decision_made": "Offer the course free online worldwide from 10 October to 18 December 2011.",
+  "action_taken": "Registration opened in the summer of 2011; Norvig was Google's research director at the time.",
+  "observed_outcome": "More than 58,000 students had registered by 15 August 2011, and a later report cited 160,000. Thrun then decided to stop teaching by lecture at Stanford and focus on a venture-funded initiative, Udacity.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 year",
+  "lessons": "Open access can reveal very large unmet demand and can reshape a career or institution.",
+  "limitations": "The 160,000 figure appeared only in a Wikipedia-based source. Completion rates and learning outcomes were not checked here.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "free_plan",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://historyofinformation.com/detail.php?entryid=3393",
+      "publisher": "History of Information",
+      "source_type": "news",
+      "published_at": "2011-08-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.scientificamerican.com/blog/observations/stanford-artificial-intelligence/",
+      "publisher": "Scientific American",
+      "source_type": "news",
+      "published_at": "2011-08-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Thrun and Norvig offered Stanford's introductory AI course free online in autumn 2011.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.scientificamerican.com/blog/observations/stanford-artificial-intelligence/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "More than 58,000 students from around the world registered for the free course by 15 August 2011.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://historyofinformation.com/detail.php?entryid=3393",
+          "support": "supports",
+          "locator": "entry"
+        }
+      ]
+    }
+  ]
+}

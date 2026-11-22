@@ -1,0 +1,81 @@
+{
+  "problem": "Align traffic with neighbouring countries and the cars on the market.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "sweden-switch-to-right-hand-traffic-1967",
+  "title": "Sweden switches from left-hand to right-hand traffic in one day",
+  "category": "operations",
+  "decision_type": "timing",
+  "actor_name": "Government of Sweden",
+  "actor_type": "public_body",
+  "decision_date": "1967-09-03",
+  "date_precision": "day",
+  "context": "Sweden drove on the left while neighbours drove on the right.",
+  "decision_made": "Switch all traffic to the right at once on 3 September 1967 (Dagen H), with lower speed limits and other temporary measures.",
+  "action_taken": "Planned and publicised the change in advance.",
+  "observed_outcome": "Accidents fell right after the switch, with 125 reported accidents on the following Monday, below normal. One economist's study concluded the reduction was likely due to the switch rather than lower speeds, though annual deaths were similar in 1966 and 1968 at 1,313 and 1,262.",
+  "outcome_category": "positive",
+  "observation_period": "Weeks to a few years",
+  "lessons": "A well-planned large-scale change can go smoothly, and heightened caution may reduce accidents temporarily.",
+  "limitations": "Early drops may reflect temporary caution and lower speed limits. Annual death figures were roughly flat. No source found showed accidents rising back, but long-term effects were not established.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "delay",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.popsci.com/technology/sweden-switch-sides-of-road/",
+      "publisher": "Popular Science",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://99percentinvisible.org/episode/h-day/transcript/",
+      "publisher": "99% Invisible",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Sweden switched to right-hand traffic on 3 September 1967.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.popsci.com/technology/sweden-switch-sides-of-road/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Accidents were lower than normal in the days and weeks after the switch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://99percentinvisible.org/episode/h-day/transcript/",
+          "support": "supports",
+          "locator": "transcript"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "After about six months he could not see the value of the college for its cost.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "steve-jobs-drops-out-of-reed-1972",
+  "title": "Steve Jobs drops out of college and drops in on a calligraphy class",
+  "category": "education",
+  "decision_type": "stop_continue",
+  "actor_name": "Steve Jobs",
+  "actor_type": "individual",
+  "decision_date": "1972-01-01",
+  "date_precision": "year",
+  "context": "Jobs attended Reed College, which was nearly as expensive as Stanford, using his working-class parents' savings.",
+  "decision_made": "Drop out of Reed, and stay as a drop-in for about 18 more months, attending only classes that interested him.",
+  "action_taken": "He sat in on a calligraphy course, which he later credited with the typography in personal computers.",
+  "observed_outcome": "In a 2005 commencement speech Jobs argued that dropping in on the calligraphy class shaped the typography of personal computers, and said it was impossible to connect the dots looking forward.",
+  "outcome_category": "positive",
+  "observation_period": "Reflected on decades later",
+  "lessons": "Curiosity-driven choices can pay off in ways that cannot be planned, but the speaker's account is told with hindsight.",
+  "limitations": "A single, self-told, retrospective account that fits a success story. It does not show that dropping out is a good choice for others, and many dropouts do not succeed.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "stop",
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+      "publisher": "Stanford News",
+      "source_type": "primary",
+      "published_at": "2005-06-12",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.npr.org/transcripts/141122856",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Jobs dropped out of Reed College after about six months and stayed on as a drop-in.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+          "support": "supports",
+          "locator": "speech coverage"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Jobs said the calligraphy class he dropped in on influenced the typography of personal computers.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/transcripts/141122856",
+          "support": "supports",
+          "locator": "transcript"
+        }
+      ]
+    }
+  ]
+}

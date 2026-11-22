@@ -1,0 +1,80 @@
+{
+  "problem": "Speed up the shift to zero-emission vehicles.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "norway-electric-vehicle-incentives",
+  "title": "Norway exempts electric cars from VAT and other taxes",
+  "category": "other",
+  "decision_type": "choose_one",
+  "actor_name": "Government of Norway",
+  "actor_type": "public_body",
+  "decision_date": "2001-01-01",
+  "date_precision": "year",
+  "context": "Norway taxes cars heavily and wanted to cut transport emissions.",
+  "decision_made": "Give electric vehicles tax advantages including a VAT exemption, with limits introduced in 2023.",
+  "action_taken": "Kept and adjusted incentives over many years; from 2023 the VAT exemption applies only to the first 500,000 NOK of the price.",
+  "observed_outcome": "Battery electric cars had about a 79 percent market share in 2022. The VAT exemption cost about NOK 11.3 billion in 2021, and an IMF study found the top 20 percent of households received almost 30 percent of the benefit.",
+  "outcome_category": "mixed",
+  "observation_period": "About 20 years",
+  "lessons": "Strong incentives can transform a car market, at a high fiscal cost that may be skewed toward higher earners.",
+  "limitations": "Start date is approximate and the policy evolved. Norway's wealth and cheap hydropower may limit transferability. The 2025 share of 95 percent comes from a single law-firm report.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.oecd.org/en/publications/ipac-policies-in-practice_22632907-en/norway-s-evolving-incentives-for-zero-emission-vehicles_22d2485b-en",
+      "publisher": "OECD",
+      "source_type": "academic",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://elbil.no/english/norwegian-ev-policy/",
+      "publisher": "Norwegian EV Association",
+      "source_type": "other",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Norway gave electric vehicles tax advantages including a VAT exemption, later limited to the first 500,000 NOK of the price.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.oecd.org/en/publications/ipac-policies-in-practice_22632907-en/norway-s-evolving-incentives-for-zero-emission-vehicles_22d2485b-en",
+          "support": "supports",
+          "locator": "report"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The OECD put the VAT exemption's tax expenditure at about NOK 11.3 billion in 2021.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.oecd.org/en/publications/ipac-policies-in-practice_22632907-en/norway-s-evolving-incentives-for-zero-emission-vehicles_22d2485b-en",
+          "support": "supports",
+          "locator": "report"
+        }
+      ]
+    }
+  ]
+}

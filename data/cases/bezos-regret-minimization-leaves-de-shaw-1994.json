@@ -1,0 +1,80 @@
+{
+  "problem": "Whether to give up a secure, well-paid job for an uncertain startup.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "bezos-regret-minimization-leaves-de-shaw-1994",
+  "title": "Jeff Bezos leaves a senior finance job to start an internet bookstore",
+  "category": "career",
+  "decision_type": "yes_no",
+  "actor_name": "Jeff Bezos",
+  "actor_type": "individual",
+  "decision_date": "1994-01-01",
+  "date_precision": "year",
+  "context": "Bezos was a senior vice president at the hedge fund D.E. Shaw when he considered starting an internet bookstore.",
+  "decision_made": "Leave D.E. Shaw to start the company that became Amazon.",
+  "action_taken": "He later described using a regret minimization framework: imagining himself at 80 and asking which choice he would regret less. Accounts say he discussed the idea with his boss, and that he put his chance of success at about 30 percent.",
+  "observed_outcome": "Not documented in the sources used. This case describes the decision method, not a measured result.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Framing a decision as long-term regret rather than short-term risk can make a bold choice easier to justify.",
+  "limitations": "The framework is known mainly from later interviews, and the original interview attribution is not fully confirmed. Survivorship bias is strong: this is a famous success, and many who use similar reasoning fail. The 30 percent figure and the Central Park walk come from secondary accounts.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2026/11/03/jeff-bezos-regret-framework-career-guidance-quit-wall-street-found-amazon-now-billionaire/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2026-11-03",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.inc.com/jessica-stillman/jeff-bezos-this-is-how-to-avoid-regret.html",
+      "publisher": "Inc.",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Bezos weighed leaving D.E. Shaw to start an internet bookstore.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.inc.com/jessica-stillman/jeff-bezos-this-is-how-to-avoid-regret.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "He described a regret minimization framework: imagining himself at 80 and choosing the path he would regret less.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2026/11/03/jeff-bezos-regret-framework-career-guidance-quit-wall-street-found-amazon-now-billionaire/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "Grow the economy and attract entrepreneurs beyond Estonia's borders.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "estonia-e-residency-2014",
+  "title": "Estonia launches e-Residency for non-residents",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Estonia",
+  "actor_type": "public_body",
+  "decision_date": "2014-12-01",
+  "date_precision": "day",
+  "context": "Estonia had a highly digital public sector and a small domestic market.",
+  "decision_made": "Offer a government-issued digital identity that lets non-residents set up and run a company online.",
+  "action_taken": "Launched on 1 December 2014.",
+  "observed_outcome": "The programme reports more than 135,000 to 142,000 e-residents, over 39,000 companies founded, and a total economic impact of about 124.9 million euros in 2025 against about 10 million euros of public spending.",
+  "outcome_category": "positive",
+  "observation_period": "About 11 years",
+  "lessons": "A digital service can become an export, though the impact figure depends on the model used.",
+  "limitations": "Figures come mainly from the programme itself, which has an incentive to present them favourably. Cumulative contribution figures differ (about 400 million versus 433 million euros).",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.e-resident.gov.ee/en/blog/posts/e-residents-generated-record-state-revenue-2025",
+      "publisher": "Estonian e-Residency",
+      "source_type": "primary",
+      "published_at": "2026-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://news.err.ee/1609934015/estonian-e-residency-program-brought-in-125-million-in-2025",
+      "publisher": "ERR News",
+      "source_type": "news",
+      "published_at": "2026-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Estonia launched e-Residency in December 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.e-resident.gov.ee/en/blog/posts/e-residents-generated-record-state-revenue-2025",
+          "support": "supports",
+          "locator": "programme page"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The programme reports about 124.9 million euros of economic impact in 2025 against about 10 million euros of public expenditure.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://news.err.ee/1609934015/estonian-e-residency-program-brought-in-125-million-in-2025",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

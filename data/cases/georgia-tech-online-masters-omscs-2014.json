@@ -1,0 +1,80 @@
+{
+  "problem": "Offer a rigorous degree to many more students at a much lower price.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "georgia-tech-online-masters-omscs-2014",
+  "title": "Georgia Tech launches a low-cost online master's degree in computer science",
+  "category": "education",
+  "decision_type": "yes_no",
+  "actor_name": "Georgia Tech, Udacity and AT&T",
+  "actor_type": "public_body",
+  "decision_date": "2014-01-15",
+  "date_precision": "day",
+  "context": "Online learning was growing and master's degrees were expensive.",
+  "decision_made": "Launch an online MS in Computer Science delivered through Udacity, with AT&T funding, at an approximate cost of $6,600.",
+  "action_taken": "Launched in January 2014 with about 375 students; 401 were offered admission.",
+  "observed_outcome": "After ten years the programme reported over 60,000 applications; graduates were reported as over 12,000 in one source and over 10,000 in another. The first graduates finished in less than two years.",
+  "outcome_category": "positive",
+  "observation_period": "About 10 years",
+  "lessons": "A lower-cost online degree can scale without immediately hurting quality, with partners paying for the build.",
+  "limitations": "Figures are programme-reported, and graduate counts differ between sources. Cost figures changed over time, and a $7,000 figure was not confirmed.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "self_reported",
+  "sources": [
+    {
+      "url": "https://www.news.gatech.edu/2014/01/15/georgia-tech-launches-worlds-first-massive-online-degree-program",
+      "publisher": "Georgia Tech News",
+      "source_type": "primary",
+      "published_at": "2014-01-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://omscs.gatech.edu/2024-omscs-annual-report",
+      "publisher": "Georgia Tech OMSCS",
+      "source_type": "primary",
+      "published_at": "2024-01-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Georgia Tech, Udacity and AT&T launched an online MS in Computer Science in January 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.news.gatech.edu/2014/01/15/georgia-tech-launches-worlds-first-massive-online-degree-program",
+          "support": "supports",
+          "locator": "announcement"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "The programme reports over 10,000 graduates in its 2024 annual report.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://omscs.gatech.edu/2024-omscs-annual-report",
+          "support": "supports",
+          "locator": "annual report"
+        }
+      ]
+    }
+  ]
+}

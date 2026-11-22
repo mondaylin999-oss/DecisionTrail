@@ -1,0 +1,82 @@
+{
+  "problem": "Reduce firearm deaths and prevent mass shootings.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "regulated"
+  ],
+  "slug": "australia-national-firearms-agreement-1996",
+  "title": "Australia adopts national gun law reform and a buyback after Port Arthur",
+  "category": "other",
+  "decision_type": "yes_no",
+  "actor_name": "Government of Australia",
+  "actor_type": "public_body",
+  "decision_date": "1996-05-01",
+  "date_precision": "year",
+  "context": "A mass shooting at Port Arthur in 1996 led to national action.",
+  "decision_made": "Adopt the National Firearms Agreement and a mandatory buyback of semi-automatic and pump-action long guns.",
+  "action_taken": "More than 650,000 firearms were bought and destroyed.",
+  "observed_outcome": "A 2016 study found 13 fatal mass shootings in 1979 to 1996 and none from 1997 to May 2016, and firearm deaths declining at about 5 percent a year after 1996 versus 3 percent before. The authors did not claim to prove causation.",
+  "outcome_category": "positive",
+  "observation_period": "About 20 years",
+  "lessons": "Policy packages can coincide with sustained declines, but causal attribution is difficult.",
+  "limitations": "Firearm suicides were already falling before 1996, and the authors could not confirm the reduction was due to the laws. Other studies reported faster declines after the reform but were not read in full.",
+  "domain_facets": {
+    "customer_segment": "unknown",
+    "company_stage": "unknown"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://sydney.edu.au/news-opinion/news/2016/06/23/australia-20-years-after-gun-reform--no-mass-shootings--declinin.html",
+      "publisher": "University of Sydney",
+      "source_type": "academic",
+      "published_at": "2016-06-23",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.sciencedaily.com/releases/2016/06/160622114743.htm",
+      "publisher": "ScienceDaily",
+      "source_type": "news",
+      "published_at": "2016-06-22",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Australia adopted gun law reforms and bought back more than 650,000 firearms in 1996.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.sciencedaily.com/releases/2016/06/160622114743.htm",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "No fatal mass shootings occurred from 1997 to May 2016, against 13 in the preceding years.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://sydney.edu.au/news-opinion/news/2016/06/23/australia-20-years-after-gun-reform--no-mass-shootings--declinin.html",
+          "support": "supports",
+          "locator": "news release"
+        }
+      ]
+    }
+  ]
+}
