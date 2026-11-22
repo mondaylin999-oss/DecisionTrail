@@ -1,0 +1,81 @@
+{
+  "problem": "Yahoo's board thought the offer undervalued the company.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "yahoo-rejects-microsoft-bid-2008",
+  "title": "Yahoo rejects Microsoft's $44.6 billion takeover offer",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Yahoo",
+  "actor_type": "company",
+  "decision_date": "2008-02-11",
+  "date_precision": "day",
+  "context": "Microsoft offered $31 a share, a 62 percent premium, on 1 February 2008.",
+  "decision_made": "Reject the offer on 11 February 2008, and later hold out for $37 a share when Microsoft raised its bid to $33.",
+  "action_taken": "Co-founders Jerry Yang and David Filo told Microsoft's CEO the company would not sell for less than $37.",
+  "observed_outcome": "Microsoft withdrew in May 2008. Yahoo shares fell about 14 percent the next trading day and were near $20.89 by the end of June.",
+  "outcome_category": "negative",
+  "observation_period": "About 5 months",
+  "lessons": "Rejecting a large premium offer carries the risk that the share price never returns to that level.",
+  "limitations": "The outcome compares share prices only and does not assess what a deal would have meant. Carol Bartz's later role was not covered by these sources.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2008/02/11/18878552/yahoo-rejects-microsoft-bid",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2008-02-11",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.technologyreview.com/2008/05/05/127635/yahoo-shares-fall-197-pct-as-microsoft-withdraws-44b-bid/",
+      "publisher": "MIT Technology Review",
+      "source_type": "news",
+      "published_at": "2008-05-05",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Yahoo's board rejected Microsoft's $44.6 billion offer on 11 February 2008, calling it an undervaluation.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2008/02/11/18878552/yahoo-rejects-microsoft-bid",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Yahoo shares fell sharply when Microsoft withdrew its bid in May 2008.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.technologyreview.com/2008/05/05/127635/yahoo-shares-fall-197-pct-as-microsoft-withdraws-44b-bid/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

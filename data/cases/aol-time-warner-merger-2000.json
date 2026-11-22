@@ -1,0 +1,81 @@
+{
+  "problem": "Combine internet reach with media content.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "aol-time-warner-merger-2000",
+  "title": "AOL and Time Warner merge in a deal valued at about $165 billion",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "AOL and Time Warner",
+  "actor_type": "company",
+  "decision_date": "2000-01-10",
+  "date_precision": "day",
+  "context": "AOL used its high-valued stock to buy Time Warner at the peak of the dot-com boom.",
+  "decision_made": "Merge, valuing Time Warner at about $164.75 billion with a combined market value near $350 billion.",
+  "action_taken": "Completed the merger and reported results as AOL Time Warner.",
+  "observed_outcome": "The company recorded write-downs of about $99 billion and reported a fiscal 2002 net loss of $98.7 billion, described as the largest annual loss in corporate history. Reports tie it to the dot-com bust and falling advertising.",
+  "outcome_category": "negative",
+  "observation_period": "About 3 years",
+  "lessons": "A deal priced on a bubble valuation can destroy value when the underlying business weakens.",
+  "limitations": "The write-down is a non-cash goodwill charge, not a cash loss. Deal and loss figures differ by source and whether debt is included.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://money.cnn.com/2000/01/10/deals/aol_warner/",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2000-01-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2015/01/10/15-years-later-lessons-from-the-failed-aol-time-warner-merger/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2015-01-10",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "AOL agreed to acquire Time Warner in a deal valuing Time Warner at about $164.75 billion.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2000/01/10/deals/aol_warner/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune's retrospective described the merger as failed and said advertising dollars evaporated.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2015/01/10/15-years-later-lessons-from-the-failed-aol-time-warner-merger/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

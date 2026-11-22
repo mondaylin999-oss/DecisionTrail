@@ -1,0 +1,81 @@
+{
+  "problem": "Glass had not reached a consumer-ready state and faced public concern.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "google-glass-explorer-ends-2015",
+  "title": "Google ends consumer sales of Glass and moves the project out of Google X",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Google",
+  "actor_type": "company",
+  "decision_date": "2015-01-15",
+  "date_precision": "day",
+  "context": "Google sold Glass to early adopters through its Explorer programme at $1,500, and the camera drew privacy criticism.",
+  "decision_made": "End the Explorer programme on 19 January 2015 and reorganise Glass as a stand-alone division.",
+  "action_taken": "Said it would keep supplying companies and developers and expected a new version later.",
+  "observed_outcome": "Direct consumer sales ended and Glass never moved beyond beta to retail sale, according to later reporting.",
+  "outcome_category": "negative",
+  "observation_period": "About 2 years from launch of the programme",
+  "lessons": "A product that raises privacy concerns and has unclear everyday value can struggle even with strong brand and attention.",
+  "limitations": "The phrase \"Glass hole\" was not found in the sources used. Later enterprise versions were not checked here.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://time.com/3669927/google-glass-explorer-program-ends",
+      "publisher": "TIME",
+      "source_type": "news",
+      "published_at": "2015-01-15",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.eweek.com/mobile/google-ending-its-google-glass-explorer-edition/",
+      "publisher": "eWeek",
+      "source_type": "news",
+      "published_at": "2015-01-15",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Google ended the Glass Explorer programme, which sold the beta version at $1,500, from 19 January 2015.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://time.com/3669927/google-glass-explorer-program-ends",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "eWeek reported that Glass remained in beta testing and never reached retail sale to consumers.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.eweek.com/mobile/google-ending-its-google-glass-explorer-edition/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

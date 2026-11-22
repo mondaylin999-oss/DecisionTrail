@@ -1,0 +1,81 @@
+{
+  "problem": "Quaker wanted to expand its beverage business beyond Gatorade.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "quaker-oats-snapple-acquisition-1994",
+  "title": "Quaker Oats buys Snapple for $1.7 billion and sells it for $300 million",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Quaker Oats",
+  "actor_type": "company",
+  "decision_date": "1994-11-01",
+  "date_precision": "year",
+  "context": "Snapple was a fast-growing alternative beverage brand, but analysts thought the price was too high.",
+  "decision_made": "Acquire Snapple in late 1994 for $1.7 billion.",
+  "action_taken": "Sold Snapple to Triarc for $300 million in 1997, about 27 months later.",
+  "observed_outcome": "Quaker took a non-cash pretax charge of about $1.4 billion on the sale. Analysts blamed slowing category growth and competition from Coca-Cola and PepsiCo. Chairman William Smithburg resigned in April 1997.",
+  "outcome_category": "negative",
+  "observation_period": "About 27 months",
+  "lessons": "Paying a premium for a fast-growing brand can fail when growth slows and large rivals respond.",
+  "limitations": "The final closing loss was reported as $10.6 million in a later filing, since most of the loss was already recorded earlier. Causes are analyst opinion.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "stop"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.bloomberg.com/news/articles/1997-04-13/what-price-the-snapple-debacle",
+      "publisher": "Bloomberg",
+      "source_type": "news",
+      "published_at": "1997-04-13",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/0000081371/000008137197000006/0000081371-97-000006.txt",
+      "publisher": "Quaker Oats Form 8-K (SEC)",
+      "source_type": "filing",
+      "published_at": "1997-03-01",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Quaker bought Snapple for $1.7 billion in late 1994 and agreed to sell it to Triarc for $300 million in 1997.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.bloomberg.com/news/articles/1997-04-13/what-price-the-snapple-debacle",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Quaker recorded a non-cash pretax charge of about $1.4 billion on the sale.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/0000081371/000008137197000006/0000081371-97-000006.txt",
+          "support": "supports",
+          "locator": "filing"
+        }
+      ]
+    }
+  ]
+}

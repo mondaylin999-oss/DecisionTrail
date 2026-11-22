@@ -1,0 +1,81 @@
+{
+  "problem": "Investors questioned the business, governance and losses.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "wework-ipo-withdrawn-2019",
+  "title": "WeWork's parent pulls its IPO after investors balk at its valuation",
+  "category": "business_strategy",
+  "decision_type": "timing",
+  "actor_name": "The We Company (WeWork)",
+  "actor_type": "company",
+  "decision_date": "2019-09-30",
+  "date_precision": "day",
+  "context": "SoftBank had invested at a $47 billion valuation in January 2019, and the company filed to go public.",
+  "decision_made": "Withdraw the IPO filing on 30 September 2019, a week after Adam Neumann gave up the CEO role.",
+  "action_taken": "Two co-CEOs said they would focus on the core business; the company planned layoffs and sales of acquired businesses.",
+  "observed_outcome": "The IPO did not happen. Reports said the target valuation had fallen to well below $20 billion and a $6 billion bank loan deal hinged on a successful share sale. SoftBank was to provide $1.5 billion the following year.",
+  "outcome_category": "negative",
+  "observation_period": "About 3 weeks from IPO delay",
+  "lessons": "A valuation set by private investors may not survive public market scrutiny of governance and losses.",
+  "limitations": "No formal rescue package was described in the sources used. Later events were not checked.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "delay",
+    "stop"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2019/09/30/wework-ipo-filing-withdrawn-roadshow-dead-end/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2019-09-30",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.cbsnews.com/news/wework-withdraws-its-ipo-filing/",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2019-09-30",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "WeWork's parent withdrew its IPO filing on 30 September 2019, about a week after Neumann stepped down as CEO.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/wework-withdraws-its-ipo-filing/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "A $6 billion bank loan deal depended on a successful share sale of at least $3 billion.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2019/09/30/wework-ipo-filing-withdrawn-roadshow-dead-end/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

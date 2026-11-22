@@ -1,0 +1,82 @@
+{
+  "problem": "Sales were weak at the launch price of $699.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "juicero-press-shutdown-2017",
+  "title": "Juicero sells a $399 connected juicer and shuts down after 16 months",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Juicero",
+  "actor_type": "startup",
+  "decision_date": "2017-09-01",
+  "date_precision": "day",
+  "context": "Juicero raised about $120 million from investors and sold a Wi-Fi juice press that used proprietary produce packs.",
+  "decision_made": "Cut the price to $399 in January 2017, then suspend sales and close the company on 1 September 2017.",
+  "action_taken": "Offered refunds with requests due by 1 December 2017; Bloomberg's April 2017 report showed packs could be squeezed by hand nearly as effectively.",
+  "observed_outcome": "The company stopped operating after about 16 months on sale. Bloomberg attributed the collapse to unsustainable costs, unflattering headlines and a bungled launch.",
+  "outcome_category": "negative",
+  "observation_period": "About 16 months",
+  "lessons": "A complex, costly product can fail when a simple alternative does nearly the same job.",
+  "limitations": "The video detail in some accounts was not confirmed. The company's stated reasons were about distribution infrastructure and may be only part of the cause.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop",
+    "price_decrease"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2017/09/01/juicero-is-shutting-down/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2017-09-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.bloomberg.com/news/features/2017-09-08/inside-juicero-s-demise-from-prized-startup-to-fire-sale",
+      "publisher": "Bloomberg",
+      "source_type": "news",
+      "published_at": "2017-09-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Juicero announced on 1 September 2017 that it was shutting down and suspending sales of its press.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2017/09/01/juicero-is-shutting-down/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Bloomberg's postmortem attributed the collapse to unsustainable costs, unflattering headlines and a bungled launch.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.bloomberg.com/news/features/2017-09-08/inside-juicero-s-demise-from-prized-startup-to-fire-sale",
+          "support": "supports",
+          "locator": "feature"
+        }
+      ]
+    }
+  ]
+}

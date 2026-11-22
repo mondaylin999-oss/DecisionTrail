@@ -1,0 +1,81 @@
+{
+  "problem": "Sales were reportedly very low and the monthly plan was priced like a smartphone.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "microsoft-kin-cancelled-2010",
+  "title": "Microsoft cancels the Kin phone about six weeks after launch",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Microsoft",
+  "actor_type": "company",
+  "decision_date": "2010-06-30",
+  "date_precision": "month",
+  "context": "Microsoft launched the Kin, a social-network-focused phone, on Verizon in mid-April 2010.",
+  "decision_made": "Stop the Kin and focus on Windows Phone 7, and not ship the Kin in Europe as planned.",
+  "action_taken": "Verizon cut prices from $49 to $29 and from $99 to $49 shortly before cancellation.",
+  "observed_outcome": "The phone was pulled after about 48 days. Sales estimates range from about 500 to under 10,000 units; Microsoft never confirmed a figure.",
+  "outcome_category": "negative",
+  "observation_period": "About 6 to 7 weeks",
+  "lessons": "A product positioned between categories, with pricing that matched a different one, can fail very quickly.",
+  "limitations": "The 500-unit figure is a rumour, and the 48-day figure is repeated across sources but described variously as six weeks or two months.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.cbsnews.com/news/two-months-after-debut-microsoft-kills-kin",
+      "publisher": "CBS News",
+      "source_type": "news",
+      "published_at": "2010-07-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://gizmodo.com/microsoft-kills-kin-5576764",
+      "publisher": "Gizmodo",
+      "source_type": "news",
+      "published_at": "2010-06-30",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Microsoft said it would focus on Windows Phone 7 and not ship the Kin in Europe as planned.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://gizmodo.com/microsoft-kills-kin-5576764",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Microsoft pulled the Kin just over two months after its debut.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.cbsnews.com/news/two-months-after-debut-microsoft-kills-kin",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

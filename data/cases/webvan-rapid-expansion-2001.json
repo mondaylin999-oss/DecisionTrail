@@ -1,0 +1,81 @@
+{
+  "problem": "Win the market quickly before rivals.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "webvan-rapid-expansion-2001",
+  "title": "Webvan expands rapidly across cities and goes bankrupt in 2001",
+  "category": "growth",
+  "decision_type": "allocate",
+  "actor_name": "Webvan",
+  "actor_type": "startup",
+  "decision_date": "1999-11-01",
+  "date_precision": "year",
+  "context": "Webvan raised large sums, including an IPO, to deliver groceries ordered online from its own warehouses.",
+  "decision_made": "Build large automated warehouses and expand toward 26 cities.",
+  "action_taken": "Spent heavily on infrastructure ahead of demand; filed for Chapter 11 in July 2001.",
+  "observed_outcome": "The company ceased operating after about three years. Reports put money raised at over $800 million and cash burn at more than $1.2 billion in two years. Former officials said delivery density was the core failure.",
+  "outcome_category": "negative",
+  "observation_period": "About 3 years",
+  "lessons": "Expanding faster than demand density can support can destroy a logistics business; later firms expanded slowly in dense areas.",
+  "limitations": "Totals differ by source. A $375 million IPO figure was not confirmed, so it is not included. Wikipedia-based details were excluded.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "build",
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://tidbits.com/2001/07/16/where-webvan-went-wrong/",
+      "publisher": "TidBITS",
+      "source_type": "news",
+      "published_at": "2001-07-16",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.nbcnews.com/tech/tech-news/ashes-start-amazon-builds-grocery-business-flna6c10339299",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Webvan built large warehouses and aimed to expand to 26 cities by 2001.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://tidbits.com/2001/07/16/where-webvan-went-wrong/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Former Amazon and Webvan officials said Amazon learned to expand slowly and focus on delivery density from Webvan's collapse.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/tech/tech-news/ashes-start-amazon-builds-grocery-business-flna6c10339299",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}
