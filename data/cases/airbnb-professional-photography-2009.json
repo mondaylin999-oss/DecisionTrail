@@ -1,0 +1,83 @@
+{
+  "problem": "Listing photos were poor, which they thought hurt bookings.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "budget_limited",
+    "small_team"
+  ],
+  "slug": "airbnb-professional-photography-2009",
+  "title": "Airbnb's founders photograph hosts' listings themselves in New York",
+  "category": "growth",
+  "decision_type": "yes_no",
+  "actor_name": "Airbnb",
+  "actor_type": "startup",
+  "decision_date": "2009-01-01",
+  "date_precision": "year",
+  "context": "Airbnb was struggling in 2009, with weak bookings in New York.",
+  "decision_made": "Rent a camera and take professional-quality photos of hosts' listings themselves, doing things that do not scale.",
+  "action_taken": "Visited hosts in person, and later turned it into an Airbnb Photography programme in 2010.",
+  "observed_outcome": "Accounts say New York revenue roughly doubled after the photos. One blog said weekly revenue went from $200 to $400. Paul Graham noted that the visits also taught them about their hosts.",
+  "outcome_category": "positive",
+  "observation_period": "Weeks to months",
+  "lessons": "Doing unscalable manual work early can reveal what customers need and prove a hypothesis cheaply.",
+  "limitations": "Revenue figures come from retellings and blogs, and camera cost is reported as $500 or $5,000. A later university study reported by a secondary source was not read. Survivorship bias applies.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "early"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.ycombinator.com/blog/the-airbnbs",
+      "publisher": "Y Combinator (Paul Graham)",
+      "source_type": "primary",
+      "published_at": "2020-12-10",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://review.firstround.com/how-design-thinking-transformed-airbnb-from-failing-startup-to-billion-dollar-business/",
+      "publisher": "First Round Review",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Gebbia and Chesky rented a professional camera and photographed hosts' places themselves.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.ycombinator.com/blog/the-airbnbs",
+          "support": "supports",
+          "locator": "essay"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Accounts say Airbnb's New York revenue roughly doubled after the professional photos.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://review.firstround.com/how-design-thinking-transformed-airbnb-from-failing-startup-to-billion-dollar-business/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "Many small brands lacked a clear identity and scale.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "costco-kirkland-signature-1995",
+  "title": "Costco consolidates its private labels under the Kirkland Signature brand",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Costco (Price/Costco)",
+  "actor_type": "company",
+  "decision_date": "1995-01-01",
+  "date_precision": "year",
+  "context": "Price/Costco had two dozen to 30 private brands, and private label was about 7 to 8 percent of sales in 1995.",
+  "decision_made": "Consolidate them under one name, Kirkland Signature.",
+  "action_taken": "Launched the brand in 1995 with products such as shampoo and vitamins.",
+  "observed_outcome": "Recent reports put Kirkland at about a quarter to a third of Costco's revenue, with figures from $56 billion to $86 billion depending on the source and year.",
+  "outcome_category": "positive",
+  "observation_period": "About 30 years",
+  "lessons": "A single, trusted private label can become a large share of sales and a reason to shop.",
+  "limitations": "Share figures vary by year, revenue base and whether gasoline is included. Costco's 10-K was not checked.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "build",
+    "buy"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.supermarketnews.com/grocery-operations/price-costco-unveils-kirkland-line",
+      "publisher": "Supermarket News",
+      "source_type": "news",
+      "published_at": "1995-01-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2024/06/04/costco-kirkland-store-brand-nike-coca-cola/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2024-06-04",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Costco consolidated its private labels under the Kirkland Signature name in 1995.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.supermarketnews.com/grocery-operations/price-costco-unveils-kirkland-line",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune reported Kirkland items generated $56 billion, or 23 percent of Costco's business, in a recent fiscal year.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2024/06/04/costco-kirkland-store-brand-nike-coca-cola/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

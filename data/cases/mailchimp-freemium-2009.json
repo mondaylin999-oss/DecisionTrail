@@ -1,0 +1,84 @@
+{
+  "problem": "Grow faster by lowering the barrier to try the product.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "small_team"
+  ],
+  "slug": "mailchimp-freemium-2009",
+  "title": "Mailchimp adds a free plan after eight years of charging",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Mailchimp",
+  "actor_type": "startup",
+  "decision_date": "2009-09-01",
+  "date_precision": "month",
+  "context": "Mailchimp had charged customers for eight years and was self-funded.",
+  "decision_made": "Offer a free plan, tested with pricing data to see how it might affect its paid plan, and ensure enough paying customers and cash first.",
+  "action_taken": "Announced in September 2009; sources disagree whether the free limit was 500 or 2,000 contacts.",
+  "observed_outcome": "One account says the user base grew five-fold from 85,000 in September 2009 to 450,000 in September 2010, adding about 30,000 free users and 4,000 paying customers each month.",
+  "outcome_category": "positive",
+  "observation_period": "About 1 year",
+  "lessons": "A free plan can work as a marketing channel when the company has revenue to absorb the cost.",
+  "limitations": "Figures were drawn from a founder's blog post cited second-hand. The free limit differs by source. The founder described freemium as marketing rather than a business model.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "freemium",
+    "free_plan",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.inc.com/tech-blog/success-with-freemium-and-no-investors-interview-with-mailchimp.html",
+      "publisher": "Inc.",
+      "source_type": "interview",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.drift.com/blog/how-mailchimp-grew/",
+      "publisher": "Drift",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Mailchimp introduced a free plan in September 2009 after charging for eight years.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.inc.com/tech-blog/success-with-freemium-and-no-investors-interview-with-mailchimp.html",
+          "support": "supports",
+          "locator": "interview"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Mailchimp's user base reportedly grew from 85,000 to 450,000 in a year.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.drift.com/blog/how-mailchimp-grew/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

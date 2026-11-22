@@ -1,0 +1,80 @@
+{
+  "problem": "Reach many customers at low cost without a quota-carrying field sales force.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "atlassian-self-service-sales-model-2015",
+  "title": "Atlassian sells mostly through self-service with no direct sales team",
+  "category": "growth",
+  "decision_type": "choose_one",
+  "actor_name": "Atlassian",
+  "actor_type": "company",
+  "decision_date": "2015-12-10",
+  "date_precision": "year",
+  "context": "Atlassian sold team software priced for volume and wanted to keep selling costs low.",
+  "decision_made": "Let customers buy through the website with minimal friction and avoid a commissioned direct sales team, using partners for part of its sales.",
+  "action_taken": "Executives said an enterprise customer could spend $10,000 and start with a team of 10 or 50 without talking to the company.",
+  "observed_outcome": "Fortune reported in 2015 that Atlassian had been profitable for 12 years, which executives tied to the self-service model; sales and marketing was about 19 to 21 percent of revenue.",
+  "outcome_category": "positive",
+  "observation_period": "About 12 years",
+  "lessons": "A product that sells itself can lower acquisition costs, though some support for large customers and partners still appears.",
+  "limitations": "The no sales team claim is a simplification: there was a small sales function and about a quarter of revenue came through resellers. Profitability changed later (a 2022 CNBC piece said it was not actually profitable), and the F-1 filing was not read directly.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2015/04/27/atlassian-redefines-collaboration/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2015-04-27",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://fortune.com/2015/12/10/atlassian-ipo-leap/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2015-12-10",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Atlassian relied on a self-service sales model, letting customers buy online without a sales call.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2015/04/27/atlassian-redefines-collaboration/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Fortune reported Atlassian had been profitable for 12 years, which executives attributed to the self-service model.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2015/12/10/atlassian-ipo-leap/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "problem": "A sprawling lineup confused customers and spread engineering thin while the company was in trouble.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "apple-product-line-simplification-1997",
+  "title": "Apple cuts its product line to a four-product grid after Jobs returns",
+  "category": "product",
+  "decision_type": "stop_continue",
+  "actor_name": "Apple",
+  "actor_type": "company",
+  "decision_date": "1997-09-01",
+  "date_precision": "year",
+  "context": "When Steve Jobs returned in 1997 Apple sold a very wide range of products that customers found hard to tell apart.",
+  "decision_made": "Cut the lineup sharply to a four-quadrant plan: a consumer and a professional model, each in desktop and portable form.",
+  "action_taken": "Cancelled many products including the Newton and reduced the workforce by about 3,000, per one report.",
+  "observed_outcome": "Sources describe the move as part of how Jobs saved Apple, but the sources used give no measured financial results for the simplification alone.",
+  "outcome_category": "positive",
+  "observation_period": "Not measured",
+  "lessons": "Focusing on a few distinct products can clarify the offer and free resources.",
+  "limitations": "Product counts vary by source (350 to 10, 15 to 4, or 40 lines) because of different ways of counting. The success is interpretation by commentators and is mixed with other changes such as the Microsoft investment and new products.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "stop",
+    "continue"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.nbcnews.com/news/amp/wbna45095399",
+      "publisher": "NBC News",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.entrepreneur.com/growing-a-business/how-steve-jobs-saved-apple/220604",
+      "publisher": "Entrepreneur",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Jobs cut Apple's lineup to a plan of four main computers, consumer and professional in desktop and portable.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.entrepreneur.com/growing-a-business/how-steve-jobs-saved-apple/220604",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "NBC News described the product pruning as part of how Jobs saved Apple.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.nbcnews.com/news/amp/wbna45095399",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "Producing films needed large funding and Marvel had limited resources.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [
+    "budget_limited"
+  ],
+  "slug": "marvel-self-financing-film-slate-2005",
+  "title": "Marvel borrows $525 million against its characters to make its own films",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Marvel",
+  "actor_type": "company",
+  "decision_date": "2005-04-01",
+  "date_precision": "month",
+  "context": "Marvel had licensed its characters to studios and decided to produce films itself.",
+  "decision_made": "Take a $525 million non-recourse credit facility from Merrill Lynch secured by film rights to ten characters.",
+  "action_taken": "Later amended the facility to cover Iron Man and The Incredible Hulk; accounts differ on whether Iron Man was funded by the facility or by Marvel's own money.",
+  "observed_outcome": "Iron Man reportedly earned over $500 million, and Marvel's later film business grew. Kevin Feige said Merrill Lynch likely could not have provided the financing from 2008 onward.",
+  "outcome_category": "positive",
+  "observation_period": "About 3 years",
+  "lessons": "Using intellectual property as collateral can fund a studio strategy, but it ties the company's future to the films' success.",
+  "limitations": "Accounts disagree on the facility term (seven or eight years) and on Iron Man funding. Several sources are commentary, and the box office figure is from a secondary article.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "build",
+    "outsource"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.slate.com/business/2012/09/marvel-comics-and-the-movies-the-business-story-behind-the-avengers.html",
+      "publisher": "Slate",
+      "source_type": "news",
+      "published_at": "2012-09-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://screencrush.com/marvel-bankruptcy-billions/",
+      "publisher": "ScreenCrush",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Marvel obtained a $525 million non-recourse credit facility from Merrill Lynch secured by film rights to ten characters.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.slate.com/business/2012/09/marvel-comics-and-the-movies-the-business-story-behind-the-avengers.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "ScreenCrush reported that Iron Man made over $500 million and the strategy paid off.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://screencrush.com/marvel-bankruptcy-billions/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

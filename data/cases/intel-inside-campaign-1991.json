@@ -1,0 +1,80 @@
+{
+  "problem": "Build brand recognition for a component that buyers did not choose directly.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "intel-inside-campaign-1991",
+  "title": "Intel launches Intel Inside and shares advertising costs with PC makers",
+  "category": "growth",
+  "decision_type": "yes_no",
+  "actor_name": "Intel",
+  "actor_type": "company",
+  "decision_date": "1991-01-01",
+  "date_precision": "year",
+  "context": "Computer buyers rarely knew or cared which chip was inside their PC.",
+  "decision_made": "Offer to share advertising costs with PC makers that put the Intel Inside logo on their ads and products.",
+  "action_taken": "Launched a co-operative programme in 1991, and by the end of 1992 over 500 manufacturers had signed on.",
+  "observed_outcome": "Awareness of Intel's brand rose sharply, though sources give different figures (24 percent to 94 percent in Europe by 1995, or 24 percent to 80 percent by 1992). Advertising Age reportedly called it among the most effective co-op programmes.",
+  "outcome_category": "positive",
+  "observation_period": "About 4 years",
+  "lessons": "Co-funding partners' advertising can build an ingredient brand that increases pull from end customers.",
+  "limitations": "Awareness and spending figures conflict and come partly from weak sources such as slide decks. Intel's own history page and WARC were not read in full.",
+  "domain_facets": {
+    "customer_segment": "b2b",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://intel.com/content/www/us/en/history/virtual-vault/articles/end-user-marketing-intel-inside.html",
+      "publisher": "Intel",
+      "source_type": "primary",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.warc.com/en/article/intel-corporation:-intel-inside-campaign-aecf2bece5fd4e91a2cd1e06293bb8df",
+      "publisher": "WARC",
+      "source_type": "case_study",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Intel launched a co-operative advertising programme in 1991, sharing costs with PC makers that used the Intel Inside logo.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "self_reported",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://intel.com/content/www/us/en/history/virtual-vault/articles/end-user-marketing-intel-inside.html",
+          "support": "supports",
+          "locator": "company history"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "By the end of 1992 over 500 manufacturers had joined the co-operative marketing programme.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.warc.com/en/article/intel-corporation:-intel-inside-campaign-aecf2bece5fd4e91a2cd1e06293bb8df",
+          "support": "supports",
+          "locator": "case summary"
+        }
+      ]
+    }
+  ]
+}
