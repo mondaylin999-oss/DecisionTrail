@@ -1,0 +1,82 @@
+{
+  "problem": "Amazon wanted a device to tie customers more closely to its shopping and content.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "amazon-fire-phone-2014",
+  "title": "Amazon launches the Fire Phone and discontinues it a year later",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Amazon",
+  "actor_type": "company",
+  "decision_date": "2014-07-01",
+  "date_precision": "month",
+  "context": "Amazon entered the smartphone market in July 2014 at a premium price.",
+  "decision_made": "Launch its own smartphone, the Fire Phone.",
+  "action_taken": "Cut the price sharply within two months and disclosed a $170 million charge in October 2014.",
+  "observed_outcome": "Sales were weak, Amazon took a $170 million charge for inventory and supplier commitments, and the phone was discontinued in 2015.",
+  "outcome_category": "negative",
+  "observation_period": "About 13 months",
+  "lessons": "A premium hardware entry into a mature market without a clear advantage can be costly.",
+  "limitations": "Sources disagree on discontinuation timing and quote different prices because of contract versus unlocked pricing.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "launch_now",
+    "stop",
+    "price_decrease"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2015/09/09/amazon-killing-fire-phone/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2015-09-09",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://theweek.com/speedreads/443484/amazons-fire-phone-flops--tune-170-million",
+      "publisher": "The Week",
+      "source_type": "news",
+      "published_at": "2014-10-24",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Amazon launched the Fire Phone in July 2014.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2015/09/09/amazon-killing-fire-phone/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Amazon took a $170 million charge and later discontinued the phone.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://theweek.com/speedreads/443484/amazons-fire-phone-flops--tune-170-million",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

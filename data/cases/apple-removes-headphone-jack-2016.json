@@ -1,0 +1,80 @@
+{
+  "problem": "Apple wanted space inside the phone and to move users toward wireless audio.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "apple-removes-headphone-jack-2016",
+  "title": "Apple removes the headphone jack from the iPhone 7",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Apple",
+  "actor_type": "company",
+  "decision_date": "2016-09-07",
+  "date_precision": "day",
+  "context": "The iPhone 7 launched without the 3.5mm headphone jack that earlier models had.",
+  "decision_made": "Remove the headphone jack, include a Lightning adapter and introduce AirPods.",
+  "action_taken": "Announced the change in September 2016; AirPods began shipping in late October at $159.",
+  "observed_outcome": "Critics mocked the move and its \"courage\" framing; some analysts expected it to help wireless headphone sales. Sales data was not found in the sources used.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Immediate reaction only",
+  "lessons": "Removing a widely used port can draw criticism even when the company frames it as progress.",
+  "limitations": "Only immediate reaction was documented. AirPods or iPhone 7 sales effects were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/sections/thetwo-way/2016/09/07/492972409/apple-nixes-headphone-jack-in-iphone-7-reveals-cordless-airpods",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2016-09-07",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2016/09/07/technology/apple-iphone-headphone-jack/",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2016-09-07",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Apple dropped the headphone jack from the iPhone 7 and introduced wireless AirPods.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/sections/thetwo-way/2016/09/07/492972409/apple-nixes-headphone-jack-in-iphone-7-reveals-cordless-airpods",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Commentators criticised the change and the courage framing at the time.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2016/09/07/technology/apple-iphone-headphone-jack/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

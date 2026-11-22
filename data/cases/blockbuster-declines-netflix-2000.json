@@ -1,0 +1,81 @@
+{
+  "problem": "Whether to acquire a small online rental competitor.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "blockbuster-declines-netflix-2000",
+  "title": "Blockbuster declines an offer to buy Netflix",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Blockbuster",
+  "actor_type": "company",
+  "decision_date": "2000-01-01",
+  "date_precision": "year",
+  "context": "In early 2000 Netflix was a small, money-losing DVD-by-mail company and Blockbuster was far larger.",
+  "decision_made": "Decline Netflix's reported offer to sell for $50 million.",
+  "action_taken": "Ended the talks; Blockbuster's CEO regarded Netflix as a very small niche business.",
+  "observed_outcome": "Netflix's CEO later said he was grateful Blockbuster had not bought it. The sources used do not cover Blockbuster's later results.",
+  "outcome_category": "inconclusive",
+  "observation_period": "Not documented here",
+  "lessons": "A small competitor with a different model can be dismissed because of its current size rather than its direction.",
+  "limitations": "Blockbuster's CEO disputes that serious talks took place. Accounts come mostly from Netflix founders. Later outcomes for Blockbuster were not checked here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2023/04/14/netflix-cofounder-marc-randolph-recalls-blockbuster-rejecting-chance-to-buy-it/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2023-04-14",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://marketplace.org/2020/09/08/ceo-reed-hastings-on-how-netflix-beat-blockbuster",
+      "publisher": "Marketplace",
+      "source_type": "interview",
+      "published_at": "2020-09-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Netflix's founders offered to sell to Blockbuster for $50 million and Blockbuster declined.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2023/04/14/netflix-cofounder-marc-randolph-recalls-blockbuster-rejecting-chance-to-buy-it/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Netflix's CEO said he was grateful Blockbuster did not want to buy it.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://marketplace.org/2020/09/08/ceo-reed-hastings-on-how-netflix-beat-blockbuster",
+          "support": "supports",
+          "locator": "interview"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "problem": "The company wanted to modernize the product and its business model.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "digg-v4-redesign-2010",
+  "title": "Digg launches a major redesign and loses much of its audience",
+  "category": "product",
+  "decision_type": "choose_one",
+  "actor_name": "Digg",
+  "actor_type": "startup",
+  "decision_date": "2010-08-25",
+  "date_precision": "day",
+  "context": "Digg was a leading social news site with a large community.",
+  "decision_made": "Replace the site with a redesigned version 4.",
+  "action_taken": "Launched on 25 August 2010; the launch was marred by bugs and users organized a protest.",
+  "observed_outcome": "Traffic fell sharply, with figures from 25 percent to over 50 percent depending on the source. Digg was sold in 2012 for about $500,000 in parts.",
+  "outcome_category": "negative",
+  "observation_period": "About 2 years",
+  "lessons": "A rushed overhaul that removes features users rely on can hand the audience to rivals.",
+  "limitations": "Traffic figures vary by source, and other factors such as competition also contributed to the decline.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "launch_now"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.computerworld.com/article/1515228/users-drop-digg-after-unpopular-redesign.html",
+      "publisher": "Computerworld",
+      "source_type": "news",
+      "published_at": "2010-09-01",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2012/07/12/technology/startups/digg-betaworks/",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2012-07-12",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Digg launched its version 4 redesign in August 2010.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.computerworld.com/article/1515228/users-drop-digg-after-unpopular-redesign.html",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Digg was sold to Betaworks in July 2012 after its audience declined.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2012/07/12/technology/startups/digg-betaworks/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

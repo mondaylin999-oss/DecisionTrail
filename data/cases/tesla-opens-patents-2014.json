@@ -1,0 +1,81 @@
+{
+  "problem": "Tesla wanted to speed up the shift to electric vehicles and argued patents often stifle progress.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "tesla-opens-patents-2014",
+  "title": "Tesla pledges not to sue good-faith users of its patents",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Tesla",
+  "actor_type": "company",
+  "decision_date": "2014-06-12",
+  "date_precision": "day",
+  "context": "Tesla held about 203 patents and 280 pending applications at the end of 2013.",
+  "decision_made": "Promise not to initiate patent lawsuits against anyone using its technology in good faith.",
+  "action_taken": "Announced in a blog post on 12 June 2014 by CEO Elon Musk.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "A pledge with a good-faith clause leaves the company deciding who qualifies, so its practical reach is debated.",
+  "limitations": "Only the announcement and early commentary were checked. Experts disagreed about how much the pledge gave away.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "growth"
+  },
+  "alternative_tags": [
+    "open_source",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2014/06/12/elon-musk-offers-teslas-patents-to-everyone/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2014-06-12",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://ipwatchdog.com/2014/07/08/tesla-on-patents-open-source-altruism-or-shrewd-business/",
+      "publisher": "IPWatchdog",
+      "source_type": "news",
+      "published_at": "2014-07-08",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Tesla said it would not initiate patent lawsuits against anyone using its technology in good faith.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2014/06/12/elon-musk-offers-teslas-patents-to-everyone/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "reason",
+      "claim_text": "Musk argued patents often stifle progress rather than encourage it.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://ipwatchdog.com/2014/07/08/tesla-on-patents-open-source-altruism-or-shrewd-business/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

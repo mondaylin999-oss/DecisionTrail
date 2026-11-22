@@ -1,0 +1,81 @@
+{
+  "problem": "Facebook wanted to strengthen its position in mobile photo sharing.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "facebook-acquires-instagram-2012",
+  "title": "Facebook acquires Instagram for about $1 billion",
+  "category": "business_strategy",
+  "decision_type": "yes_no",
+  "actor_name": "Facebook",
+  "actor_type": "company",
+  "decision_date": "2012-04-09",
+  "date_precision": "day",
+  "context": "Instagram had about 30 million users and had raised money at a $500 million valuation shortly before the deal.",
+  "decision_made": "Acquire Instagram for about $1 billion in cash and shares.",
+  "action_taken": "Announced weeks before Facebook's IPO and promised to keep Instagram growing independently.",
+  "observed_outcome": "Not documented in the sources used.",
+  "outcome_category": "unknown",
+  "observation_period": "Not documented",
+  "lessons": "Buying a fast-growing competitor can be cheaper early than later.",
+  "limitations": "Only the announcement was checked. Later performance and any independence promises were not.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "build"
+  ],
+  "evidence_classification": "primary",
+  "sources": [
+    {
+      "url": "https://about.fb.com/news/2012/04/facebook-to-acquire-instagram/",
+      "publisher": "Facebook",
+      "source_type": "primary",
+      "published_at": "2012-04-09",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://money.cnn.com/2012/04/09/technology/facebook_acquires_instagram/index.htm",
+      "publisher": "CNNMoney",
+      "source_type": "news",
+      "published_at": "2012-04-09",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Facebook agreed to acquire Instagram for about $1 billion in cash and shares.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "primary",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://about.fb.com/news/2012/04/facebook-to-acquire-instagram/",
+          "support": "supports",
+          "locator": "press release"
+        }
+      ]
+    },
+    {
+      "claim_type": "context",
+      "claim_text": "Instagram had about 30 million active users at the time of the deal.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://money.cnn.com/2012/04/09/technology/facebook_acquires_instagram/index.htm",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

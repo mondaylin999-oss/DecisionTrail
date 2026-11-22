@@ -1,0 +1,82 @@
+{
+  "problem": "Nokia was losing ground in smartphones to Apple and Android.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "nokia-windows-phone-bet-2011",
+  "title": "Nokia adopts Windows Phone as its primary smartphone platform",
+  "category": "business_strategy",
+  "decision_type": "choose_one",
+  "actor_name": "Nokia",
+  "actor_type": "company",
+  "decision_date": "2011-02-11",
+  "date_precision": "day",
+  "context": "Nokia's CEO Stephen Elop described the company as standing on a burning platform in a memo that leaked in February 2011.",
+  "decision_made": "Replace Symbian with Microsoft's Windows Phone as the primary smartphone operating system.",
+  "action_taken": "Announced a partnership with Microsoft in February 2011.",
+  "observed_outcome": "Reviewers generally judged the bet a failure. In 2013 Microsoft bought Nokia's handset business for about $7.2 billion.",
+  "outcome_category": "negative",
+  "observation_period": "About 2 years",
+  "lessons": "Tying a platform change to a single partner's ecosystem removes alternatives if that ecosystem does not take off.",
+  "limitations": "Much of the judgement is commentary. Some critics blame other mistakes, such as ignoring feature phones. Deal terms were not verified here.",
+  "domain_facets": {
+    "customer_segment": "b2c",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "buy",
+    "build",
+    "other"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://fortune.com/2011/02/09/nokias-elop-drops-bomb-the-platform-is-on-fire/",
+      "publisher": "Fortune",
+      "source_type": "news",
+      "published_at": "2011-02-09",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://www.businessinsider.in/by-the-time-microsoft-bought-nokia-it-was-way-too-late/articleshow/47994249.cms",
+      "publisher": "Business Insider",
+      "source_type": "news",
+      "published_at": null,
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Nokia chose Windows Phone over Symbian as its primary smartphone strategy after the burning platform memo.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2011/02/09/nokias-elop-drops-bomb-the-platform-is-on-fire/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Microsoft later bought Nokia's handset business, and commentators called the timing too late.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.businessinsider.in/by-the-time-microsoft-bought-nokia-it-was-way-too-late/articleshow/47994249.cms",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    }
+  ]
+}

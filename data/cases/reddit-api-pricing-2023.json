@@ -1,0 +1,82 @@
+{
+  "problem": "Reddit said it wanted to stop companies from scraping its data for AI training for free.",
+  "alternatives_documented": null,
+  "reason_documented": null,
+  "expected_outcome_documented": null,
+  "outcome_observed_at": null,
+  "verified_by": "Research draft, pending human review",
+  "last_verified_at": "2026-11-23",
+  "constraint_tags": [],
+  "slug": "reddit-api-pricing-2023",
+  "title": "Reddit starts charging for API access and proceeds despite a blackout",
+  "category": "pricing",
+  "decision_type": "choose_one",
+  "actor_name": "Reddit",
+  "actor_type": "company",
+  "decision_date": "2023-06-12",
+  "date_precision": "month",
+  "context": "Third-party apps such as Apollo relied on Reddit's free API.",
+  "decision_made": "Charge developers about 24 cents per 1,000 API requests from 1 July 2023.",
+  "action_taken": "Held to the plan after thousands of subreddits went dark in protest on 12 June 2023.",
+  "observed_outcome": "Apollo and several other third-party apps shut down around 30 June, and the pricing took effect. Long-term effects on users and revenue were not found.",
+  "outcome_category": "mixed",
+  "observation_period": "About 1 month",
+  "lessons": "A company can hold firm through protest, but at the cost of losing the third-party ecosystem.",
+  "limitations": "The long-term business effect was not checked. Apollo's developer estimated the new pricing would cost him about $20 million a year.",
+  "domain_facets": {
+    "customer_segment": "both",
+    "company_stage": "enterprise"
+  },
+  "alternative_tags": [
+    "usage_based",
+    "price_increase",
+    "paid_subscription"
+  ],
+  "evidence_classification": "independent_reporting",
+  "sources": [
+    {
+      "url": "https://www.npr.org/2023/06/12/1181376050/reddit-communities-go-dark-protest-new-api-developer-fees",
+      "publisher": "NPR",
+      "source_type": "news",
+      "published_at": "2023-06-12",
+      "retrieved_at": "2026-11-23"
+    },
+    {
+      "url": "https://techcrunch.com/2023/06/12/reddit-blackout-8000-subreddits-went-dark-protest-api/",
+      "publisher": "TechCrunch",
+      "source_type": "news",
+      "published_at": "2023-06-12",
+      "retrieved_at": "2026-11-23"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "decision",
+      "claim_text": "Reddit introduced paid API access that developers said would be too costly for third-party apps.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://www.npr.org/2023/06/12/1181376050/reddit-communities-go-dark-protest-new-api-developer-fees",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "More than 8,000 subreddits went dark on 12 June 2023 in protest.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2023/06/12/reddit-blackout-8000-subreddits-went-dark-protest-api/",
+          "support": "supports",
+          "locator": "headline"
+        }
+      ]
+    }
+  ]
+}
