@@ -1,6 +1,7 @@
 /**
  * Loads human-verified historical cases from data/cases/*.json into PostgreSQL.
- *   npm run db:seed-cases
+ *   npm run db:seed-cases                       (all files)
+ *   npm run db:seed-cases -- some-case.json     (only the named files)
  * Refuses anything unverified: placeholders, claims without sources, no outcome claim.
  */
 import { readdirSync, readFileSync } from "node:fs";
@@ -91,7 +92,8 @@ const CaseFileZ = z
 
 async function main() {
   const dir = join(process.cwd(), "data", "cases");
-  const files = readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_"));
+  const only = process.argv.slice(2).map((f) => f.replace(/^.*[\\/]/, ""));
+  const files = readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_") && (only.length === 0 || only.includes(f)));
   if (!files.length) {
     console.log("No case files found in data/cases (files starting with '_' are ignored). Nothing to seed.");
     return;

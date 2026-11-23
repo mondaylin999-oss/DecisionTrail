@@ -76,6 +76,20 @@
           "locator": "article"
         }
       ]
+    },
+    {
+      "claim_type": "outcome",
+      "claim_text": "Google said it would stop developing Wave as a stand-alone product, maintain it through the end of the year and reuse the technology in other projects.",
+      "stated_or_inferred": "stated",
+      "provenance_class": "independent_reporting",
+      "causal_language_in_source": false,
+      "sources": [
+        {
+          "url": "https://fortune.com/2010/08/04/google-waves-goodbye/",
+          "support": "supports",
+          "locator": "article"
+        }
+      ]
     }
   ]
 }
