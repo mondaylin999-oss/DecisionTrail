@@ -111,7 +111,7 @@ export function OnlineSearch() {
             className="min-w-60 flex-1"
           />
           <Button type="submit" disabled={searching || q.trim().length < 2}>
-            {searching ? <Spinner /> : "🔎"} Search
+            {searching ? <Spinner /> : "🔎"} {t("Search")}
           </Button>
         </form>
         <p className="text-xs text-slate-500">
