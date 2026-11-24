@@ -4,6 +4,7 @@ import { Suspense, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { InferenceBadge } from "@/components/marks";
+import { LiveResearch } from "@/components/LiveResearch";
 import { MatchCard } from "@/components/MatchCard";
 import { OnlineSearch } from "@/components/OnlineSearch";
 import { ResearchPanel } from "@/components/ResearchPanel";
@@ -12,6 +13,7 @@ import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, 
 import { extractDecision, type Where } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
 import { quickStructure } from "@/lib/quickStructure";
+import { topicWords } from "@/lib/web/sources";
 import { label } from "@/lib/vocab";
 import type { MatchResult, StructuredDecision, SuccessCriterion, Sufficiency } from "@/lib/types";
 
@@ -42,6 +44,10 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
   const [options, setOptions] = useState(["", ""]);
+  // null: on by default, except in Private mode, where nothing goes online without a click.
+  const [onlineChoice, setOnline] = useState<boolean | null>(null);
+  // null: follow the question. A string: the user edited the search words.
+  const [editedWords, setEditedWords] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<{ tone: "warn" | "error" | "info"; msg: string } | null>(null);
@@ -101,6 +107,8 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
     }
   }
 
+  const online = onlineChoice ?? me?.privacyMode !== "private";
+  const searchWords = (editedWords ?? topicWords(text, options).join(" ")).trim();
   const personal = matches.filter((m) => m.targetType === "personal_decision");
   const external = matches.filter((m) => m.targetType === "external_case");
   const shown = tab === "personal" ? personal : external;
@@ -132,7 +140,10 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
               className="min-h-32"
               maxLength={2000}
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={(e) => {
+                setText(e.target.value);
+                setEditedWords(null);
+              }}
               placeholder="e.g. I run a B2B SaaS for small clinics with a limited budget. Should we offer a free plan or a paid subscription?"
             />
             <Field label="Your options (optional)">
@@ -142,6 +153,16 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
                 ))}
               </div>
             </Field>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm">
+                <input type="checkbox" checked={online} onChange={(e) => setOnline(e.target.checked)} /> Also research live online sources
+              </label>
+              {online && text.trim().length >= 10 && (
+                <Field label="Words sent online (edit or remove anything private)">
+                  <Input maxLength={120} value={editedWords ?? searchWords} placeholder="Type topic words" onChange={(e) => setEditedWords(e.target.value)} />
+                </Field>
+              )}
+            </div>
             <div className="flex flex-wrap items-center gap-2">
               <Button type="submit" disabled={!!busy || text.trim().length < 10}>
                 {busy ? <Spinner /> : "🔎"} Find evidence
@@ -158,7 +179,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             {me.privacyMode === "private"
               ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
               : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}{" "}
-            Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there.
+            Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there. Live research sends only the topic words you see, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News.
           </p>
         </Card>
       )}
@@ -189,6 +210,13 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
           </Card>
 
           <SufficiencyBanner s={sufficiency} personal={personal.length} external={external.length} />
+          {online && searchWords.length >= 2 && sufficiency === "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
+          {!online && searchWords.length >= 2 && (
+            <Card className="flex flex-wrap items-center justify-between gap-2">
+              <p className="text-sm">🌐 Research live sources? Only these words are sent: “{searchWords}”</p>
+              <Button variant="secondary" onClick={() => setOnline(true)}>Search online</Button>
+            </Card>
+          )}
           <div className="flex flex-wrap gap-2" role="tablist">
             <TabBtn active={tab === "personal"} onClick={() => setTab("personal")}>
               Your past decisions ({personal.length})
@@ -210,6 +238,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
               </Button>
             )}
           </div>
+          {online && searchWords.length >= 2 && sufficiency !== "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
           <details>
             <summary className="cursor-pointer text-sm font-medium text-violet-700">Need more evidence? Search online</summary>
             <div className="mt-3 space-y-4">
@@ -270,9 +299,8 @@ function SufficiencyBanner({ s, personal, external }: { s: Sufficiency; personal
   if (s === "partial")
     return <Notice tone="warn">Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.</Notice>;
   return (
-    <Notice tone="warn">
-      <strong>We couldn&apos;t find sufficiently relevant historical cases for your decision.</strong> Why: fewer than one strong match with a known outcome and fewer than two partial matches
-      ({personal} personal, {external} library cases shown). You can research it on the web below, edit the structure to broaden it, or continue without research.
+    <Notice tone="info">
+      <strong>No close match in our case library.</strong> Found {personal} of your own decisions and {external} library cases that are loosely related. You can research live sources below, and you can save your decision so it becomes evidence next time.
     </Notice>
   );
 }

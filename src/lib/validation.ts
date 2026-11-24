@@ -1,6 +1,6 @@
 /** Request-body validation for API routes. Never trust the client. */
 import { z } from "zod";
-import { isAllowedReferenceUrl } from "./web/wikipedia";
+import { isLiveSourceUrl } from "./web/sources";
 import {
   ALTERNATIVE_TAGS,
   CATEGORIES,
@@ -111,10 +111,12 @@ export const AiLogZ = z.object({
   latencyMs: z.number().int().min(0).max(600000),
 });
 
+export const LiveResearchZ = z.object({ q: z.string().trim().min(2).max(120), category: z.enum(CATEGORIES) });
+
 export const WebSearchQueryZ = z.string().trim().min(2).max(120);
 
 export const WebReferenceZ = z.object({
-  url: z.string().url().max(500).refine(isAllowedReferenceUrl, "Only Wikipedia links can be saved"),
+  url: z.string().url().max(500).refine(isLiveSourceUrl, "Only links from the research sources can be saved"),
   title: short(300).min(1),
   snippet: short(1200),
   publisher: short(80).min(1),

@@ -30,6 +30,8 @@ Every AI result shows a **🔒 ON_DEVICE** or **☁️ IN_CLOUD** badge read fro
 - **Hybrid**: on-device first; cloud fallback for structuring is allowed and disclosed.
 - **Cloud Research**: Hybrid plus live research. Each research request needs explicit consent for the exact query.
 
+**Live research** is separate from AI. It sends a few topic words, shown and editable first, through the server to Wikipedia, OpenAlex, Stack Exchange and Hacker News. It is on by default in Hybrid and Cloud Research, and needs a click in Private mode. Results are real pages with links, found by keyword and unverified.
+
 Privacy modes govern where AI **processing** happens. Saved decisions are stored in PostgreSQL so users can access them later.
 
 ### How consent is enforced

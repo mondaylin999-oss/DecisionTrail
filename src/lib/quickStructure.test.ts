@@ -24,6 +24,13 @@ describe("quickStructure", () => {
     expect(d.alternatives.map((a) => [a.label, a.tag])).toEqual([["Yes", "price_increase"], ["No", "other"]]);
   });
 
+  it("handles a student question with a missing space and a typo", () => {
+    const d = quickStructure("i am CS student attending second year.should i take intenship program?", []);
+    expect(d.title).toBe("should i take intenship program?");
+    expect(["career", "education"]).toContain(d.category);
+    expect(d.alternatives.map((a) => a.label)).toEqual(["Yes", "No"]);
+  });
+
   it("does not guess when nothing matches", () => {
     const d = quickStructure("Blue curtains in the kitchen", []);
     expect(d.category).toBe("other");

@@ -10,8 +10,8 @@ const CATEGORY_RULES: [Category, RegExp][] = [
   ["pricing", /\b(pric(e|es|ing)|subscription|free plan|freemium|free trial|paid|fee|discount|licen[cs]e|monetis|monetiz)/gi],
   ["hiring", /\b(hire|hiring|recruit|layoff|lay off|employees?|staff|remote work|work from home|salar(y|ies)|four-day week)/gi],
   ["technology", /\b(database|postgres|mongodb|monolith|microservices?|serverless|cloud|aws|framework|programming language|architecture|self-host|migrat)/gi],
-  ["career", /\b(my job|quit|career|promotion|job offer|leave my|switch jobs|startup job)/gi],
-  ["education", /\b(degree|universit|college|course|school|master'?s|bootcamp|study)/gi],
+  ["career", /\b(intern(ship)?s?|inten?r?n?ship|resume|cv|freelanc|my job|quit|career|promotion|job offer|leave my|switch jobs|startup job)/gi],
+  ["education", /\b(degree|universit|college|course|school|master'?s|bootcamp|study|student|exam|phd|scholarship)/gi],
   ["growth", /\b(marketing|referral|advertis|acquisition|viral|growth|users? sign)/gi],
   ["product", /\b(feature|redesign|launch|product|logo|packaging|app)\b/gi],
   ["operations", /\b(process|operations|outage|deploy|meeting|supplier|office|logistics)/gi],
@@ -56,6 +56,9 @@ const CONSTRAINT_RULES: [ConstraintTag, RegExp][] = [
   ["existing_customers", /\bexisting (customers|users)/i],
 ];
 
+/** Also splits "year.should i" where the space after the full stop is missing. */
+const SENTENCE = /(?<=[.!?])\s+|\n|(?<=[.!?])(?=(?:should|do|is|can|i|we|what|which|how|would)\b)/i;
+
 export function tagFor(text: string): AlternativeTag {
   return TAG_RULES.find(([, re]) => re.test(text))?.[0] ?? "other";
 }
@@ -96,7 +99,7 @@ export function quickStructure(text: string, typedOptions: string[]): Structured
     tag: l === "No" || l === "Don't do this" ? "other" : tagFor(l === "Yes" ? clean : l),
     origin: "user_added",
   }));
-  const first = clean.split(/(?<=[.!?])\s+|\n/).find((s) => /\?|\b(should|choose|choosing|whether|decid)/i.test(s)) ?? clean;
+  const first = clean.split(SENTENCE).find((s) => /\?|\b(should|choose|choosing|whether|decid)/i.test(s)) ?? clean;
   const segments = [/\bb2b\b|\bbusinesses\b|\bcompanies\b|\bclinics\b/i.test(clean), /\bb2c\b|\bconsumers?\b/i.test(clean)];
   const stage: CompanyStage = /\benterprise\b/i.test(clean) ? "enterprise" : /\bpre[- ]revenue\b/i.test(clean) ? "pre_revenue" : /\bearly[- ]stage\b/i.test(clean) ? "early" : /\bgrowth[- ]stage\b/i.test(clean) ? "growth" : "unknown";
   return {
