@@ -44,8 +44,6 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
   const [options, setOptions] = useState(["", ""]);
-  // null: on by default, except in Private mode, where nothing goes online without a click.
-  const [onlineChoice, setOnline] = useState<boolean | null>(null);
   // null: follow the question. A string: the user edited the search words.
   const [editedWords, setEditedWords] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
@@ -107,7 +105,6 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
     }
   }
 
-  const online = onlineChoice ?? me?.privacyMode !== "private";
   const searchWords = (editedWords ?? topicWords(text, options).join(" ")).trim();
   const personal = matches.filter((m) => m.targetType === "personal_decision");
   const external = matches.filter((m) => m.targetType === "external_case");
@@ -153,16 +150,11 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
                 ))}
               </div>
             </Field>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={online} onChange={(e) => setOnline(e.target.checked)} /> Also research live online sources
-              </label>
-              {online && text.trim().length >= 10 && (
-                <Field label="Words sent online (edit or remove anything private)">
-                  <Input maxLength={120} value={editedWords ?? searchWords} placeholder="Type topic words" onChange={(e) => setEditedWords(e.target.value)} />
-                </Field>
-              )}
-            </div>
+            {text.trim().length >= 10 && (
+              <Field label="Online search words (edit or remove anything private)">
+                <Input maxLength={120} value={editedWords ?? searchWords} placeholder="Type topic words" onChange={(e) => setEditedWords(e.target.value)} />
+              </Field>
+            )}
             <div className="flex flex-wrap items-center gap-2">
               <Button type="submit" disabled={!!busy || text.trim().length < 10}>
                 {busy ? <Spinner /> : "🔎"} Find evidence
@@ -179,7 +171,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             {me.privacyMode === "private"
               ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
               : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}{" "}
-            Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there. Live research sends only the topic words you see, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News.
+            Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there. {me.privacyMode === "private" ? "If no close match is found, live research automatically" : "Live research automatically"} sends only the online search words above, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News.
           </p>
         </Card>
       )}
@@ -210,12 +202,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
           </Card>
 
           <SufficiencyBanner s={sufficiency} personal={personal.length} external={external.length} />
-          {online && searchWords.length >= 2 && sufficiency === "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
-          {!online && searchWords.length >= 2 && (
-            <Card className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm">🌐 Research live sources? Only these words are sent: “{searchWords}”</p>
-              <Button variant="secondary" onClick={() => setOnline(true)}>Search online</Button>
-            </Card>
+          {searchWords.length >= 2 && sufficiency === "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
+          {sufficiency === "insufficient" && searchWords.length < 2 && (
+            <Notice tone="warn">There were no topic words to research online. Go back with “Change question” and add a few.</Notice>
           )}
           <div className="flex flex-wrap gap-2" role="tablist">
             <TabBtn active={tab === "personal"} onClick={() => setTab("personal")}>
@@ -238,9 +227,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
               </Button>
             )}
           </div>
-          {online && searchWords.length >= 2 && sufficiency !== "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
+          {me.privacyMode !== "private" && searchWords.length >= 2 && sufficiency !== "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
           <details>
-            <summary className="cursor-pointer text-sm font-medium text-violet-700">Need more evidence? Search online</summary>
+            <summary className="cursor-pointer text-sm font-medium text-violet-700">More research tools</summary>
             <div className="mt-3 space-y-4">
               <OnlineSearch />
               <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={sufficiency !== "sufficient"} />
@@ -300,7 +289,7 @@ function SufficiencyBanner({ s, personal, external }: { s: Sufficiency; personal
     return <Notice tone="warn">Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.</Notice>;
   return (
     <Notice tone="info">
-      <strong>No close match in our case library.</strong> Found {personal} of your own decisions and {external} library cases that are loosely related. You can research live sources below, and you can save your decision so it becomes evidence next time.
+      <strong>No close match in our case library.</strong> Found {personal} of your own decisions and {external} library cases that are loosely related. Live research appears below when sources are found. You can save your decision so it becomes evidence next time.
     </Notice>
   );
 }
