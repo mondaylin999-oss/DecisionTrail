@@ -9,12 +9,13 @@ import { OnlineSearch } from "@/components/OnlineSearch";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
 import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
-import { extractDecision, prepareDeviceModel, type Where } from "@/lib/ai/tasks";
-import { RoutingError } from "@/lib/ai/router";
+import { extractDecision, type Where } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
+import { quickStructure } from "@/lib/quickStructure";
+import { label } from "@/lib/vocab";
 import type { MatchResult, StructuredDecision, SuccessCriterion, Sufficiency } from "@/lib/types";
 
-type Step = "describe" | "structure" | "evidence" | "record";
+type Step = "ask" | "decide";
 
 export default function NewDecisionPage() {
   // The router keeps this page alive after navigating away, so a saved form must be
@@ -35,11 +36,13 @@ export default function NewDecisionPage() {
 }
 
 function NewDecision({ onSaved }: { onSaved: () => void }) {
-  const { me, aiStatus, refreshAiStatus } = useAuth();
+  const { me, aiStatus } = useAuth();
   const router = useRouter();
   const past = useSearchParams().get("past") === "1";
-  const [step, setStep] = useState<Step>("describe");
+  const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
+  const [options, setOptions] = useState(["", ""]);
+  const [showAll, setShowAll] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<{ tone: "warn" | "error" | "info"; msg: string } | null>(null);
   const [where, setWhere] = useState<Where | null>(null);
@@ -50,79 +53,47 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
 
   if (!me) return null;
 
-  async function structure() {
+  /** Structures the text (AI when it's ready, fixed rules otherwise) and finds precedent in one go. */
+  async function ask() {
     setNotice(null);
-    setBusy("Preparing private AI…");
-    try {
-      if (aiStatus === "downloadable" || aiStatus === "downloading") {
-        // This click is the user gesture Chrome requires before downloading Gemini Nano.
-        await prepareDeviceModel((p) => setBusy(`${"Downloading private AI model…"} ${Math.round(p * 100)}%`));
-        await refreshAiStatus();
-      }
-      setBusy("Structuring your decision…");
-      const r = await extractDecision(text, me!.privacyMode);
-      const e = r.data;
-      setD({
-        title: e.title,
-        category: e.category,
-        decision_type: e.decision_type,
-        context: e.context || text,
-        objective: e.objective,
-        time_horizon: e.time_horizon,
-        alternatives: e.alternatives.map((a) => ({ ...a, origin: "ai_extracted" })),
-        constraints: e.constraints,
-        assumptions: e.assumptions.map((t) => ({ text: t, origin: "ai_extracted" })),
-        expected_benefits: e.expected_benefits,
-        risks: e.risks,
-        missing_information: e.missing_information,
-        facets: { customer_segment: e.customer_segment, company_stage: e.company_stage },
-        field_origins: Object.fromEntries(
-          ["title", "category", "decision_type", "context", "objective", "time_horizon", "alternatives", "constraints", "expected_benefits", "risks", "facets"].map((k) => [k, "ai_extracted"]),
-        ),
-      });
-      setWhere(r.where);
-      setStep("structure");
-    } catch (e) {
-      const msg =
-        e instanceof RoutingError
-          ? e.message
-          : me!.privacyMode === "private"
-            ? "Private AI isn't available on this device, and Private mode never uses the cloud. Fill in the structure yourself below, or enable Hybrid mode in Settings."
-            : `AI structuring failed (${e instanceof Error ? e.message : String(e)}). Fill in the structure yourself below.`;
-      setNotice({ tone: "warn", msg });
-      manual();
-    } finally {
-      setBusy(null);
-    }
-  }
-
-  function manual() {
-    setD(emptyDecision(text));
     setWhere(null);
-    setStep("structure");
+    let next = quickStructure(text, options);
+    // Never start a multi-gigabyte model download from this button; Settings does that.
+    if (aiStatus === "available" || me!.privacyMode !== "private") {
+      setBusy("Structuring your decision…");
+      try {
+        const r = await extractDecision(text, me!.privacyMode);
+        next = fromAi(r.data, next, options.some((o) => o.trim()));
+        setWhere(r.where);
+      } catch {
+        setNotice({ tone: "info", msg: "AI structuring wasn't available, so we sorted your decision with simple rules. Check the details below." });
+      }
+    }
+    setD(next);
+    await findPrecedent(next);
   }
 
-  async function findPrecedent() {
+  async function findPrecedent(x: StructuredDecision) {
     setBusy("Searching your history and the case library…");
-    setNotice(null);
     try {
       const r = await api<{ matches: MatchResult[]; sufficiency: Sufficiency }>("/api/match", {
         method: "POST",
         body: {
-          category: d.category,
-          decision_type: d.decision_type,
-          title: d.title,
-          context: d.context,
-          objective: d.objective,
-          alternative_tags: d.alternatives.map((a) => a.tag),
-          constraint_tags: d.constraints,
-          facets: d.facets,
+          category: x.category,
+          decision_type: x.decision_type,
+          title: x.title.slice(0, 160),
+          context: x.context.slice(0, 2000),
+          objective: x.objective,
+          alternative_tags: x.alternatives.map((a) => a.tag).slice(0, 10),
+          constraint_tags: x.constraints,
+          facets: x.facets,
         },
       });
       setMatches(r.matches);
       setSufficiency(r.sufficiency);
+      setShowAll(false);
       setTab(r.matches.some((m) => m.targetType === "personal_decision") ? "personal" : "external");
-      setStep("evidence");
+      setStep("decide");
     } catch (e) {
       setNotice({ tone: "error", msg: e instanceof Error ? e.message : String(e) });
     } finally {
@@ -132,66 +103,93 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
 
   const personal = matches.filter((m) => m.targetType === "personal_decision");
   const external = matches.filter((m) => m.targetType === "external_case");
+  const shown = tab === "personal" ? personal : external;
 
   return (
     <>
       <PageTitle title={past ? "Log a past decision" : "New decision"} subtitle="DecisionTrail shows precedent. It never decides for you or predicts your outcome." />
       <ol className="flex gap-2 text-sm">
-        {(["describe", "structure", "evidence", "record"] as Step[]).map((s, i) => (
-          <li key={s} className={cn("rounded-full px-3 py-1", step === s ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 font-semibold text-white" : "bg-slate-200 text-slate-600")}>
-            {i + 1}. {s[0].toUpperCase() + s.slice(1)}
+        {(["ask", "decide"] as Step[]).map((x, i) => (
+          <li key={x} aria-current={step === x ? "step" : undefined} className={cn("rounded-full px-3 py-1", step === x ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 font-semibold text-white" : "bg-slate-200 text-slate-600")}>
+            {i + 1}. {x === "ask" ? "Ask" : "See evidence & decide"}
           </li>
         ))}
       </ol>
       {notice && <Notice tone={notice.tone}>{notice.msg}</Notice>}
 
-      {step === "describe" && (
+      {step === "ask" && (
         <Card className="space-y-4">
-          <CardTitle hint="English works best on-device">Describe the decision in your own words</CardTitle>
-          <Textarea
-            className="min-h-44"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="e.g. I'm developing a B2B SaaS for small clinics. I'm considering whether to offer a free plan, a paid subscription with a trial, or a one-time license. Budget is limited and I'm the only developer."
-          />
-          <div className="flex flex-wrap items-center gap-2">
-            <Button onClick={() => void structure()} disabled={!!busy || text.trim().length < 20}>
-                {busy ? <Spinner /> : "🔒"} Structure with private AI
-            </Button>
-            <Button variant="secondary" onClick={manual} disabled={!!busy}>
-              Fill in manually
-            </Button>
-            {busy && <span className="text-sm text-slate-600">{busy}</span>}
-          </div>
+          <CardTitle>{past ? "What did you decide?" : "What are you deciding?"}</CardTitle>
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (text.trim().length >= 10 && !busy) void ask();
+            }}
+          >
+            <Textarea
+              aria-label="Your decision"
+              className="min-h-32"
+              maxLength={2000}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="e.g. I run a B2B SaaS for small clinics with a limited budget. Should we offer a free plan or a paid subscription?"
+            />
+            <Field label="Your options (optional)">
+              <div className="space-y-2">
+                {options.map((o, i) => (
+                  <Input key={i} aria-label={`Option ${i + 1}`} maxLength={120} placeholder={`Option ${i + 1}`} value={o} onChange={(e) => setOptions(options.map((x, j) => (j === i ? e.target.value : x)))} />
+                ))}
+              </div>
+            </Field>
+            <div className="flex flex-wrap items-center gap-2">
+              <Button type="submit" disabled={!!busy || text.trim().length < 10}>
+                {busy ? <Spinner /> : "🔎"} Find evidence
+              </Button>
+              {options.length < 5 && (
+                <Button type="button" variant="ghost" onClick={() => setOptions([...options, ""])}>
+                  + Add option
+                </Button>
+              )}
+              {busy ? <span className="text-sm text-slate-600">{busy}</span> : text.trim().length < 10 && <span className="text-sm text-slate-500">Write one sentence to continue.</span>}
+            </div>
+          </form>
           <p className="text-xs text-slate-500">
             {me.privacyMode === "private"
-              ? "Private mode: structuring runs only on this device. If on-device AI is unavailable, you'll fill in the form yourself."
+              ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
               : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}{" "}
             Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there.
           </p>
         </Card>
       )}
 
-      {step === "structure" && (
+      {step === "decide" && (
         <>
-          {where && (
-            <Notice tone="info">
-              Structured by AI <InferenceBadge where={where} />. Review every field. Assumptions are unverified until you check them.
-            </Notice>
-          )}
-          <StructureEditor value={d} onChange={setD} onApprove={() => void findPrecedent()} />
-          {busy && (
+          <Card className="space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <CardTitle>{d.title}</CardTitle>
+              <Button variant="ghost" onClick={() => setStep("ask")}>
+                ← Change question
+              </Button>
+            </div>
             <p className="text-sm text-slate-600">
-              <Spinner /> {busy}
+              {label(d.category)} · {d.alternatives.map((a) => a.label).filter(Boolean).join(" / ")} {where && <InferenceBadge where={where} />}
             </p>
-          )}
-        </>
-      )}
+            <details>
+              <summary className="cursor-pointer text-sm font-medium text-violet-700">Not right? Edit details</summary>
+              <div className="mt-3">
+                <StructureEditor value={d} onChange={setD} onApprove={() => void findPrecedent(d)} approveLabel="Update evidence" />
+              </div>
+            </details>
+            {busy && (
+              <p className="text-sm text-slate-600">
+                <Spinner /> {busy}
+              </p>
+            )}
+          </Card>
 
-      {step === "evidence" && (
-        <>
           <SufficiencyBanner s={sufficiency} personal={personal.length} external={external.length} />
-          <div className="flex gap-2" role="tablist">
+          <div className="flex flex-wrap gap-2" role="tablist">
             <TabBtn active={tab === "personal"} onClick={() => setTab("personal")}>
               Your past decisions ({personal.length})
             </TabBtn>
@@ -200,32 +198,63 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             </TabBtn>
           </div>
           <div className="space-y-3">
-            {(tab === "personal" ? personal : external).map((m) => (
+            {shown.slice(0, showAll ? shown.length : 3).map((m) => (
               <MatchCard key={m.targetType + m.targetId} m={m} current={{ title: d.title, context: d.context }} />
             ))}
-            {(tab === "personal" ? personal : external).length === 0 && (
-              <p className="text-sm text-slate-500">
-                {tab === "personal" ? "None of your recorded decisions is comparable yet." : "No library case is comparable enough to show."}
-              </p>
+            {shown.length === 0 && (
+              <p className="text-sm text-slate-500">{tab === "personal" ? "None of your recorded decisions is comparable yet." : "No library case is comparable enough to show."}</p>
+            )}
+            {!showAll && shown.length > 3 && (
+              <Button variant="secondary" onClick={() => setShowAll(true)}>
+                Show all {shown.length}
+              </Button>
             )}
           </div>
-          <OnlineSearch />
-          <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={sufficiency !== "sufficient"} />
-          <div className="flex justify-between">
-            <Button variant="secondary" onClick={() => setStep("structure")}>
-              ← Edit structure
-            </Button>
-            <Button onClick={() => setStep("record")}>Record my decision →</Button>
-          </div>
+          <details>
+            <summary className="cursor-pointer text-sm font-medium text-violet-700">Need more evidence? Search online</summary>
+            <div className="mt-3 space-y-4">
+              <OnlineSearch />
+              <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={sufficiency !== "sufficient"} />
+            </div>
+          </details>
+
+          <RecordStep
+            key={d.alternatives.map((a) => a.label).join("|")}
+            d={d}
+            past={past}
+            matchesShown={matches.length}
+            onSaved={(id) => {
+              router.push(`/decisions/${id}`);
+              onSaved();
+            }}
+          />
         </>
       )}
-
-      {step === "record" && <RecordStep d={d} past={past} matchesShown={matches.length} onSaved={(id) => {
-            router.push(`/decisions/${id}`);
-            onSaved();
-          }} />}
     </>
   );
+}
+
+/** Turns the AI's reading into an editable decision. Options the user typed always win. */
+function fromAi(e: Awaited<ReturnType<typeof extractDecision>>["data"], basic: StructuredDecision, typedOptions: boolean): StructuredDecision {
+  const useOwn = typedOptions || e.alternatives.length === 0;
+  return {
+    title: e.title || basic.title,
+    category: e.category,
+    decision_type: e.decision_type,
+    context: e.context || basic.context,
+    objective: e.objective,
+    time_horizon: e.time_horizon,
+    alternatives: useOwn ? basic.alternatives : e.alternatives.map((a) => ({ ...a, origin: "ai_extracted" as const })),
+    constraints: e.constraints,
+    assumptions: e.assumptions.map((t) => ({ text: t, origin: "ai_extracted" as const })),
+    expected_benefits: e.expected_benefits,
+    risks: e.risks,
+    missing_information: e.missing_information,
+    facets: { customer_segment: e.customer_segment, company_stage: e.company_stage },
+    field_origins: Object.fromEntries(
+      ["title", "category", "decision_type", "context", "objective", "time_horizon", ...(useOwn ? [] : ["alternatives"]), "constraints", "expected_benefits", "risks", "facets"].map((k) => [k, "ai_extracted" as const]),
+    ),
+  };
 }
 
 function TabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
@@ -302,7 +331,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
 
   return (
     <Card className="space-y-4">
-      <CardTitle hint={`${matchesShown} ${"matches will be saved with this record"}`}>Record your decision</CardTitle>
+      <CardTitle hint={`${matchesShown} ${"matches will be saved with this record"}`}>Decide and save</CardTitle>
       <Field label="Your choice">
         <div className="space-y-1">
           {options.map((o, i) => (
@@ -319,6 +348,9 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
       <Field label="Why (your original reasoning, preserved as written)">
         <Textarea value={reasons} onChange={(e) => setReasons(e.target.value)} />
       </Field>
+      <details>
+        <summary className="cursor-pointer text-sm font-medium text-violet-700">Add expectation and success criteria (optional)</summary>
+        <div className="mt-3 space-y-4">
       <Field label="What do you expect to happen?">
         <Textarea value={expected} onChange={(e) => setExpected(e.target.value)} />
       </Field>
@@ -339,6 +371,8 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
           </Button>
         </div>
       </Field>
+        </div>
+      </details>
       <div className="grid gap-4 md:grid-cols-2">
         {past && (
           <Field label="When did you decide?">

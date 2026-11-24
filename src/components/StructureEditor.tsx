@@ -44,10 +44,12 @@ export function StructureEditor({
   value,
   onChange,
   onApprove,
+  approveLabel = "Approve structure & find precedent →",
 }: {
   value: StructuredDecision;
   onChange: (d: StructuredDecision) => void;
   onApprove: () => void;
+  approveLabel?: string;
 }) {
   const d = value;
   const origin = (k: string): FieldOrigin | undefined => d.field_origins[k];
@@ -168,9 +170,10 @@ export function StructureEditor({
         )}
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex flex-wrap items-center justify-end gap-3">
+        {!valid && <span className="text-sm text-amber-700">Add a title and at least one option name.</span>}
         <Button onClick={onApprove} disabled={!valid}>
-          Approve structure &amp; find precedent →
+          {approveLabel}
         </Button>
       </div>
     </Card>
