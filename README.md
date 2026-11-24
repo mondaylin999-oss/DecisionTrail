@@ -8,7 +8,7 @@ It never predicts outcomes and never picks an option for you.
 
 Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference** (Gemini Nano on-device in Chrome + cloud Gemini).
 
-> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). The case library ships with **135 research-draft cases** built from linked public sources; a human should verify each before relying on it (see [Curated cases](#curated-cases)).
+> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). The case library ships with **135 unverified draft cases** with linked sources; a human must verify each before relying on it (see [Curated cases](#curated-cases)).
 
 ---
 
@@ -16,7 +16,7 @@ Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hy
 
 | Task | Where it runs | Inference mode | Why |
 |---|---|---|---|
-| Structure the decision (free text → JSON) | On-device in **Private** mode; on-device first in **Hybrid** | `ONLY_ON_DEVICE` / `PREFER_ON_DEVICE` | Private text stays on the device by default |
+| Structure the decision (free text → JSON) | On-device in **Private** mode; on-device first in **Hybrid** | `ONLY_ON_DEVICE` / `PREFER_ON_DEVICE` | AI processing of private text stays on the device by default (matching and saved decisions use our server) |
 | Generalize a private decision into a research query | **Always on-device** | `ONLY_ON_DEVICE` | The input *is* the private text, so cloud fallback would defeat the purpose |
 | Live research with Grounding with Google Search | Cloud only, after consent | `ONLY_IN_CLOUD` | Tools and grounding aren't supported on-device |
 | Retrieval and matching | Our server, deterministic SQL + rules | — (no AI) | Explainable, and AI can't invent cases |
@@ -102,7 +102,7 @@ npm run build
 ---
 
 ## Curated cases
-The external library is the product's credibility. `data/cases/` holds 135 research-draft cases (marked "pending human review"), each built from linked public sources, mostly secondary news coverage. Verify them against primary sources before treating them as authoritative. Nothing in the library may come from AI memory.
+`data/cases/` holds 135 **unverified drafts**. They were written with AI assistance from web search results and news coverage, most cited pages were not read in full, and some dates and details may be wrong or estimated. The app labels them "Unverified draft". A person must check each one against its sources before changing `verified_by`.
 
 1. Copy `data/cases/_TEMPLATE.json` to `data/cases/<slug>.json`.
 2. Fill every field from real sources, **in your own words** (no copied articles). Link each claim to at least one source. State the limitations.

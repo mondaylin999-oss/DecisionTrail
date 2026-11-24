@@ -5,6 +5,7 @@ import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { InferenceBadge } from "@/components/marks";
 import { MatchCard } from "@/components/MatchCard";
+import { OnlineSearch } from "@/components/OnlineSearch";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
 import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
@@ -101,7 +102,7 @@ function NewDecision() {
   }
 
   async function findPrecedent() {
-    setBusy("Searching your history and curated cases…");
+    setBusy("Searching your history and the case library…");
     setNotice(null);
     try {
       const r = await api<{ matches: MatchResult[]; sufficiency: Sufficiency }>("/api/match", {
@@ -164,7 +165,8 @@ function NewDecision() {
           <p className="text-xs text-slate-500">
             {me.privacyMode === "private"
               ? t("Private mode: structuring runs only on this device. If on-device AI is unavailable, you'll fill in the form yourself.")
-              : t("Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD.")}
+              : t("Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD.")}{" "}
+            {t("Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there.")}
           </p>
         </Card>
       )}
@@ -202,10 +204,11 @@ function NewDecision() {
             ))}
             {(tab === "personal" ? personal : external).length === 0 && (
               <p className="text-sm text-slate-500">
-                {t(tab === "personal" ? "None of your recorded decisions is comparable yet." : "No curated case is comparable enough to show.")}
+                {t(tab === "personal" ? "None of your recorded decisions is comparable yet." : "No library case is comparable enough to show.")}
               </p>
             )}
           </div>
+          <OnlineSearch />
           <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={sufficiency !== "sufficient"} />
           <div className="flex justify-between">
             <Button variant="secondary" onClick={() => setStep("structure")}>
@@ -232,13 +235,13 @@ function TabBtn({ active, onClick, children }: { active: boolean; onClick: () =>
 
 function SufficiencyBanner({ s, personal, external }: { s: Sufficiency; personal: number; external: number }) {
   const { t } = useLanguage();
-  if (s === "sufficient") return <Notice tone="ok">{t("Relevant precedent found:")} {personal} {t("of your decisions and")} {external} {t("curated cases. Compare them below.")}</Notice>;
+  if (s === "sufficient") return <Notice tone="ok">{t("Relevant precedent found:")} {personal} {t("of your decisions and")} {external} {t("library cases. Compare them below.")}</Notice>;
   if (s === "partial")
     return <Notice tone="warn">{t("Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.")}</Notice>;
   return (
     <Notice tone="warn">
       <strong>{t("We couldn't find sufficiently relevant historical cases for your decision.")}</strong> {t("Why: fewer than one strong match with a known outcome and fewer than two partial matches")}
-      ({personal} {t("personal")}, {external} {t("curated shown")}). {t("You can research it on the web below, edit the structure to broaden it, or continue without research.")}
+      ({personal} {t("personal")}, {external} {t("library cases shown")}). {t("You can research it on the web below, edit the structure to broaden it, or continue without research.")}
     </Notice>
   );
 }

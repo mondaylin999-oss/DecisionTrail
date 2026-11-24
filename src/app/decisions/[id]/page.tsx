@@ -1,11 +1,13 @@
 "use client";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { DemoBadge, MatchBadge, OriginChip, OutcomeChip } from "@/components/marks";
-import { Badge, Button, Card, CardTitle, Field, Notice, Select, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea } from "@/components/ui";
+import { Badge, Button, Card, CardTitle, Field, Input, Notice, Select, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea } from "@/components/ui";
 import { api } from "@/lib/api";
+import { reviewIcs } from "@/lib/ics";
 import { useLanguage } from "@/lib/i18n";
 import type { FieldOrigin, MatchLabel } from "@/lib/types";
 import { OUTCOME_STATUSES, label, type OutcomeStatus } from "@/lib/vocab";
@@ -35,7 +37,7 @@ interface Detail {
     review: { id: string; reviewedAt: string; whatHappened: string; unexpectedEvents: string; wouldDoDifferently: string; lessons: string; processChecklist: Record<string, boolean> };
     outcome: { outcomeStatus: OutcomeStatus; criteriaResults: { metric: string; result: string }[] } | null;
   }[];
-  matches: { id: string; label: MatchLabel; externalCaseId: string | null; personalDecisionId: string | null; score: string }[];
+  matches: { id: string; label: MatchLabel; externalCaseId: string | null; personalDecisionId: string | null; caseTitle: string | null; personalTitle: string | null; score: string }[];
 }
 
 const PROCESS = {
@@ -126,6 +128,11 @@ export default function DecisionDetailPage() {
           <p className="text-sm text-slate-600">{t("Decided: ")}{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</p>
           <p className="text-sm text-slate-600">{t("Review due: ")}{due ? due.toLocaleDateString(language === "my" ? "my-MM" : "en-US") : "—"}</p>
           <OutcomeChip value={latest?.outcome?.outcomeStatus} />
+          {due && reviewOpen && (
+            <Button variant="secondary" onClick={() => downloadReminder(r.id, r.title, due)}>
+              📅 Add review to calendar
+            </Button>
+          )}
           <div>
             <div className="text-xs font-medium uppercase text-slate-500">{t("Precedent consulted")}</div>
             {d.matches.length === 0 ? (
@@ -134,7 +141,10 @@ export default function DecisionDetailPage() {
               <ul className="space-y-1">
                 {d.matches.map((m) => (
                   <li key={m.id} className="text-sm">
-                    <MatchBadge label={m.label} /> {t(m.externalCaseId ? "curated case" : "your decision")}
+                    <MatchBadge label={m.label} />{" "}
+                    <Link className="underline" href={m.externalCaseId ? `/explorer?case=${m.externalCaseId}` : `/decisions/${m.personalDecisionId}`}>
+                      {m.caseTitle ?? m.personalTitle ?? t(m.externalCaseId ? "library case" : "your decision")}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -177,8 +187,80 @@ export default function DecisionDetailPage() {
         </Card>
       )}
 
+      {r.status === "draft" && <DecideDraft d={d} onDone={load} />}
       {reviewOpen && <ReviewWizard d={d} overdue={!due || due.getTime() <= now} onDone={load} chosenLabel={chosen?.label} />}
     </>
+  );
+}
+
+function downloadReminder(id: string, title: string, due: Date) {
+  const url = `${window.location.origin}/decisions/${id}`;
+  const href = URL.createObjectURL(new Blob([reviewIcs({ id, title, due, url, now: new Date() })], { type: "text/calendar" }));
+  const a = document.createElement("a");
+  a.href = href;
+  a.download = "decision-review.ics";
+  a.click();
+  URL.revokeObjectURL(href);
+}
+
+function inDays(n: number) {
+  const x = new Date();
+  x.setDate(x.getDate() + n);
+  return x.toISOString().slice(0, 10);
+}
+
+/** A draft has no choice yet. This records it, so the decision can be reviewed later. */
+function DecideDraft({ d, onDone }: { d: Detail; onDone: () => void }) {
+  const { t } = useLanguage();
+  const [choice, setChoice] = useState<string | null>(null);
+  const [reasons, setReasons] = useState(d.record.reasons);
+  const [expected, setExpected] = useState(d.record.expectedOutcome);
+  const [reviewDate, setReviewDate] = useState(inDays(90));
+  const [err, setErr] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  async function submit() {
+    setSaving(true);
+    setErr(null);
+    try {
+      await api(`/api/decisions/${d.record.id}/decide`, {
+        method: "POST",
+        body: { chosen_option_id: choice, reasons, expected_outcome: expected, review_due_at: new Date(reviewDate).toISOString() },
+      });
+      onDone();
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : String(e));
+      setSaving(false);
+    }
+  }
+
+  return (
+    <Card className="space-y-4">
+      <CardTitle hint="your draft is kept as version 1">I&apos;ve decided now</CardTitle>
+      <div className="space-y-1" role="radiogroup" aria-label={t("Your choice")}>
+        {d.options.map((o) => (
+          <label key={o.id} className="flex items-center gap-2 text-sm">
+            <input type="radio" name="draft-choice" checked={choice === o.id} onChange={() => setChoice(o.id)} />
+            <span className="font-medium">{o.label}</span> <span className="text-slate-500">{o.description}</span>
+          </label>
+        ))}
+      </div>
+      <Field label="Why (your original reasoning, preserved as written)">
+        <Textarea value={reasons} onChange={(e) => setReasons(e.target.value)} />
+      </Field>
+      <Field label="What do you expect to happen?">
+        <Textarea value={expected} onChange={(e) => setExpected(e.target.value)} />
+      </Field>
+      <Field label="Review date">
+        <Input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} className="max-w-xs" />
+      </Field>
+      {err && <Notice tone="error">{err}</Notice>}
+      <div className="flex justify-end">
+        <Button disabled={saving || !choice || !reasons.trim() || !reviewDate} onClick={() => void submit()}>
+          {saving && <Spinner />} {t("Save my decision")}
+        </Button>
+      </div>
+    </Card>
   );
 }
 

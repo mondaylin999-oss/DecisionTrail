@@ -12,7 +12,7 @@ import {
   type CompanyStage,
 } from "../vocab";
 
-export const ALGORITHM_VERSION = "rules-v1";
+export const ALGORITHM_VERSION = "rules-v2";
 
 export interface MatchAttributes {
   category: Category;
@@ -47,6 +47,24 @@ export const WEIGHTS = {
 } as const;
 
 export const THRESHOLDS = { strong: 65, partial: 40, weak: 25 } as const;
+
+/** Text relevance needed before a candidate with no shared option counts as related. */
+export const MIN_TEXT = { related: 0.45, partial: 0.6, withGenericOption: 0.25 } as const;
+
+/** Options so common that sharing one says little about the topic. */
+const GENERIC_ALTERNATIVES = new Set(["launch_now", "delay", "stop", "continue", "build", "buy"]);
+
+/**
+ * Same decision type, customer and company stage describe the *shape* of a
+ * decision, not its subject. A match also needs a shared option or similar text.
+ */
+function topicEvidence(sharedAlts: string[], text: number): "none" | "related" | "solid" {
+  const specific = sharedAlts.some((t) => !GENERIC_ALTERNATIVES.has(t));
+  if (specific || text >= MIN_TEXT.partial) return "solid";
+  if (sharedAlts.length > 0 && text >= MIN_TEXT.withGenericOption) return "solid";
+  if (text >= MIN_TEXT.related) return "related";
+  return "none";
+}
 
 export function jaccard(a: string[], b: string[]): number {
   const A = new Set(a.filter((t) => t !== "other"));
@@ -157,10 +175,12 @@ export function scoreCandidate(query: MatchAttributes, c: Candidate): ScoreBreak
   score = Math.round(Math.max(0, Math.min(100, score)) * 10) / 10;
 
   let lbl: MatchLabel | null = null;
+  const evidence = topicEvidence(sharedAlts, text);
   const strongCriteria =
-    score >= THRESHOLDS.strong && sameType && sharedAlts.length >= 1 && !penalised;
-  if (strongCriteria) lbl = "strong";
-  else if (score >= THRESHOLDS.partial || (score >= THRESHOLDS.strong && penalised)) lbl = "partial";
+    evidence === "solid" && score >= THRESHOLDS.strong && sameType && sharedAlts.length >= 1 && !penalised;
+  if (evidence === "none") lbl = null;
+  else if (strongCriteria) lbl = "strong";
+  else if (evidence === "solid" && score >= THRESHOLDS.partial) lbl = "partial";
   else if (score >= THRESHOLDS.weak) lbl = "weak";
 
   const reasons = buildReasons(lbl, { sameType, sharedAlts, penalised, score });

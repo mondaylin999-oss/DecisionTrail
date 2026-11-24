@@ -42,6 +42,16 @@ export default function Dashboard() {
         }
       />
       {err && <Notice tone="error">{err}</Notice>}
+      {s && s.awaitingReview > 0 && (
+        <Notice tone="warn">
+          <strong>⏰ {t("Decisions ready for review:")} {s.awaitingReview}.</strong> {t("Record what actually happened while you still remember.")}{" "}
+          {s.upcoming[0] && (
+            <Link href={`/decisions/${s.upcoming[0].id}`} className="font-semibold underline">
+              {s.upcoming[0].title} →
+            </Link>
+          )}
+        </Notice>
+      )}
       {!s && !err && (
         <SkeletonGroup className="space-y-4">
           <div className="grid gap-4 md:grid-cols-4">

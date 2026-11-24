@@ -74,6 +74,14 @@ export const ReviewZ = z.object({
 });
 export type ReviewInput = z.infer<typeof ReviewZ>;
 
+export const DecideZ = z.object({
+  chosen_option_id: z.string().uuid(),
+  reasons: short(4000).min(1),
+  expected_outcome: short(2000),
+  review_due_at: z.string().datetime(),
+});
+export type DecideInput = z.infer<typeof DecideZ>;
+
 export const PrivacyModeZ = z.object({ privacy_mode: z.enum(PRIVACY_MODES) });
 
 export const ConsentZ = z.object({

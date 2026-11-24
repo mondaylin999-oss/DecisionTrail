@@ -56,6 +56,23 @@ describe("scoreCandidate", () => {
     expect(r.label).toBeNull();
   });
 
+  it("hides a case that only shares decision type, customer and stage", () => {
+    const r = scoreCandidate(query, { ...base, alternativeTags: ["cloud"], constraintTags: [], textRank: 0 });
+    expect(r.score).toBeGreaterThanOrEqual(40);
+    expect(r.label).toBeNull();
+  });
+
+  it("does not treat a generic shared option as topic evidence on its own", () => {
+    const q = { ...query, alternativeTags: ["launch_now"] };
+    expect(scoreCandidate(q, { ...base, alternativeTags: ["launch_now"], textRank: 0 }).label).toBeNull();
+    expect(scoreCandidate(q, { ...base, alternativeTags: ["launch_now"], textRank: 0.3 }).label).not.toBeNull();
+  });
+
+  it("keeps a case with clearly similar text even when no option tag is shared", () => {
+    const r = scoreCandidate(query, { ...base, alternativeTags: ["other"], textRank: 0.7 });
+    expect(r.label).toBe("partial");
+  });
+
   it("records undocumented alternatives as unknown, not as a difference", () => {
     const r = scoreCandidate(query, { ...base, alternativeTags: [] });
     expect(r.explanation.unknowns.join(" ")).toMatch(/not documented/);

@@ -5,9 +5,10 @@ import "server-only";
  */
 import { createHash } from "node:crypto";
 import { and, asc, count, desc, eq, inArray, lte, ne, sql } from "drizzle-orm";
+import { alias } from "drizzle-orm/pg-core";
 import { ALGORITHM_VERSION, assessSufficiency, categoriesComparable, scoreCandidate, toOrTsQuery, type MatchAttributes } from "../matching/score";
 import type { MatchResult, Sufficiency } from "../types";
-import type { CreateDecision, MatchRequest, ReviewInput } from "../validation";
+import type { CreateDecision, DecideInput, MatchRequest, ReviewInput } from "../validation";
 import { CATEGORIES, type Category, type CompanyStage, type PrivacyMode } from "../vocab";
 import { getDb } from "./client";
 import * as s from "./schema";
@@ -72,6 +73,7 @@ export async function getDecision(uid: string, id: string) {
     .from(s.decisionRecords)
     .where(and(eq(s.decisionRecords.id, id), eq(s.decisionRecords.userId, uid)));
   if (!record) return null;
+  const precedent = alias(s.decisionRecords, "precedent");
   const [options, assumptions, versions, reviews, matches] = await Promise.all([
     db.select().from(s.decisionOptions).where(and(eq(s.decisionOptions.decisionId, id), eq(s.decisionOptions.userId, uid))).orderBy(asc(s.decisionOptions.position)),
     db.select().from(s.decisionAssumptions).where(and(eq(s.decisionAssumptions.decisionId, id), eq(s.decisionAssumptions.userId, uid))),
@@ -82,9 +84,60 @@ export async function getDecision(uid: string, id: string) {
       .leftJoin(s.decisionOutcomes, eq(s.decisionOutcomes.reviewId, s.decisionReviews.id))
       .where(and(eq(s.decisionReviews.decisionId, id), eq(s.decisionReviews.userId, uid)))
       .orderBy(desc(s.decisionReviews.reviewedAt)),
-    db.select().from(s.decisionMatches).where(and(eq(s.decisionMatches.decisionId, id), eq(s.decisionMatches.userId, uid))),
+    db
+      .select({
+        id: s.decisionMatches.id,
+        label: s.decisionMatches.label,
+        score: s.decisionMatches.score,
+        externalCaseId: s.decisionMatches.externalCaseId,
+        personalDecisionId: s.decisionMatches.personalDecisionId,
+        caseTitle: s.externalCases.title,
+        personalTitle: precedent.title,
+      })
+      .from(s.decisionMatches)
+      .leftJoin(s.externalCases, eq(s.externalCases.id, s.decisionMatches.externalCaseId))
+      .leftJoin(precedent, and(eq(precedent.id, s.decisionMatches.personalDecisionId), eq(precedent.userId, uid)))
+      .where(and(eq(s.decisionMatches.decisionId, id), eq(s.decisionMatches.userId, uid))),
   ]);
   return { record, options, assumptions, versions, reviews, matches };
+}
+
+/**
+ * Turns a draft into a decision. The draft snapshot (v1) is kept; the choice and
+ * reasoning become the next version. Returns null if the draft or option isn't the caller's.
+ */
+export async function decideDraft(uid: string, id: string, input: DecideInput): Promise<boolean> {
+  const db = getDb();
+  return db.transaction(async (tx) => {
+    const [option] = await tx
+      .select({ id: s.decisionOptions.id })
+      .from(s.decisionOptions)
+      .where(and(eq(s.decisionOptions.id, input.chosen_option_id), eq(s.decisionOptions.decisionId, id), eq(s.decisionOptions.userId, uid)));
+    if (!option) return false;
+    // The status filter makes this safe against double submits.
+    const updated = await tx
+      .update(s.decisionRecords)
+      .set({
+        status: "decided",
+        chosenOptionId: option.id,
+        reasons: input.reasons,
+        expectedOutcome: input.expected_outcome,
+        decidedAt: new Date(),
+        reviewDueAt: new Date(input.review_due_at),
+        updatedAt: new Date(),
+      })
+      .where(and(eq(s.decisionRecords.id, id), eq(s.decisionRecords.userId, uid), eq(s.decisionRecords.status, "draft")))
+      .returning({ id: s.decisionRecords.id });
+    if (!updated.length) return false;
+    const [last] = await tx
+      .select({ n: s.decisionVersions.versionNo })
+      .from(s.decisionVersions)
+      .where(and(eq(s.decisionVersions.decisionId, id), eq(s.decisionVersions.userId, uid)))
+      .orderBy(desc(s.decisionVersions.versionNo))
+      .limit(1);
+    await tx.insert(s.decisionVersions).values({ decisionId: id, userId: uid, versionNo: (last?.n ?? 0) + 1, snapshot: input, changeReason: "draft decided" });
+    return true;
+  });
 }
 
 export async function createDecision(uid: string, input: CreateDecision, opts: { isDemo?: boolean } = {}) {
@@ -264,6 +317,7 @@ export async function findMatches(
     .where(
       and(
         eq(s.decisionRecords.userId, uid),
+        ne(s.decisionRecords.status, "draft"), // an undecided draft is not precedent
         inArray(s.decisionRecords.category, cats),
         excludeDecisionId ? ne(s.decisionRecords.id, excludeDecisionId) : undefined,
       ),
@@ -305,8 +359,9 @@ export async function findMatches(
       label: r.label,
       reasons: r.reasons,
       explanation: r.explanation,
-      outcomeKnown: c.outcomeCategory !== "unknown",
+      outcomeKnown: c.outcomeCategory !== "unknown" && c.outcomeCategory !== "inconclusive",
       outcomeCategory: c.outcomeCategory,
+      isDraft: /pending human review/i.test(c.verifiedBy),
       summary: { actorName: c.actorName, decisionMade: c.decisionMade, observedOutcome: c.observedOutcome, lessons: c.lessons },
     });
   }

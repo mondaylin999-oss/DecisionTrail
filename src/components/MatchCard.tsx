@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { MatchResult } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n";
 import { DemoBadge, MatchBadge, OutcomeChip } from "./marks";
-import { Button, Card } from "./ui";
+import { Badge, Button, Card } from "./ui";
 
 /** Deterministic "potential lessons", phrased as questions rather than advice. */
 function lessonQuestions(m: MatchResult): string[] {
@@ -25,6 +25,7 @@ export function MatchCard({ m, current }: { m: MatchResult; current: { title: st
         <MatchBadge label={m.label} />
         <OutcomeChip value={personal ? m.outcomeStatus : m.outcomeCategory} />
         {m.isDemo && <DemoBadge />}
+        {m.isDraft && <Badge className="border-amber-300 bg-amber-50 text-amber-800">Unverified draft</Badge>}
       </div>
       <div>
         <h3 className="font-semibold">{m.title}</h3>

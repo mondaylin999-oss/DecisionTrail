@@ -74,6 +74,8 @@ export interface MatchResult {
   outcomeCategory?: OutcomeCategory;
   outcomeStatus?: OutcomeStatus;
   isDemo?: boolean;
+  /** Library case no person has verified yet. */
+  isDraft?: boolean;
   summary: {
     decisionMade?: string;
     observedOutcome?: string;

@@ -26,7 +26,11 @@ export const RELATED_CATEGORIES: Partial<Record<Category, Category[]>> = {
   growth: ["pricing", "business_strategy"],
   business_strategy: ["pricing", "product", "growth", "operations"],
   technology: ["operations"],
-  operations: ["technology", "business_strategy"],
+  operations: ["technology", "business_strategy", "hiring"],
+  hiring: ["operations", "career"],
+  career: ["education", "personal", "hiring"],
+  education: ["career", "personal"],
+  personal: ["career", "education"],
 };
 
 export const DECISION_TYPES = [
