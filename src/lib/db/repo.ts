@@ -371,34 +371,6 @@ export async function findMatches(
   return { matches: top, sufficiency: assessSufficiency(top) };
 }
 
-// ───────────── external cases ─────────────
-
-export async function listCases() {
-  const db = getDb();
-  const cases = await db.select().from(s.externalCases).where(eq(s.externalCases.status, "published")).orderBy(asc(s.externalCases.title));
-  if (!cases.length) return [];
-  const ids = cases.map((c) => c.id);
-  const [claims, links] = await Promise.all([
-    db.select().from(s.caseClaims).where(inArray(s.caseClaims.caseId, ids)),
-    db
-      .select({ caseId: s.caseSourceLinks.caseId, source: s.caseSources })
-      .from(s.caseSourceLinks)
-      .innerJoin(s.caseSources, eq(s.caseSources.id, s.caseSourceLinks.sourceId))
-      .where(inArray(s.caseSourceLinks.caseId, ids)),
-  ]);
-  const claimIds = claims.map((c) => c.id);
-  const claimLinks = claimIds.length
-    ? await db.select().from(s.claimSources).where(inArray(s.claimSources.claimId, claimIds))
-    : [];
-  return cases.map((c) => ({
-    ...c,
-    sources: links.filter((l) => l.caseId === c.id).map((l) => l.source),
-    claims: claims
-      .filter((cl) => cl.caseId === c.id)
-      .map((cl) => ({ ...cl, sources: claimLinks.filter((x) => x.claimId === cl.id) })),
-  }));
-}
-
 // ───────────── consent & research ─────────────
 
 export async function createConsent(uid: string, input: { purpose: string; payloadText: string; keepCopy: boolean; saveResults: boolean; model: string }) {

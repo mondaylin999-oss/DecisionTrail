@@ -132,7 +132,7 @@ export default function DecisionDetailPage() {
             </Button>
           )}
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Precedent consulted</div>
+            <div className="text-xs font-medium uppercase text-slate-500">Past decisions consulted</div>
             {d.matches.length === 0 ? (
             <p className="text-sm text-slate-500">None recorded</p>
             ) : (
@@ -140,9 +140,13 @@ export default function DecisionDetailPage() {
                 {d.matches.map((m) => (
                   <li key={m.id} className="text-sm">
                     <MatchBadge label={m.label} />{" "}
-                    <Link className="underline" href={m.externalCaseId ? `/explorer?case=${m.externalCaseId}` : `/decisions/${m.personalDecisionId}`}>
-                      {m.caseTitle ?? m.personalTitle ?? (m.externalCaseId ? "library case" : "your decision")}
-                    </Link>
+                    {m.personalDecisionId ? (
+                      <Link className="underline" href={`/decisions/${m.personalDecisionId}`}>
+                        {m.personalTitle ?? "your decision"}
+                      </Link>
+                    ) : (
+                      (m.caseTitle ?? "library case")
+                    )}
                   </li>
                 ))}
               </ul>

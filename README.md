@@ -8,7 +8,7 @@ It never predicts outcomes and never picks an option for you.
 
 Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference** (Gemini Nano on-device in Chrome + cloud Gemini).
 
-> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). New decisions use live online research, not the case library. The earlier library of **135 unverified draft cases** remains in the repo and at `/explorer`, but is no longer searched or linked in the menu (see [Curated cases](#curated-cases)).
+> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). New decisions use live online research, not the case library. The earlier 135 unverified draft case files are kept in `data/cases/` for reference only; the app no longer uses them.
 
 ---
 
@@ -55,7 +55,7 @@ src/
   lib/db/          schema.ts (Drizzle) · repo.ts (owner-scoped queries) · client.ts
   lib/firebase/    client.ts (browser) · admin.ts (ID token + App Check verification)
   app/api/         route handlers: every one verifies the Firebase ID token
-  app/             dashboard, decisions/new (core workspace), decisions/[id] (record + review), explorer, research, settings
+  app/             dashboard, decisions/new (core workspace), decisions/[id] (record + review), research, settings
 scripts/           seed-cases.ts (verified cases) · seed-demo.ts (labelled demo data)
 data/cases/        _TEMPLATE.json: add verified case files here
 ```
@@ -103,14 +103,10 @@ npm run build
 
 ---
 
-## Curated cases
-`data/cases/` holds 135 **unverified drafts**. They were written with AI assistance from web search results and news coverage, most cited pages were not read in full, and some dates and details may be wrong or estimated. The app labels them "Unverified draft". A person must check each one against its sources before changing `verified_by`.
+## Curated cases (archived, not used by the app)
+`data/cases/` holds 135 **unverified drafts**. They were written with AI assistance from web search results and news coverage, most cited pages were not read in full, and some dates and details may be wrong or estimated. A person must check each one against its sources before changing `verified_by`.
 
-1. Copy `data/cases/_TEMPLATE.json` to `data/cases/<slug>.json`.
-2. Fill every field from real sources, **in your own words** (no copied articles). Link each claim to at least one source. State the limitations.
-3. Run `npm run db:seed-cases`. The script rejects files with placeholders, claims without sources, or a known outcome without an outcome claim. It reports the share of negative, mixed and reversed cases (target ≥ 40%, to avoid survivorship bias).
-
-Candidate cases worth verifying are listed in the discovery pack (deliverable G).
+`npm run db:seed-cases` would load them again.
 
 ---
 

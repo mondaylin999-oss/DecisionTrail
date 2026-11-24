@@ -1,8 +1,6 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 import type { MatchResult } from "@/lib/types";
-import { ActorProfiles } from "./ActorProfiles";
 import { DemoBadge, MatchBadge, OutcomeChip } from "./marks";
 import { Badge, Button, Card } from "./ui";
 
@@ -30,7 +28,6 @@ export function MatchCard({ m, current }: { m: MatchResult; current: { title: st
         <h3 className="font-semibold">{m.title}</h3>
         {m.summary.actorName && <p className="text-xs text-slate-500">{m.summary.actorName}</p>}
       </div>
-      {!open && <ActorProfiles slug={m.slug} compact />}
       {!personal && m.explanation.similarities.length > 0 && (
         <p className="text-sm">
           <span className="font-medium">How it relates to your decision:</span> {m.explanation.similarities.slice(0, 3).join("; ")}
@@ -65,7 +62,6 @@ export function MatchCard({ m, current }: { m: MatchResult; current: { title: st
 
       {open && (
         <div className="space-y-3 border-t border-slate-200 pt-3 text-sm">
-          <ActorProfiles slug={m.slug} />
           <div className="grid gap-3 md:grid-cols-2">
             <div>
               <div className="text-xs font-medium uppercase text-slate-500">Your situation</div>
@@ -85,9 +81,6 @@ export function MatchCard({ m, current }: { m: MatchResult; current: { title: st
             <div>
               <div className="text-xs font-medium uppercase text-slate-500">Observed outcome</div>
               <p>{m.summary.observedOutcome}</p>
-              <Link href={`/explorer?case=${m.targetId}`} className="text-xs text-slate-600 underline">
-                See claims and sources →
-              </Link>
             </div>
           )}
           {(m.summary.lessons || personal) && (

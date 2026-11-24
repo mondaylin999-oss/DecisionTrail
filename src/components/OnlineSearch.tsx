@@ -1,12 +1,7 @@
 "use client";
-/**
- * Hybrid reference lookup: search the live web (Wikipedia), save a result as a
- * personal unverified reference, and export it as a case-file draft to verify
- * and add to the curated library. Nothing here is AI-generated.
- */
+/** Searches Wikipedia and lists the user's saved online sources. No AI. */
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { api } from "@/lib/api";
-import { buildCaseDraft, draftFileName } from "@/lib/web/draft";
 import type { WebResult } from "@/lib/web/wikipedia";
 import { useAuth } from "./AuthProvider";
 import { Badge, Button, Card, CardTitle, Input, Notice, SkeletonCard, SkeletonGroup, Spinner } from "./ui";
@@ -18,17 +13,6 @@ interface SavedRef {
   snippet: string;
   publisher: string;
   savedAt: string;
-}
-
-function downloadDraft(ref: { url: string; title: string; publisher: string }) {
-  const today = new Date().toISOString().slice(0, 10);
-  const blob = new Blob([JSON.stringify(buildCaseDraft(ref, today), null, 2) + "\n"], { type: "application/json" });
-  const href = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = href;
-  a.download = draftFileName(ref);
-  a.click();
-  URL.revokeObjectURL(href);
 }
 
 export function OnlineSearch() {
@@ -139,9 +123,6 @@ export function OnlineSearch() {
                   <Button variant="secondary" disabled={busyUrl === r.url || savedUrls.has(r.url)} onClick={() => void save(r)}>
                     {savedUrls.has(r.url) ? "✓ Saved" : "Save reference"}
                   </Button>
-                  <Button variant="ghost" onClick={() => downloadDraft(r)}>
-                    Download case draft
-                  </Button>
                 </div>
               </li>
             ))}
@@ -162,9 +143,6 @@ export function OnlineSearch() {
                   {s.title} ↗
                 </a>
                 <span className="flex gap-1">
-                  <Button variant="ghost" onClick={() => downloadDraft(s)}>
-                    Download case draft
-                  </Button>
                   <Button variant="ghost" disabled={busyUrl === s.id} onClick={() => void remove(s.id)}>
                     Remove
                   </Button>
