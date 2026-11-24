@@ -17,6 +17,9 @@ import type { MatchResult, StructuredDecision, SuccessCriterion, Sufficiency } f
 type Step = "describe" | "structure" | "evidence" | "record";
 
 export default function NewDecisionPage() {
+  // The router keeps this page alive after navigating away, so a saved form must be
+  // thrown away explicitly. Otherwise it reopens filled in and can be saved twice.
+  const [run, setRun] = useState(0);
   return (
     <Suspense
       fallback={
@@ -26,12 +29,12 @@ export default function NewDecisionPage() {
         </SkeletonGroup>
       }
     >
-      <NewDecision />
+      <NewDecision key={run} onSaved={() => setRun((n) => n + 1)} />
     </Suspense>
   );
 }
 
-function NewDecision() {
+function NewDecision({ onSaved }: { onSaved: () => void }) {
   const { me, aiStatus, refreshAiStatus } = useAuth();
   const router = useRouter();
   const past = useSearchParams().get("past") === "1";
@@ -135,7 +138,7 @@ function NewDecision() {
       <PageTitle title={past ? "Log a past decision" : "New decision"} subtitle="DecisionTrail shows precedent. It never decides for you or predicts your outcome." />
       <ol className="flex gap-2 text-sm">
         {(["describe", "structure", "evidence", "record"] as Step[]).map((s, i) => (
-          <li key={s} className={cn("rounded-full px-3 py-1", step === s ? "bg-slate-900 text-white" : "bg-slate-200 text-slate-600")}>
+          <li key={s} className={cn("rounded-full px-3 py-1", step === s ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 font-semibold text-white" : "bg-slate-200 text-slate-600")}>
             {i + 1}. {s[0].toUpperCase() + s.slice(1)}
           </li>
         ))}
@@ -217,14 +220,17 @@ function NewDecision() {
         </>
       )}
 
-      {step === "record" && <RecordStep d={d} past={past} matchesShown={matches.length} onSaved={(id) => router.push(`/decisions/${id}`)} />}
+      {step === "record" && <RecordStep d={d} past={past} matchesShown={matches.length} onSaved={(id) => {
+            router.push(`/decisions/${id}`);
+            onSaved();
+          }} />}
     </>
   );
 }
 
 function TabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
-    <button role="tab" aria-selected={active} onClick={onClick} className={cn("rounded-md px-3 py-1.5 text-sm", active ? "bg-slate-900 text-white" : "bg-white text-slate-700 border border-slate-300")}>
+    <button role="tab" aria-selected={active} onClick={onClick} className={cn("rounded-md px-3 py-1.5 text-sm", active ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white" : "bg-white text-slate-700 border border-slate-300")}>
       {children}
     </button>
   );

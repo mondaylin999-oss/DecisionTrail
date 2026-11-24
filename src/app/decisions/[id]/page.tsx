@@ -89,7 +89,7 @@ export default function DecisionDetailPage() {
             <ul className="space-y-1 text-sm">
               {d.options.map((o) => (
                 <li key={o.id} className="flex items-center gap-2">
-                  {o.id === r.chosenOptionId ? <Badge className="border-slate-900 bg-slate-900 text-white">Chosen</Badge> : <span className="w-14" />}
+                  {o.id === r.chosenOptionId ? <Badge className="border-violet-600 bg-violet-600 text-white">Chosen</Badge> : <span className="w-14" />}
                   <span className="font-medium">{o.label}</span> <span className="text-slate-500">{o.description}</span> <OriginChip origin={o.origin} />
                 </li>
               ))}
