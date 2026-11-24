@@ -74,10 +74,18 @@ export function firebaseAI(): AI {
 }
 
 /** App Check token for our own API routes (optional server verification). */
+const APP_CHECK_TIMEOUT_MS = 4000;
+
 export async function appCheckHeader(): Promise<Record<string, string>> {
   if (!appCheck) return {};
+  const check = appCheck;
   try {
-    const { token } = await getAppCheckToken(appCheck, false);
+    // reCAPTCHA can hang forever (for example when the site key does not allow
+    // this domain). Give up after a few seconds so API calls still go out.
+    const { token } = await Promise.race([
+      getAppCheckToken(check, false),
+      new Promise<never>((_, reject) => setTimeout(() => reject(new Error("App Check timed out")), APP_CHECK_TIMEOUT_MS)),
+    ]);
     return { "X-Firebase-AppCheck": token };
   } catch {
     return {};

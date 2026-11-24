@@ -27,6 +27,7 @@ interface Ctx {
 }
 
 const AuthCtx = createContext<Ctx | null>(null);
+const READY_FALLBACK_MS = 8000;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [configured] = useState(() => isFirebaseConfigured());
@@ -44,11 +45,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return onAuthStateChanged(firebaseAuth(), async (u) => {
       setUser(u);
       if (u) {
+        // Never leave the whole app on the loading screen if the server is slow to answer.
+        const unblock = setTimeout(() => setReady(true), READY_FALLBACK_MS);
         try {
           setMe(await api<Me>("/api/me"));
           setError(null);
         } catch (e) {
           setError(e instanceof Error ? e.message : String(e));
+        } finally {
+          clearTimeout(unblock);
         }
       } else {
         setMe(null);
