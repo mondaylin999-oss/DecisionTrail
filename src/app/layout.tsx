@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { AppShell } from "@/components/AppShell";
 import { AuthProvider } from "@/components/AuthProvider";
-import { LanguageProvider } from "@/lib/i18n";
 import "./globals.css";
 
 // Self-hosted fonts: builds work offline and send no requests to Google Fonts.
@@ -14,8 +13,6 @@ const themeBootstrap = `try {
   const savedTheme = localStorage.getItem("decisiontrail-theme");
   const isDark = savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
   document.documentElement.classList.toggle("dark", isDark);
-  const savedLanguage = localStorage.getItem("decisiontrail-language");
-  document.documentElement.lang = savedLanguage === "my" ? "my" : "en";
 } catch {}`;
 
 export const metadata: Metadata = {
@@ -30,14 +27,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body className="min-h-full">
-        <LanguageProvider>
           <AuthProvider>
             {/* The app is client-rendered per user; the shell reads the URL, so it streams in. */}
             <Suspense fallback={null}>
               <AppShell>{children}</AppShell>
             </Suspense>
           </AuthProvider>
-        </LanguageProvider>
       </body>
     </html>
   );

@@ -6,7 +6,6 @@
  */
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { api } from "@/lib/api";
-import { useLanguage } from "@/lib/i18n";
 import { buildCaseDraft, draftFileName } from "@/lib/web/draft";
 import type { WebResult } from "@/lib/web/wikipedia";
 import { useAuth } from "./AuthProvider";
@@ -34,7 +33,6 @@ function downloadDraft(ref: { url: string; title: string; publisher: string }) {
 
 export function OnlineSearch() {
   const { me } = useAuth();
-  const { t } = useLanguage();
   const [q, setQ] = useState("");
   const [lastQ, setLastQ] = useState("");
   const [results, setResults] = useState<WebResult[] | null>(null);
@@ -103,7 +101,7 @@ export function OnlineSearch() {
         <CardTitle hint="live from the web, not part of the case library">🌐 Search online</CardTitle>
         <form onSubmit={search} className="flex flex-wrap gap-2">
           <Input
-            aria-label={t("Search online")}
+            aria-label="Search online"
             placeholder="e.g. Netflix Qwikster, congestion pricing, four-day week"
             value={q}
             maxLength={120}
@@ -111,11 +109,11 @@ export function OnlineSearch() {
             className="min-w-60 flex-1"
           />
           <Button type="submit" disabled={searching || q.trim().length < 2}>
-            {searching ? <Spinner /> : "🔎"} {t("Search")}
+            {searching ? <Spinner /> : "🔎"} Search
           </Button>
         </form>
         <p className="text-xs text-slate-500">
-          {t("Only the words you type are sent, to Wikipedia. Results are real pages with links, not AI summaries, and are unverified until you check them.")}
+          Only the words you type are sent, to Wikipedia. Results are real pages with links, not AI summaries, and are unverified until you check them.
         </p>
         {err && <Notice tone="error">{err}</Notice>}
         {searching && (
@@ -124,7 +122,7 @@ export function OnlineSearch() {
             <SkeletonCard lines={2} className="shadow-none" />
           </SkeletonGroup>
         )}
-        {!searching && results && results.length === 0 && <Notice tone="info">{t("No pages found. Try different words.")}</Notice>}
+        {!searching && results && results.length === 0 && <Notice tone="info">No pages found. Try different words.</Notice>}
         {!searching && results && results.length > 0 && (
           <ul className="space-y-2">
             {results.map((r) => (
@@ -150,7 +148,7 @@ export function OnlineSearch() {
           </ul>
         )}
         {results && results.length > 0 && (
-          <p className="text-xs text-slate-500">{t("Snippets are from Wikipedia and available under CC BY-SA 4.0.")}</p>
+          <p className="text-xs text-slate-500">Snippets are from Wikipedia and available under CC BY-SA 4.0.</p>
         )}
       </Card>
 

@@ -3,9 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { STATUS_TEXT } from "@/lib/ai/availability";
-import { useLanguage } from "@/lib/i18n";
 import { useAuth } from "./AuthProvider";
-import { LanguageToggle } from "./LanguageToggle";
 import { PrivacyPill } from "./marks";
 import { ThemeToggle } from "./ThemeToggle";
 import { Badge, Button, Card, Notice, Skeleton, SkeletonGroup, cn } from "./ui";
@@ -27,15 +25,14 @@ function isActive(path: string, href: string) {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { ready, configured, user, me, aiStatus, signIn, signOut, error } = useAuth();
-  const { t } = useLanguage();
   const path = usePathname();
 
   if (!configured) {
     return (
       <Centered>
-        <h1 className="text-xl font-semibold">{t("DecisionTrail isn't configured yet")}</h1>
+        <h1 className="text-xl font-semibold">DecisionTrail isn&apos;t configured yet</h1>
         <p className="text-sm text-slate-600">
-          {t("Copy")} <code>.env.example</code> {t("to")} <code>.env.local</code>, {t("fill in your Firebase and database settings, and restart")} <code>npm run dev</code>. {t("See the README.")}
+          Copy <code>.env.example</code> to <code>.env.local</code>, fill in your Firebase and database settings, and restart <code>npm run dev</code>. See the README.
         </p>
       </Centered>
     );
@@ -59,11 +56,11 @@ export function AppShell({ children }: { children: ReactNode }) {
           D
         </div>
         <h1 className="gradient-text text-4xl font-black tracking-tight">DecisionTrail</h1>
-        <p className="text-lg font-semibold text-slate-900">{t("Learn From the Past. Decide With Confidence.")}</p>
+        <p className="text-lg font-semibold text-slate-900">Learn From the Past. Decide With Confidence.</p>
         <p className="text-sm text-slate-500">
-          {t("See what you and documented others did in similar situations, and what actually happened. Then close the loop on your own outcome.")}
+          See what you and documented others did in similar situations, and what actually happened. Then close the loop on your own outcome.
         </p>
-        <Button className="w-full py-3 text-base" onClick={() => void signIn()}>{t("Sign in with Google")}</Button>
+        <Button className="w-full py-3 text-base" onClick={() => void signIn()}>Sign in with Google</Button>
       </Centered>
     );
   }
@@ -77,7 +74,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-orange-400 text-lg font-black text-white shadow-md shadow-fuchsia-500/30">D</span>
           <span>
             <span className="gradient-text block text-lg font-black leading-tight">DecisionTrail</span>
-            <span className="block text-xs text-slate-500">{t("Precedent, not prediction")}</span>
+            <span className="block text-xs text-slate-500">Precedent, not prediction</span>
           </span>
         </Link>
         <nav className="space-y-1.5">
@@ -94,7 +91,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 )}
               >
                 <span aria-hidden className="text-base">{n.icon}</span>
-                {t(n.label)}
+                {n.label}
               </Link>
             );
           })}
@@ -108,19 +105,18 @@ export function AppShell({ children }: { children: ReactNode }) {
               href={n.href}
               className={cn("shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold", isActive(path, n.href) ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white" : "text-slate-700 hover:bg-violet-100")}
             >
-              <span aria-hidden>{n.icon}</span> {t(n.label)}
+              <span aria-hidden>{n.icon}</span> {n.label}
             </Link>
           ))}
         </nav>
         <header className="glass sticky top-3 z-20 mx-3 mt-3 flex flex-wrap items-center justify-end gap-3 rounded-2xl border border-violet-100 px-5 py-2.5 shadow-lg shadow-violet-200/30">
-          <LanguageToggle />
           <ThemeToggle />
           {me && (
-            <Link href="/settings" aria-label={t("Privacy mode settings")}>
+            <Link href="/settings" aria-label="Privacy mode settings">
               <PrivacyPill mode={me.privacyMode} />
             </Link>
           )}
-          {aiStatus && <Badge className={aiTone}>{t(STATUS_TEXT[aiStatus])}</Badge>}
+          {aiStatus && <Badge className={aiTone}>{STATUS_TEXT[aiStatus]}</Badge>}
           <span className="flex items-center gap-2 text-sm font-medium text-slate-700">
             <span aria-hidden className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 text-xs font-bold text-white">
               {(user.displayName ?? user.email ?? "?").slice(0, 1).toUpperCase()}
@@ -128,7 +124,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             {user.displayName ?? user.email}
           </span>
           <Button variant="ghost" onClick={() => void signOut()}>
-            {t("Sign out")}
+            Sign out
           </Button>
         </header>
         <main className="mx-auto w-full max-w-6xl flex-1 space-y-6 p-6">
@@ -144,7 +140,7 @@ function Centered({ children, decorate = false }: { children: ReactNode; decorat
   return (
     <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden p-6">
       {decorate && <SignInArtwork />}
-      {decorate && <div className="absolute right-6 top-6 z-20 flex gap-2"><LanguageToggle /><ThemeToggle /></div>}
+      {decorate && <div className="absolute right-6 top-6 z-20 flex gap-2"><ThemeToggle /></div>}
       <Card className="relative z-10 w-full max-w-md space-y-4 text-center">{children}</Card>
     </div>
   );
@@ -168,12 +164,11 @@ function SignInArtwork() {
 }
 
 export function PageTitle({ title, subtitle, actions }: { title: string; subtitle?: string; actions?: ReactNode }) {
-  const { t } = useLanguage();
   return (
     <div className="flex items-end justify-between gap-4">
       <div>
-        <h1 className="text-3xl font-black tracking-tight text-slate-900">{t(title)}</h1>
-        {subtitle && <p className="mt-1 text-sm text-slate-600">{t(subtitle)}</p>}
+        <h1 className="text-3xl font-black tracking-tight text-slate-900">{title}</h1>
+        {subtitle && <p className="mt-1 text-sm text-slate-600">{subtitle}</p>}
       </div>
       {actions}
     </div>

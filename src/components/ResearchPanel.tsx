@@ -11,7 +11,6 @@ import { findLeaks } from "@/lib/ai/redact";
 import { RoutingError } from "@/lib/ai/router";
 import { generalizeQuery, runResearch, type Where } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
-import { useLanguage } from "@/lib/i18n";
 import { RESEARCH_MODEL } from "@/lib/firebase/client";
 import type { StructuredDecision } from "@/lib/types";
 import { label, type PrivacyMode } from "@/lib/vocab";
@@ -52,7 +51,6 @@ export function ResearchPanel({
   privacyMode: PrivacyMode;
   prominent: boolean;
 }) {
-  const { t } = useLanguage();
   const [phase, setPhase] = useState<Phase>("idle");
   const [query, setQuery] = useState("");
   const [removed, setRemoved] = useState<string[]>([]);
@@ -130,7 +128,7 @@ export function ResearchPanel({
       <Card className={prominent ? "border-sky-300" : undefined}>
         <CardTitle hint="optional · cloud · needs your consent">Research this decision using the web</CardTitle>
         {phase === "declined" && <Notice tone="info">Research declined. Nothing was sent. You can continue with the evidence you have.</Notice>}
-        <p className="mb-3 text-sm text-slate-600">{t("Private AI first rewrites your decision into a general query on your device. You'll see and edit exactly what would be sent before anything leaves your browser.")}</p>
+        <p className="mb-3 text-sm text-slate-600">Private AI first rewrites your decision into a general query on your device. You&apos;ll see and edit exactly what would be sent before anything leaves your browser.</p>
         <Button onClick={() => void startGeneralize()}>Prepare a research query</Button>
       </Card>
     );
@@ -139,7 +137,7 @@ export function ResearchPanel({
   if (phase === "generalizing") {
     return (
       <Card>
-        <Spinner /> <span className="ml-2 text-sm">{t("Generalizing your query on-device…")}</span>
+        <Spinner /> <span className="ml-2 text-sm">Generalizing your query on-device…</span>
       </Card>
     );
   }
@@ -154,45 +152,45 @@ export function ResearchPanel({
 
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
-          {t("Will be sent")} <InferenceBadge where={genWhere} />
+          Will be sent <InferenceBadge where={genWhere} />
         </div>
         <Textarea value={query} onChange={(e) => setQuery(e.target.value)} disabled={phase !== "review"} className="font-mono text-xs" />
         {leaks.length > 0 && (
           <Notice tone="warn">
-            {t("Possible private details still in the query:")} {leaks.map((l) => `“${l.text}” (${t(label(l.kind))})`).join(", ")}. {t("Edit them out before approving.")}
+            Possible private details still in the query: {leaks.map((l) => `“${l.text}” (${label(l.kind)})`).join(", ")}. Edit them out before approving.
           </Notice>
         )}
       </div>
 
       <div className="grid gap-3 text-sm md:grid-cols-2">
         <div>
-          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{t("Will NOT be sent")}</div>
+          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Will NOT be sent</div>
           <ul className="list-inside list-disc text-slate-700">
-            <li>{t("Your original description and context")}</li>
-            <li>{t("Your assumptions, reasons and notes")}</li>
-            <li>{t("Your personal decision history")}</li>
+            <li>Your original description and context</li>
+            <li>Your assumptions, reasons and notes</li>
+            <li>Your personal decision history</li>
             {removed.map((r) => (
-              <li key={r}>{t("Removed on-device:")} {r}</li>
+              <li key={r}>Removed on-device: {r}</li>
             ))}
           </ul>
         </div>
         <div className="space-y-1">
-          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{t("Processed by")}</div>
+          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Processed by</div>
           <p className="text-slate-700">Google Gemini ({RESEARCH_MODEL}) in the cloud via Firebase AI Logic, with Grounding with Google Search.</p>
             <label className="flex items-center gap-2">
             <input type="checkbox" checked={saveResults} onChange={(e) => setSaveResults(e.target.checked)} disabled={phase !== "review"} />
-            {t("Save findings and source links to my private research history")}
+            Save findings and source links to my private research history
           </label>
           <label className="flex items-center gap-2">
             <input type="checkbox" checked={keepCopy} onChange={(e) => setKeepCopy(e.target.checked)} disabled={phase !== "review"} />
-            {t("Keep a copy of the sent query in my consent log")}
+            Keep a copy of the sent query in my consent log
           </label>
         </div>
       </div>
 
       {!canResearch && (
         <Notice tone="info">
-          {t("You're in a mode that doesn't allow cloud research.")} <Link className="underline" href="/settings">{t("Switch to Cloud Research mode")}</Link> {t("to continue, or decline.")}
+          You&apos;re in a mode that doesn&apos;t allow cloud research. <Link className="underline" href="/settings">Switch to Cloud Research mode</Link> to continue, or decline.
         </Notice>
       )}
       {error && <Notice tone="error">{error}</Notice>}
@@ -200,7 +198,7 @@ export function ResearchPanel({
       {phase !== "done" && (
         <div className="flex gap-2">
           <Button onClick={() => void approve()} disabled={!canResearch || phase === "running" || query.trim().length < 10}>
-            {phase === "running" ? <Spinner /> : null} {t("I authorize this one cloud request. Research")}
+            {phase === "running" ? <Spinner /> : null} I authorize this one cloud request. Research
           </Button>
           <Button variant="secondary" onClick={() => setPhase("declined")} disabled={phase === "running"}>
             Decline
@@ -224,7 +222,7 @@ export function ResearchPanel({
           ) : (
             <>
               <div>
-                <h3 className="mb-2 text-sm font-semibold">{t("Source-backed statements")}</h3>
+                <h3 className="mb-2 text-sm font-semibold">Source-backed statements</h3>
                 <ul className="space-y-2">
                   {supports.filter((g) => g.segment?.text).map((g, i) => (
                     <li key={i} className="text-sm">
@@ -239,11 +237,11 @@ export function ResearchPanel({
                 </ul>
               </div>
               <details>
-                <summary className="cursor-pointer text-sm text-slate-600">{t("Full AI answer (includes interpretation, not all of it source-backed)")}</summary>
+                <summary className="cursor-pointer text-sm text-slate-600">Full AI answer (includes interpretation, not all of it source-backed)</summary>
                 <p className="ai-text mt-2 whitespace-pre-wrap text-sm">{result.text}</p>
               </details>
               <div>
-                <h3 className="mb-1 text-sm font-semibold">{t("Sources examined")}</h3>
+                <h3 className="mb-1 text-sm font-semibold">Sources examined</h3>
                 <ol className="list-inside list-decimal text-sm">
                   {chunks.map((c, i) => (
                     <li key={i}>
@@ -254,14 +252,14 @@ export function ResearchPanel({
                   ))}
                 </ol>
                 {result.grounding.webSearchQueries?.length ? (
-                  <p className="mt-1 text-xs text-slate-500">{t("Searches run:")} {result.grounding.webSearchQueries.join(" · ")}</p>
+                  <p className="mt-1 text-xs text-slate-500">Searches run: {result.grounding.webSearchQueries.join(" · ")}</p>
                 ) : null}
               </div>
             </>
           )}
           <SearchSuggestions html={result.grounding?.searchEntryPoint?.renderedContent} />
           <p className="text-xs text-slate-500">
-            {t("No outcome documented")} {t("is not the same as a negative outcome. Check sources before relying on any finding.")}
+            No outcome documented is not the same as a negative outcome. Check sources before relying on any finding.
           </p>
         </div>
       )}

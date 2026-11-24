@@ -1,7 +1,6 @@
 "use client";
 /** Small shadcn-style primitives (no external UI dependency). */
 import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
-import { useLanguage } from "@/lib/i18n";
 
 export function cn(...c: (string | false | null | undefined)[]) {
   return c.filter(Boolean).join(" ");
@@ -17,8 +16,7 @@ const variants: Record<Variant, string> = {
 };
 
 export function Button({ variant = "primary", className, ...p }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
-  const { t } = useLanguage();
-  const content = typeof p.children === "string" ? t(p.children) : p.children;
+  const content = p.children;
   return (
     <button
       {...p}
@@ -38,20 +36,18 @@ export function Card({ className, children }: { className?: string; children: Re
 }
 
 export function CardTitle({ children, hint }: { children: ReactNode; hint?: ReactNode }) {
-  const { t } = useLanguage();
   return (
     <div className="mb-3 flex items-baseline justify-between gap-2">
-      <h2 className="text-base font-bold text-slate-900">{typeof children === "string" ? t(children) : children}</h2>
-      {hint && <span className="text-xs text-slate-500">{typeof hint === "string" ? t(hint) : hint}</span>}
+      <h2 className="text-base font-bold text-slate-900">{children}</h2>
+      {hint && <span className="text-xs text-slate-500">{hint}</span>}
     </div>
   );
 }
 
 export function Badge({ className, children, title }: { className?: string; children: ReactNode; title?: string }) {
-  const { t } = useLanguage();
   return (
-    <span title={title ? t(title) : undefined} className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium", className)}>
-      {typeof children === "string" ? t(children) : children}
+    <span title={title ? title : undefined} className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium", className)}>
+      {children}
     </span>
   );
 }
@@ -60,13 +56,11 @@ const field =
   "w-full rounded-2xl border border-violet-200 bg-white px-3.5 py-2.5 text-sm transition-shadow placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-200/70";
 
 export function Input(p: InputHTMLAttributes<HTMLInputElement>) {
-  const { t } = useLanguage();
-  return <input {...p} placeholder={p.placeholder ? t(p.placeholder) : undefined} className={cn(field, p.className)} />;
+  return <input {...p} placeholder={p.placeholder ? p.placeholder : undefined} className={cn(field, p.className)} />;
 }
 
 export function Textarea(p: TextareaHTMLAttributes<HTMLTextAreaElement>) {
-  const { t } = useLanguage();
-  return <textarea {...p} placeholder={p.placeholder ? t(p.placeholder) : undefined} className={cn(field, "min-h-24", p.className)} />;
+  return <textarea {...p} placeholder={p.placeholder ? p.placeholder : undefined} className={cn(field, "min-h-24", p.className)} />;
 }
 
 export function Select({
@@ -75,12 +69,11 @@ export function Select({
   className,
   ...rest
 }: SelectHTMLAttributes<HTMLSelectElement> & { options: readonly string[]; labels?: (v: string) => string }) {
-  const { t } = useLanguage();
   return (
     <select {...rest} className={cn(field, className)}>
       {options.map((o) => (
         <option key={o} value={o}>
-          {t(labels ? labels(o) : o)}
+          {labels ? labels(o) : o}
         </option>
       ))}
     </select>
@@ -88,11 +81,10 @@ export function Select({
 }
 
 export function Field({ label, children, aside }: { label: string; children: ReactNode; aside?: ReactNode }) {
-  const { t } = useLanguage();
   return (
     <label className="block space-y-1">
       <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
-        {t(label)} {aside}
+        {label} {aside}
       </span>
       {children}
     </label>
@@ -100,14 +92,13 @@ export function Field({ label, children, aside }: { label: string; children: Rea
 }
 
 export function Notice({ tone = "info", children }: { tone?: "info" | "warn" | "error" | "ok"; children: ReactNode }) {
-  const { t } = useLanguage();
   const tones = {
     info: "border-sky-200 bg-sky-50 text-sky-900",
     warn: "border-amber-200 bg-amber-50 text-amber-900",
     error: "border-red-200 bg-red-50 text-red-900",
     ok: "border-emerald-200 bg-emerald-50 text-emerald-900",
   };
-  return <div role="status" className={cn("rounded-2xl border px-4 py-2.5 text-sm", tones[tone])}>{typeof children === "string" ? t(children) : children}</div>;
+  return <div role="status" className={cn("rounded-2xl border px-4 py-2.5 text-sm", tones[tone])}>{children}</div>;
 }
 
 /** Placeholder block shown while data loads. Decorative: wrap groups in <SkeletonGroup>. */
@@ -117,10 +108,9 @@ export function Skeleton({ className }: { className?: string }) {
 
 /** Announces "Loading" once to screen readers while its skeleton children render. */
 export function SkeletonGroup({ className, children }: { className?: string; children: ReactNode }) {
-  const { t } = useLanguage();
   return (
     <div role="status" aria-busy="true" className={className}>
-      <span className="sr-only">{t("Loading…")}</span>
+      <span className="sr-only">Loading…</span>
       {children}
     </div>
   );

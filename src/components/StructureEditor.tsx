@@ -15,7 +15,6 @@ import {
 } from "@/lib/vocab";
 import { OriginChip } from "./marks";
 import { Button, Card, CardTitle, Field, Input, Select, Textarea } from "./ui";
-import { useLanguage } from "@/lib/i18n";
 
 type Key = keyof StructuredDecision;
 
@@ -50,7 +49,6 @@ export function StructureEditor({
   onChange: (d: StructuredDecision) => void;
   onApprove: () => void;
 }) {
-  const { t } = useLanguage();
   const d = value;
   const origin = (k: string): FieldOrigin | undefined => d.field_origins[k];
   const set = <K extends Key>(k: K, v: StructuredDecision[K]) =>
@@ -73,9 +71,9 @@ export function StructureEditor({
           {items.map((text, i) => (
             <li key={i} className="flex items-center gap-2">
               {k === "assumptions" && <OriginChip origin={d.assumptions[i]?.origin} />}
-              {k === "assumptions" && <span className="text-xs text-amber-700">{t("unverified")}</span>}
+              {k === "assumptions" && <span className="text-xs text-amber-700">unverified</span>}
               <Input value={text} onChange={(e) => update(items.map((x, j) => (j === i ? e.target.value : x)))} />
-              <Button variant="ghost" type="button" aria-label={t("Remove")} onClick={() => update(items.filter((_, j) => j !== i))}>
+              <Button variant="ghost" type="button" aria-label="Remove" onClick={() => update(items.filter((_, j) => j !== i))}>
                 ✕
               </Button>
             </li>
@@ -127,8 +125,8 @@ export function StructureEditor({
             <div key={i} className="grid gap-2 rounded-md border border-slate-200 p-2 md:grid-cols-[1fr_1.5fr_12rem_auto]">
               <Input placeholder="Option" value={a.label} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, label: e.target.value, origin: x.origin === "ai_extracted" ? "user_confirmed" : x.origin } : x)))} />
               <Input placeholder="Short description" value={a.description} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, description: e.target.value } : x)))} />
-              <Select options={ALTERNATIVE_TAGS} labels={label} value={a.tag} aria-label={t("Option type (used for matching)")} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, tag: e.target.value as AlternativeTag } : x)))} />
-              <Button variant="ghost" type="button" aria-label={t("Remove option")} onClick={() => set("alternatives", d.alternatives.filter((_, j) => j !== i))}>
+              <Select options={ALTERNATIVE_TAGS} labels={label} value={a.tag} aria-label="Option type (used for matching)" onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, tag: e.target.value as AlternativeTag } : x)))} />
+              <Button variant="ghost" type="button" aria-label="Remove option" onClick={() => set("alternatives", d.alternatives.filter((_, j) => j !== i))}>
                 ✕
               </Button>
             </div>
@@ -165,7 +163,7 @@ export function StructureEditor({
                 <li key={m}>{m}</li>
               ))}
             </ul>
-            <p className="text-xs text-slate-500">{t("Consider adding these to the context.")}</p>
+            <p className="text-xs text-slate-500">Consider adding these to the context.</p>
           </Field>
         )}
       </div>

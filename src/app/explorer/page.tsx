@@ -8,7 +8,6 @@ import { OnlineSearch } from "@/components/OnlineSearch";
 import { Badge, Card, CardTitle, Notice, Select, SkeletonCard, SkeletonGroup } from "@/components/ui";
 import { api } from "@/lib/api";
 import { CATEGORIES, OUTCOME_CATEGORIES, label, type OutcomeCategory } from "@/lib/vocab";
-import { useLanguage } from "@/lib/i18n";
 
 interface Source { id: string; url: string; publisher: string; sourceType: string; publishedAt: string | null; retrievedAt: string }
 interface Claim { id: string; claimType: string; claimText: string; statedOrInferred: string; provenanceClass: string; sources: { sourceId: string; support: string; locator: string }[] }
@@ -56,7 +55,6 @@ export default function ExplorerPage() {
 
 function Explorer() {
   const { me } = useAuth();
-  const { language, t } = useLanguage();
   const focus = useSearchParams().get("case");
   const [cases, setCases] = useState<Case[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -83,7 +81,7 @@ function Explorer() {
         <Select className="max-w-xs" options={["all", ...OUTCOME_CATEGORIES]} labels={(v) => (v === "all" ? "All outcomes" : label(v))} value={outcome} onChange={(e) => setOutcome(e.target.value)} />
       </div>
       {cases && cases.length === 0 && (
-        <Notice tone="info">{t("The case library is empty. Add cases under data/cases/ (see _TEMPLATE.json) and run npm run db:seed-cases.")}</Notice>
+        <Notice tone="info">The case library is empty. Add cases under data/cases/ (see _TEMPLATE.json) and run npm run db:seed-cases.</Notice>
       )}
       {!cases && !err && (
         <SkeletonGroup className="space-y-3">
@@ -99,31 +97,31 @@ function Explorer() {
               <div className="flex flex-wrap items-center gap-2">
                 {isDraft(c) && <Badge className="border-amber-300 bg-amber-50 text-amber-800">Unverified draft</Badge>}
                 <OutcomeChip value={c.outcomeCategory} />
-                <Badge className="border-slate-300 text-slate-600">{t(label(c.category))}</Badge>
-                <Badge className="border-slate-300 text-slate-600">{t("Evidence:")} {t(label(c.evidenceClassification))}</Badge>
+                <Badge className="border-slate-300 text-slate-600">{label(c.category)}</Badge>
+                <Badge className="border-slate-300 text-slate-600">Evidence: {label(c.evidenceClassification)}</Badge>
               </div>
               <h3 className="mt-1 font-semibold">{c.title}</h3>
               <p className="text-xs text-slate-500">
-                {c.actorName} · {c.decisionDate ? (c.datePrecision === "year" ? c.decisionDate.slice(0, 4) : new Date(c.decisionDate).toLocaleDateString(language === "my" ? "my-MM" : "en-US")) : t("date not established")} · {t(isDraft(c) ? "sources retrieved" : "last verified")} {new Date(c.lastVerifiedAt).toLocaleDateString(language === "my" ? "my-MM" : "en-US")}
+                {c.actorName} · {c.decisionDate ? (c.datePrecision === "year" ? c.decisionDate.slice(0, 4) : new Date(c.decisionDate).toLocaleDateString("en-US")) : "date not established"} · {isDraft(c) ? "sources retrieved" : "last verified"} {new Date(c.lastVerifiedAt).toLocaleDateString("en-US")}
               </p>
             </button>
             {open === c.id && (
               <div className="space-y-3 border-t border-slate-200 pt-3 text-sm">
-                <KV k={t("Context")} v={c.context} />
-                <KV k={t("Alternatives considered")} v={c.alternativesDocumented ?? t("Not documented")} />
-                <KV k={t("Decision")} v={c.decisionMade} />
-                <KV k={t("Documented reason")} v={c.reasonDocumented ?? t("Not documented")} />
-                <KV k={t("Observed outcome") + (c.observationPeriod ? ` (${c.observationPeriod})` : "")} v={c.observedOutcome} />
-                <KV k={t("Lessons and implications")} v={c.lessons} />
-                <KV k={t("Limitations")} v={c.limitations} />
+                <KV k="Context" v={c.context} />
+                <KV k="Alternatives considered" v={c.alternativesDocumented ?? "Not documented"} />
+                <KV k="Decision" v={c.decisionMade} />
+                <KV k="Documented reason" v={c.reasonDocumented ?? "Not documented"} />
+                <KV k={"Observed outcome" + (c.observationPeriod ? ` (${c.observationPeriod})` : "")} v={c.observedOutcome} />
+                <KV k="Lessons and implications" v={c.lessons} />
+                <KV k="Limitations" v={c.limitations} />
                 <div>
-                  <CardTitle>{t("Claims and their sources")}</CardTitle>
+                  <CardTitle>Claims and their sources</CardTitle>
                   <ul className="space-y-2">
                     {c.claims.map((cl) => (
                       <li key={cl.id}>
-                        <Badge className="mr-1 border-slate-300 text-slate-600">{t(label(cl.claimType))}</Badge>
+                        <Badge className="mr-1 border-slate-300 text-slate-600">{label(cl.claimType)}</Badge>
                         <span className={cl.statedOrInferred === "inferred" ? "ai-text" : undefined}>{cl.claimText}</span>{" "}
-                        <span className="text-xs text-slate-500">({t(label(cl.provenanceClass))})</span>
+                        <span className="text-xs text-slate-500">({label(cl.provenanceClass)})</span>
                         {cl.sources.some((s) => s.support === "contradicts") && <Badge className="ml-1 border-red-300 text-red-700">Sources disagree</Badge>}
                         {cl.sources.map((s) => {
                           const src = c.sources.find((x) => x.id === s.sourceId);
