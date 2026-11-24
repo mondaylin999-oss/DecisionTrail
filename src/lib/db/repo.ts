@@ -283,6 +283,7 @@ function comparableCategories(c: Category): Category[] {
 /** ts_rank_cd with normalisation 32 is rank/(rank+1); scale it into a usable 0..1 range. */
 const RANK_SCALE = 3;
 
+/** Compares with the caller's own decisions only. Outside evidence comes from live research. */
 export async function findMatches(
   uid: string,
   req: MatchRequest,
@@ -299,14 +300,6 @@ export async function findMatches(
     facets: req.facets,
     year: new Date().getFullYear(),
   };
-
-  const extRank = tsq
-    ? sql<number>`ts_rank_cd(to_tsvector('english', ${s.externalCases.title} || ' ' || ${s.externalCases.context} || ' ' || ${s.externalCases.decisionMade}), to_tsquery('english', ${tsq}), 32)`
-    : sql<number>`0`;
-  const external = await db
-    .select({ c: s.externalCases, rank: extRank })
-    .from(s.externalCases)
-    .where(and(eq(s.externalCases.status, "published"), inArray(s.externalCases.category, cats)));
 
   const perRank = tsq
     ? sql<number>`ts_rank_cd(to_tsvector('english', ${s.decisionRecords.title} || ' ' || ${s.decisionRecords.context} || ' ' || ${s.decisionRecords.objective}), to_tsquery('english', ${tsq}), 32)`
@@ -338,34 +331,6 @@ export async function findMatches(
     : [[], [], []];
 
   const results: MatchResult[] = [];
-
-  for (const { c, rank } of external) {
-    const year = c.decisionDate ? Number(c.decisionDate.slice(0, 4)) : undefined;
-    const r = scoreCandidate(query, {
-      category: c.category,
-      decisionType: c.decisionType,
-      alternativeTags: c.alternativeTags,
-      constraintTags: c.constraintTags,
-      facets: c.domainFacets as MatchAttributes["facets"],
-      year,
-      textRank: Math.min(1, Number(rank) * RANK_SCALE),
-    });
-    if (!r.label) continue;
-    results.push({
-      targetType: "external_case",
-      targetId: c.id,
-      title: c.title,
-      score: r.score,
-      label: r.label,
-      reasons: r.reasons,
-      explanation: r.explanation,
-      outcomeKnown: c.outcomeCategory !== "unknown" && c.outcomeCategory !== "inconclusive",
-      outcomeCategory: c.outcomeCategory,
-      slug: c.slug,
-      isDraft: /pending human review/i.test(c.verifiedBy),
-      summary: { actorName: c.actorName, decisionMade: c.decisionMade, observedOutcome: c.observedOutcome, lessons: c.lessons },
-    });
-  }
 
   for (const { d, rank } of personal) {
     const out = outcomes.find((o) => o.decisionId === d.id);

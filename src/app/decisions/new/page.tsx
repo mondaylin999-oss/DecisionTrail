@@ -6,7 +6,6 @@ import { useAuth } from "@/components/AuthProvider";
 import { InferenceBadge } from "@/components/marks";
 import { LiveResearch } from "@/components/LiveResearch";
 import { MatchCard } from "@/components/MatchCard";
-import { OnlineSearch } from "@/components/OnlineSearch";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
 import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
@@ -15,7 +14,7 @@ import { api } from "@/lib/api";
 import { quickStructure } from "@/lib/quickStructure";
 import { topicWords } from "@/lib/web/sources";
 import { label } from "@/lib/vocab";
-import type { MatchResult, StructuredDecision, SuccessCriterion, Sufficiency } from "@/lib/types";
+import type { MatchResult, StructuredDecision, SuccessCriterion } from "@/lib/types";
 
 type Step = "ask" | "decide";
 
@@ -44,20 +43,16 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
   const [options, setOptions] = useState(["", ""]);
-  // null: follow the question. A string: the user edited the search words.
-  const [editedWords, setEditedWords] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<{ tone: "warn" | "error" | "info"; msg: string } | null>(null);
   const [where, setWhere] = useState<Where | null>(null);
   const [d, setD] = useState<StructuredDecision>(emptyDecision());
   const [matches, setMatches] = useState<MatchResult[]>([]);
-  const [sufficiency, setSufficiency] = useState<Sufficiency>("insufficient");
-  const [tab, setTab] = useState<"personal" | "external">("personal");
 
   if (!me) return null;
 
-  /** Structures the text (AI when it's ready, fixed rules otherwise) and finds precedent in one go. */
+  /** Structures the text (AI when it's ready, fixed rules otherwise) and looks up past decisions in one go. */
   async function ask() {
     setNotice(null);
     setWhere(null);
@@ -78,9 +73,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   }
 
   async function findPrecedent(x: StructuredDecision) {
-    setBusy("Searching your history and the case library…");
+    setBusy("Checking your past decisions…");
     try {
-      const r = await api<{ matches: MatchResult[]; sufficiency: Sufficiency }>("/api/match", {
+      const r = await api<{ matches: MatchResult[] }>("/api/match", {
         method: "POST",
         body: {
           category: x.category,
@@ -94,9 +89,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
         },
       });
       setMatches(r.matches);
-      setSufficiency(r.sufficiency);
       setShowAll(false);
-      setTab(r.matches.some((m) => m.targetType === "personal_decision") ? "personal" : "external");
       setStep("decide");
     } catch (e) {
       setNotice({ tone: "error", msg: e instanceof Error ? e.message : String(e) });
@@ -105,14 +98,11 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
     }
   }
 
-  const searchWords = (editedWords ?? topicWords(text, options).join(" ")).trim();
-  const personal = matches.filter((m) => m.targetType === "personal_decision");
-  const external = matches.filter((m) => m.targetType === "external_case");
-  const shown = tab === "personal" ? personal : external;
+  const searchWords = topicWords(text, options).join(" ");
 
   return (
     <>
-      <PageTitle title={past ? "Log a past decision" : "New decision"} subtitle="DecisionTrail shows precedent. It never decides for you or predicts your outcome." />
+      <PageTitle title={past ? "Log a past decision" : "New decision"} subtitle="DecisionTrail shows evidence. It never decides for you or predicts your outcome." />
       <ol className="flex gap-2 text-sm">
         {(["ask", "decide"] as Step[]).map((x, i) => (
           <li key={x} aria-current={step === x ? "step" : undefined} className={cn("rounded-full px-3 py-1", step === x ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 font-semibold text-white" : "bg-slate-200 text-slate-600")}>
@@ -137,10 +127,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
               className="min-h-32"
               maxLength={2000}
               value={text}
-              onChange={(e) => {
-                setText(e.target.value);
-                setEditedWords(null);
-              }}
+              onChange={(e) => setText(e.target.value)}
               placeholder="e.g. I run a B2B SaaS for small clinics with a limited budget. Should we offer a free plan or a paid subscription?"
             />
             <Field label="Your options (optional)">
@@ -150,11 +137,6 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
                 ))}
               </div>
             </Field>
-            {text.trim().length >= 10 && (
-              <Field label="Online search words (edit or remove anything private)">
-                <Input maxLength={120} value={editedWords ?? searchWords} placeholder="Type topic words" onChange={(e) => setEditedWords(e.target.value)} />
-              </Field>
-            )}
             <div className="flex flex-wrap items-center gap-2">
               <Button type="submit" disabled={!!busy || text.trim().length < 10}>
                 {busy ? <Spinner /> : "🔎"} Find evidence
@@ -171,7 +153,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             {me.privacyMode === "private"
               ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
               : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}{" "}
-            Finding precedent sends your title, context, objective and tags to the DecisionTrail server. Saved decisions are stored there. {me.privacyMode === "private" ? "If no close match is found, live research automatically" : "Live research automatically"} sends only the online search words above, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News.
+            Your question goes to the DecisionTrail server to check your own past decisions, and saved decisions are stored there. Up to four topic words picked from your question are sent, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News. Names typed in lowercase may be included, so leave out anything private.
           </p>
         </Card>
       )}
@@ -201,38 +183,28 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             )}
           </Card>
 
-          <SufficiencyBanner s={sufficiency} personal={personal.length} external={external.length} />
-          {searchWords.length >= 2 && sufficiency === "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
-          {sufficiency === "insufficient" && searchWords.length < 2 && (
-            <Notice tone="warn">There were no topic words to research online. Go back with “Change question” and add a few.</Notice>
+          {searchWords.length >= 2 ? (
+            <LiveResearch query={searchWords} category={d.category} />
+          ) : (
+            <Notice tone="warn">There were no topic words to research online. Go back with “Change question” and describe the topic.</Notice>
           )}
-          <div className="flex flex-wrap gap-2" role="tablist">
-            <TabBtn active={tab === "personal"} onClick={() => setTab("personal")}>
-              Your past decisions ({personal.length})
-            </TabBtn>
-            <TabBtn active={tab === "external"} onClick={() => setTab("external")}>
-              Historical cases ({external.length})
-            </TabBtn>
-          </div>
-          <div className="space-y-3">
-            {shown.slice(0, showAll ? shown.length : 3).map((m) => (
-              <MatchCard key={m.targetType + m.targetId} m={m} current={{ title: d.title, context: d.context }} />
-            ))}
-            {shown.length === 0 && (
-              <p className="text-sm text-slate-500">{tab === "personal" ? "None of your recorded decisions is comparable yet." : "No library case is comparable enough to show."}</p>
-            )}
-            {!showAll && shown.length > 3 && (
-              <Button variant="secondary" onClick={() => setShowAll(true)}>
-                Show all {shown.length}
-              </Button>
-            )}
-          </div>
-          {me.privacyMode !== "private" && searchWords.length >= 2 && sufficiency !== "insufficient" && <LiveResearch query={searchWords} category={d.category} />}
+          {matches.length > 0 && (
+            <section className="space-y-3" aria-label="Your past decisions">
+              <h2 className="font-semibold">🧭 Your past decisions on this</h2>
+              {matches.slice(0, showAll ? matches.length : 3).map((m) => (
+                <MatchCard key={m.targetId} m={m} current={{ title: d.title, context: d.context }} />
+              ))}
+              {!showAll && matches.length > 3 && (
+                <Button variant="secondary" onClick={() => setShowAll(true)}>
+                  Show all {matches.length}
+                </Button>
+              )}
+            </section>
+          )}
           <details>
-            <summary className="cursor-pointer text-sm font-medium text-violet-700">More research tools</summary>
-            <div className="mt-3 space-y-4">
-              <OnlineSearch />
-              <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={sufficiency !== "sufficient"} />
+            <summary className="cursor-pointer text-sm font-medium text-violet-700">AI research (optional)</summary>
+            <div className="mt-3">
+              <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={false} />
             </div>
           </details>
 
@@ -273,25 +245,6 @@ function fromAi(e: Awaited<ReturnType<typeof extractDecision>>["data"], basic: S
       ["title", "category", "decision_type", "context", "objective", "time_horizon", ...(useOwn ? [] : ["alternatives"]), "constraints", "expected_benefits", "risks", "facets"].map((k) => [k, "ai_extracted" as const]),
     ),
   };
-}
-
-function TabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button role="tab" aria-selected={active} onClick={onClick} className={cn("rounded-md px-3 py-1.5 text-sm", active ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white" : "bg-white text-slate-700 border border-slate-300")}>
-      {children}
-    </button>
-  );
-}
-
-function SufficiencyBanner({ s, personal, external }: { s: Sufficiency; personal: number; external: number }) {
-  if (s === "sufficient") return <Notice tone="ok">Relevant precedent found: {personal} of your decisions and {external} library cases. Compare them below.</Notice>;
-  if (s === "partial")
-    return <Notice tone="warn">Some related precedent was found, but with important differences or unknown outcomes. Treat it with care. Web research is optional.</Notice>;
-  return (
-    <Notice tone="info">
-      <strong>No close match in our case library.</strong> Found {personal} of your own decisions and {external} library cases that are loosely related. Live research appears below when sources are found. You can save your decision so it becomes evidence next time.
-    </Notice>
-  );
 }
 
 function addDays(n: number) {
@@ -348,7 +301,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
 
   return (
     <Card className="space-y-4">
-      <CardTitle hint={`${matchesShown} ${"matches will be saved with this record"}`}>Decide and save</CardTitle>
+      <CardTitle hint={matchesShown ? `${matchesShown} of your past decisions will be linked to this record` : undefined}>Decide and save</CardTitle>
       <Field label="Your choice">
         <div className="space-y-1">
           {options.map((o, i) => (

@@ -13,7 +13,7 @@ const MODES: { mode: PrivacyMode; title: string; body: string[] }[] = [
   {
     mode: "private",
     title: "Private",
-    body: ["AI runs only on this device (Gemini Nano in Chrome).", "No cloud AI calls are possible.", "If no close case is found, a few topic words you can edit first are sent to public search sources. No AI is used.", "If on-device AI is unavailable, you fill in forms yourself."],
+    body: ["AI runs only on this device (Gemini Nano in Chrome).", "No cloud AI calls are possible.", "For each new decision, a few topic words from your question are sent to public search sources. This uses no AI.", "If on-device AI is unavailable, you fill in forms yourself."],
   },
   {
     mode: "hybrid",

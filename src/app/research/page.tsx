@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import { OnlineSearch } from "@/components/OnlineSearch";
 import { Badge, Card, Notice, SkeletonCard, SkeletonGroup } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
@@ -19,9 +20,9 @@ export default function ResearchHistoryPage() {
 
   return (
     <>
-      <PageTitle title="Research history" subtitle="Saved live-research sessions. Findings are research candidates, not verified cases." />
+      <PageTitle title="Research history" subtitle="Your saved online sources and AI research sessions. All unverified." />
       {err && <Notice tone="error">{err}</Notice>}
-      {rows?.length === 0 && <Notice tone="info">No research yet. Start one from a decision&apos;s evidence step.</Notice>}
+      {rows?.length === 0 && <Notice tone="info">No AI research sessions yet.</Notice>}
       {!rows && !err && (
         <SkeletonGroup className="space-y-2">
           {[0, 1, 2].map((i) => (
@@ -40,6 +41,7 @@ export default function ResearchHistoryPage() {
           </Card>
         ))}
       </div>
+      <OnlineSearch />
     </>
   );
 }

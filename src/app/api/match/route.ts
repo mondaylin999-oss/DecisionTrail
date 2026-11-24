@@ -2,7 +2,7 @@ import { findMatches } from "@/lib/db/repo";
 import { withUser } from "@/lib/http";
 import { MatchRequestZ } from "@/lib/validation";
 
-/** Deterministic retrieval over curated cases + the caller's own decisions. No AI here. */
+/** Deterministic retrieval over the caller's own decisions. No AI here. */
 export async function POST(req: Request) {
   return withUser(req, async (caller) => {
     const input = MatchRequestZ.parse(await req.json());

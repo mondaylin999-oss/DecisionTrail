@@ -17,7 +17,7 @@ const themeBootstrap = `try {
 
 export const metadata: Metadata = {
   title: "DecisionTrail: Learn From the Past. Decide With Confidence.",
-  description: "A privacy-first decision workspace: personal decision history, documented historical cases and consented live research, with hybrid on-device AI.",
+  description: "A privacy-first decision workspace: personal decision history, live online research and outcome reviews, with hybrid on-device AI.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

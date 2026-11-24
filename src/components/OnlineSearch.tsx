@@ -98,7 +98,7 @@ export function OnlineSearch() {
   return (
     <div className="space-y-4">
       <Card className="space-y-3">
-        <CardTitle hint="live from the web, not part of the case library">🌐 Search online</CardTitle>
+        <CardTitle hint="live from Wikipedia">🌐 Search online</CardTitle>
         <form onSubmit={search} className="flex flex-wrap gap-2">
           <Input
             aria-label="Search online"

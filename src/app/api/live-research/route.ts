@@ -37,7 +37,7 @@ const wikiUrl = (q: string) =>
   `https://en.wikipedia.org/w/api.php?${new URLSearchParams({ action: "query", list: "search", srsearch: q, srlimit: "6", srprop: "snippet", srinfo: "suggestion|totalhits", format: "json" })}`;
 
 /**
- * Searches live sources for the topic words the user saw and approved. POST keeps
+ * Searches live sources for topic words picked from the user's question. POST keeps
  * the words out of URLs and access logs. One failing source never hides the others.
  */
 export async function POST(req: Request) {
@@ -65,6 +65,12 @@ export async function POST(req: Request) {
         const first = await getJson(wikiUrl(q));
         const info = (first as { query?: { searchinfo?: { suggestion?: unknown; totalhits?: unknown } } }).query?.searchinfo;
         query = safeCorrection(q, info?.suggestion, typeof info?.totalhits === "number" ? info.totalhits : 0);
+        // One stray word ("adsd") must not block a correction or drag the search off topic.
+        const two = q.split(/\s+/).slice(0, 2).join(" ");
+        if (query === q && two !== q && typeof info?.totalhits === "number" && info.totalhits <= 20) {
+          const i2 = ((await getJson(wikiUrl(two))) as { query?: { searchinfo?: { suggestion?: unknown; totalhits?: unknown } } }).query?.searchinfo;
+          query = safeCorrection(two, i2?.suggestion, typeof i2?.totalhits === "number" ? i2.totalhits : 0);
+        }
         const rows = query === q ? parseSearch(first) : parseSearch(await getJson(wikiUrl(query)));
         if (relevant(rows, query, 1, 1).length) return rows;
         return parseSearch(await getJson(wikiUrl(query.split(/\s+/)[0])));

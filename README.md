@@ -2,13 +2,13 @@
 
 **Learn From the Past. Decide With Confidence.**
 
-DecisionTrail is a decision workspace. It structures a decision you're facing, retrieves what **you** and **documented others** did in similar situations and what actually happened, offers **consented live web research** when the evidence is thin, and then holds you to a **review date** so the outcome becomes your next lesson.
+DecisionTrail is a decision workspace. It structures a decision you're facing, finds what **you** decided before and what happened, **researches live online sources** for every question, and then holds you to a **review date** so the outcome becomes your next lesson.
 
 It never predicts outcomes and never picks an option for you.
 
 Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference** (Gemini Nano on-device in Chrome + cloud Gemini).
 
-> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). The case library ships with **135 unverified draft cases** with linked sources; a human must verify each before relying on it (see [Curated cases](#curated-cases)).
+> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). New decisions use live online research, not the case library. The earlier library of **135 unverified draft cases** remains in the repo and at `/explorer`, but is no longer searched or linked in the menu (see [Curated cases](#curated-cases)).
 
 ---
 
@@ -30,7 +30,7 @@ Every AI result shows a **🔒 ON_DEVICE** or **☁️ IN_CLOUD** badge read fro
 - **Hybrid**: on-device first; cloud fallback for structuring is allowed and disclosed.
 - **Cloud Research**: Hybrid plus live research. Each research request needs explicit consent for the exact query.
 
-**Live research** is separate from AI. It sends a few topic words, shown and editable first, through the server to Wikipedia, OpenAlex, Stack Exchange and Hacker News. In Private mode it runs automatically when no close case is found; in Hybrid and Cloud Research it runs for every new decision. Results are real pages with links, found by keyword and unverified.
+**Live research** is separate from AI. It sends up to four topic words picked from the question through the server to Wikipedia, OpenAlex, Stack Exchange and Hacker News. It runs for every new decision in every mode, and shows the words it searched for. Results are real pages with links, found by keyword and unverified.
 
 Privacy modes govern where AI **processing** happens. Saved decisions are stored in PostgreSQL so users can access them later.
 

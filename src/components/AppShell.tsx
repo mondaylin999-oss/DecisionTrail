@@ -12,7 +12,6 @@ const NAV = [
   { href: "/", label: "Dashboard", icon: "🏠" },
   { href: "/decisions/new", label: "New Decision", icon: "✨" },
   { href: "/decisions", label: "My Decisions", icon: "🧭" },
-  { href: "/explorer", label: "Historical Explorer", icon: "🔭" },
   { href: "/research", label: "Research History", icon: "🔎" },
   { href: "/settings", label: "Settings", icon: "⚙️" },
 ];
@@ -74,7 +73,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-orange-400 text-lg font-black text-white shadow-md shadow-fuchsia-500/30">D</span>
           <span>
             <span className="gradient-text block text-lg font-black leading-tight">DecisionTrail</span>
-            <span className="block text-xs text-slate-500">Precedent, not prediction</span>
+            <span className="block text-xs text-slate-500">Evidence, not prediction</span>
           </span>
         </Link>
         <nav className="space-y-1.5">
