@@ -361,6 +361,7 @@ export async function findMatches(
       explanation: r.explanation,
       outcomeKnown: c.outcomeCategory !== "unknown" && c.outcomeCategory !== "inconclusive",
       outcomeCategory: c.outcomeCategory,
+      slug: c.slug,
       isDraft: /pending human review/i.test(c.verifiedBy),
       summary: { actorName: c.actorName, decisionMade: c.decisionMade, observedOutcome: c.observedOutcome, lessons: c.lessons },
     });

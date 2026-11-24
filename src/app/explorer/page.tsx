@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import { ActorProfiles } from "@/components/ActorProfiles";
 import { OutcomeChip } from "@/components/marks";
 import { OnlineSearch } from "@/components/OnlineSearch";
 import { Badge, Card, CardTitle, Notice, Select, SkeletonCard, SkeletonGroup } from "@/components/ui";
@@ -60,7 +61,10 @@ function Explorer() {
   const [err, setErr] = useState<string | null>(null);
   const [cat, setCat] = useState("all");
   const [outcome, setOutcome] = useState("all");
-  const [open, setOpen] = useState<string | null>(focus);
+  // Opening another case by link (?case=) takes over from what was opened by hand.
+  const [toggled, setToggled] = useState<{ focus: string | null; id: string | null }>({ focus, id: focus });
+  const open = toggled.focus === focus ? toggled.id : focus;
+  const isOpen = (c: Case) => open === c.id || open === c.slug;
 
   useEffect(() => {
     if (!me) return;
@@ -69,7 +73,7 @@ function Explorer() {
 
   const shown = useMemo(() => (cases ?? []).filter((c) => (cat === "all" || c.category === cat) && (outcome === "all" || c.outcomeCategory === outcome))
     // A case opened from a match or a saved decision comes first.
-    .sort((a, b) => Number(b.id === focus) - Number(a.id === focus)), [cases, cat, outcome, focus]);
+    .sort((a, b) => Number(b.id === focus || b.slug === focus) - Number(a.id === focus || a.slug === focus)), [cases, cat, outcome, focus]);
 
   return (
     <>
@@ -93,7 +97,7 @@ function Explorer() {
       <div className="space-y-3">
         {shown.map((c) => (
           <Card key={c.id} className="space-y-2">
-            <button className="w-full text-left" onClick={() => setOpen(open === c.id ? null : c.id)} aria-expanded={open === c.id}>
+            <button className="w-full text-left" onClick={() => setToggled({ focus, id: isOpen(c) ? null : c.id })} aria-expanded={isOpen(c)}>
               <div className="flex flex-wrap items-center gap-2">
                 {isDraft(c) && <Badge className="border-amber-300 bg-amber-50 text-amber-800">Unverified draft</Badge>}
                 <OutcomeChip value={c.outcomeCategory} />
@@ -105,8 +109,9 @@ function Explorer() {
                 {c.actorName} · {c.decisionDate ? (c.datePrecision === "year" ? c.decisionDate.slice(0, 4) : new Date(c.decisionDate).toLocaleDateString("en-US")) : "date not established"} · {isDraft(c) ? "sources retrieved" : "last verified"} {new Date(c.lastVerifiedAt).toLocaleDateString("en-US")}
               </p>
             </button>
-            {open === c.id && (
+            {isOpen(c) && (
               <div className="space-y-3 border-t border-slate-200 pt-3 text-sm">
+                <ActorProfiles slug={c.slug} />
                 <KV k="Context" v={c.context} />
                 <KV k="Alternatives considered" v={c.alternativesDocumented ?? "Not documented"} />
                 <KV k="Decision" v={c.decisionMade} />

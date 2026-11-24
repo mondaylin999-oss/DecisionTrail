@@ -1,0 +1,2581 @@
+{
+ "retrievedAt": "2026-11-24",
+ "profiles": {
+  "David Heinemeier Hansson": {
+   "kind": "person",
+   "name": "David Heinemeier Hansson",
+   "description": "Programmer, racing driver, creator of Ruby on Rails",
+   "summary": "David Heinemeier Hansson, also known by his initials DHH, is a Danish programmer, writer, entrepreneur, and racing driver.",
+   "url": "https://en.wikipedia.org/wiki/David_Heinemeier_Hansson",
+   "born": 1979,
+   "died": null,
+   "education": [
+    "Copenhagen Business School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/David_Heinemeier_Hansson_Driver_of_Abu_Dhabi_Proton_Racing%27s_Porsche_911_RSR_%2827225732035%29_%28cropped%29.jpg/330px-David_Heinemeier_Hansson_Driver_of_Abu_Dhabi_Proton_Racing%27s_Porsche_911_RSR_%2827225732035%29_%28cropped%29.jpg",
+    "author": "David Merrett from Daventry, England",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:David_Heinemeier_Hansson_Driver_of_Abu_Dhabi_Proton_Racing%27s_Porsche_911_RSR_(27225732035)_(cropped).jpg"
+   }
+  },
+  "Adobe Inc.": {
+   "kind": "organisation",
+   "name": "Adobe Inc.",
+   "description": "American multinational software company",
+   "summary": "Adobe Inc., formerly Adobe Systems Incorporated, is an American multinational computer software company based in San Jose, California.",
+   "url": "https://en.wikipedia.org/wiki/Adobe_Inc.",
+   "founded": 1982,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Adobe_Founders_Tower%2C_San_Jose%2C_CA%2C_south_side_2024-02-28.jpg/330px-Adobe_Founders_Tower%2C_San_Jose%2C_CA%2C_south_side_2024-02-28.jpg",
+    "author": "Xnatedawgx",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Adobe_Founders_Tower,_San_Jose,_CA,_south_side_2024-02-28.jpg"
+   }
+  },
+  "Brian Chesky": {
+   "kind": "person",
+   "name": "Brian Chesky",
+   "description": "American businessman (born 1981)",
+   "summary": "Brian Joseph Chesky is an American businessman, industrial designer, and the co-founder and CEO of Airbnb.",
+   "url": "https://en.wikipedia.org/wiki/Brian_Chesky",
+   "born": 1981,
+   "died": null,
+   "education": [
+    "Rhode Island School of Design"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Brian_Chesky_2025.jpg/330px-Brian_Chesky_2025.jpg",
+    "author": "Celeste Sloman",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Brian_Chesky_2025.jpg"
+   }
+  },
+  "Joe Gebbia": {
+   "kind": "person",
+   "name": "Joe Gebbia",
+   "description": "American businessman (born 1981)",
+   "summary": "Joseph Gebbia Jr. is an American designer and entrepreneur, and a co-founder of Airbnb.",
+   "url": "https://en.wikipedia.org/wiki/Joe_Gebbia",
+   "born": 1981,
+   "died": null,
+   "education": [
+    "Rhode Island School of Design"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Joe-gebbia-2024.png/330px-Joe-gebbia-2024.png",
+    "author": "Ryan Lowry",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Joe-gebbia-2024.png"
+   }
+  },
+  "Amazon (company)": {
+   "kind": "organisation",
+   "name": "Amazon",
+   "description": "American multinational technology conglomerate",
+   "summary": "Amazon.com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, supermarkets, and artificial intelligence.",
+   "url": "https://en.wikipedia.org/wiki/Amazon_(company)",
+   "founded": 1994,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Amazon_Tower_I_topped_out%2C_June_2015.jpg/330px-Amazon_Tower_I_topped_out%2C_June_2015.jpg",
+    "author": "SounderBruce",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Amazon_Tower_I_topped_out,_June_2015.jpg"
+   }
+  },
+  "Andy Jassy": {
+   "kind": "person",
+   "name": "Andy Jassy",
+   "description": "American business executive (born 1968)",
+   "summary": "Andrew R. Jassy is an American business executive who is the president and chief executive officer of Amazon since July 2021, succeeding founder Jeff Bezos, who remains executive chairman.",
+   "url": "https://en.wikipedia.org/wiki/Andy_Jassy",
+   "born": 1968,
+   "died": null,
+   "education": [
+    "Harvard Business School",
+    "Harvard University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Andy_Jassy.jpg/330px-Andy_Jassy.jpg",
+    "author": "Lisi Mezistrano Wolf",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Andy_Jassy.jpg"
+   }
+  },
+  "Jeff Bezos": {
+   "kind": "person",
+   "name": "Jeff Bezos",
+   "description": "American businessman (born 1964)",
+   "summary": "Jeffrey Preston Bezos is an American businessman, and the founder, executive chairman, and former president and CEO of Amazon, the world's largest e-commerce and cloud computing company.",
+   "url": "https://en.wikipedia.org/wiki/Jeff_Bezos",
+   "born": 1964,
+   "died": null,
+   "education": [
+    "Princeton University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg/330px-260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg",
+    "author": "SECWAR",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_(3x4_cropped_on_Bezos_and_rotated).jpg"
+   }
+  },
+  "Amazon Web Services": {
+   "kind": "organisation",
+   "name": "Amazon Web Services",
+   "description": "On-demand cloud computing provider",
+   "summary": "Amazon Web Services, Inc. is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.",
+   "url": "https://en.wikipedia.org/wiki/Amazon_Web_Services",
+   "founded": 2006
+  },
+  "AOL Time Warner": {
+   "kind": "organisation",
+   "name": "WarnerMedia",
+   "description": "American media conglomerate (1972–2022)",
+   "summary": "Warner Media, LLC. was an American multinational entertainment and media conglomerate headquartered at 30 Hudson Yards in Manhattan, New York City.",
+   "url": "https://en.wikipedia.org/wiki/WarnerMedia",
+   "founded": 1990,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Hudson_Yards_from_Hudson_Commons_%2895131p%29_%2830_Hudson_Yards%29.jpg/330px-Hudson_Yards_from_Hudson_Commons_%2895131p%29_%2830_Hudson_Yards%29.jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Hudson_Yards_from_Hudson_Commons_(95131p)_(30_Hudson_Yards).jpg"
+   }
+  },
+  "Steve Jobs": {
+   "kind": "person",
+   "name": "Steve Jobs",
+   "description": "American inventor and businessman (1955–2011)",
+   "summary": "Steven Paul Jobs was an American businessman, inventor, and investor.",
+   "url": "https://en.wikipedia.org/wiki/Steve_Jobs",
+   "born": 1955,
+   "died": 2011,
+   "education": [
+    "Reed College",
+    "De Anza College"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/330px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg",
+    "author": "Matthew Yohe",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010_(cropped_6).jpg"
+   }
+  },
+  "Tim Cook": {
+   "kind": "person",
+   "name": "Tim Cook",
+   "description": "American business executive (born 1960)",
+   "summary": "Timothy Donald Cook is an American business executive who served as the chief executive officer of Apple from August 24, 2011, to August 31, 2026, and has been the company's executive chairman since September 1, 2026.",
+   "url": "https://en.wikipedia.org/wiki/Tim_Cook",
+   "born": 1960,
+   "died": null,
+   "education": [
+    "Auburn University",
+    "Fuqua School of Business",
+    "Duke University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tim_Cook_in_New_York_City_-_2026_%28cropped%29.jpg/330px-Tim_Cook_in_New_York_City_-_2026_%28cropped%29.jpg",
+    "author": "Dati Bendo / European Union",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Tim_Cook_in_New_York_City_-_2026_(cropped).jpg"
+   }
+  },
+  "Phil Schiller": {
+   "kind": "person",
+   "name": "Phil Schiller",
+   "description": "American businessman (born 1960)",
+   "summary": "Philip W. Schiller is an American businessman, spokesperson, and an Apple Fellow at Apple Inc.",
+   "url": "https://en.wikipedia.org/wiki/Phil_Schiller",
+   "born": 1960,
+   "died": null,
+   "education": [
+    "Boston College"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Phil_Schiller_at_AWDC_2012.jpg/330px-Phil_Schiller_at_AWDC_2012.jpg",
+    "author": "Mike Deerkoski",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Phil_Schiller_at_AWDC_2012.jpg"
+   }
+  },
+  "Atlassian": {
+   "kind": "organisation",
+   "name": "Atlassian",
+   "description": "Australian software company",
+   "summary": "Atlassian is a multinational proprietary software company headquartered in Sydney, Australia, that specialises in collaboration tools designed primarily for software development and project management.",
+   "url": "https://en.wikipedia.org/wiki/Atlassian",
+   "founded": 2002,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/George_Place_Sydney_001.jpg/330px-George_Place_Sydney_001.jpg",
+    "author": "Sardaka",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:George_Place_Sydney_001.jpg"
+   }
+  },
+  "Hubert Joly": {
+   "kind": "person",
+   "name": "Hubert Joly",
+   "description": "French businessman and corporate director",
+   "summary": "Hubert Joly is a businessman and Harvard Business School faculty member who formerly was chairman and CEO of Best Buy.",
+   "url": "https://en.wikipedia.org/wiki/Hubert_Joly",
+   "born": 1959,
+   "died": null,
+   "education": [
+    "HEC Paris",
+    "Paris Institute of Political Studies",
+    "Lycée Louis-le-Grand"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Hubert_Joly_headshot.jpg/330px-Hubert_Joly_headshot.jpg",
+    "author": "Best Buy Co., Inc.",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Hubert_Joly_headshot.jpg"
+   }
+  },
+  "John Antioco": {
+   "kind": "person",
+   "name": "John Antioco",
+   "description": "American businessman",
+   "summary": "John Antioco is an American businessman and currently the chairman of the board of directors at BRIX Holdings LLC and the Managing Partner of JAMCO Interests LLC.",
+   "url": "https://en.wikipedia.org/wiki/John_Antioco",
+   "born": null,
+   "died": null,
+   "education": [
+    "New York Institute of Technology",
+    "New York Institute of Technology School of Management"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/John_F_Antioco%2C_February_2022.jpg/330px-John_F_Antioco%2C_February_2022.jpg",
+    "author": "Glen E. Ellman",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:John_F_Antioco,_February_2022.jpg"
+   }
+  },
+  "Reed Hastings": {
+   "kind": "person",
+   "name": "Reed Hastings",
+   "description": "American entrepreneur and education philanthropist (born 1960)",
+   "summary": "Wilmot Reed Hastings Jr. is an American billionaire businessman.",
+   "url": "https://en.wikipedia.org/wiki/Reed_Hastings",
+   "born": 1960,
+   "died": null,
+   "education": [
+    "Bowdoin College",
+    "Stanford University",
+    "Stanford Graduate School of Education"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Re_publica_2015_-_Tag_1_%2817381870955%29_%28cropped%29.jpg/330px-Re_publica_2015_-_Tag_1_%2817381870955%29_%28cropped%29.jpg",
+    "author": "re:publica from Germany",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Re_publica_2015_-_Tag_1_(17381870955)_(cropped).jpg"
+   }
+  },
+  "Marc Randolph": {
+   "kind": "person",
+   "name": "Marc Randolph",
+   "description": "American tech entrepreneur and co-founder of Netflix",
+   "summary": "Marc Bernays Randolph is an American tech entrepreneur, advisor and speaker.",
+   "url": "https://en.wikipedia.org/wiki/Marc_Randolph",
+   "born": 1958,
+   "died": null,
+   "education": [
+    "Hamilton College"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Marc_Randolph_by_Gage_Skidmore.jpg/330px-Marc_Randolph_by_Gage_Skidmore.jpg",
+    "author": "Gage Skidmore",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Marc_Randolph_by_Gage_Skidmore.jpg"
+   }
+  },
+  "Blockbuster (retailer)": {
+   "kind": "organisation",
+   "name": "Blockbuster",
+   "description": "American video rental corporation (1985–2020)",
+   "summary": "Blockbuster or Blockbuster Video is an American multimedia brand which was founded by David Cook in 1985 as a single home video rental shop, but later became a public store chain featuring video game rentals, DVD-by-mail, streaming, video on demand, and cinema theater.",
+   "url": "https://en.wikipedia.org/wiki/Blockbuster_(retailer)",
+   "founded": 1985
+  },
+  "Bogotá": {
+   "kind": "organisation",
+   "name": "Bogotá",
+   "description": "Capital and largest city of Colombia",
+   "summary": "Bogotá is the capital and largest city of Colombia.",
+   "url": "https://en.wikipedia.org/wiki/Bogot%C3%A1",
+   "founded": 1538,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Bogota%2C_Colombia_%2836668708290%29.jpg/330px-Bogota%2C_Colombia_%2836668708290%29.jpg",
+    "author": "Pedro Szekely from Los Angeles, USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Bogota,_Colombia_(36668708290).jpg"
+   }
+  },
+  "Buffer (application)": {
+   "kind": "organisation",
+   "name": "Buffer",
+   "description": "Social management software",
+   "summary": "Buffer is a software application for the web and mobile, designed to manage accounts in social networks, by providing the means for a user to schedule posts to Bluesky, YouTube, Twitter, Facebook, Mastodon, Instagram, Threads, Pinterest, TikTok and LinkedIn, as well as analyze their results and engage with their community.",
+   "url": "https://en.wikipedia.org/wiki/Buffer_(application)",
+   "founded": null
+  },
+  "Roberto Goizueta": {
+   "kind": "person",
+   "name": "Roberto Goizueta",
+   "description": "Cuban-American business executive (1931–1997)",
+   "summary": "Roberto Críspulo Goizueta Cantera was a Cuban-born American business executive who served as the chairman, president, and chief executive officer of The Coca-Cola Company from August 1980 until his death in October 1997.",
+   "url": "https://en.wikipedia.org/wiki/Roberto_Goizueta",
+   "born": 1931,
+   "died": 1997,
+   "education": [
+    "Yale University",
+    "Cheshire Academy"
+   ]
+  },
+  "Brian Armstrong (businessman)": {
+   "kind": "person",
+   "name": "Brian Armstrong",
+   "description": "American businessman (born 1983)",
+   "summary": "Brian Armstrong is an American businessman and investor who is CEO of cryptocurrency platform Coinbase, which he co-founded with Fred Ehrsam.",
+   "url": "https://en.wikipedia.org/wiki/Brian_Armstrong_(businessman)",
+   "born": 1983,
+   "died": null,
+   "education": [],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Brian_Armstrong_-_TechCrunch_Disrupt_2018_01.jpg/330px-Brian_Armstrong_-_TechCrunch_Disrupt_2018_01.jpg",
+    "author": "TechCrunch",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Brian_Armstrong_-_TechCrunch_Disrupt_2018_01.jpg"
+   }
+  },
+  "Costco": {
+   "kind": "organisation",
+   "name": "Costco",
+   "description": "American multinational warehouse club chain",
+   "summary": "Costco Wholesale Corporation is an American multinational corporation that operates a chain of membership-only big-box warehouse club retail stores.",
+   "url": "https://en.wikipedia.org/wiki/Costco",
+   "founded": 1983,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Costco_Wholesale_-_Fredericksburg%2C_Virginia.jpg/330px-Costco_Wholesale_-_Fredericksburg%2C_Virginia.jpg",
+    "author": "Aaron F. Stone",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Costco_Wholesale_-_Fredericksburg,_Virginia.jpg"
+   }
+  },
+  "CrowdStrike": {
+   "kind": "organisation",
+   "name": "CrowdStrike",
+   "description": "American cybersecurity technology company",
+   "summary": "CrowdStrike Holdings, Inc. is an American cybersecurity technology company based in Austin, Texas.",
+   "url": "https://en.wikipedia.org/wiki/CrowdStrike",
+   "founded": 2011,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/150_Mathilda_Place.jpg/330px-150_Mathilda_Place.jpg",
+    "author": "Coolcaesar",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:150_Mathilda_Place.jpg"
+   }
+  },
+  "Kevin Rose": {
+   "kind": "person",
+   "name": "Kevin Rose",
+   "description": "American Internet entrepreneur (born 1977)",
+   "summary": "Robert Kevin Rose is an American Internet entrepreneur who co-founded Revision3, Digg, Pownce, and Milk.",
+   "url": "https://en.wikipedia.org/wiki/Kevin_Rose",
+   "born": 1977,
+   "died": null,
+   "education": [
+    "University of Nevada, Las Vegas",
+    "Southeast Career Technical Academy"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Kevin_Rose_TC_2025_%28cropped%29.jpg/330px-Kevin_Rose_TC_2025_%28cropped%29.jpg",
+    "author": "TechCrunch",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kevin_Rose_TC_2025_(cropped).jpg"
+   }
+  },
+  "Discord": {
+   "kind": "organisation",
+   "name": "Discord",
+   "description": "American online communication software",
+   "summary": "Discord is an American instant messaging and VoIP social platform that allows communication through voice calls, video calls, text messaging, and media.",
+   "url": "https://en.wikipedia.org/wiki/Discord",
+   "founded": 2015
+  },
+  "Bob Iger": {
+   "kind": "person",
+   "name": "Bob Iger",
+   "description": "American media executive (born 1951)",
+   "summary": "Robert Alan Iger is an American media executive who was the chief executive officer of the Walt Disney Company twice, from 2005 to 2020 and from 2022 to 2026.",
+   "url": "https://en.wikipedia.org/wiki/Bob_Iger",
+   "born": 1951,
+   "died": null,
+   "education": [
+    "Ithaca College",
+    "The Center for Early Education"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Bob_Iger_2019_Disney_Legends_Awards_Ceremony_D23_EXPO_2019_%2851441457900%29_%28cropped%29.jpg/330px-Bob_Iger_2019_Disney_Legends_Awards_Ceremony_D23_EXPO_2019_%2851441457900%29_%28cropped%29.jpg",
+    "author": "nagi usano from Tokyo, Japan",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Bob_Iger_2019_Disney_Legends_Awards_Ceremony_D23_EXPO_2019_(51441457900)_(cropped).jpg"
+   }
+  },
+  "The Walt Disney Company": {
+   "kind": "organisation",
+   "name": "The Walt Disney Company",
+   "description": "American media and entertainment conglomerate",
+   "summary": "The Walt Disney Company, commonly known as Disney, is an American multinational mass media and entertainment conglomerate headquartered at the Walt Disney Studios complex in Burbank, California.",
+   "url": "https://en.wikipedia.org/wiki/The_Walt_Disney_Company",
+   "founded": 1923
+  },
+  "Docker, Inc.": {
+   "kind": "organisation",
+   "name": "Docker, Inc.",
+   "description": "American technology company",
+   "summary": "Docker, Inc. is an American technology company that develops productivity tools built around Docker, which automates the deployment of code inside software containers via OS-level virtualization.",
+   "url": "https://en.wikipedia.org/wiki/Docker,_Inc.",
+   "founded": 2013
+  },
+  "Domino's": {
+   "kind": "organisation",
+   "name": "Domino's",
+   "description": "American multinational pizza restaurant chain",
+   "summary": "Domino's Pizza, Inc., trading as Domino's, is an American multinational pizza restaurant chain founded in 1960.",
+   "url": "https://en.wikipedia.org/wiki/Domino%27s",
+   "founded": 1960,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Domino%E2%80%99s_Pizza_World_Resource_Center_in_Ann_Arbor%2C_Michigan_2026.jpg/330px-Domino%E2%80%99s_Pizza_World_Resource_Center_in_Ann_Arbor%2C_Michigan_2026.jpg",
+    "author": "MultiEditor03",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Domino%E2%80%99s_Pizza_World_Resource_Center_in_Ann_Arbor,_Michigan_2026.jpg"
+   }
+  },
+  "Dropbox": {
+   "kind": "organisation",
+   "name": "Dropbox",
+   "description": "Cloud storage and file synchronization service",
+   "summary": "Dropbox is a file hosting service operated by the American company Dropbox, Inc., headquartered in San Francisco, California, that offers cloud storage, file synchronization, personal cloud, and client software.",
+   "url": "https://en.wikipedia.org/wiki/Dropbox",
+   "founded": 2007
+  },
+  "Drew Houston": {
+   "kind": "person",
+   "name": "Drew Houston",
+   "description": "Co-founder of Dropbox (born 1983)",
+   "summary": "Andrew W. Houston is an American Internet entrepreneur best known as the co-founder and CEO of Dropbox, an online backup and storage service.",
+   "url": "https://en.wikipedia.org/wiki/Drew_Houston",
+   "born": 1983,
+   "died": null,
+   "education": [
+    "Massachusetts Institute of Technology"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Drew_Houston_at_Web_Summit_%28cropped%29.jpg/330px-Drew_Houston_at_Web_Summit_%28cropped%29.jpg",
+    "author": "Web Summit",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Drew_Houston_at_Web_Summit_(cropped).jpg"
+   }
+  },
+  "Luis von Ahn": {
+   "kind": "person",
+   "name": "Luis von Ahn",
+   "description": "Guatemalan-American entrepreneur and software developer",
+   "summary": "Luis von Ahn is a Guatemalan-American entrepreneur and software developer.",
+   "url": "https://en.wikipedia.org/wiki/Luis_von_Ahn",
+   "born": 1978,
+   "died": null,
+   "education": [
+    "Carnegie Mellon University",
+    "Duke University",
+    "American School of Guatemala"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Wikimania_2015_-_Day_2_%2818%29_%28cropped%29.jpg/330px-Wikimania_2015_-_Day_2_%2818%29_%28cropped%29.jpg",
+    "author": "EneasMx",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Wikimania_2015_-_Day_2_(18)_(cropped).jpg"
+   }
+  },
+  "Evernote": {
+   "kind": "organisation",
+   "name": "Evernote",
+   "description": "Notetaking software and online service",
+   "summary": "Evernote is a note-taking and task-management application developed by the Evernote Corporation.",
+   "url": "https://en.wikipedia.org/wiki/Evernote",
+   "founded": 2008
+  },
+  "Mark Zuckerberg": {
+   "kind": "person",
+   "name": "Mark Zuckerberg",
+   "description": "American businessman and programmer (born 1984)",
+   "summary": "Mark Elliot Zuckerberg is an American businessman, webmaster, and programmer who co-founded the social media service Facebook and its parent company Meta Platforms.",
+   "url": "https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+   "born": 1984,
+   "died": null,
+   "education": [
+    "Harvard University",
+    "Phillips Exeter Academy"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg/330px-P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg",
+    "author": "The White House",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:P20260929DT-1655_(55561811540)_(cropped_2).jpg"
+   }
+  },
+  "Kevin Systrom": {
+   "kind": "person",
+   "name": "Kevin Systrom",
+   "description": "American computer programmer and entrepreneur (born 1983)",
+   "summary": "Kevin Systrom is an American computer programmer and entrepreneur.",
+   "url": "https://en.wikipedia.org/wiki/Kevin_Systrom",
+   "born": 1983,
+   "died": null,
+   "education": [
+    "Stanford University",
+    "Middlesex School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Kevin_Systrom_2018_%2840980041741%29_%28cropped%29.jpg/330px-Kevin_Systrom_2018_%2840980041741%29_%28cropped%29.jpg",
+    "author": "Christopher Michel from San Francisco, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kevin_Systrom_2018_(40980041741)_(cropped).jpg"
+   }
+  },
+  "Alan Mulally": {
+   "kind": "person",
+   "name": "Alan Mulally",
+   "description": "American businessman (born 1945)",
+   "summary": "Alan Roger Mulally is an American aerospace engineer and manufacturing executive.",
+   "url": "https://en.wikipedia.org/wiki/Alan_Mulally",
+   "born": 1945,
+   "died": null,
+   "education": [
+    "University of Kansas",
+    "Massachusetts Institute of Technology",
+    "MIT Sloan School of Management"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Alan_Mulally_2013-01-30_001.jpg/330px-Alan_Mulally_2013-01-30_001.jpg",
+    "author": "Ford Motor Company",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Alan_Mulally_2013-01-30_001.jpg"
+   }
+  },
+  "Gap Inc.": {
+   "kind": "organisation",
+   "name": "Gap Inc.",
+   "description": "American multinational clothing retailer",
+   "summary": "The Gap, Inc., commonly known as Gap Inc., headquartered in San Francisco, California, is an American multinational clothing and accessories retailer.",
+   "url": "https://en.wikipedia.org/wiki/Gap_Inc.",
+   "founded": 1969
+  },
+  "Georgia Tech": {
+   "kind": "organisation",
+   "name": "Georgia Tech",
+   "description": "Public university in Atlanta, Georgia, US",
+   "summary": "The Georgia Institute of Technology is a public research university and institute of technology in Atlanta, Georgia, United States.",
+   "url": "https://en.wikipedia.org/wiki/Georgia_Tech",
+   "founded": 1885
+  },
+  "GitHub": {
+   "kind": "organisation",
+   "name": "GitHub",
+   "description": "Software development collaboration platform",
+   "summary": "GitHub is a proprietary developer platform that allows developers to create, store, manage, and share their code.",
+   "url": "https://en.wikipedia.org/wiki/GitHub",
+   "founded": 2007
+  },
+  "GitLab": {
+   "kind": "organisation",
+   "name": "GitLab",
+   "description": "Open-source Git software package",
+   "summary": "GitLab is a software forge primarily developed by GitLab Inc.",
+   "url": "https://en.wikipedia.org/wiki/GitLab",
+   "founded": 2011
+  },
+  "Andy Rubin": {
+   "kind": "person",
+   "name": "Andy Rubin",
+   "description": "American businessman (born 1963)",
+   "summary": "Andrew E. Rubin is an American computer programmer, entrepreneur, and venture capitalist.",
+   "url": "https://en.wikipedia.org/wiki/Andy_Rubin",
+   "born": 1963,
+   "died": null,
+   "education": [
+    "Utica University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/2008_Google_Developer_Day_in_Japan_-_Andy_Rubin_%28cropped%29.jpg/330px-2008_Google_Developer_Day_in_Japan_-_Andy_Rubin_%28cropped%29.jpg",
+    "author": "Yoichiro Akiyama from Tokyo, Japan",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2008_Google_Developer_Day_in_Japan_-_Andy_Rubin_(cropped).jpg"
+   }
+  },
+  "Google": {
+   "kind": "organisation",
+   "name": "Google",
+   "description": "American multinational technology company",
+   "summary": "Google LLC is an American multinational technology corporation focused on information technology, online advertising, search engine technology, email, cloud computing, software, quantum computing, e-commerce, consumer electronics, and artificial intelligence.",
+   "url": "https://en.wikipedia.org/wiki/Google",
+   "founded": 1998,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/330px-Googleplex_HQ_%28cropped%29.jpg",
+    "author": "Asoundd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Googleplex_HQ_(cropped).jpg"
+   }
+  },
+  "Laszlo Bock": {
+   "kind": "person",
+   "name": "Laszlo Bock",
+   "description": "American businessman (born 1972)",
+   "summary": "Laszlo Bock is a Romanian-born Hungarian American businessman, who is co-founder and former CEO of Humu.",
+   "url": "https://en.wikipedia.org/wiki/Laszlo_Bock",
+   "born": 1972,
+   "died": null,
+   "education": [
+    "Yale University",
+    "Pomona College",
+    "Yale School of Management"
+   ],
+   "photo": {
+    "src": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Laszlo_Bock_2014.jpg",
+    "author": "Photo by Capt. Jason Sweeney, California National Guard  ",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Laszlo_Bock_2014.jpg"
+   }
+  },
+  "Phil Harrison": {
+   "kind": "person",
+   "name": "Phil Harrison",
+   "description": "British businessman",
+   "summary": "Phil Harrison is a British video gaming and corporate executive.",
+   "url": "https://en.wikipedia.org/wiki/Phil_Harrison",
+   "born": null,
+   "died": null,
+   "education": [],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Phil_Harrison_at_GDC_2016.jpg/330px-Phil_Harrison_at_GDC_2016.jpg",
+    "author": "Official GDC",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Phil_Harrison_at_GDC_2016.jpg"
+   }
+  },
+  "Urs Hölzle": {
+   "kind": "person",
+   "name": "Urs Hölzle",
+   "description": "Swiss-American computer scientist",
+   "summary": "Urs Hölzle is a Swiss-American software engineer and technology executive.",
+   "url": "https://en.wikipedia.org/wiki/Urs_H%C3%B6lzle",
+   "born": null,
+   "died": null,
+   "education": [
+    "ETH Zurich",
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Urs_Holzle_2014.jpg/330px-Urs_Holzle_2014.jpg",
+    "author": "Picture credit: Naoise Culhane / SPORTSFILE / Web Summit",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Urs_Holzle_2014.jpg"
+   }
+  },
+  "HashiCorp": {
+   "kind": "organisation",
+   "name": "HashiCorp",
+   "description": "Cloud-computing software company",
+   "summary": "HashiCorp, Inc. is an American software company and subsidiary of IBM based in San Francisco, California.",
+   "url": "https://en.wikipedia.org/wiki/HashiCorp",
+   "founded": 2012
+  },
+  "Heroku": {
+   "kind": "organisation",
+   "name": "Heroku",
+   "description": "Cloud Platform as a service",
+   "summary": "Heroku is a cloud platform as a service supporting several programming languages.",
+   "url": "https://en.wikipedia.org/wiki/Heroku",
+   "founded": 2007
+  },
+  "Tim Draper": {
+   "kind": "person",
+   "name": "Tim Draper",
+   "description": "American businessman (born 1958)",
+   "summary": "Timothy Cook Draper is an American venture capital investor, and founder of Draper Fisher Jurvetson, Draper University, Draper Venture Network, and Draper Associates.",
+   "url": "https://en.wikipedia.org/wiki/Tim_Draper",
+   "born": 1958,
+   "died": null,
+   "education": [
+    "Harvard Business School",
+    "Harvard University",
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/2022_-_Centre_Stage_SAM_2688_%2852476613519%29_%28cropped%29.jpg/330px-2022_-_Centre_Stage_SAM_2688_%2852476613519%29_%28cropped%29.jpg",
+    "author": "Web Summit",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2022_-_Centre_Stage_SAM_2688_(52476613519)_(cropped).jpg"
+   }
+  },
+  "Sabeer Bhatia": {
+   "kind": "person",
+   "name": "Sabeer Bhatia",
+   "description": "Indian-American businessman, co-founder of Hotmail",
+   "summary": "Sabeer Bhatia is an Indian-American entrepreneur who co-founded the first free web-based email service, Hotmail.com in 1996.",
+   "url": "https://en.wikipedia.org/wiki/Sabeer_Bhatia",
+   "born": 1968,
+   "died": null,
+   "education": [
+    "California Institute of Technology",
+    "Stanford University",
+    "Birla Institute of Technology and Science"
+   ]
+  },
+  "IBM": {
+   "kind": "organisation",
+   "name": "IBM",
+   "description": "American multinational technology company",
+   "summary": "International Business Machines Corporation is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+   "url": "https://en.wikipedia.org/wiki/IBM",
+   "founded": 1911,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/IBM_CHQ_-_Oct_2014.jpg/330px-IBM_CHQ_-_Oct_2014.jpg",
+    "author": "Treesmittenex",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:IBM_CHQ_-_Oct_2014.jpg"
+   }
+  },
+  "Mike Krieger": {
+   "kind": "person",
+   "name": "Mike Krieger",
+   "description": "Brazilian entrepreneur and software engineer (born 1986)",
+   "summary": "Michel Krieger is a Brazilian entrepreneur and software engineer who co-founded Instagram in 2010 with Kevin Systrom, and served as its chief technology officer until 2018.",
+   "url": "https://en.wikipedia.org/wiki/Mike_Krieger",
+   "born": 1986,
+   "died": null,
+   "education": [
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Mike_Krieger_in_2018_%28cropped%29.jpg/330px-Mike_Krieger_in_2018_%28cropped%29.jpg",
+    "author": "Christopher Michel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Mike_Krieger_in_2018_(cropped).jpg"
+   }
+  },
+  "Andrew Grove": {
+   "kind": "person",
+   "name": "Andrew Grove",
+   "description": "American businessman (1936–2016)",
+   "summary": "Andrew \"Andy\" Stephen Grove was a Hungarian-American businessman and engineer who served as the third CEO of Intel Corporation.",
+   "url": "https://en.wikipedia.org/wiki/Andrew_Grove",
+   "born": 1936,
+   "died": 2016,
+   "education": [
+    "University of California, Berkeley",
+    "City University of New York"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Intel_Inside_%283607903903%29_%28cropped%29.jpg/330px-Intel_Inside_%283607903903%29_%28cropped%29.jpg",
+    "author": "Steve Jurvetson from Los Altos, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Intel_Inside_(3607903903)_(cropped).jpg"
+   }
+  },
+  "Gordon Moore": {
+   "kind": "person",
+   "name": "Gordon Moore",
+   "description": "American businessman (1929–2023)",
+   "summary": "Gordon Earle Moore was an American businessman, scientist, engineer, and the co-founder and emeritus chairman of Intel Corporation.",
+   "url": "https://en.wikipedia.org/wiki/Gordon_Moore",
+   "born": 1929,
+   "died": 2023,
+   "education": [
+    "California Institute of Technology",
+    "University of California, Berkeley",
+    "San José State University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Gordon_Moore_1978_%28cropped%29.png/330px-Gordon_Moore_1978_%28cropped%29.png",
+    "author": "Intel Free Press",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Gordon_Moore_1978_(cropped).png"
+   }
+  },
+  "Intel": {
+   "kind": "organisation",
+   "name": "Intel",
+   "description": "American multinational technology company",
+   "summary": "Intel Corporation is an American multinational technology company headquartered in Santa Clara, California.",
+   "url": "https://en.wikipedia.org/wiki/Intel",
+   "founded": 1968,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Intel_Headquarters_in_2023.jpg/330px-Intel_Headquarters_in_2023.jpg",
+    "author": "Coolcaesar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Intel_Headquarters_in_2023.jpg"
+   }
+  },
+  "Johnson & Johnson": {
+   "kind": "organisation",
+   "name": "Johnson & Johnson",
+   "description": "American multinational pharmaceutical and medical device company",
+   "summary": "Johnson & Johnson is an American multinational pharmaceutical, biotechnology, and medical technologies corporation headquartered in New Brunswick, New Jersey.",
+   "url": "https://en.wikipedia.org/wiki/Johnson_%26_Johnson",
+   "founded": 1886,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Johnson_%26_Johnson_%28J%26J%29_%2855143119004%29.jpg/330px-Johnson_%26_Johnson_%28J%26J%29_%2855143119004%29.jpg",
+    "author": "ajay_suresh",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Johnson_%26_Johnson_(J%26J)_(55143119004).jpg"
+   }
+  },
+  "Juicero": {
+   "kind": "organisation",
+   "name": "Juicero",
+   "description": "American juicer company (2013–2017)",
+   "summary": "Juicero Inc. was an American company that designed, manufactured and sold the Juicero Press, a fruit and vegetable juicer.",
+   "url": "https://en.wikipedia.org/wiki/Juicero",
+   "founded": 2013
+  },
+  "Sebastian Siemiatkowski": {
+   "kind": "person",
+   "name": "Sebastian Siemiatkowski",
+   "description": "Swedish entrepreneur (born 1981)",
+   "summary": "Sebastian Siemiatkowski is a Swedish entrepreneur who is the co-founder and chief executive officer of fintech company Klarna.",
+   "url": "https://en.wikipedia.org/wiki/Sebastian_Siemiatkowski",
+   "born": 1981,
+   "died": null,
+   "education": [
+    "Stockholm School of Economics"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Sebastian_Siemiatkowski_TC_2019.jpg/330px-Sebastian_Siemiatkowski_TC_2019.jpg",
+    "author": "TechCrunch",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Siemiatkowski_TC_2019.jpg"
+   }
+  },
+  "Knight Capital Group": {
+   "kind": "organisation",
+   "name": "Knight Capital Group",
+   "description": "Former American financial services firm",
+   "summary": "The Knight Capital Group was an American global financial services firm engaging in market making, electronic execution, and institutional sales and trading.",
+   "url": "https://en.wikipedia.org/wiki/Knight_Capital_Group",
+   "founded": 1995
+  },
+  "Jørgen Vig Knudstorp": {
+   "kind": "person",
+   "name": "Jørgen Vig Knudstorp",
+   "description": "Danish businessman (born 1968)",
+   "summary": "Jørgen Vig Knudstorp is a Danish businessman who is the Chairman of the Foundation and Supervisory Boards at IMD Business School since 1 January 2026.",
+   "url": "https://en.wikipedia.org/wiki/J%C3%B8rgen_Vig_Knudstorp",
+   "born": 1968,
+   "died": null,
+   "education": [
+    "Aarhus University",
+    "Aarhus School of Business"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Jorgen_Knudstorp.JPG/330px-Jorgen_Knudstorp.JPG",
+    "author": "Hidden Isomorph",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jorgen_Knudstorp.JPG"
+   }
+  },
+  "Transport for London": {
+   "kind": "organisation",
+   "name": "Transport for London",
+   "description": "English transport authority",
+   "summary": "Transport for London is a local government body responsible for most of the transport network in London, United Kingdom.",
+   "url": "https://en.wikipedia.org/wiki/Transport_for_London",
+   "founded": 2000
+  },
+  "Mailchimp": {
+   "kind": "organisation",
+   "name": "Mailchimp",
+   "description": "US marketing automation platform and email marketing service",
+   "summary": "Mailchimp is a marketing automation and email marketing platform, operated by Rocket Science Group, a subsidiary of Intuit.",
+   "url": "https://en.wikipedia.org/wiki/Mailchimp",
+   "founded": 2001
+  },
+  "Isaac Perlmutter": {
+   "kind": "person",
+   "name": "Isaac Perlmutter",
+   "description": "Israeli-American businessman (born 1942)",
+   "summary": "Isaac \"Ike\" Perlmutter is an Israeli-American billionaire businessman and financier.",
+   "url": "https://en.wikipedia.org/wiki/Isaac_Perlmutter",
+   "born": 1942,
+   "died": null,
+   "education": []
+  },
+  "Satya Nadella": {
+   "kind": "person",
+   "name": "Satya Nadella",
+   "description": "Indian-American business executive (born 1967)",
+   "summary": "Satya Narayana Nadella is an Indian-American business executive.",
+   "url": "https://en.wikipedia.org/wiki/Satya_Nadella",
+   "born": 1967,
+   "died": null,
+   "education": [
+    "Manipal Institute of Technology",
+    "University of Wisconsin–Milwaukee",
+    "Booth School of Business"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/MS-Exec-Nadella-Satya-2017-08-31-22_%28cropped%29.jpg/330px-MS-Exec-Nadella-Satya-2017-08-31-22_%28cropped%29.jpg",
+    "author": "Brian Smale and Microsoft",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:MS-Exec-Nadella-Satya-2017-08-31-22_(cropped).jpg"
+   }
+  },
+  "Microsoft": {
+   "kind": "organisation",
+   "name": "Microsoft",
+   "description": "American multinational technology conglomerate",
+   "summary": "Microsoft Corporation is an American multinational technology conglomerate headquartered in Redmond, Washington.",
+   "url": "https://en.wikipedia.org/wiki/Microsoft",
+   "founded": 1975,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Aerial_Microsoft_West_Campus_August_2009.jpg/330px-Aerial_Microsoft_West_Campus_August_2009.jpg",
+    "author": "Jelson25",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Aerial_Microsoft_West_Campus_August_2009.jpg"
+   }
+  },
+  "Bill Gates": {
+   "kind": "person",
+   "name": "Bill Gates",
+   "description": "American businessman and philanthropist (born 1955)",
+   "summary": "William Henry Gates III is an American businessman and philanthropist.",
+   "url": "https://en.wikipedia.org/wiki/Bill_Gates",
+   "born": 1955,
+   "died": null,
+   "education": [
+    "Lakeside School",
+    "Harvard College"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/330px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg",
+    "author": "Bogdan Hoyaux / European Union",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_P067383-987995_(cropped)_5.jpg"
+   }
+  },
+  "Charles M. Vest": {
+   "kind": "person",
+   "name": "Charles M. Vest",
+   "description": "American engineer, educator, and university president (1941–2013)",
+   "summary": "Charles Marstiller \"Chuck\" Vest was an American mechanical engineer and academic administrator.",
+   "url": "https://en.wikipedia.org/wiki/Charles_M._Vest",
+   "born": 1941,
+   "died": 2013,
+   "education": [
+    "University of Michigan",
+    "West Virginia University"
+   ],
+   "photo": {
+    "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Charles-m-vest.jpg",
+    "author": "Kevin Tong, UC Davis College of Engineering",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Charles-m-vest.jpg"
+   }
+  },
+  "Ted Sarandos": {
+   "kind": "person",
+   "name": "Ted Sarandos",
+   "description": "American business executive (born 1964)",
+   "summary": "Theodore Anthony Sarandos Jr., is an American media executive who has been the co-chief executive officer of Netflix since 2020.",
+   "url": "https://en.wikipedia.org/wiki/Ted_Sarandos",
+   "born": 1964,
+   "died": null,
+   "education": [
+    "Glendale Community College"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Ted_Sarandos_at_TAFFF_2026-4.jpg/330px-Ted_Sarandos_at_TAFFF_2026-4.jpg",
+    "author": "Kevin Paul",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ted_Sarandos_at_TAFFF_2026-4.jpg"
+   }
+  },
+  "Netflix, Inc.": {
+   "kind": "organisation",
+   "name": "Netflix, Inc.",
+   "description": "American media company",
+   "summary": "Netflix, Inc. is an American media company founded on August 29, 1997, by Reed Hastings and Marc Randolph in Scotts Valley, California, and currently based in Los Gatos, California, with production offices and stages at the Los Angeles–based Hollywood studios and the Albuquerque Studios.",
+   "url": "https://en.wikipedia.org/wiki/Netflix,_Inc.",
+   "founded": 1997,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/101_Albright_Way.jpg/330px-101_Albright_Way.jpg",
+    "author": "Coolcaesar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:101_Albright_Way.jpg"
+   }
+  },
+  "Metropolitan Transportation Authority": {
+   "kind": "organisation",
+   "name": "Metropolitan Transportation Authority",
+   "description": "Public transportation organization in New York",
+   "summary": "The Metropolitan Transportation Authority is a public benefit corporation in New York State responsible for public transportation in the New York City metropolitan area.",
+   "url": "https://en.wikipedia.org/wiki/Metropolitan_Transportation_Authority",
+   "founded": 1965,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Sample_of_MTA_services_MNRR_NYCT_Bus_LIRR_MTA_Bus_LI_Bus_NYCT_Subway.jpg/330px-Sample_of_MTA_services_MNRR_NYCT_Bus_LIRR_MTA_Bus_LI_Bus_NYCT_Subway.jpg",
+    "author": "AEMoreira042281 (all photos)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Sample_of_MTA_services_MNRR_NYCT_Bus_LIRR_MTA_Bus_LI_Bus_NYCT_Subway.jpg"
+   }
+  },
+  "Satoru Iwata": {
+   "kind": "person",
+   "name": "Satoru Iwata",
+   "description": "Japanese video game executive (1959–2015)",
+   "summary": "Satoru Iwata was a Japanese businessman, video game programmer and producer.",
+   "url": "https://en.wikipedia.org/wiki/Satoru_Iwata",
+   "born": 1959,
+   "died": 2015,
+   "education": [
+    "Tokyo Institute of Technology"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Satoru_Iwata_GDC_2011_%28cropped%29.jpg/330px-Satoru_Iwata_GDC_2011_%28cropped%29.jpg",
+    "author": "Official GDC",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Satoru_Iwata_GDC_2011_(cropped).jpg"
+   }
+  },
+  "Stephen Elop": {
+   "kind": "person",
+   "name": "Stephen Elop",
+   "description": "Canadian businessman",
+   "summary": "Stephen Elop is a Canadian businessman who most recently worked at Australian telecom company Telstra from April 2016.",
+   "url": "https://en.wikipedia.org/wiki/Stephen_Elop",
+   "born": 1963,
+   "died": null,
+   "education": [
+    "McMaster University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Stephen_elop.jpg/330px-Stephen_elop.jpg",
+    "author": "luca.sartoni",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Stephen_elop.jpg"
+   }
+  },
+  "Oslo": {
+   "kind": "organisation",
+   "name": "Oslo",
+   "description": "Capital and most populous city of Norway",
+   "summary": "Oslo is the capital and largest city of Norway.",
+   "url": "https://en.wikipedia.org/wiki/Oslo",
+   "founded": 1048,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Nationaltheatret_evening.jpg/330px-Nationaltheatret_evening.jpg",
+    "author": "Orjanarvola",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Nationaltheatret_evening.jpg"
+   }
+  },
+  "Patagonia, Inc.": {
+   "kind": "organisation",
+   "name": "Patagonia, Inc.",
+   "description": "American clothing retailer",
+   "summary": "Patagonia, Inc. is an American retailer of outdoor recreation clothing, equipment, and food.",
+   "url": "https://en.wikipedia.org/wiki/Patagonia,_Inc.",
+   "founded": 1973
+  },
+  "Yvon Chouinard": {
+   "kind": "person",
+   "name": "Yvon Chouinard",
+   "description": "American climber and entrepreneur (born 1938)",
+   "summary": "Yvon Chouinard is an American rock climber, environmentalist, and businessman.",
+   "url": "https://en.wikipedia.org/wiki/Yvon_Chouinard",
+   "born": 1938,
+   "died": null,
+   "education": [
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Yvon_Chouinard_by_Tom_Frost.jpg/330px-Yvon_Chouinard_by_Tom_Frost.jpg",
+    "author": "Tom Frost",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Yvon_Chouinard_by_Tom_Frost.jpg"
+   }
+  },
+  "Amazon Prime Video": {
+   "kind": "organisation",
+   "name": "Amazon Prime Video",
+   "description": "American video streaming service",
+   "summary": "Amazon Prime Video, known simply as Prime Video or Amazon Video, is an American subscription video on-demand over-the-top streaming television service owned by Amazon.",
+   "url": "https://en.wikipedia.org/wiki/Amazon_Prime_Video",
+   "founded": 2006,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Amazon_Prime_Video_example_screenshot.png/330px-Amazon_Prime_Video_example_screenshot.png",
+    "author": "Amazon",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Amazon_Prime_Video_example_screenshot.png"
+   }
+  },
+  "Quaker Oats Company": {
+   "kind": "organisation",
+   "name": "Quaker Oats Company",
+   "description": "American food conglomerate",
+   "summary": "The Quaker Oats Company, known as Quaker, is an American food conglomerate based in Chicago, Illinois.",
+   "url": "https://en.wikipedia.org/wiki/Quaker_Oats_Company",
+   "founded": 1877
+  },
+  "Jeffrey Katzenberg": {
+   "kind": "person",
+   "name": "Jeffrey Katzenberg",
+   "description": "American film producer and media proprietor (born 1950)",
+   "summary": "Jeffrey Katzenberg is an American media proprietor and film producer.",
+   "url": "https://en.wikipedia.org/wiki/Jeffrey_Katzenberg",
+   "born": 1950,
+   "died": null,
+   "education": [
+    "Ethical Culture Fieldston School",
+    "New York University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Jeffrey_Katzenberg_%2852166167548%29_%28cropped%29.jpg/330px-Jeffrey_Katzenberg_%2852166167548%29_%28cropped%29.jpg",
+    "author": "Collision Conf",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jeffrey_Katzenberg_(52166167548)_(cropped).jpg"
+   }
+  },
+  "Meg Whitman": {
+   "kind": "person",
+   "name": "Meg Whitman",
+   "description": "American business executive and diplomat (born 1956)",
+   "summary": "Margaret Cushing Whitman is an American business executive, diplomat and politician.",
+   "url": "https://en.wikipedia.org/wiki/Meg_Whitman",
+   "born": 1956,
+   "died": null,
+   "education": [
+    "Princeton University",
+    "Harvard Business School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Meg_Whitman%2C_U.S._Ambassador.jpg/330px-Meg_Whitman%2C_U.S._Ambassador.jpg",
+    "author": "United States Department of State",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Meg_Whitman,_U.S._Ambassador.jpg"
+   }
+  },
+  "Steve Huffman": {
+   "kind": "person",
+   "name": "Steve Huffman",
+   "description": "American web developer and entrepreneur (born 1983)",
+   "summary": "Steve Huffman, also known by his Reddit username spez, is an American web developer and entrepreneur.",
+   "url": "https://en.wikipedia.org/wiki/Steve_Huffman",
+   "born": 1983,
+   "died": null,
+   "education": [
+    "University of Virginia",
+    "Wakefield School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Web_Summit_2017_-_Centre_Stage_Day_2_CG1_7885_%2838232183112%29_%28cropped%29.jpg/330px-Web_Summit_2017_-_Centre_Stage_Day_2_CG1_7885_%2838232183112%29_%28cropped%29.jpg",
+    "author": "Photo by Cody Glenn/Web Summit via Sportsfile©SPORTSFILE",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Web_Summit_2017_-_Centre_Stage_Day_2_CG1_7885_(38232183112)_(cropped).jpg"
+   }
+  },
+  "Redis": {
+   "kind": "organisation",
+   "name": "Redis",
+   "description": "Source available in-memory key–value database",
+   "summary": "Redis is an in-memory key–value database, used as a distributed cache and message broker, with optional durability.",
+   "url": "https://en.wikipedia.org/wiki/Redis",
+   "founded": 2009
+  },
+  "Samsung Electronics": {
+   "kind": "organisation",
+   "name": "Samsung Electronics",
+   "description": "South Korean multinational electronics corporation",
+   "summary": "Samsung Electronics Co., Ltd. is a South Korean multinational consumer electronics and semiconductor corporation founded in 1969 and headquartered in Yeongtong District, Suwon, South Korea.",
+   "url": "https://en.wikipedia.org/wiki/Samsung_Electronics",
+   "founded": 1969,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Samsung_headquarters.jpg/330px-Samsung_headquarters.jpg",
+    "author": "Oskar Alexanderson",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Samsung_headquarters.jpg"
+   }
+  },
+  "Seattle": {
+   "kind": "organisation",
+   "name": "Seattle",
+   "description": "City in Washington, United States",
+   "summary": "Seattle is the most populous city in the U.S. state of Washington and the Pacific Northwest region of North America.",
+   "url": "https://en.wikipedia.org/wiki/Seattle",
+   "founded": 1851,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Seattle_Center_as_night_falls.jpg/330px-Seattle_Center_as_night_falls.jpg",
+    "author": "Jeffery Hayes",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Seattle_Center_as_night_falls.jpg"
+   }
+  },
+  "Twilio": {
+   "kind": "organisation",
+   "name": "Twilio",
+   "description": "US cloud communications company",
+   "summary": "Twilio Inc. is an American cloud communications and customer engagement company based in San Francisco, California, which provides programmable communication tools for making and receiving phone calls, sending and receiving text messages, and performing other communication functions using conversational AI and its web service APIs.",
+   "url": "https://en.wikipedia.org/wiki/Twilio",
+   "founded": 2008
+  },
+  "Tobias Lütke": {
+   "kind": "person",
+   "name": "Tobias Lütke",
+   "description": "German-Canadian entrepreneur and software developer",
+   "summary": "Tobias Lütke is a German Canadian entrepreneur and racing driver who is the co-founder and CEO of Shopify, an e-commerce company based in Ottawa, Ontario, Canada.",
+   "url": "https://en.wikipedia.org/wiki/Tobias_L%C3%BCtke",
+   "born": 1980,
+   "died": null,
+   "education": [],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/NYC-Commerce-Tobi-L%C3%BCtki-561.jpg/330px-NYC-Commerce-Tobi-L%C3%BCtki-561.jpg",
+    "author": "Benjamin Forrest",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:NYC-Commerce-Tobi-L%C3%BCtki-561.jpg"
+   }
+  },
+  "Shopify": {
+   "kind": "organisation",
+   "name": "Shopify",
+   "description": "Canadian e-commerce company",
+   "summary": "Shopify Inc. is a Canadian multinational e-commerce company headquartered in Ottawa, Ontario, that operates a cloud e-commerce management platform for retail point-of-sale systems.",
+   "url": "https://en.wikipedia.org/wiki/Shopify",
+   "founded": 2006
+  },
+  "Stewart Butterfield": {
+   "kind": "person",
+   "name": "Stewart Butterfield",
+   "description": "Canadian entrepreneur and businessman (born 1973)",
+   "summary": "Daniel Stewart Butterfield is a Canadian billionaire businessman, best known for co-founding the photo-sharing website Flickr and the team-messaging application Slack.",
+   "url": "https://en.wikipedia.org/wiki/Stewart_Butterfield",
+   "born": 1973,
+   "died": null,
+   "education": [
+    "University of Victoria",
+    "Clare College",
+    "St. Michaels University School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Web_Summit_2017_-_Day_1_CG1_6591_%2838187890026%29.jpg/330px-Web_Summit_2017_-_Day_1_CG1_6591_%2838187890026%29.jpg",
+    "author": "Web Summit",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Web_Summit_2017_-_Day_1_CG1_6591_(38187890026).jpg"
+   }
+  },
+  "Spotify": {
+   "kind": "organisation",
+   "name": "Spotify",
+   "description": "Swedish audio streaming service",
+   "summary": "Spotify is a Swedish freemium music streaming service provider founded in April 2006 by Daniel Ek and Martin Lorentzon.",
+   "url": "https://en.wikipedia.org/wiki/Spotify",
+   "founded": 2006,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Spotify_HK_Stockholm.jpg/330px-Spotify_HK_Stockholm.jpg",
+    "author": "Goombah",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Spotify_HK_Stockholm.jpg"
+   }
+  },
+  "Jack Dorsey": {
+   "kind": "person",
+   "name": "Jack Dorsey",
+   "description": "American entrepreneur (born 1976)",
+   "summary": "Jack Patrick Dorsey is an American businessman who co-founded Twitter, Inc., which operated social media service Twitter, and financial technology company Block, Inc., which owns and operates Square, Cash App, Afterpay, Bitkey, and Tidal.",
+   "url": "https://en.wikipedia.org/wiki/Jack_Dorsey",
+   "born": 1976,
+   "died": null,
+   "education": [
+    "New York University",
+    "Missouri University of Science and Technology"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Jack_Dorsey_in_Washington_D.C._-_2018_%2844538272181%29_%28cropped%29.jpg/330px-Jack_Dorsey_in_Washington_D.C._-_2018_%2844538272181%29_%28cropped%29.jpg",
+    "author": "Mark Warner",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jack_Dorsey_in_Washington_D.C._-_2018_(44538272181)_(cropped).jpg"
+   }
+  },
+  "Jim McKelvey": {
+   "kind": "person",
+   "name": "Jim McKelvey",
+   "description": "American billionaire businessman",
+   "summary": "James \"Jim\" Morgan McKelvey Jr. is a New York City-based American billionaire, and businessman, who co-founded Block, Inc..",
+   "url": "https://en.wikipedia.org/wiki/Jim_McKelvey",
+   "born": 1965,
+   "died": null,
+   "education": [
+    "Washington University in St. Louis"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Jim_Studio_Headshow.jpeg/330px-Jim_Studio_Headshow.jpeg",
+    "author": "Jessica Kopitske",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jim_Studio_Headshow.jpeg"
+   }
+  },
+  "Stack Overflow": {
+   "kind": "organisation",
+   "name": "Stack Overflow",
+   "description": "Question-and-answer website for programmers",
+   "summary": "Stack Overflow is a question-and-answer website for computer programmers.",
+   "url": "https://en.wikipedia.org/wiki/Stack_Overflow",
+   "founded": 2008,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Stackoverflow.com_questions.png/330px-Stackoverflow.com_questions.png",
+    "author": "Iamstillqw3rty",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Stackoverflow.com_questions.png"
+   }
+  },
+  "Sebastian Thrun": {
+   "kind": "person",
+   "name": "Sebastian Thrun",
+   "description": "German-American entrepreneur (born 1967)",
+   "summary": "Sebastian Thrun is a German-American computer scientist, entrepreneur, and educator.",
+   "url": "https://en.wikipedia.org/wiki/Sebastian_Thrun",
+   "born": 1967,
+   "died": null,
+   "education": [
+    "University of Bonn",
+    "University of Hildesheim"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Sebastian_Thrun_by_Christopher_Michel_-_6.jpg/330px-Sebastian_Thrun_by_Christopher_Michel_-_6.jpg",
+    "author": "Christopher Michel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Thrun_by_Christopher_Michel_-_6.jpg"
+   }
+  },
+  "Peter Norvig": {
+   "kind": "person",
+   "name": "Peter Norvig",
+   "description": "American computer scientist (born 1956)",
+   "summary": "Peter Norvig is an American computer scientist and Distinguished Education Fellow at the Stanford Institute for Human-Centered AI. He previously served as a director of research and search quality at Google.",
+   "url": "https://en.wikipedia.org/wiki/Peter_Norvig",
+   "born": 1956,
+   "died": null,
+   "education": [
+    "University of California, Berkeley",
+    "Brown University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Peter_Norvig_in_2019_%28cropped%29.jpg/330px-Peter_Norvig_in_2019_%28cropped%29.jpg",
+    "author": "Christopher Michel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Norvig_in_2019_(cropped).jpg"
+   }
+  },
+  "Howard Schultz": {
+   "kind": "person",
+   "name": "Howard Schultz",
+   "description": "American businessman (born 1953)",
+   "summary": "Howard D. Schultz is an American businessman, entrepreneur, and author who was the chairman and CEO of Starbucks from 1986 to 2000, and from 2008 to 2017, and interim CEO from 2022 to 2023.",
+   "url": "https://en.wikipedia.org/wiki/Howard_Schultz",
+   "born": 1953,
+   "died": null,
+   "education": [
+    "Northern Michigan University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Howard_Schultz_by_Gage_Skidmore.jpg/330px-Howard_Schultz_by_Gage_Skidmore.jpg",
+    "author": "Gage Skidmore",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Howard_Schultz_by_Gage_Skidmore.jpg"
+   }
+  },
+  "Elon Musk": {
+   "kind": "person",
+   "name": "Elon Musk",
+   "description": "Industrialist and futurist (born 1971)",
+   "summary": "Elon Reeve Musk is an industrialist, futurist, and former public official.",
+   "url": "https://en.wikipedia.org/wiki/Elon_Musk",
+   "born": 1971,
+   "died": null,
+   "education": [
+    "Smith School of Business",
+    "The Wharton School",
+    "University of Pennsylvania"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg/330px-Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg",
+    "author": "Gage Skidmore",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Elon_Musk_-_54820081119_(3x4_cropped,_Rule_of_thirds).jpg"
+   }
+  },
+  "Tropicana Brands Group": {
+   "kind": "organisation",
+   "name": "Tropicana Brands Group",
+   "description": "Fruit juice and soft drink maker",
+   "summary": "Tropicana Brands Group is an American fruit-based beverage company.",
+   "url": "https://en.wikipedia.org/wiki/Tropicana_Brands_Group",
+   "founded": 1947
+  },
+  "Twitter": {
+   "kind": "organisation",
+   "name": "X",
+   "description": "American social networking service",
+   "summary": "X, formerly known as Twitter, is an American microblogging and social networking service, headquartered in Bastrop, Texas, and owned by X Corp., a subsidiary of SpaceXAI, a subsidiary of the technology company SpaceX. It is one of the world's largest social media platforms and one of the most-visited websites.",
+   "url": "https://en.wikipedia.org/wiki/X_(social_network)",
+   "founded": 2006
+  },
+  "John Riccitiello": {
+   "kind": "person",
+   "name": "John Riccitiello",
+   "description": "American business executive (born 1957/1958)",
+   "summary": "John Riccitiello is an American business executive.",
+   "url": "https://en.wikipedia.org/wiki/John_Riccitiello",
+   "born": 1958,
+   "died": null,
+   "education": [
+    "University of California, Berkeley",
+    "Haas School of Business"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/TechCrunch_Disrupt_San_Francisco_2018_-_day_1_%2843587581665%29_%28cropped%29.jpg/330px-TechCrunch_Disrupt_San_Francisco_2018_-_day_1_%2843587581665%29_%28cropped%29.jpg",
+    "author": "TechCrunch",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:TechCrunch_Disrupt_San_Francisco_2018_-_day_1_(43587581665)_(cropped).jpg"
+   }
+  },
+  "Webvan": {
+   "kind": "organisation",
+   "name": "Webvan",
+   "description": "American online grocery business (1996–2001)",
+   "summary": "Webvan was a dot-com company and grocery business that filed for bankruptcy in 2001 after three years of operation.",
+   "url": "https://en.wikipedia.org/wiki/Webvan",
+   "founded": 1996,
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Webvan.jpg/330px-Webvan.jpg",
+    "author": "Mark Coggins from San Francisco",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Webvan.jpg"
+   }
+  },
+  "Adam Neumann": {
+   "kind": "person",
+   "name": "Adam Neumann",
+   "description": "Israeli-American businessman (born 1979)",
+   "summary": "Adam Neumann is an Israeli and American billionaire businessman.",
+   "url": "https://en.wikipedia.org/wiki/Adam_Neumann",
+   "born": 1979,
+   "died": null,
+   "education": [
+    "Baruch College",
+    "Zicklin School of Business"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Mr._Adam_Neumann%2C_Founder_WeWork_%28Start_Up_India_Participant%29_call_on_the_Prime_Minister%2C_Shri_Narendra_Modi%2C_in_New_Delhi_on_January_15%2C_2016_-_cropped.jpg/330px-Mr._Adam_Neumann%2C_Founder_WeWork_%28Start_Up_India_Participant%29_call_on_the_Prime_Minister%2C_Shri_Narendra_Modi%2C_in_New_Delhi_on_January_15%2C_2016_-_cropped.jpg",
+    "author": "Anna Frodesiak",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Mr._Adam_Neumann,_Founder_WeWork_(Start_Up_India_Participant)_call_on_the_Prime_Minister,_Shri_Narendra_Modi,_in_New_Delhi_on_January_15,_2016_-_cropped.jpg"
+   }
+  },
+  "Jan Koum": {
+   "kind": "person",
+   "name": "Jan Koum",
+   "description": "American entrepreneur (born 1976)",
+   "summary": "Jan Borysovych Koum is an American billionaire businessman and computer programmer.",
+   "url": "https://en.wikipedia.org/wiki/Jan_Koum",
+   "born": 1976,
+   "died": null,
+   "education": [
+    "San José State University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Jan_Koum_-_Whatsapp_-_4_Years_from_Now_%2812791516533%29.jpg/330px-Jan_Koum_-_Whatsapp_-_4_Years_from_Now_%2812791516533%29.jpg",
+    "author": "Tech.eu Photostream",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jan_Koum_-_Whatsapp_-_4_Years_from_Now_(12791516533).jpg"
+   }
+  },
+  "Marissa Mayer": {
+   "kind": "person",
+   "name": "Marissa Mayer",
+   "description": "American business executive and engineer, former CEO of Yahoo!",
+   "summary": "Marissa Ann Mayer is an American business executive, software engineer, and investor who served as president and chief executive officer of Yahoo! from 2012 to 2017, when it was sold to Verizon.",
+   "url": "https://en.wikipedia.org/wiki/Marissa_Mayer",
+   "born": 1975,
+   "died": null,
+   "education": [
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Marissa_Mayer%2C_World_Economic_Forum_2013_III.jpg/330px-Marissa_Mayer%2C_World_Economic_Forum_2013_III.jpg",
+    "author": "World Economic Forum",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Marissa_Mayer,_World_Economic_Forum_2013_III.jpg"
+   }
+  },
+  "Jerry Yang": {
+   "kind": "person",
+   "name": "Jerry Yang",
+   "description": "American programmer and entrepreneur (born 1968)",
+   "summary": "Jerry Chih-Yuan Yang is a Taiwanese-born American billionaire computer programmer, internet entrepreneur, and venture capitalist.",
+   "url": "https://en.wikipedia.org/wiki/Jerry_Yang",
+   "born": 1968,
+   "died": null,
+   "education": [
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Jerry_Yang_speaks_to_Village_Global_founders_%28Cropped%29.jpg/330px-Jerry_Yang_speaks_to_Village_Global_founders_%28Cropped%29.jpg",
+    "author": "Village Global",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Jerry_Yang_speaks_to_Village_Global_founders_(Cropped).jpg"
+   }
+  },
+  "David Filo": {
+   "kind": "person",
+   "name": "David Filo",
+   "description": "American businessman (born 1966)",
+   "summary": "David Robert Filo is an American billionaire businessman and the co-founder of Yahoo! with classmate Jerry Yang.",
+   "url": "https://en.wikipedia.org/wiki/David_Filo",
+   "born": 1966,
+   "died": null,
+   "education": [
+    "Tulane University",
+    "Stanford University"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/David_Filo.jpg/330px-David_Filo.jpg",
+    "author": "Mitchell Aidelbaum from San Francisco, CA, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:David_Filo.jpg"
+   }
+  },
+  "Tony Hsieh": {
+   "kind": "person",
+   "name": "Tony Hsieh",
+   "description": "American businessman (1973–2020)",
+   "summary": "Anthony Hsieh was an American Internet entrepreneur and venture capitalist.",
+   "url": "https://en.wikipedia.org/wiki/Tony_Hsieh",
+   "born": 1973,
+   "died": 2020,
+   "education": [
+    "Harvard University",
+    "Harvard School of Engineering and Applied Sciences",
+    "The Branson School"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Tony_hsieh.jpg/330px-Tony_hsieh.jpg",
+    "author": "Delivering Happiness Book",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Tony_hsieh.jpg"
+   }
+  },
+  "Eric Yuan": {
+   "kind": "person",
+   "name": "Eric Yuan",
+   "description": "Chinese-American billionaire businessman",
+   "summary": "Eric S Yuan is a Chinese-American billionaire businessman, engineer, and the chief executive officer and founder of Zoom Communications, of which he owns 22%.",
+   "url": "https://en.wikipedia.org/wiki/Eric_Yuan",
+   "born": 1970,
+   "died": null,
+   "education": [
+    "Shandong University of Science and Technology",
+    "China University of Mining and Technology, Beijing"
+   ],
+   "photo": {
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Eric_Yuan_2025_%28cropped%29.jpg/330px-Eric_Yuan_2025_%28cropped%29.jpg",
+    "author": "TechCrunch",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Eric_Yuan_2025_(cropped).jpg"
+   }
+  }
+ },
+ "cases": {
+  "37signals-cloud-exit-2023": [
+   {
+    "id": "David Heinemeier Hansson",
+    "role": "Co-owner who published the company's account"
+   }
+  ],
+  "adobe-creative-cloud-subscription-2013": [
+   {
+    "id": "Adobe Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "airbnb-pandemic-layoffs-2020": [
+   {
+    "id": "Brian Chesky",
+    "role": "CEO who announced the cuts"
+   }
+  ],
+  "airbnb-professional-photography-2009": [
+   {
+    "id": "Joe Gebbia",
+    "role": "Co-founder who photographed listings"
+   },
+   {
+    "id": "Brian Chesky",
+    "role": "Co-founder who photographed listings"
+   }
+  ],
+  "amazon-fire-phone-2014": [
+   {
+    "id": "Amazon (company)",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "amazon-five-day-office-mandate-2024": [
+   {
+    "id": "Andy Jassy",
+    "role": "CEO who announced the policy"
+   }
+  ],
+  "amazon-kindle-launch-2007": [
+   {
+    "id": "Jeff Bezos",
+    "role": "Presented the Kindle at launch"
+   }
+  ],
+  "amazon-prime-launch-2005": [
+   {
+    "id": "Amazon (company)",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "amazon-s3-launch-2006": [
+   {
+    "id": "Amazon Web Services",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "aol-time-warner-merger-2000": [
+   {
+    "id": "AOL Time Warner",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "apple-itunes-music-store-2003": [
+   {
+    "id": "Steve Jobs",
+    "role": "Apple's CEO at launch"
+   }
+  ],
+  "apple-maps-ios6-apology-2012": [
+   {
+    "id": "Tim Cook",
+    "role": "CEO who published the apology"
+   }
+  ],
+  "apple-product-line-simplification-1997": [
+   {
+    "id": "Steve Jobs",
+    "role": "Led the product cuts"
+   }
+  ],
+  "apple-removes-headphone-jack-2016": [
+   {
+    "id": "Phil Schiller",
+    "role": "Executive who presented the change"
+   }
+  ],
+  "apple-retail-stores-2001": [
+   {
+    "id": "Steve Jobs",
+    "role": "Presented the first store to the press"
+   }
+  ],
+  "atlassian-self-service-sales-model-2015": [
+   {
+    "id": "Atlassian",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "atlassian-server-end-of-life-2021": [
+   {
+    "id": "Atlassian",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "basecamp-political-discussion-ban-2021": [
+   {
+    "id": "David Heinemeier Hansson",
+    "role": "Co-owner who announced the severance offer"
+   }
+  ],
+  "best-buy-ends-rowe-2013": [
+   {
+    "id": "Hubert Joly",
+    "role": "CEO when the programme ended"
+   }
+  ],
+  "bezos-regret-minimization-leaves-de-shaw-1994": [
+   {
+    "id": "Jeff Bezos",
+    "role": "Made this decision"
+   }
+  ],
+  "blockbuster-declines-netflix-2000": [
+   {
+    "id": "John Antioco",
+    "role": "Blockbuster's CEO"
+   },
+   {
+    "id": "Reed Hastings",
+    "role": "Netflix co-founder who made the offer"
+   },
+   {
+    "id": "Marc Randolph",
+    "role": "Netflix co-founder who made the offer"
+   }
+  ],
+  "blockbuster-ends-late-fees-2005": [
+   {
+    "id": "Blockbuster (retailer)",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "bogota-ciclovia-open-streets": [
+   {
+    "id": "Bogotá",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "buffer-four-day-week-2020": [
+   {
+    "id": "Buffer (application)",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "buffer-open-salaries-2013": [
+   {
+    "id": "Buffer (application)",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "coca-cola-new-coke-1985": [
+   {
+    "id": "Roberto Goizueta",
+    "role": "The company's chairman and CEO"
+   }
+  ],
+  "coinbase-apolitical-mission-2020": [
+   {
+    "id": "Brian Armstrong (businessman)",
+    "role": "CEO who announced the policy"
+   }
+  ],
+  "costco-kirkland-signature-1995": [
+   {
+    "id": "Costco",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "crowdstrike-faulty-update-2024": [
+   {
+    "id": "CrowdStrike",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "digg-v4-redesign-2010": [
+   {
+    "id": "Kevin Rose",
+    "role": "Co-founder and interim CEO at the time"
+   }
+  ],
+  "discord-cassandra-to-scylladb-2022": [
+   {
+    "id": "Discord",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "discord-read-states-go-to-rust-2020": [
+   {
+    "id": "Discord",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "disney-acquires-pixar-2006": [
+   {
+    "id": "Bob Iger",
+    "role": "Disney's CEO"
+   },
+   {
+    "id": "Steve Jobs",
+    "role": "Became Disney's largest shareholder through the deal"
+   }
+  ],
+  "disney-plus-launch-2019": [
+   {
+    "id": "The Walt Disney Company",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "docker-desktop-paid-subscription-2021": [
+   {
+    "id": "Docker, Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "dominos-pizza-turnaround-2009": [
+   {
+    "id": "Domino's",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "dropbox-infrastructure-optimization-2016": [
+   {
+    "id": "Dropbox",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "dropbox-referral-program-2008": [
+   {
+    "id": "Drew Houston",
+    "role": "Founder who presented the results"
+   }
+  ],
+  "duolingo-ai-first-memo-2025": [
+   {
+    "id": "Luis von Ahn",
+    "role": "CEO who wrote the memo"
+   }
+  ],
+  "evernote-free-plan-limit-2016": [
+   {
+    "id": "Evernote",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "facebook-acquires-instagram-2012": [
+   {
+    "id": "Mark Zuckerberg",
+    "role": "CEO who announced the deal"
+   },
+   {
+    "id": "Kevin Systrom",
+    "role": "Instagram co-founder"
+   }
+  ],
+  "facebook-news-feed-launch-2006": [
+   {
+    "id": "Mark Zuckerberg",
+    "role": "Founder who responded to users"
+   }
+  ],
+  "ford-mortgages-assets-2006": [
+   {
+    "id": "Alan Mulally",
+    "role": "Ford's CEO from 2006"
+   }
+  ],
+  "gap-logo-redesign-reversal-2010": [
+   {
+    "id": "Gap Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "georgia-tech-online-masters-omscs-2014": [
+   {
+    "id": "Georgia Tech",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "github-free-private-repos-2019": [
+   {
+    "id": "GitHub",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "gitlab-all-remote-company": [
+   {
+    "id": "GitLab",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "gitlab-database-outage-2017": [
+   {
+    "id": "GitLab",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "google-acquires-android-2005": [
+   {
+    "id": "Andy Rubin",
+    "role": "Android co-founder who joined Google"
+   }
+  ],
+  "google-glass-explorer-ends-2015": [
+   {
+    "id": "Google",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "google-project-oxygen-2008": [
+   {
+    "id": "Laszlo Bock",
+    "role": "Led people operations at Google"
+   }
+  ],
+  "google-reader-shutdown-2013": [
+   {
+    "id": "Google",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "google-stadia-shutdown-2022": [
+   {
+    "id": "Phil Harrison",
+    "role": "Stadia executive who announced the closure"
+   }
+  ],
+  "google-wave-discontinued-2010": [
+   {
+    "id": "Urs Hölzle",
+    "role": "Executive who announced the decision"
+   }
+  ],
+  "hashicorp-bsl-license-change-2023": [
+   {
+    "id": "HashiCorp",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "heroku-ends-free-plans-2022": [
+   {
+    "id": "Heroku",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "hotmail-email-signature-viral-loop-1996": [
+   {
+    "id": "Tim Draper",
+    "role": "Investor who pushed for the tagline"
+   },
+   {
+    "id": "Sabeer Bhatia",
+    "role": "Hotmail co-founder"
+   }
+  ],
+  "ibm-ends-remote-work-2017": [
+   {
+    "id": "IBM",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "instagram-burbn-pivot-2010": [
+   {
+    "id": "Kevin Systrom",
+    "role": "Co-founder"
+   },
+   {
+    "id": "Mike Krieger",
+    "role": "Co-founder"
+   }
+  ],
+  "intel-exits-dram-business-1985": [
+   {
+    "id": "Andrew Grove",
+    "role": "Recommended leaving memory chips"
+   },
+   {
+    "id": "Gordon Moore",
+    "role": "Recommended leaving memory chips"
+   }
+  ],
+  "intel-inside-campaign-1991": [
+   {
+    "id": "Intel",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "intel-pentium-fdiv-replacement-1994": [
+   {
+    "id": "Intel",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "johnson-johnson-tylenol-recall-1982": [
+   {
+    "id": "Johnson & Johnson",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "juicero-press-shutdown-2017": [
+   {
+    "id": "Juicero",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "klarna-ai-customer-service-reversal-2025": [
+   {
+    "id": "Sebastian Siemiatkowski",
+    "role": "CEO who explained the change"
+   }
+  ],
+  "knight-capital-deployment-failure-2012": [
+   {
+    "id": "Knight Capital Group",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "lego-turnaround-2004": [
+   {
+    "id": "Jørgen Vig Knudstorp",
+    "role": "CEO who led the turnaround"
+   }
+  ],
+  "london-congestion-charge-2003": [
+   {
+    "id": "Transport for London",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "mailchimp-freemium-2009": [
+   {
+    "id": "Mailchimp",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "marvel-self-financing-film-slate-2005": [
+   {
+    "id": "Isaac Perlmutter",
+    "role": "Approved the plan with the board"
+   }
+  ],
+  "meta-year-of-efficiency-2023": [
+   {
+    "id": "Mark Zuckerberg",
+    "role": "CEO who announced the plan"
+   }
+  ],
+  "microsoft-acquires-github-2018": [
+   {
+    "id": "Satya Nadella",
+    "role": "Microsoft's CEO"
+   }
+  ],
+  "microsoft-dotnet-core-open-source-2014": [
+   {
+    "id": "Microsoft",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "microsoft-invests-in-apple-1997": [
+   {
+    "id": "Bill Gates",
+    "role": "Microsoft's CEO"
+   },
+   {
+    "id": "Steve Jobs",
+    "role": "Announced the deal"
+   }
+  ],
+  "microsoft-japan-four-day-week-2019": [
+   {
+    "id": "Microsoft",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "microsoft-kin-cancelled-2010": [
+   {
+    "id": "Microsoft",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "microsoft-windows-8-start-button-2013": [
+   {
+    "id": "Microsoft",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "mit-opencourseware-2001": [
+   {
+    "id": "Charles M. Vest",
+    "role": "MIT president who announced it"
+   }
+  ],
+  "netflix-house-of-cards-original-2011": [
+   {
+    "id": "Ted Sarandos",
+    "role": "Content executive who made the commitment"
+   }
+  ],
+  "netflix-move-to-aws-2008": [
+   {
+    "id": "Netflix, Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "netflix-qwikster-2011": [
+   {
+    "id": "Reed Hastings",
+    "role": "CEO who announced and reversed the plan"
+   }
+  ],
+  "netflix-streaming-launch-2007": [
+   {
+    "id": "Netflix, Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "new-york-congestion-pricing-2025": [
+   {
+    "id": "Metropolitan Transportation Authority",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "nintendo-wii-casual-strategy-2006": [
+   {
+    "id": "Satoru Iwata",
+    "role": "Nintendo's president"
+   }
+  ],
+  "nokia-windows-phone-bet-2011": [
+   {
+    "id": "Stephen Elop",
+    "role": "CEO who chose Windows Phone"
+   }
+  ],
+  "oslo-vision-zero-city-centre-2019": [
+   {
+    "id": "Oslo",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "patagonia-dont-buy-this-jacket-2011": [
+   {
+    "id": "Patagonia, Inc.",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "patagonia-purpose-trust-ownership-2022": [
+   {
+    "id": "Yvon Chouinard",
+    "role": "Founder who transferred ownership"
+   }
+  ],
+  "prime-video-monitoring-to-monolith-2023": [
+   {
+    "id": "Amazon Prime Video",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "quaker-oats-snapple-acquisition-1994": [
+   {
+    "id": "Quaker Oats Company",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "quibi-launch-and-shutdown-2020": [
+   {
+    "id": "Jeffrey Katzenberg",
+    "role": "Founder"
+   },
+   {
+    "id": "Meg Whitman",
+    "role": "CEO"
+   }
+  ],
+  "reddit-api-pricing-2023": [
+   {
+    "id": "Steve Huffman",
+    "role": "CEO who kept the policy"
+   }
+  ],
+  "redis-license-change-and-return-2024-2025": [
+   {
+    "id": "Redis",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "samsung-galaxy-note-7-recall-2016": [
+   {
+    "id": "Samsung Electronics",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "seattle-sweetened-beverage-tax-2018": [
+   {
+    "id": "Seattle",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "segment-microservices-back-to-monolith-2018": [
+   {
+    "id": "Twilio",
+    "role": "Now owns Segment"
+   }
+  ],
+  "shopify-calendar-purge-2023": [
+   {
+    "id": "Tobias Lütke",
+    "role": "Shopify's CEO"
+   }
+  ],
+  "shopify-modular-monolith-2019": [
+   {
+    "id": "Shopify",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "slack-pivot-from-glitch-2012": [
+   {
+    "id": "Stewart Butterfield",
+    "role": "Co-founder who wrote the memo"
+   }
+  ],
+  "spotify-freemium-launch-2008": [
+   {
+    "id": "Spotify",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "square-free-card-reader-2010": [
+   {
+    "id": "Jack Dorsey",
+    "role": "Co-founder"
+   },
+   {
+    "id": "Jim McKelvey",
+    "role": "Co-founder"
+   }
+  ],
+  "stack-overflow-scale-up-monolith": [
+   {
+    "id": "Stack Overflow",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "stanford-free-online-ai-course-2011": [
+   {
+    "id": "Sebastian Thrun",
+    "role": "Taught the course"
+   },
+   {
+    "id": "Peter Norvig",
+    "role": "Taught the course"
+   }
+  ],
+  "starbucks-store-closure-retraining-2008": [
+   {
+    "id": "Howard Schultz",
+    "role": "CEO who ordered the training"
+   }
+  ],
+  "steve-jobs-drops-out-of-reed-1972": [
+   {
+    "id": "Steve Jobs",
+    "role": "Made this decision"
+   }
+  ],
+  "tesla-opens-patents-2014": [
+   {
+    "id": "Elon Musk",
+    "role": "CEO who announced the pledge"
+   }
+  ],
+  "tropicana-packaging-redesign-2009": [
+   {
+    "id": "Tropicana Brands Group",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "twitter-280-character-limit-2017": [
+   {
+    "id": "Twitter",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "twitter-api-free-tier-end-2023": [
+   {
+    "id": "Twitter",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "twitter-mass-layoffs-2022": [
+   {
+    "id": "Elon Musk",
+    "role": "New owner when the layoffs were made"
+   }
+  ],
+  "twitter-search-blender-java-2011": [
+   {
+    "id": "Twitter",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "unity-runtime-fee-2023-2024": [
+   {
+    "id": "John Riccitiello",
+    "role": "CEO when the fee was introduced"
+   }
+  ],
+  "webvan-rapid-expansion-2001": [
+   {
+    "id": "Webvan",
+    "role": "Organisation or place in this case"
+   }
+  ],
+  "wework-ipo-withdrawn-2019": [
+   {
+    "id": "Adam Neumann",
+    "role": "Co-founder who stepped down as CEO"
+   }
+  ],
+  "whatsapp-drops-annual-fee-2016": [
+   {
+    "id": "Jan Koum",
+    "role": "CEO who announced the change"
+   }
+  ],
+  "yahoo-ends-work-from-home-2013": [
+   {
+    "id": "Marissa Mayer",
+    "role": "Yahoo's CEO"
+   }
+  ],
+  "yahoo-rejects-microsoft-bid-2008": [
+   {
+    "id": "Jerry Yang",
+    "role": "Co-founder and CEO"
+   },
+   {
+    "id": "David Filo",
+    "role": "Co-founder"
+   }
+  ],
+  "zappos-holacracy-buyout-2015": [
+   {
+    "id": "Tony Hsieh",
+    "role": "CEO who wrote the memo"
+   }
+  ],
+  "zoom-90-day-feature-freeze-2020": [
+   {
+    "id": "Eric Yuan",
+    "role": "CEO who announced the freeze"
+   }
+  ]
+ },
+ "titles": {
+  "37signals-cloud-exit-2023": "37signals leaves the public cloud for owned hardware",
+  "adobe-creative-cloud-subscription-2013": "Adobe shifts Creative Suite to the Creative Cloud subscription",
+  "airbnb-pandemic-layoffs-2020": "Airbnb cuts about a quarter of its workforce and refocuses on its core",
+  "airbnb-professional-photography-2009": "Airbnb's founders photograph hosts' listings themselves in New York",
+  "amazon-fire-phone-2014": "Amazon launches the Fire Phone and discontinues it a year later",
+  "amazon-five-day-office-mandate-2024": "Amazon requires corporate staff in the office five days a week",
+  "amazon-kindle-launch-2007": "Amazon launches the Kindle e-reader at $399",
+  "amazon-prime-launch-2005": "Amazon launches Prime with free two-day shipping for $79 a year",
+  "amazon-s3-launch-2006": "Amazon launches S3 pay-as-you-go storage for developers",
+  "aol-time-warner-merger-2000": "AOL and Time Warner merge in a deal valued at about $165 billion",
+  "apple-itunes-music-store-2003": "Apple launches the iTunes Music Store with 99-cent songs and no subscription",
+  "apple-maps-ios6-apology-2012": "Apple replaces Google Maps in iOS 6 and publicly apologises",
+  "apple-product-line-simplification-1997": "Apple cuts its product line to a four-product grid after Jobs returns",
+  "apple-removes-headphone-jack-2016": "Apple removes the headphone jack from the iPhone 7",
+  "apple-retail-stores-2001": "Apple opens its own retail stores despite predictions they would fail",
+  "atlassian-self-service-sales-model-2015": "Atlassian sells mostly through self-service with no direct sales team",
+  "atlassian-server-end-of-life-2021": "Atlassian stops selling Server products and pushes customers to Cloud and Data Center",
+  "australia-national-firearms-agreement-1996": "Australia adopts national gun law reform and a buyback after Port Arthur",
+  "basecamp-political-discussion-ban-2021": "Basecamp bans societal and political discussions on its internal platform",
+  "best-buy-ends-rowe-2013": "Best Buy ends its Results Only Work Environment for corporate staff",
+  "bezos-regret-minimization-leaves-de-shaw-1994": "Jeff Bezos leaves a senior finance job to start an internet bookstore",
+  "blockbuster-declines-netflix-2000": "Blockbuster declines an offer to buy Netflix",
+  "blockbuster-ends-late-fees-2005": "Blockbuster ends late fees and later reinstates them",
+  "bogota-ciclovia-open-streets": "Bogota closes main streets to cars every Sunday and holiday for people",
+  "brazil-bolsa-familia-2003": "Brazil launches Bolsa Familia, a conditional cash transfer for poor households",
+  "buffer-four-day-week-2020": "Buffer moves to a four-day work week",
+  "buffer-open-salaries-2013": "Buffer publishes its salary formula and every individual salary",
+  "coca-cola-new-coke-1985": "Coca-Cola replaces its flagship formula with New Coke, then brings the original back",
+  "coinbase-apolitical-mission-2020": "Coinbase declares a mission-focused, apolitical workplace and offers severance",
+  "costco-kirkland-signature-1995": "Costco consolidates its private labels under the Kirkland Signature brand",
+  "crowdstrike-faulty-update-2024": "CrowdStrike ships a faulty content update that crashes millions of Windows devices",
+  "denmark-fat-tax-repeal-2012": "Denmark introduces a tax on saturated fat and abolishes it within about a year",
+  "digg-v4-redesign-2010": "Digg launches a major redesign and loses much of its audience",
+  "discord-cassandra-to-scylladb-2022": "Discord migrates message storage from Cassandra to ScyllaDB",
+  "discord-read-states-go-to-rust-2020": "Discord rewrites its Read States service from Go to Rust",
+  "disney-acquires-pixar-2006": "Disney acquires Pixar in an all-stock deal valued at $7.4 billion",
+  "disney-plus-launch-2019": "Disney launches Disney+ at $6.99 a month and reports 10 million sign-ups in a day",
+  "docker-desktop-paid-subscription-2021": "Docker Desktop requires paid subscriptions for larger companies",
+  "dominos-pizza-turnaround-2009": "Domino's rebuilds its pizza recipe and admits the old one was weak",
+  "dropbox-infrastructure-optimization-2016": "Dropbox moves most storage off AWS to its own infrastructure",
+  "dropbox-referral-program-2008": "Dropbox adds a two-sided referral program that rewards storage",
+  "duolingo-ai-first-memo-2025": "Duolingo announces an AI-first approach, then clarifies after backlash",
+  "estonia-e-residency-2014": "Estonia launches e-Residency for non-residents",
+  "evernote-free-plan-limit-2016": "Evernote limits the free plan to two devices and raises Premium price",
+  "facebook-acquires-instagram-2012": "Facebook acquires Instagram for about $1 billion",
+  "facebook-news-feed-launch-2006": "Facebook launches News Feed, faces a user revolt, and adds privacy controls",
+  "finland-basic-income-experiment-2017": "Finland tests an unconditional basic income with 2,000 unemployed people",
+  "finland-housing-first-2008": "Finland adopts Housing First, giving homeless people permanent homes without preconditions",
+  "ford-mortgages-assets-2006": "Ford borrows about $23 billion against its assets before the financial crisis",
+  "gap-logo-redesign-reversal-2010": "Gap launches a new logo and reverts to the old one within a week",
+  "georgia-tech-online-masters-omscs-2014": "Georgia Tech launches a low-cost online master's degree in computer science",
+  "github-free-private-repos-2019": "GitHub makes private repositories free for small teams",
+  "gitlab-all-remote-company": "GitLab operates as an all-remote, handbook-first company",
+  "gitlab-database-outage-2017": "GitLab accidentally removes production data and publishes a candid postmortem",
+  "google-acquires-android-2005": "Google acquires Android Inc. and builds an open mobile operating system",
+  "google-glass-explorer-ends-2015": "Google ends consumer sales of Glass and moves the project out of Google X",
+  "google-project-oxygen-2008": "Google studies what makes a good manager and trains managers on the findings",
+  "google-reader-shutdown-2013": "Google announces it will shut down Google Reader",
+  "google-stadia-shutdown-2022": "Google shuts down Stadia and refunds purchases",
+  "google-wave-discontinued-2010": "Google stops developing Wave a year after release",
+  "hashicorp-bsl-license-change-2023": "HashiCorp moves Terraform and other tools to the Business Source License",
+  "heroku-ends-free-plans-2022": "Heroku ends its free product plans",
+  "hotmail-email-signature-viral-loop-1996": "Hotmail adds a free-email tagline to every message sent by its users",
+  "ibm-ends-remote-work-2017": "IBM tells many remote workers to relocate to an office or leave",
+  "iceland-shorter-working-week-2015": "Iceland trials a shorter working week for public workers with no pay cut",
+  "instagram-burbn-pivot-2010": "Burbn's founders cut features and rebuild the app around photo sharing",
+  "intel-exits-dram-business-1985": "Intel exits the memory chip business to focus on microprocessors",
+  "intel-inside-campaign-1991": "Intel launches Intel Inside and shares advertising costs with PC makers",
+  "intel-pentium-fdiv-replacement-1994": "Intel limits Pentium replacements, then offers to replace every flawed chip",
+  "johnson-johnson-tylenol-recall-1982": "Johnson & Johnson recalls Tylenol and launches tamper-resistant packaging",
+  "juicero-press-shutdown-2017": "Juicero sells a $399 connected juicer and shuts down after 16 months",
+  "klarna-ai-customer-service-reversal-2025": "Klarna leans on AI for customer service, then rehires human agents",
+  "knight-capital-deployment-failure-2012": "Knight Capital deploys new trading code incorrectly and loses about $440 million",
+  "lego-turnaround-2004": "Lego sells non-core assets and refocuses on its core toy business",
+  "london-congestion-charge-2003": "London introduces a congestion charge for central London",
+  "mailchimp-freemium-2009": "Mailchimp adds a free plan after eight years of charging",
+  "marvel-self-financing-film-slate-2005": "Marvel borrows $525 million against its characters to make its own films",
+  "meta-year-of-efficiency-2023": "Meta cuts about 21,000 jobs and declares a year of efficiency",
+  "mexico-soda-tax-2014": "Mexico introduces a one-peso-per-litre tax on sugar-sweetened drinks",
+  "microsoft-acquires-github-2018": "Microsoft acquires GitHub for $7.5 billion and promises independence",
+  "microsoft-dotnet-core-open-source-2014": "Microsoft open-sources .NET Core under the MIT license",
+  "microsoft-invests-in-apple-1997": "Microsoft invests $150 million in Apple and commits to Office for Mac",
+  "microsoft-japan-four-day-week-2019": "Microsoft Japan trials a four-day work week",
+  "microsoft-kin-cancelled-2010": "Microsoft cancels the Kin phone about six weeks after launch",
+  "microsoft-windows-8-start-button-2013": "Microsoft restores the Start button and boot-to-desktop in Windows 8.1",
+  "mit-opencourseware-2001": "MIT decides to publish materials for nearly all its courses free online",
+  "netflix-house-of-cards-original-2011": "Netflix commits to two seasons of House of Cards without a pilot",
+  "netflix-move-to-aws-2008": "Netflix moves from its own data centres to AWS after a database failure",
+  "netflix-qwikster-2011": "Netflix plans to split DVD and streaming into Qwikster, then cancels",
+  "netflix-streaming-launch-2007": "Netflix adds streaming to every subscription at no extra cost",
+  "new-york-congestion-pricing-2025": "New York City begins congestion pricing for central Manhattan",
+  "nintendo-wii-casual-strategy-2006": "Nintendo launches the Wii aimed at casual players at a lower price",
+  "nokia-windows-phone-bet-2011": "Nokia adopts Windows Phone as its primary smartphone platform",
+  "norway-electric-vehicle-incentives": "Norway exempts electric cars from VAT and other taxes",
+  "oregon-health-insurance-experiment-2008": "Oregon allocates Medicaid places by lottery",
+  "oslo-vision-zero-city-centre-2019": "Oslo restricts cars in the city centre and records no pedestrian or cyclist deaths",
+  "patagonia-dont-buy-this-jacket-2011": "Patagonia runs a Black Friday ad telling people not to buy a jacket",
+  "patagonia-purpose-trust-ownership-2022": "Patagonia's founder transfers ownership to a trust and a climate nonprofit",
+  "portugal-drug-decriminalisation-2001": "Portugal decriminalises personal drug possession and shifts to treatment",
+  "prime-video-monitoring-to-monolith-2023": "Prime Video moves a monitoring service from distributed components to a single process",
+  "quaker-oats-snapple-acquisition-1994": "Quaker Oats buys Snapple for $1.7 billion and sells it for $300 million",
+  "quibi-launch-and-shutdown-2020": "Quibi launches a short-video streaming service and shuts down six months later",
+  "reddit-api-pricing-2023": "Reddit starts charging for API access and proceeds despite a blackout",
+  "redis-license-change-and-return-2024-2025": "Redis changes its license in 2024, then adds AGPL in 2025",
+  "samsung-galaxy-note-7-recall-2016": "Samsung recalls and then discontinues the Galaxy Note 7",
+  "seattle-sweetened-beverage-tax-2018": "Seattle introduces a tax on sweetened beverages",
+  "segment-microservices-back-to-monolith-2018": "Segment consolidates destination microservices back into one service",
+  "shopify-calendar-purge-2023": "Shopify cancels recurring meetings across the company",
+  "shopify-modular-monolith-2019": "Shopify modularises its Rails monolith instead of moving to microservices",
+  "singapore-area-licensing-scheme-1975": "Singapore introduces the world's first area licensing scheme for the city centre",
+  "slack-pivot-from-glitch-2012": "Tiny Speck shuts down its game Glitch and ships its internal chat tool as Slack",
+  "spotify-freemium-launch-2008": "Spotify launches in Europe with an invite-only free tier and paid Premium",
+  "square-free-card-reader-2010": "Square gives away its card reader and earns a fee per transaction",
+  "stack-overflow-scale-up-monolith": "Stack Overflow scales up a monolith on a small number of powerful servers",
+  "stanford-free-online-ai-course-2011": "Stanford professors offer an introductory AI course free online",
+  "starbucks-store-closure-retraining-2008": "Starbucks closes about 7,100 stores for an afternoon to retrain baristas",
+  "steve-jobs-drops-out-of-reed-1972": "Steve Jobs drops out of college and drops in on a calligraphy class",
+  "sweden-free-school-reform-1992": "Sweden introduces school vouchers and free choice of independent schools",
+  "sweden-switch-to-right-hand-traffic-1967": "Sweden switches from left-hand to right-hand traffic in one day",
+  "switzerland-heroin-assisted-treatment-1994": "Switzerland prescribes medical heroin to heavily dependent users",
+  "tesla-opens-patents-2014": "Tesla pledges not to sue good-faith users of its patents",
+  "tropicana-packaging-redesign-2009": "Tropicana redesigns its carton, sees sales fall, and returns to the old design",
+  "twitter-280-character-limit-2017": "Twitter doubles its character limit from 140 to 280",
+  "twitter-api-free-tier-end-2023": "Twitter ends free API access and introduces paid tiers",
+  "twitter-mass-layoffs-2022": "Twitter lays off about half its staff after the Musk acquisition",
+  "twitter-search-blender-java-2011": "Twitter replaces its Ruby on Rails search front end with a Java server",
+  "uk-four-day-week-pilot-2022": "61 UK companies trial a four-day week with no pay cut",
+  "unity-runtime-fee-2023-2024": "Unity introduces a per-install Runtime Fee, then cancels it",
+  "webvan-rapid-expansion-2001": "Webvan expands rapidly across cities and goes bankrupt in 2001",
+  "wework-ipo-withdrawn-2019": "WeWork's parent pulls its IPO after investors balk at its valuation",
+  "whatsapp-drops-annual-fee-2016": "WhatsApp drops its $1 annual subscription fee",
+  "yahoo-ends-work-from-home-2013": "Yahoo ends remote work for employees starting in June 2013",
+  "yahoo-rejects-microsoft-bid-2008": "Yahoo rejects Microsoft's $44.6 billion takeover offer",
+  "zappos-holacracy-buyout-2015": "Zappos adopts Holacracy and offers severance to those who are not on board",
+  "zoom-90-day-feature-freeze-2020": "Zoom freezes new features for 90 days to fix privacy and security"
+ }
+}

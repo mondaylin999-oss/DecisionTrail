@@ -76,6 +76,8 @@ export interface MatchResult {
   isDemo?: boolean;
   /** Library case no person has verified yet. */
   isDraft?: boolean;
+  /** Library case slug, used to look up who was involved. */
+  slug?: string;
   summary: {
     decisionMade?: string;
     observedOutcome?: string;
