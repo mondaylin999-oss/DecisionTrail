@@ -1,6 +1,6 @@
 import { withUser } from "@/lib/http";
 import { LiveResearchZ } from "@/lib/validation";
-import { parseHackerNews, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, type LiveResult } from "@/lib/web/sources";
+import { parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackSummaries, type LiveResult } from "@/lib/web/sources";
 import { parseSearch } from "@/lib/web/wikipedia";
 
 interface Payload {
@@ -97,13 +97,26 @@ export async function POST(req: Request) {
       ...stackSites(category).map((site) =>
         attempt(
           "Stack Exchange",
-          async () => parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "8", answers: "1" })}`), site),
-          [],
+          async () => {
+            const found = parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "8", answers: "1", filter: "withbody" })}`), site);
+            const rows = relevant(found, query, 4);
+            if (!rows.length) return [];
+            // The summary is a bonus: without the answers, the question text still shows.
+            const answers = await getJson(`https://api.stackexchange.com/2.3/questions/${rows.map((r) => r.questionId).join(";")}/answers?${new URLSearchParams({ order: "desc", sort: "votes", site, pagesize: "60", filter: "withbody" })}`).catch(() => null);
+            return withStackSummaries(rows, answers);
+          },
+          [] as LiveResult[],
         ),
       ),
     ]);
 
-    const background: LiveResult[] = relevant(wiki, query, 3, 1).map((r) => ({ ...r, kind: "background", detail: "Encyclopedia" }));
+    const pages = relevant(wiki, query, 3, 1);
+    const intros = pages.length
+      ? await getJson(`https://en.wikipedia.org/w/api.php?${new URLSearchParams({ action: "query", prop: "extracts", exintro: "1", explaintext: "1", exlimit: "max", titles: pages.map((p) => p.title).join("|"), format: "json" })}`)
+          .then(parseIntros)
+          .catch(() => new Map<string, string>())
+      : new Map<string, string>();
+    const background: LiveResult[] = pages.map((r) => ({ ...r, snippet: intros.get(r.title) ?? (r.snippet && `${r.snippet}…`), kind: "background", detail: "Encyclopedia" }));
     const all = [...studies.slice(0, 5), ...relevant(stack.flat(), query, 4), ...relevant(hn, query, 3), ...background];
     const seen = new Set<string>();
     const value: Payload = { query, results: all.filter((r) => !seen.has(r.url) && seen.add(r.url)), unavailable: [...new Set(unavailable)] };

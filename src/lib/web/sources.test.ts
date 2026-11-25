@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { abstractStart, isLiveSourceUrl, parseHackerNews, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords } from "./sources";
+import { abstractText, htmlToText, isLiveSourceUrl, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackSummaries } from "./sources";
 
 describe("topicWords", () => {
   it("puts the question's subject first", () => {
@@ -26,13 +26,43 @@ describe("parsing", () => {
   });
 
   it("limits abstracts and survives bad data", () => {
-    expect(abstractStart({ a: [0], b: [99] })).toBe("a");
-    expect(abstractStart("x")).toBe("");
+    expect(abstractText({ Abstract: [0], a: [1], b: [99999] })).toBe("a");
+    expect(abstractText("x")).toBe("");
   });
 
   it("reads discussions", () => {
     expect(parseStackExchange({ items: [{ title: "A &amp; B", link: "https://workplace.stackexchange.com/q/1", answer_count: 2, score: 5 }] }, "workplace")[0].title).toBe("A & B");
     expect(parseHackerNews({ hits: [{ title: "T", objectID: "1", num_comments: 0 }, { title: "U", objectID: "2", num_comments: 9, created_at: "2021-01-01" }] }).map((x) => x.title)).toEqual(["U"]);
+  });
+});
+
+describe("summaries", () => {
+  const count = (t: string) => t.split(/\s+/).length;
+
+  it("never exceeds the word limit and prefers whole sentences", () => {
+    expect(trimWords("One two three. Four five", 4)).toBe("One two three.");
+    expect(trimWords("a b c d e", 3)).toBe("a b c…");
+    expect(trimWords("short text")).toBe("short text");
+  });
+
+  it("turns post HTML into plain text", () => {
+    expect(htmlToText("<p>One &amp; two</p><pre><code>x()</code></pre><ul><li>It&#39;s&#x2F;ok</li></ul>")).toBe("One & two It's/ok");
+  });
+
+  it("joins the question with its highest-scored answer within 150 words", () => {
+    const body = `<p>${"word ".repeat(300)}</p>`;
+    const rows = parseStackExchange({ items: [{ title: "T", link: "https://workplace.stackexchange.com/q/1", question_id: 1, answer_count: 1, score: 0, body }] }, "workplace");
+    const [r] = withStackSummaries(rows, { items: [{ question_id: 1, score: 1, body: "low" }, { question_id: 1, score: 9, body: `<p>best ${"answer ".repeat(300)}</p>` }] });
+    expect(r.snippet).toMatch(/^Question: word.*Top answer: best/);
+    expect(count(r.snippet)).toBeLessThanOrEqual(150);
+    expect(r).not.toHaveProperty("body");
+    expect(r.detail).toBe("1 answer · score 0");
+    expect(count(withStackSummaries(rows, null)[0].snippet)).toBeLessThanOrEqual(150);
+  });
+
+  it("reads Wikipedia introductions", () => {
+    expect(parseIntros({ query: { pages: { 1: { title: "A", extract: "Intro." }, 2: { title: "B" } } } })).toEqual(new Map([["A", "Intro."]]));
+    expect(parseIntros(null).size).toBe(0);
   });
 });
 

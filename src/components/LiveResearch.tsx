@@ -81,7 +81,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
                     <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
                     <span className="text-xs text-muted">{r.detail}</span>
                   </div>
-                  {r.snippet && <p className="mt-1 text-muted">{r.snippet}…</p>}
+                  <Summary text={r.snippet} />
                 </li>
               ))}
             </ul>
@@ -90,8 +90,28 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
       })}
       {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
       <p className="text-xs text-muted">
-        Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
+        Summaries are the source&apos;s own words, shortened to 150 words at most. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>
+  );
+}
+
+const PREVIEW_WORDS = 40;
+
+/** The source's own text: a short preview that opens to at most 150 words. */
+function Summary({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  if (!text) return <p className="mt-2 text-muted">No summary available. Open the link to read it.</p>;
+  const words = text.split(" ");
+  const long = words.length > PREVIEW_WORDS + 10;
+  return (
+    <div className="mt-2 space-y-1">
+      <p className="text-muted">{long && !open ? `${words.slice(0, PREVIEW_WORDS).join(" ")}…` : text}</p>
+      {long && (
+        <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="py-1 font-semibold text-accent underline underline-offset-4">
+          {open ? "Show less" : "Read summary"}
+        </button>
+      )}
+    </div>
   );
 }

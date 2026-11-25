@@ -84,12 +84,38 @@ const arr = (v: unknown): Record<string, unknown>[] => (Array.isArray(v) ? (v as
 const str = (v: unknown) => (typeof v === "string" ? v : "");
 const num = (v: unknown) => (typeof v === "number" ? v : 0);
 
-/** OpenAlex stores abstracts as {word: [positions]}. Returns the first `max` words. */
-export function abstractStart(index: unknown, max = 45): string {
+export const SUMMARY_WORDS = 150;
+
+/** At most `max` words. Ends on a full sentence where that keeps most of the text, otherwise with "…". */
+export function trimWords(text: string, max = SUMMARY_WORDS): string {
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length <= max) return words.join(" ");
+  const cut = words.slice(0, max).join(" ");
+  const end = Math.max(...[". ", "! ", "? "].map((x) => cut.lastIndexOf(x)), /[.!?]$/.test(cut) ? cut.length - 1 : -1);
+  return end > cut.length * 0.6 ? cut.slice(0, end + 1) : `${cut}…`;
+}
+
+/** HTML post body to plain text. Code and quoted blocks are dropped; blocks become separate words. */
+export function htmlToText(html: string): string {
+  return cleanSnippet(
+    html
+      .replace(/<(pre|blockquote|script|style|aside)\b[\s\S]*?<\/\1>/gi, " ")
+      .replace(/<\/?(p|li|ul|ol|br|h\d|hr|div|tr)\b[^>]*>/gi, " "),
+  )
+    .replace(/&#x([0-9a-f]{1,6});|&#(\d{1,7});/gi, (m, h, d) => {
+      const n = h ? parseInt(h, 16) : Number(d);
+      return n > 31 && n <= 0x10ffff ? String.fromCodePoint(n) : " ";
+    })
+    .replace(/&hellip;/g, "…")
+    .trim();
+}
+
+/** OpenAlex stores abstracts as {word: [positions]}. Rebuilds the text and keeps at most 150 words. */
+export function abstractText(index: unknown): string {
   if (!index || typeof index !== "object") return "";
   const out: string[] = [];
-  for (const [w, pos] of Object.entries(index as Record<string, number[]>)) if (Array.isArray(pos)) for (const p of pos) if (p < max) out[p] = w;
-  return cleanSnippet(out.filter(Boolean).join(" "));
+  for (const [w, pos] of Object.entries(index as Record<string, number[]>)) if (Array.isArray(pos)) for (const p of pos) if (p >= 0 && p < 2000) out[p] = w;
+  return trimWords(cleanSnippet(out.filter(Boolean).join(" ")).replace(/^abstract[:.\s]+/i, ""));
 }
 
 export function parseOpenAlex(json: unknown): LiveResult[] {
@@ -97,24 +123,57 @@ export function parseOpenAlex(json: unknown): LiveResult[] {
     const title = cleanSnippet(str(w.display_name));
     const url = str(w.doi) || str(w.id);
     if (!title || !url || /promo|coupon|\d+% (off|discount)/i.test(title)) return [];
-    return [{ kind: "study" as const, title, url, snippet: abstractStart(w.abstract_inverted_index), publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
+    return [{ kind: "study" as const, title, url, snippet: abstractText(w.abstract_inverted_index), publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
   });
 }
 
-export function parseStackExchange(json: unknown, site: string): LiveResult[] {
+export interface StackResult extends LiveResult {
+  questionId: number;
+  body: string;
+}
+
+export function parseStackExchange(json: unknown, site: string): StackResult[] {
   return arr((json as { items?: unknown })?.items).flatMap((q) => {
     const title = cleanSnippet(str(q.title));
     const url = str(q.link);
     if (!title || !url) return [];
-    return [{ kind: "experience" as const, title, url, snippet: "", publisher: `Stack Exchange (${site})`, detail: `${num(q.answer_count)} answers · score ${num(q.score)}` }];
+    const n = num(q.answer_count);
+    return [{ kind: "experience" as const, title, url, snippet: "", publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id), body: htmlToText(str(q.body)) }];
   });
+}
+
+/** Adds "Question: … Top answer: …" in the authors' own words, at most 150 words in total. */
+export function withStackSummaries(rows: StackResult[], answersJson: unknown): LiveResult[] {
+  const top = new Map<number, { score: number; text: string }>();
+  for (const a of arr((answersJson as { items?: unknown })?.items)) {
+    const text = htmlToText(str(a.body));
+    const best = top.get(num(a.question_id));
+    if (text && (!best || num(a.score) > best.score)) top.set(num(a.question_id), { score: num(a.score), text });
+  }
+  return rows.map(({ questionId, body, ...r }) => {
+    const answer = top.get(questionId)?.text;
+    const parts = [body && `Question: ${trimWords(body, answer ? 60 : 148)}`, answer && `Top answer: ${trimWords(answer, 85)}`];
+    return { ...r, snippet: parts.filter(Boolean).join(" ") };
+  });
+}
+
+/** Page introductions by title, from the Wikipedia extracts API. */
+export function parseIntros(json: unknown): Map<string, string> {
+  const pages = (json as { query?: { pages?: unknown } } | null)?.query?.pages;
+  const out = new Map<string, string>();
+  if (pages && typeof pages === "object")
+    for (const p of Object.values(pages as Record<string, Record<string, unknown>>)) {
+      const text = trimWords(cleanSnippet(str(p?.extract)));
+      if (str(p?.title) && text) out.set(str(p.title), text);
+    }
+  return out;
 }
 
 export function parseHackerNews(json: unknown): LiveResult[] {
   return arr((json as { hits?: unknown })?.hits).flatMap((h) => {
     const title = cleanSnippet(str(h.title));
     if (!title || !str(h.objectID) || num(h.num_comments) < 3) return [];
-    return [{ kind: "experience" as const, title, url: `https://news.ycombinator.com/item?id=${encodeURIComponent(str(h.objectID))}`, snippet: "", publisher: "Hacker News", detail: `${num(h.num_comments)} comments · ${str(h.created_at).slice(0, 4)}` }];
+    return [{ kind: "experience" as const, title, url: `https://news.ycombinator.com/item?id=${encodeURIComponent(str(h.objectID))}`, snippet: trimWords(htmlToText(str(h.story_text))), publisher: "Hacker News", detail: `${num(h.num_comments)} comments · ${str(h.created_at).slice(0, 4)}` }];
   });
 }
 
