@@ -38,7 +38,7 @@ export function MatchCard({ m, current }: { m: MatchResult; current: { title: st
       </p>
 
       {personal && (m.summary.expectedOutcome || m.summary.observedOutcome) && (
-        <div className="grid gap-2 rounded-lg bg-subtle p-3 text-sm md:grid-cols-2">
+        <div className="grid gap-2 rounded-2xl bg-subtle p-3 text-sm md:grid-cols-2">
           <div>
             <div className="text-sm font-semibold text-ink">You expected</div>
             <p>{m.summary.expectedOutcome || "—"}</p>

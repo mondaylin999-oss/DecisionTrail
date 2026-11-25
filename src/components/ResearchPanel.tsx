@@ -228,7 +228,7 @@ export function ResearchPanel({
                     <li key={i} className="text-sm">
                       <span>{g.segment!.text}</span>{" "}
                       {(g.groundingChunkIndices ?? []).map((ci) => (
-                        <a key={ci} href={chunks[ci]?.web?.uri} target="_blank" rel="noreferrer noopener" className="ml-1 rounded bg-subtle px-1.5 text-xs text-ink hover:underline">
+                        <a key={ci} href={chunks[ci]?.web?.uri} target="_blank" rel="noreferrer noopener" className="ml-1 rounded-full bg-subtle px-1.5 text-xs text-ink hover:underline">
                           {chunks[ci]?.web?.domain || chunks[ci]?.web?.title || `source ${ci + 1}`}
                         </a>
                       ))}

@@ -81,7 +81,7 @@ export function LiveResearch({ question, query, category, countries }: { questio
             </h3>
             <ul className="space-y-2">
               {rows.map((r, i) => (
-                <li key={r.url} style={{ animationDelay: `${Math.min(i, 6) * 70}ms` }} className="enter rounded-lg border border-line bg-surface p-3 text-sm transition-colors hover:border-accent">
+                <li key={r.url} style={{ animationDelay: `${Math.min(i, 6) * 70}ms` }} className="enter rounded-2xl border border-line bg-surface p-3 text-sm transition-colors hover:border-accent">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <a href={r.url} target="_blank" rel="noreferrer noopener" className="min-w-0 flex-1 font-semibold hover:underline">
                       {r.title}

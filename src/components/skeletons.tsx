@@ -35,7 +35,7 @@ const TitleSkeleton = () => (
 /** One evidence card: title and Save, source, flag and country, question, answer. */
 function EvidenceCardSkeleton() {
   return (
-    <div className="space-y-3 rounded-lg border border-line bg-surface p-3">
+    <div className="space-y-3 rounded-2xl border border-line bg-surface p-3">
       <div className="flex items-start justify-between gap-3">
         <Skeleton className="h-5 w-3/5" />
         <Skeleton className="h-10 w-16 shrink-0" />
@@ -58,7 +58,7 @@ function LiveResearchCards({ local }: { local: boolean }) {
   return (
     <>
       {local && <Skeleton className="h-12 w-full" />}
-      <div className="space-y-3 rounded-lg border border-line p-4">
+      <div className="space-y-3 rounded-2xl border border-line p-4">
         <Skeleton className="h-5 w-40" />
         <Skeleton className="h-10 w-36" />
       </div>

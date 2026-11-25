@@ -110,7 +110,7 @@ export function OnlineSearch() {
         {!searching && results && results.length > 0 && (
           <ul className="space-y-2">
             {results.map((r) => (
-              <li key={r.url} className="rounded-lg border border-line bg-surface p-3">
+              <li key={r.url} className="rounded-2xl border border-line bg-surface p-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
                   <Badge className="border-signal bg-signal-soft text-signal">Unverified</Badge>

@@ -48,7 +48,7 @@ export function EvidenceBrief({ question, results }: { question: string; results
   }
 
   return (
-    <section aria-label="AI explanation" className="space-y-3 rounded-lg border border-line bg-subtle p-4">
+    <section aria-label="AI explanation" className="space-y-3 rounded-2xl border border-line bg-subtle p-4">
       <div className="flex flex-wrap items-center gap-3">
         <h3 className="font-semibold text-ink">Explain this evidence</h3>
         {out && <InferenceBadge where={out.where} />}

@@ -76,7 +76,7 @@ export function CountrySearch({ exclude, label, onPick }: { exclude: string[]; l
         }}
       />
       {open && (
-        <ul ref={list} id={`${id}-list`} role="listbox" aria-label="Countries" className="absolute z-30 mt-1 max-h-64 w-full overflow-y-auto rounded-lg border border-line bg-surface py-1 text-sm">
+        <ul ref={list} id={`${id}-list`} role="listbox" aria-label="Countries" className="absolute z-30 mt-1 max-h-64 w-full overflow-y-auto rounded-2xl border border-line bg-surface py-1 text-sm">
           {found.map((c, i) => (
             <li
               key={c.code}

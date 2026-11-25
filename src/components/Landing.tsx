@@ -1,7 +1,7 @@
 "use client";
 /**
  * Sign-in page. The trail from the logo becomes a short, playable walk through the four
- * steps. It plays once, can be paused, and stays still for people who reduce motion.
+ * steps. It loops by itself, holds while hovered or focused, and stays still for people who reduce motion.
  */
 import { useEffect, useState, type ReactNode } from "react";
 import { Flag } from "./CountrySearch";
@@ -75,42 +75,30 @@ export function Landing({ logo, toggle, footer, onSignIn }: { logo: ReactNode; t
 
 function Walkthrough() {
   const [step, setStep] = useState(0);
-  const [playing, setPlaying] = useState(true);
-  const last = step === STEPS.length - 1;
+  // Resting on the panel, or tabbing into it, holds the step so it can be read.
+  const [held, setHeld] = useState(false);
 
   useEffect(() => {
-    if (!playing || last) return;
+    if (held) return;
     const t = setTimeout(() => {
-      if (stillPreferred()) setPlaying(false);
-      else setStep(step + 1);
+      if (!stillPreferred()) setStep((x) => (x + 1) % STEPS.length);
     }, STEP_MS);
     return () => clearTimeout(t);
-  }, [playing, last, step]);
-
-  function choose(i: number) {
-    setPlaying(false);
-    setStep(i);
-  }
+  }, [held, step]);
 
   return (
-    <section aria-labelledby="how" className="enter overflow-hidden rounded-lg border border-line bg-[#0f2a3d] text-white" style={{ animationDelay: "200ms" }}>
-      <div className="flex items-center justify-between gap-3 px-5 pt-5">
-        <h2 id="how" className="text-lg font-semibold">
-          How it works
-        </h2>
-        <button
-          type="button"
-          onClick={() => {
-            if (last) setStep(0);
-            setPlaying(last || !playing);
-          }}
-          className="rounded-lg border border-white/30 px-3 py-1.5 text-sm font-semibold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          {last ? "Play again" : playing ? "Pause" : "Play"}
-        </button>
-      </div>
+    <section
+      aria-labelledby="how"
+      onMouseEnter={() => setHeld(true)}
+      onMouseLeave={() => setHeld(false)}
+      onFocus={(e) => e.target.matches(":focus-visible") && setHeld(true)}
+      onBlur={() => setHeld(false)}
+      className="enter overflow-hidden rounded-3xl border border-line bg-[#0f2a3d] text-white" style={{ animationDelay: "200ms" }}>
+      <h2 id="how" className="px-5 pt-4 text-lg font-semibold">
+        How it works
+      </h2>
 
-      <svg viewBox="0 0 400 136" className="w-full px-2" aria-hidden>
+      <svg viewBox="0 8 400 126" className="w-full px-2" aria-hidden>
         {DOTS.map((d, i) => (
           <circle key={i} cx={d.x} cy={d.y} r="3.4" className="trail-dot" fill="#fff" opacity={d.seg < step ? 1 : 0.22} style={{ transitionDelay: d.seg === step - 1 ? `${(i % 3) * 140}ms` : "0ms" }} />
         ))}
@@ -136,7 +124,7 @@ function Walkthrough() {
             id={`step-${i}`}
             aria-selected={i === step}
             aria-controls="step-panel"
-            onClick={() => choose(i)}
+            onClick={() => setStep(i)}
             className={cn(
               "border-b-2 px-1 py-3 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white sm:text-sm",
               i === step ? "border-[#f49e0b] text-white" : "border-transparent text-white/70 hover:text-white",
@@ -148,12 +136,12 @@ function Walkthrough() {
         ))}
       </div>
 
-      <div id="step-panel" role="tabpanel" aria-labelledby={`step-${step}`} className="min-h-72 space-y-4 p-5 sm:min-h-64">
+      <div id="step-panel" role="tabpanel" aria-labelledby={`step-${step}`} className="min-h-72 space-y-3 p-5 sm:min-h-60">
         <div key={step} className="step-in space-y-4">
           <p className="text-sm text-white/85">{STEPS[step].text}</p>
-          <div className="rounded-lg border border-line bg-subtle p-4 text-sm text-ink">{step === 0 ? <AskDemo /> : step === 1 ? <EvidenceDemo /> : step === 2 ? <DecideDemo /> : <ReviewDemo />}</div>
+          <div className="rounded-2xl border border-line bg-subtle p-4 text-sm text-ink">{step === 0 ? <AskDemo /> : step === 1 ? <EvidenceDemo /> : step === 2 ? <DecideDemo /> : <ReviewDemo />}</div>
         </div>
-        <p className="text-xs text-white/60">Example only. Your own results will differ.</p>
+        <p className="text-xs text-white/70">Example only. Your own results will differ.</p>
       </div>
     </section>
   );
@@ -167,7 +155,7 @@ function AskDemo() {
   }, []);
   return (
     <div className="space-y-3">
-      <div className="min-h-16 rounded-lg border border-line bg-surface p-3">
+      <div className="min-h-16 rounded-2xl border border-line bg-surface p-3">
         <span className="sr-only">{QUESTION}</span>
         <span aria-hidden>
           {QUESTION.slice(0, n)}
@@ -175,8 +163,8 @@ function AskDemo() {
         </span>
       </div>
       <div className="flex items-center gap-2 text-muted">
-        <span className="rounded border border-line px-2 py-1 font-semibold text-ink">World</span> or
-        <span className="inline-flex items-center gap-1.5 rounded border border-line px-2 py-1 font-semibold text-ink">
+        <span className="rounded-full border border-line px-2 py-1 font-semibold text-ink">World</span> or
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-2 py-1 font-semibold text-ink">
           <Flag code="de" /> Germany
         </span>
       </div>

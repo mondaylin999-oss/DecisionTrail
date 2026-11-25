@@ -52,7 +52,7 @@ export default function DecisionsPage() {
         <Input aria-label="Search titles" placeholder="Search titles" value={q} onChange={(e) => setQ(e.target.value)} className="sm:max-w-xs" />
         <Select options={["all", ...CATEGORIES]} aria-label="Category" labels={(v) => (v === "all" ? "All categories" : label(v))} value={cat} onChange={(e) => setCat(e.target.value)} className="sm:max-w-xs" />
       </div>
-      <Card className="!p-0">
+      <Card className="overflow-hidden !p-0">
         <table className="w-full text-sm">
           <thead className="border-b border-line text-left text-sm text-muted">
             <tr>
@@ -90,7 +90,7 @@ export default function DecisionsPage() {
                   <td className="hidden p-3 sm:table-cell"><Skeleton className="h-4 w-24" /></td>
                   <td className="hidden p-3 md:table-cell"><Skeleton className="h-4 w-20" /></td>
                   <td className="hidden p-3 md:table-cell"><Skeleton className="h-4 w-20" /></td>
-                  <td className="p-3"><Skeleton className="h-5 w-28 rounded" /></td>
+                  <td className="p-3"><Skeleton className="h-5 w-28" /></td>
                 </tr>
               ))}
             {rows && filtered.length === 0 && (

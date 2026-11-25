@@ -124,7 +124,7 @@ export function StructureEditor({
       <Field label="Alternatives" aside={<OriginChip origin={origin("alternatives")} />}>
         <div className="space-y-2">
           {d.alternatives.map((a, i) => (
-            <div key={i} className="grid gap-2 rounded-lg border border-line p-2 md:grid-cols-[1fr_1.5fr_12rem_auto]">
+            <div key={i} className="grid gap-2 rounded-2xl border border-line p-2 md:grid-cols-[1fr_1.5fr_12rem_auto]">
               <Input placeholder="Option" value={a.label} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, label: e.target.value, origin: x.origin === "ai_extracted" ? "user_confirmed" : x.origin } : x)))} />
               <Input placeholder="Short description" value={a.description} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, description: e.target.value } : x)))} />
               <Select options={ALTERNATIVE_TAGS} labels={label} value={a.tag} aria-label="Option type (used for matching)" onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, tag: e.target.value as AlternativeTag } : x)))} />
