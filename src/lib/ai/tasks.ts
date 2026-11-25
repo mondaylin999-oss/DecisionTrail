@@ -14,9 +14,9 @@ import {
 } from "firebase/ai";
 import { CLOUD_MODEL, firebaseAI, RESEARCH_MODEL } from "../firebase/client";
 import type { PrivacyMode } from "../vocab";
-import { ON_DEVICE_CREATE_OPTIONS } from "./availability";
+import { deviceAiStatus, ON_DEVICE_CREATE_OPTIONS } from "./availability";
 import { BRIEF_SYSTEM_PROMPT, BriefZ, briefJsonSchema, briefPrompt, cleanBrief, type Brief, type EvidenceItem } from "./brief";
-import { routeFor, type AiTask, type Route } from "./router";
+import { assertMayStart, assertRanAllowed, routeFor, RoutingError, type AiTask, type Route } from "./router";
 import {
   EXTRACTION_SYSTEM_PROMPT,
   ExtractionZ,
@@ -99,21 +99,30 @@ async function structured<T>(
   validate: (v: unknown) => T,
 ): Promise<AiResult<T>> {
   const route = routeFor(task, { privacyMode });
-  const model = buildModel(route, { system, jsonSchema: schema });
   const started = performance.now();
+  if (route === "only_on_device") {
+    try {
+      assertMayStart(route, await deviceAiStatus());
+    } catch (e) {
+      log(task, null, false, started, "device_ai_not_ready");
+      throw e;
+    }
+  }
+  const model = buildModel(route, { system, jsonSchema: schema });
   let lastError: unknown;
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const res = await model.generateContent(
         attempt === 0 ? prompt : `${prompt}\n\nReturn ONLY valid JSON matching the schema.`,
       );
-      const data = validate(parseJson(res.response.text()));
       const w = where(res.response.inferenceSource);
+      assertRanAllowed(route, w);
+      const data = validate(parseJson(res.response.text()));
       log(task, w, true, started);
       return { data, where: w };
     } catch (e) {
       lastError = e;
-      if (e instanceof AIError) break; // availability / transport errors: don't retry
+      if (e instanceof AIError || e instanceof RoutingError) break; // availability / transport errors: don't retry
     }
   }
   log(task, null, false, started, lastError instanceof AIError ? String(lastError.code) : "invalid_output");
@@ -146,6 +155,16 @@ export function generalizeQuery(privateSummary: string): Promise<AiResult<Genera
 /** Explains numbered evidence. Unsupported, advising or predicting points are removed before display. */
 export function explainEvidence(question: string, items: EvidenceItem[], privacyMode: PrivacyMode): Promise<AiResult<Brief>> {
   return structured("summarize", privacyMode, BRIEF_SYSTEM_PROMPT, briefJsonSchema, briefPrompt(question, items), (v) => cleanBrief(BriefZ.parse(v), items));
+}
+
+/** A short, safe message for a failed cloud call. Raw SDK errors contain URLs and project details. */
+export function cloudErrorText(e: unknown): string {
+  if (e instanceof RoutingError) return e.message;
+  const m = e instanceof Error ? e.message : String(e);
+  if (/\b429\b|quota|rate.?limit/i.test(m)) return "Google's free limit for this kind of request is used up for now. Try again later. The evidence above doesn't use it.";
+  if (/\b(401|403)\b|app.?check/i.test(m)) return "Google didn't accept the request from this site.";
+  if (/\b5\d\d\b|overloaded|unavailable/i.test(m)) return "Google's AI is busy. Try again in a moment.";
+  return "The AI request failed. Try again.";
 }
 
 export interface ResearchResult {

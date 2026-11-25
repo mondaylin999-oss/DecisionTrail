@@ -22,7 +22,7 @@ export type Route = "only_on_device" | "prefer_on_device" | "only_in_cloud";
 export class RoutingError extends Error {
   constructor(
     message: string,
-    readonly code: "research_needs_cloud_mode" | "research_needs_consent",
+    readonly code: "research_needs_cloud_mode" | "research_needs_consent" | "device_ai_not_ready" | "ran_in_cloud",
   ) {
     super(message);
     this.name = "RoutingError";
@@ -61,6 +61,21 @@ export function routeFor(task: AiTask, ctx: RouteContext): Route {
       }
       return "only_in_cloud";
   }
+}
+
+/**
+ * Must pass before any prompt is sent. The SDK does NOT enforce only_on_device by itself:
+ * in a browser without on-device AI it ignores the mode and calls the cloud.
+ */
+export function assertMayStart(route: Route, deviceStatus: string): void {
+  if (route === "only_on_device" && deviceStatus !== "available")
+    throw new RoutingError("On-device AI isn't ready in this browser, so nothing was sent.", "device_ai_not_ready");
+}
+
+/** Last check: an on-device-only result must really have come from the device. */
+export function assertRanAllowed(route: Route, where: "ON_DEVICE" | "IN_CLOUD"): void {
+  if (route === "only_on_device" && where !== "ON_DEVICE")
+    throw new RoutingError("This must run on the device, but the result came from the cloud, so it was discarded.", "ran_in_cloud");
 }
 
 /** True if the route could transmit the prompt to a cloud model. */

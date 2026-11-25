@@ -33,7 +33,7 @@ It never predicts outcomes and never picks an option.
 
 Structured decisions, AI explanations and AI research show a **Ran on this device** or **Ran in the cloud** badge read from the SDK's `response.inferenceSource`, never assumed.
 
-**Why there's a router.** In `PREFER_ON_DEVICE` mode the SDK silently sends a request to the cloud when the on-device model is unavailable. So no cloud-capable model is ever built unless the user's privacy mode allows it. All routing lives in [`src/lib/ai/router.ts`](src/lib/ai/router.ts), with unit tests proving that Private mode can't reach the cloud.
+**Why there's a router.** In `PREFER_ON_DEVICE` mode the SDK silently sends a request to the cloud when the on-device model is unavailable. So no cloud-capable model is ever built unless the user's privacy mode allows it. All routing lives in [`src/lib/ai/router.ts`](src/lib/ai/router.ts), with unit tests. **The SDK doesn't enforce on-device-only by itself:** in a browser without on-device AI, SDK 13.3 ignores `ONLY_ON_DEVICE` and calls the cloud. So [`tasks.ts`](src/lib/ai/tasks.ts) checks that on-device AI is ready before every on-device-only request, sends nothing if it isn't, and discards any result that says it came from the cloud. [`tasks.test.ts`](src/lib/ai/tasks.test.ts) runs the real task code against a fake SDK with that same behavior.
 
 ### Privacy modes
 - **Private** (default): AI runs on the device only. If Gemini Nano is unavailable, simple rules structure the decision and the user can edit it.

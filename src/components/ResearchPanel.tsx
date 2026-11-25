@@ -9,7 +9,7 @@ import { useMemo, useState } from "react";
 import type { GroundingMetadata } from "firebase/ai";
 import { findLeaks } from "@/lib/ai/redact";
 import { RoutingError } from "@/lib/ai/router";
-import { generalizeQuery, runResearch, type Where } from "@/lib/ai/tasks";
+import { cloudErrorText, generalizeQuery, runResearch, type Where } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
 import { RESEARCH_MODEL } from "@/lib/firebase/client";
 import type { StructuredDecision } from "@/lib/types";
@@ -75,11 +75,12 @@ export function ResearchPanel({
       setRemoved(r.data.removed);
       setGenWhere(r.where);
       setGenNote(null);
-    } catch {
+    } catch (e) {
       setQuery(templateQuery(decision));
       setRemoved(["all free text (only category and option types were used)"]);
       setGenWhere(null);
-      setGenNote("Private AI isn't available here, so we drafted the query from your category and option types only. Edit it as you like.");
+      const why = e instanceof RoutingError && e.code === "device_ai_not_ready" ? "On-device AI isn't ready here, so nothing was sent." : e instanceof RoutingError ? e.message : "On-device AI couldn't prepare the query.";
+      setGenNote(`${why} We drafted the query from your category and option types only. Edit it as you like.`);
     }
     setPhase("review");
   }
@@ -118,7 +119,7 @@ export function ResearchPanel({
       setResult({ ...r, saved });
       setPhase("done");
     } catch (e) {
-      setError(e instanceof RoutingError ? e.message : `Research couldn't run. Nothing was saved and your decision is unaffected. (${e instanceof Error ? e.message : String(e)})`);
+      setError(`${cloudErrorText(e)} No research was saved, and your decision is unaffected.`);
       setPhase("review");
     }
   }
