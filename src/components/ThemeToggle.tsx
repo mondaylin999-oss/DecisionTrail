@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "./ui";
+import { Button, cn } from "./ui";
 
 const THEME_KEY = "decisiontrail-theme";
 
@@ -10,7 +10,7 @@ function applyTheme(isDark: boolean) {
   document.documentElement.style.colorScheme = isDark ? "dark" : "light";
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function ThemeToggle() {
       aria-pressed={isDark}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="shrink-0"
+      className={cn("shrink-0", className)}
     >
       {isDark ? "Light mode" : "Dark mode"}
     </Button>

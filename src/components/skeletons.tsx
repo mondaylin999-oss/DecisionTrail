@@ -215,7 +215,7 @@ export function ShellSkeleton({ logo }: { logo: ReactNode }) {
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           {logo}
-          <Skeleton className="h-10 w-24" />
+          <Skeleton className="h-11 w-11" />
         </div>
       </header>
       <main className="mx-auto w-full max-w-5xl flex-1 space-y-6 px-4 py-6 sm:px-6 sm:py-8">

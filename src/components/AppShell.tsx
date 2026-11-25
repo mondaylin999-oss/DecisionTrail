@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useAuth } from "./AuthProvider";
 import { Landing } from "./Landing";
-import { PrivacyPill } from "./marks";
+import { SettingsMenu } from "./SettingsMenu";
 import { ShellSkeleton } from "./skeletons";
 import { ThemeToggle } from "./ThemeToggle";
-import { Button, Card, Notice, cn } from "./ui";
+import { Card, Notice, cn } from "./ui";
 
 const NAV = [
   { href: "/", label: "Dashboard" },
@@ -52,18 +52,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link href="/" aria-label="DecisionTrail dashboard">
               <Logo />
             </Link>
-            <div className="flex flex-wrap items-center gap-2">
-              {me && (
-                <Link href="/settings" aria-label="Privacy mode settings">
-                  <PrivacyPill mode={me.privacyMode} />
-                </Link>
-              )}
-              <span className="hidden max-w-48 truncate text-sm text-muted md:inline">{user.displayName ?? user.email}</span>
-              <ThemeToggle />
-              <Button variant="secondary" onClick={() => void signOut()}>
-                Sign out
-              </Button>
-            </div>
+            <SettingsMenu name={user.displayName ?? user.email ?? "Your account"} mode={me?.privacyMode ?? null} onSignOut={() => void signOut()} />
           </div>
           <nav aria-label="Main" className="-mx-2 flex flex-wrap sm:-mx-3">
             {NAV.map((n) => {
