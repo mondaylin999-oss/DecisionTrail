@@ -12,8 +12,8 @@ export interface LiveResult extends WebResult {
   kind: SourceKind;
   /** Short factual detail, e.g. "2020 · cited 91 times". */
   detail: string;
-  /** What was asked, for discussions. `snippet` then holds the answer. Each is at most 150 words. */
-  question?: string;
+  /** What was asked. `snippet` holds the answer, or is empty. Each is at most 150 words. */
+  question: string;
   /** Local scope only: how close the result is to the chosen countries. */
   place?: Place;
 }
@@ -136,14 +136,26 @@ export function findingsOf(abstract: string): string | null {
   const sentences = body.split(/(?<=[.!?])\s+/);
   const i = sentences.findIndex((x) => FINDING.test(x) && !/\b(aims?|purpose|objective|seeks?|investigates? whether|explores? (whether|how))\b/i.test(x));
   if (i < 0) return null;
-  return trimWords(sentences.slice(i).join(" ").replace(/^(Findings?|Results?|Conclusions?|FINDINGS?|RESULTS?|CONCLUSIONS?)[:.]?\s+(?=[A-Z])/, ""), SUMMARY_WORDS - 4);
+  return trimWords(sentences.slice(i).join(" ").replace(/^(Findings?|Results?|Conclusions?|FINDINGS?|RESULTS?|CONCLUSIONS?)[:.]?\s+(?=[A-Z])/, ""), SUMMARY_WORDS);
 }
 
-/** Finding first; studies that state none are marked as such. */
-function studySummary(abstract: string): string {
-  if (!abstract) return "";
-  const found = findingsOf(abstract);
-  return found ? `What they found: ${found}` : `No result stated. About the study: ${trimWords(abstract, SUMMARY_WORDS - 7)}`;
+const AIM =
+  /\b(aim(s|ed)?( of| to|\b)|purpose|objectives?|goal|research questions?|whether|seeks? to|sought to|(we|i|study|paper|article|research|review|authors?)\b[^.]{0,40}\b(ask|asks|asked|examin\w*|investigat\w*|explor\w*|assess\w*|evaluat\w*|analy[sz]e[sd]?|study|studies|studied|compare[sd]?|estimate[sd]?|measure[sd]?|test(s|ed)?|looks? at|address(es|ed)?))\b/i;
+
+/** What a study set out to learn, in its authors' words. The title when no sentence says so. */
+export function studyQuestion(abstract: string, title: string): string {
+  const sentences = abstract.split(/(?<=[.!?])\s+/);
+  const end = sentences.findIndex((x) => FINDING.test(x) && !AIM.test(x));
+  const aim = sentences.slice(0, end < 0 ? sentences.length : end).find((x) => AIM.test(x) && x.split(" ").length >= 6);
+  const text = (aim ?? "").replace(/^(Purpose|Aims?|Objectives?|Background|Introduction|PURPOSE|AIMS?|OBJECTIVES?|BACKGROUND|INTRODUCTION)(\/\w+)?[:.]?\s+(?=[A-Z])/, "");
+  return trimWords(text || title);
+}
+
+export const NO_RESULT = "No clear result is stated. ";
+
+/** The finding; a study that states none is marked as such. */
+function studyAnswer(abstract: string): string {
+  return findingsOf(abstract) ?? `${NO_RESULT}About the study: ${trimWords(abstract, SUMMARY_WORDS - 8)}`;
 }
 
 /** Internal fields used to judge the country; removed before results are returned. */
@@ -161,7 +173,7 @@ export function parseOpenAlex(json: unknown): StudyResult[] {
     if (!title || !url || JUNK.test(title)) return [];
     const text = abstractText(w.abstract_inverted_index);
     const authorCountries = [...new Set(arr(w.authorships).flatMap((a) => (Array.isArray(a.countries) ? a.countries : [])).filter((c): c is string => typeof c === "string").map((c) => c.toLowerCase()))];
-    return [{ kind: "study" as const, title, url, snippet: studySummary(text), text, authorCountries, publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
+    return [{ kind: "study" as const, title, url, question: studyQuestion(text, title), snippet: studyAnswer(text), text, authorCountries, publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
   });
 }
 
@@ -178,7 +190,7 @@ export function parseCrossref(json: unknown): StudyResult[] {
     const text = cleanSnippet(htmlToText(raw)).replace(/^abstract[:.\s]+/i, "");
     if (!title || !/^10\.\S+$/.test(doi) || JUNK.test(title) || text.split(" ").length < 40 || !isEnglish(text) || num(w["is-referenced-by-count"]) < 1) return [];
     const year = (w.issued as { "date-parts"?: unknown[][] } | undefined)?.["date-parts"]?.[0]?.[0];
-    return [{ kind: "study" as const, title, url: `https://doi.org/${encodeURI(doi)}`, snippet: studySummary(text), text, authorCountries: [], publisher: "Crossref", detail: `${num(year) || "Year unknown"} · cited ${num(w["is-referenced-by-count"])} times` }];
+    return [{ kind: "study" as const, title, url: `https://doi.org/${encodeURI(doi)}`, question: studyQuestion(text, title), snippet: studyAnswer(text), text, authorCountries: [], publisher: "Crossref", detail: `${num(year) || "Year unknown"} · cited ${num(w["is-referenced-by-count"])} times` }];
   });
 }
 
@@ -192,7 +204,7 @@ export function parseStackExchange(json: unknown, site: string): StackResult[] {
     const url = str(q.link);
     if (!title || !url) return [];
     const n = num(q.answer_count);
-    return [{ kind: "experience" as const, title, url, snippet: "", question: trimWords(htmlToText(str(q.body))), publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
+    return [{ kind: "experience" as const, title, url, snippet: "", question: trimWords(htmlToText(str(q.body))) || title, publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
   });
 }
 
@@ -228,7 +240,7 @@ export function parseHackerNews(json: unknown): LiveResult[] {
   return arr((json as { hits?: unknown })?.hits).flatMap((h) => {
     const title = cleanSnippet(str(h.title));
     if (!title || !str(h.objectID) || num(h.num_comments) < 3) return [];
-    return [{ kind: "experience" as const, title, url: `https://news.ycombinator.com/item?id=${encodeURIComponent(str(h.objectID))}`, snippet: trimWords(htmlToText(str(h.story_text))), publisher: "Hacker News", detail: `${num(h.num_comments)} comments · ${str(h.created_at).slice(0, 4)}` }];
+    return [{ kind: "experience" as const, title, url: `https://news.ycombinator.com/item?id=${encodeURIComponent(str(h.objectID))}`, question: trimWords(htmlToText(str(h.story_text))) || title, snippet: "", publisher: "Hacker News", detail: `${num(h.num_comments)} comments · ${str(h.created_at).slice(0, 4)}` }];
   });
 }
 

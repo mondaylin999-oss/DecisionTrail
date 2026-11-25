@@ -96,7 +96,7 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
                     <span className="text-xs text-muted">{r.detail}</span>
                   </div>
                   {r.place && <p className={r.place.closeness === "country" ? "mt-1 text-xs font-medium text-accent" : "mt-1 text-xs font-medium text-signal"}>{r.place.text}</p>}
-                  <Summary question={r.question} text={r.snippet} />
+                  <QuestionAnswer question={r.question || r.title} answer={r.snippet} />
                 </li>
               ))}
             </ul>
@@ -105,37 +105,35 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
       })}
       {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
       <p className="text-xs text-muted">
-        Summaries are the source&apos;s own words, shortened to 150 words at most (150 each for a question and its answer). They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
+        Questions and answers are the source&apos;s own words, at most 150 words each. A study&apos;s question is its stated aim, or its title. Wikipedia questions are written by DecisionTrail. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>
   );
 }
 
-const PREVIEW_WORDS = 40;
+const PREVIEW_WORDS = 20;
 
-/** The source's own text: a short preview that opens to at most 150 words per part. */
-function Summary({ question, text }: { question?: string; text: string }) {
+const NO_ANSWER = "Not available here. Open the link to read it.";
+
+/** Question, then answer, in the source's own words: short previews that open to at most 150 words each. */
+function QuestionAnswer({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
-  if (!question && !text) return <p className="mt-2 text-muted">No summary available. Open the link to read it.</p>;
   const parts = [
-    { label: question ? "Question" : null, text: question ?? "" },
-    { label: question ? "Answer" : null, text },
-  ].filter((p) => p.text);
-  // Two parts share the preview, so a closed card stays about the same height.
-  const limit = Math.round(PREVIEW_WORDS / parts.length);
-  const isLong = (t: string) => t.split(" ").length > limit + 10;
-  const long = parts.some((p) => isLong(p.text));
+    { label: "Question", text: question },
+    { label: "Answer", text: answer || NO_ANSWER },
+  ];
+  const isLong = (t: string) => t.split(" ").length > PREVIEW_WORDS + 8;
   return (
     <div className="mt-2 space-y-2">
       {parts.map((p) => (
-        <p key={p.label ?? "text"} className="text-muted">
-          {p.label && <strong className="font-semibold text-ink">{p.label}: </strong>}
-          {!open && isLong(p.text) ? `${p.text.split(" ").slice(0, limit).join(" ")}…` : p.text}
+        <p key={p.label} className="text-muted">
+          <strong className="font-semibold text-ink">{p.label}: </strong>
+          {!open && isLong(p.text) ? `${p.text.split(" ").slice(0, PREVIEW_WORDS).join(" ")}…` : p.text}
         </p>
       ))}
-      {long && (
+      {parts.some((p) => isLong(p.text)) && (
         <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="py-1 font-semibold text-accent underline underline-offset-4">
-          {open ? "Show less" : question ? "Read question and answer" : "Read summary"}
+          {open ? "Show less" : "Read question and answer"}
         </button>
       )}
     </div>

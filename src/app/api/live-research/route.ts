@@ -1,7 +1,7 @@
 import { withUser } from "@/lib/http";
 import { LiveResearchZ } from "@/lib/validation";
 import { closestFirst, countriesOf, listNames, nearbyCountries, placeOf, type Country } from "@/lib/web/countries";
-import { parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackAnswers, type LiveResult, type StudyResult } from "@/lib/web/sources";
+import { NO_RESULT, parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackAnswers, type LiveResult, type StudyResult } from "@/lib/web/sources";
 import { parseSearch } from "@/lib/web/wikipedia";
 
 interface Payload {
@@ -36,7 +36,7 @@ async function fetchJson(url: string): Promise<unknown> {
   return res.json();
 }
 
-const statesResult = (r: LiveResult) => r.snippet.startsWith("What they found");
+const statesResult = (r: LiveResult) => !r.snippet.startsWith(NO_RESULT);
 /** Studies that state a result come first. */
 const resultsFirst = <T extends LiveResult>(rows: T[]): T[] => [...rows.filter(statesResult), ...rows.filter((r) => !statesResult(r))];
 
@@ -120,7 +120,7 @@ async function encyclopedia(pages: ReturnType<typeof parseSearch>): Promise<Live
     .catch(() => new Map<string, string>());
   return pages
     .filter((p) => !/\bmay (also )?refer to:?$/.test(intros.get(p.title) ?? ""))
-    .map((r) => ({ ...r, snippet: intros.get(r.title) ?? (r.snippet && `${r.snippet}…`), kind: "background" as const, detail: "Encyclopedia" }));
+    .map((r) => ({ ...r, snippet: intros.get(r.title) ?? (r.snippet && `${r.snippet}…`), question: `What does Wikipedia say about “${r.title}”?`, kind: "background" as const, detail: "Encyclopedia" }));
 }
 
 const wikiUrl = (q: string) =>
@@ -170,7 +170,7 @@ export async function POST(req: Request) {
     );
 
     const short = query.split(/\s+/).slice(0, 2).join(" ");
-    const place = <T extends LiveResult>(r: T): T => (chosen.length ? { ...r, place: placeOf({ title: r.title, text: `${r.question ?? ""} ${r.snippet}` }, chosen) } : r);
+    const place = <T extends LiveResult>(r: T): T => (chosen.length ? { ...r, place: placeOf({ title: r.title, text: `${r.question} ${r.snippet}` }, chosen) } : r);
     const sites = stackSites(category);
 
     const [studies, hn, stack, background] = await Promise.all([
@@ -189,7 +189,7 @@ export async function POST(req: Request) {
         "Hacker News",
         async () => {
           const near = (await Promise.all(chosen.map((c) => stories(`${short} ${c.name}`)))).flat();
-          return [...near.filter((r) => placeOf({ title: r.title, text: r.snippet }, chosen).closeness === "country" && relevant([r], query, 1, 1).length), ...relevant(await stories(short), query, 3)];
+          return [...near.filter((r) => placeOf({ title: r.title, text: r.question }, chosen).closeness === "country" && relevant([r], query, 1, 1).length), ...relevant(await stories(short), query, 3)];
         },
         [],
       ),
@@ -200,7 +200,7 @@ export async function POST(req: Request) {
           const about = (
             await Promise.all(
               chosen.map((c) =>
-                discussions(sites[0], `${word} ${c.name}`, (rows) => rows.filter((r) => placeOf({ title: r.title, text: r.question ?? "" }, [c]).closeness === "country" && relevant([r], query, 1, 1).length)),
+                discussions(sites[0], `${word} ${c.name}`, (rows) => rows.filter((r) => placeOf({ title: r.title, text: r.question }, [c]).closeness === "country" && relevant([r], query, 1, 1).length)),
               ),
             )
           ).flat();

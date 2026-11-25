@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { abstractText, findingsOf, htmlToText, isLiveSourceUrl, parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackAnswers } from "./sources";
+import { abstractText, findingsOf, htmlToText, isLiveSourceUrl, parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, studyQuestion, topicWords, trimWords, withStackAnswers } from "./sources";
 
 describe("topicWords", () => {
   it("puts the question's subject first", () => {
@@ -21,7 +21,7 @@ describe("topicWords", () => {
 describe("parsing", () => {
   it("reads OpenAlex works", () => {
     const [r] = parseOpenAlex({ results: [{ id: "https://openalex.org/W1", doi: "https://doi.org/10.1/x", display_name: "Do <i>Internships</i> Pay Off?", publication_year: 2020, cited_by_count: 91, abstract_inverted_index: { pay: [1], Internships: [0] } }, { display_name: "no link" }] });
-    expect(r).toMatchObject({ kind: "study", title: "Do Internships Pay Off?", url: "https://doi.org/10.1/x", snippet: "No result stated. About the study: Internships pay", detail: "2020 · cited 91 times" });
+    expect(r).toMatchObject({ kind: "study", title: "Do Internships Pay Off?", url: "https://doi.org/10.1/x", snippet: "No clear result is stated. About the study: Internships pay", question: "Do Internships Pay Off?", detail: "2020 · cited 91 times" });
     expect(parseOpenAlex(null)).toEqual([]);
   });
 
@@ -43,7 +43,7 @@ describe("Crossref backup", () => {
     const [r, ...rest] = parseCrossref({ message: { items: [ok, { ...ok, "is-referenced-by-count": 0 }, { ...ok, abstract: "<jats:p>" + "penelitian ini bertujuan mahasiswa ".repeat(20) + "</jats:p>" }, { ...ok, DOI: "bad" }] } });
     expect(rest).toEqual([]);
     expect(r).toMatchObject({ url: "https://doi.org/10.1/x", publisher: "Crossref", detail: "2020 · cited 4 times" });
-    expect(r.snippet).toMatch(/^What they found: Results show/);
+    expect(r.snippet).toMatch(/^Results show/);
     expect(parseCrossref(null)).toEqual([]);
   });
 });
@@ -87,6 +87,13 @@ describe("summaries", () => {
     expect(findingsOf("Purpose The purpose of this study was to find out whether x works. Findings The internship raised confidence. Originality/value This is new.")).toBe("The internship raised confidence.");
     expect(findingsOf("This paper aims to show whether internships matter.")).toBeNull();
     expect(findingsOf("")).toBeNull();
+  });
+
+  it("takes a study's question from its stated aim, otherwise its title", () => {
+    expect(studyQuestion("Purpose The purpose of this study was to explore internship experiences. Findings The students learned a lot.", "T")).toBe("The purpose of this study was to explore internship experiences.");
+    expect(studyQuestion("Work has changed. We study the causal effect of internships on earnings. We find large returns.", "T")).toBe("We study the causal effect of internships on earnings.");
+    expect(studyQuestion("Results show that pay rose.", "Do internships pay?")).toBe("Do internships pay?");
+    expect(studyQuestion("", "Do internships pay?")).toBe("Do internships pay?");
   });
 
   it("reads Wikipedia introductions", () => {
