@@ -11,6 +11,8 @@ export interface LiveResult extends WebResult {
   kind: SourceKind;
   /** Short factual detail, e.g. "2020 · cited 91 times". */
   detail: string;
+  /** What was asked, for discussions. `snippet` then holds the answer. Each is at most 150 words. */
+  question?: string;
 }
 
 const STOP = new Set(
@@ -160,14 +162,14 @@ export function parseStackExchange(json: unknown, site: string): StackResult[] {
     const url = str(q.link);
     if (!title || !url) return [];
     const n = num(q.answer_count);
-    return [{ kind: "experience" as const, title, url, snippet: "", publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
+    return [{ kind: "experience" as const, title, url, snippet: "", question: trimWords(htmlToText(str(q.body))), publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
   });
 }
 
 const EXPERIENCE = /\bin my (own )?(case|experience)\b|\bI('ve| have)? (ended up|did|took|went|accepted|declined|quit|left|worked|started|applied|got|chose|learned)\b|\bhappened to me\b/i;
 
 /**
- * Shows what people answered, not what was asked. Among well-rated answers, one that tells
+ * Pairs each question with an answer. Among well-rated answers, one that tells
  * what its author did is preferred. Questions without a usable answer are left out.
  */
 export function withStackAnswers(rows: StackResult[], answersJson: unknown): LiveResult[] {
@@ -176,7 +178,7 @@ export function withStackAnswers(rows: StackResult[], answersJson: unknown): Liv
     const mine = all.filter((a) => a.id === questionId && a.score >= 0 && a.text.split(" ").length >= 8).sort((a, b) => b.score - a.score);
     if (!mine.length) return [];
     const told = mine.find((a) => a.score >= mine[0].score / 2 && EXPERIENCE.test(a.text));
-    return [{ ...r, snippet: `What one person answered: ${trimWords((told ?? mine[0]).text, SUMMARY_WORDS - 4)}` }];
+    return [{ ...r, snippet: trimWords((told ?? mine[0]).text) }];
   });
 }
 

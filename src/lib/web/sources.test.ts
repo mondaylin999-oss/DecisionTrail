@@ -49,8 +49,8 @@ describe("summaries", () => {
     expect(htmlToText("<p>One &amp; two</p><pre><code>x()</code></pre><ul><li>It&#39;s&#x2F;ok</li></ul>")).toBe("One & two It's/ok");
   });
 
-  it("shows the answer, never the question, within 150 words", () => {
-    const item = (id: number) => ({ title: "T", link: `https://workplace.stackexchange.com/q/${id}`, question_id: id, answer_count: 1, score: 0 });
+  it("pairs the question with an answer, each within 150 words", () => {
+    const item = (id: number) => ({ title: "T", link: `https://workplace.stackexchange.com/q/${id}`, question_id: id, answer_count: 1, score: 0, body: `<p>${"asked ".repeat(300)}</p>` });
     const rows = parseStackExchange({ items: [item(1), item(2), item(3)] }, "workplace");
     const out = withStackAnswers(rows, {
       items: [
@@ -61,8 +61,10 @@ describe("summaries", () => {
       ],
     });
     expect(out).toHaveLength(2);
-    expect(out[0].snippet).toMatch(/^What one person answered: general/);
+    expect(out[0].snippet).toMatch(/^general/);
     expect(count(out[0].snippet)).toBeLessThanOrEqual(150);
+    expect(out[0].question).toMatch(/^asked/);
+    expect(count(out[0].question!)).toBeLessThanOrEqual(150);
     expect(out[1].snippet).toContain("it led to a job");
     expect(out[0].detail).toBe("1 answer · score 0");
     expect(withStackAnswers(rows, null)).toEqual([]);

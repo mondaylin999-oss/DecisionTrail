@@ -81,7 +81,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
                     <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
                     <span className="text-xs text-muted">{r.detail}</span>
                   </div>
-                  <Summary text={r.snippet} />
+                  <Summary question={r.question} text={r.snippet} />
                 </li>
               ))}
             </ul>
@@ -90,7 +90,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
       })}
       {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
       <p className="text-xs text-muted">
-        Summaries are the source&apos;s own words, shortened to 150 words at most. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
+        Summaries are the source&apos;s own words, shortened to 150 words at most (150 each for a question and its answer). They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>
   );
@@ -98,18 +98,29 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
 
 const PREVIEW_WORDS = 40;
 
-/** The source's own text: a short preview that opens to at most 150 words. */
-function Summary({ text }: { text: string }) {
+/** The source's own text: a short preview that opens to at most 150 words per part. */
+function Summary({ question, text }: { question?: string; text: string }) {
   const [open, setOpen] = useState(false);
-  if (!text) return <p className="mt-2 text-muted">No summary available. Open the link to read it.</p>;
-  const words = text.split(" ");
-  const long = words.length > PREVIEW_WORDS + 10;
+  if (!question && !text) return <p className="mt-2 text-muted">No summary available. Open the link to read it.</p>;
+  const parts = [
+    { label: question ? "Question" : null, text: question ?? "" },
+    { label: question ? "Answer" : null, text },
+  ].filter((p) => p.text);
+  // Two parts share the preview, so a closed card stays about the same height.
+  const limit = Math.round(PREVIEW_WORDS / parts.length);
+  const isLong = (t: string) => t.split(" ").length > limit + 10;
+  const long = parts.some((p) => isLong(p.text));
   return (
-    <div className="mt-2 space-y-1">
-      <p className="text-muted">{long && !open ? `${words.slice(0, PREVIEW_WORDS).join(" ")}…` : text}</p>
+    <div className="mt-2 space-y-2">
+      {parts.map((p) => (
+        <p key={p.label ?? "text"} className="text-muted">
+          {p.label && <strong className="font-semibold text-ink">{p.label}: </strong>}
+          {!open && isLong(p.text) ? `${p.text.split(" ").slice(0, limit).join(" ")}…` : p.text}
+        </p>
+      ))}
       {long && (
         <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="py-1 font-semibold text-accent underline underline-offset-4">
-          {open ? "Show less" : "Read summary"}
+          {open ? "Show less" : question ? "Read question and answer" : "Read summary"}
         </button>
       )}
     </div>

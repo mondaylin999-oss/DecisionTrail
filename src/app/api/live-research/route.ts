@@ -102,7 +102,7 @@ export async function POST(req: Request) {
         attempt(
           "Stack Exchange",
           async () => {
-            const found = parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "12", answers: "1" })}`), site);
+            const found = parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "12", answers: "1", filter: "withbody" })}`), site);
             const rows = relevant(found, query, 8);
             if (!rows.length) return [];
             // Only discussions with an answer are shown: the answer is the evidence.
