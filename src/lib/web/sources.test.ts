@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { abstractText, htmlToText, isLiveSourceUrl, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackSummaries } from "./sources";
+import { abstractText, findingsOf, htmlToText, isLiveSourceUrl, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackAnswers } from "./sources";
 
 describe("topicWords", () => {
   it("puts the question's subject first", () => {
@@ -21,7 +21,7 @@ describe("topicWords", () => {
 describe("parsing", () => {
   it("reads OpenAlex works", () => {
     const [r] = parseOpenAlex({ results: [{ id: "https://openalex.org/W1", doi: "https://doi.org/10.1/x", display_name: "Do <i>Internships</i> Pay Off?", publication_year: 2020, cited_by_count: 91, abstract_inverted_index: { pay: [1], Internships: [0] } }, { display_name: "no link" }] });
-    expect(r).toMatchObject({ kind: "study", title: "Do Internships Pay Off?", url: "https://doi.org/10.1/x", snippet: "Internships pay", detail: "2020 · cited 91 times" });
+    expect(r).toMatchObject({ kind: "study", title: "Do Internships Pay Off?", url: "https://doi.org/10.1/x", snippet: "No result stated. About the study: Internships pay", detail: "2020 · cited 91 times" });
     expect(parseOpenAlex(null)).toEqual([]);
   });
 
@@ -49,15 +49,30 @@ describe("summaries", () => {
     expect(htmlToText("<p>One &amp; two</p><pre><code>x()</code></pre><ul><li>It&#39;s&#x2F;ok</li></ul>")).toBe("One & two It's/ok");
   });
 
-  it("joins the question with its highest-scored answer within 150 words", () => {
-    const body = `<p>${"word ".repeat(300)}</p>`;
-    const rows = parseStackExchange({ items: [{ title: "T", link: "https://workplace.stackexchange.com/q/1", question_id: 1, answer_count: 1, score: 0, body }] }, "workplace");
-    const [r] = withStackSummaries(rows, { items: [{ question_id: 1, score: 1, body: "low" }, { question_id: 1, score: 9, body: `<p>best ${"answer ".repeat(300)}</p>` }] });
-    expect(r.snippet).toMatch(/^Question: word.*Top answer: best/);
-    expect(count(r.snippet)).toBeLessThanOrEqual(150);
-    expect(r).not.toHaveProperty("body");
-    expect(r.detail).toBe("1 answer · score 0");
-    expect(count(withStackSummaries(rows, null)[0].snippet)).toBeLessThanOrEqual(150);
+  it("shows the answer, never the question, within 150 words", () => {
+    const item = (id: number) => ({ title: "T", link: `https://workplace.stackexchange.com/q/${id}`, question_id: id, answer_count: 1, score: 0 });
+    const rows = parseStackExchange({ items: [item(1), item(2), item(3)] }, "workplace");
+    const out = withStackAnswers(rows, {
+      items: [
+        { question_id: 1, score: 9, body: `<p>${"general ".repeat(300)}</p>` },
+        { question_id: 2, score: 9, body: "<p>You should simply ask them and then wait for a reply.</p>" },
+        { question_id: 2, score: 6, body: "<p>In my experience I took the offer and it led to a job.</p>" },
+        { question_id: 3, score: -2, body: "<p>A badly rated answer that nobody should rely on at all.</p>" },
+      ],
+    });
+    expect(out).toHaveLength(2);
+    expect(out[0].snippet).toMatch(/^What one person answered: general/);
+    expect(count(out[0].snippet)).toBeLessThanOrEqual(150);
+    expect(out[1].snippet).toContain("it led to a job");
+    expect(out[0].detail).toBe("1 answer · score 0");
+    expect(withStackAnswers(rows, null)).toEqual([]);
+  });
+
+  it("finds the result in an abstract and never presents a goal as one", () => {
+    expect(findingsOf("We study internships. Using German data we compare groups. Results show that internships increase earnings by six percent. The effect is larger for men.")).toBe("Results show that internships increase earnings by six percent. The effect is larger for men.");
+    expect(findingsOf("Purpose The purpose of this study was to find out whether x works. Findings The internship raised confidence. Originality/value This is new.")).toBe("The internship raised confidence.");
+    expect(findingsOf("This paper aims to show whether internships matter.")).toBeNull();
+    expect(findingsOf("")).toBeNull();
   });
 
   it("reads Wikipedia introductions", () => {

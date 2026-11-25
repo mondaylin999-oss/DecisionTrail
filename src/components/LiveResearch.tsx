@@ -13,8 +13,8 @@ interface Payload {
 }
 
 const GROUPS: { kind: SourceKind; title: string; hint: string }[] = [
-  { kind: "study", title: "What research found", hint: "check how well each study fits your situation" },
-  { kind: "experience", title: "People who faced this", hint: "personal opinions, not verified" },
+  { kind: "study", title: "What research found", hint: "results reported by studies; check how well each fits you" },
+  { kind: "experience", title: "What people who faced this said", hint: "personal answers, not verified" },
   { kind: "background", title: "Background", hint: "general information" },
 ];
 
@@ -90,7 +90,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
       })}
       {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
       <p className="text-xs text-muted">
-        Summaries are the source&apos;s own words, shortened to 150 words at most. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
+        Summaries are the source&apos;s own words, shortened to 150 words at most. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>
   );

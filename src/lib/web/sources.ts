@@ -110,12 +110,35 @@ export function htmlToText(html: string): string {
     .trim();
 }
 
-/** OpenAlex stores abstracts as {word: [positions]}. Rebuilds the text and keeps at most 150 words. */
+/** OpenAlex stores abstracts as {word: [positions]}. Rebuilds the text. */
 export function abstractText(index: unknown): string {
   if (!index || typeof index !== "object") return "";
   const out: string[] = [];
   for (const [w, pos] of Object.entries(index as Record<string, number[]>)) if (Array.isArray(pos)) for (const p of pos) if (p >= 0 && p < 2000) out[p] = w;
-  return trimWords(cleanSnippet(out.filter(Boolean).join(" ")).replace(/^abstract[:.\s]+/i, ""));
+  return cleanSnippet(out.filter(Boolean).join(" ")).replace(/^abstract[:.\s]+/i, "");
+}
+
+const FINDING =
+  /^(findings?|results?|conclusions?)\b(?!\s+(from|of)\s+(this|the)\s+(study|paper)\s+(will|would|can|could))|\b(we|i|authors?|study|studies|paper|review|article|research|analysis|analyses|results?|findings?|evidence|data|estimates?)\b[^.]{0,60}\b(find|finds|found|show|shows|showed|shown|suggest|suggests|suggested|reveal|reveals|revealed|indicate|indicates|indicated|conclude|concludes|concluded|demonstrate|demonstrates|demonstrated|confirm|confirms|confirmed)\b|\b(was|were|is|are) (found|shown|associated|positively|negatively|significantly)\b|\bsignificant(ly)? (positive|negative|effect|impact|increase|decrease|higher|lower|differen)/i;
+
+/**
+ * The part of an abstract that reports what happened, in the authors' words: from the first
+ * sentence that states a finding. Null when no sentence does, so a goal is never shown as a result.
+ */
+export function findingsOf(abstract: string): string | null {
+  // Structured abstracts run their headings into the text ("… interviews. Findings The study …").
+  const body = abstract.replace(/\s(Research limitations(\/implications)?|Practical implications|Social implications|Originality(\/value)?|Keywords|Copyright)\b[\s\S]*$/, "");
+  const sentences = body.split(/(?<=[.!?])\s+/);
+  const i = sentences.findIndex((x) => FINDING.test(x) && !/\b(aims?|purpose|objective|seeks?|investigates? whether|explores? (whether|how))\b/i.test(x));
+  if (i < 0) return null;
+  return trimWords(sentences.slice(i).join(" ").replace(/^(Findings?|Results?|Conclusions?|FINDINGS?|RESULTS?|CONCLUSIONS?)[:.]?\s+(?=[A-Z])/, ""), SUMMARY_WORDS - 4);
+}
+
+/** Finding first; studies that state none are marked as such. */
+function studySummary(abstract: string): string {
+  if (!abstract) return "";
+  const found = findingsOf(abstract);
+  return found ? `What they found: ${found}` : `No result stated. About the study: ${trimWords(abstract, SUMMARY_WORDS - 7)}`;
 }
 
 export function parseOpenAlex(json: unknown): LiveResult[] {
@@ -123,13 +146,12 @@ export function parseOpenAlex(json: unknown): LiveResult[] {
     const title = cleanSnippet(str(w.display_name));
     const url = str(w.doi) || str(w.id);
     if (!title || !url || /promo|coupon|\d+% (off|discount)/i.test(title)) return [];
-    return [{ kind: "study" as const, title, url, snippet: abstractText(w.abstract_inverted_index), publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
+    return [{ kind: "study" as const, title, url, snippet: studySummary(abstractText(w.abstract_inverted_index)), publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
   });
 }
 
 export interface StackResult extends LiveResult {
   questionId: number;
-  body: string;
 }
 
 export function parseStackExchange(json: unknown, site: string): StackResult[] {
@@ -138,22 +160,23 @@ export function parseStackExchange(json: unknown, site: string): StackResult[] {
     const url = str(q.link);
     if (!title || !url) return [];
     const n = num(q.answer_count);
-    return [{ kind: "experience" as const, title, url, snippet: "", publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id), body: htmlToText(str(q.body)) }];
+    return [{ kind: "experience" as const, title, url, snippet: "", publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
   });
 }
 
-/** Adds "Question: … Top answer: …" in the authors' own words, at most 150 words in total. */
-export function withStackSummaries(rows: StackResult[], answersJson: unknown): LiveResult[] {
-  const top = new Map<number, { score: number; text: string }>();
-  for (const a of arr((answersJson as { items?: unknown })?.items)) {
-    const text = htmlToText(str(a.body));
-    const best = top.get(num(a.question_id));
-    if (text && (!best || num(a.score) > best.score)) top.set(num(a.question_id), { score: num(a.score), text });
-  }
-  return rows.map(({ questionId, body, ...r }) => {
-    const answer = top.get(questionId)?.text;
-    const parts = [body && `Question: ${trimWords(body, answer ? 60 : 148)}`, answer && `Top answer: ${trimWords(answer, 85)}`];
-    return { ...r, snippet: parts.filter(Boolean).join(" ") };
+const EXPERIENCE = /\bin my (own )?(case|experience)\b|\bI('ve| have)? (ended up|did|took|went|accepted|declined|quit|left|worked|started|applied|got|chose|learned)\b|\bhappened to me\b/i;
+
+/**
+ * Shows what people answered, not what was asked. Among well-rated answers, one that tells
+ * what its author did is preferred. Questions without a usable answer are left out.
+ */
+export function withStackAnswers(rows: StackResult[], answersJson: unknown): LiveResult[] {
+  const all = arr((answersJson as { items?: unknown })?.items).map((a) => ({ id: num(a.question_id), score: num(a.score), text: htmlToText(str(a.body)) }));
+  return rows.flatMap(({ questionId, ...r }) => {
+    const mine = all.filter((a) => a.id === questionId && a.score >= 0 && a.text.split(" ").length >= 8).sort((a, b) => b.score - a.score);
+    if (!mine.length) return [];
+    const told = mine.find((a) => a.score >= mine[0].score / 2 && EXPERIENCE.test(a.text));
+    return [{ ...r, snippet: `What one person answered: ${trimWords((told ?? mine[0]).text, SUMMARY_WORDS - 4)}` }];
   });
 }
 

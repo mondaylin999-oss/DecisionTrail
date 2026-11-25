@@ -1,6 +1,6 @@
 import { withUser } from "@/lib/http";
 import { LiveResearchZ } from "@/lib/validation";
-import { parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackSummaries, type LiveResult } from "@/lib/web/sources";
+import { parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackAnswers, type LiveResult } from "@/lib/web/sources";
 import { parseSearch } from "@/lib/web/wikipedia";
 
 interface Payload {
@@ -32,6 +32,8 @@ async function fetchJson(url: string): Promise<unknown> {
   if (!res.ok) throw new Error(String(res.status));
   return res.json();
 }
+
+const statesResult = (r: LiveResult) => r.snippet.startsWith("What they found");
 
 const wikiUrl = (q: string) =>
   `https://en.wikipedia.org/w/api.php?${new URLSearchParams({ action: "query", list: "search", srsearch: q, srlimit: "6", srprop: "snippet", srinfo: "suggestion|totalhits", format: "json" })}`;
@@ -81,15 +83,17 @@ export async function POST(req: Request) {
     const short = query.split(/\s+/).slice(0, 2).join(" ");
     const openAlex = (x: string) =>
       getJson(
-        `https://api.openalex.org/works?${new URLSearchParams({ search: x, "per-page": "15", filter: "has_abstract:true,language:en,type:article|review,cited_by_count:>2", select: "id,doi,display_name,publication_year,cited_by_count,abstract_inverted_index" })}`,
+        `https://api.openalex.org/works?${new URLSearchParams({ search: x, "per-page": "25", filter: "has_abstract:true,language:en,type:article|review,cited_by_count:>2", select: "id,doi,display_name,publication_year,cited_by_count,abstract_inverted_index" })}`,
       ).then(parseOpenAlex);
 
     const [studies, hn, ...stack] = await Promise.all([
       attempt(
         "OpenAlex",
         async () => {
-          const rows = relevant(await openAlex(query), query, 5);
-          return rows.length >= 3 || short === query ? rows : [...rows, ...relevant(await openAlex(short), short, 5)];
+          const first = relevant(await openAlex(query), query, 12);
+          const rows = first.length >= 3 || short === query ? first : [...first, ...relevant(await openAlex(short), short, 12)];
+          // Studies that state a result come first.
+          return [...rows.filter(statesResult), ...rows.filter((r) => !statesResult(r))];
         },
         [],
       ),
@@ -98,12 +102,12 @@ export async function POST(req: Request) {
         attempt(
           "Stack Exchange",
           async () => {
-            const found = parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "8", answers: "1", filter: "withbody" })}`), site);
-            const rows = relevant(found, query, 4);
+            const found = parseStackExchange(await getJson(`https://api.stackexchange.com/2.3/search/advanced?${new URLSearchParams({ order: "desc", sort: "relevance", q: short, site, pagesize: "12", answers: "1" })}`), site);
+            const rows = relevant(found, query, 8);
             if (!rows.length) return [];
-            // The summary is a bonus: without the answers, the question text still shows.
-            const answers = await getJson(`https://api.stackexchange.com/2.3/questions/${rows.map((r) => r.questionId).join(";")}/answers?${new URLSearchParams({ order: "desc", sort: "votes", site, pagesize: "60", filter: "withbody" })}`).catch(() => null);
-            return withStackSummaries(rows, answers);
+            // Only discussions with an answer are shown: the answer is the evidence.
+            const answers = await getJson(`https://api.stackexchange.com/2.3/questions/${rows.map((r) => r.questionId).join(";")}/answers?${new URLSearchParams({ order: "desc", sort: "votes", site, pagesize: "100", filter: "withbody" })}`);
+            return withStackAnswers(rows, answers);
           },
           [] as LiveResult[],
         ),
@@ -116,7 +120,7 @@ export async function POST(req: Request) {
           .then(parseIntros)
           .catch(() => new Map<string, string>())
       : new Map<string, string>();
-    const background: LiveResult[] = pages.map((r) => ({ ...r, snippet: intros.get(r.title) ?? (r.snippet && `${r.snippet}…`), kind: "background", detail: "Encyclopedia" }));
+    const background: LiveResult[] = pages.filter((p) => !/may (also )?refer to:?$/.test(intros.get(p.title) ?? "")).map((r) => ({ ...r, snippet: intros.get(r.title) ?? (r.snippet && `${r.snippet}…`), kind: "background", detail: "Encyclopedia" }));
     const all = [...studies.slice(0, 5), ...relevant(stack.flat(), query, 4), ...relevant(hn, query, 3), ...background];
     const seen = new Set<string>();
     const value: Payload = { query, results: all.filter((r) => !seen.has(r.url) && seen.add(r.url)), unavailable: [...new Set(unavailable)] };
