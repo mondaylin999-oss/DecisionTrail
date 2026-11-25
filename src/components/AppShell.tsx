@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useAuth } from "./AuthProvider";
+import { Landing } from "./Landing";
 import { PrivacyPill } from "./marks";
 import { ShellSkeleton } from "./skeletons";
 import { ThemeToggle } from "./ThemeToggle";
@@ -41,7 +42,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     );
   }
   if (!ready) return <ShellSkeleton logo={<Logo />} />;
-  if (!user) return <SignIn onSignIn={() => void signIn()} />;
+  if (!user) return <Landing logo={<Logo />} toggle={<ThemeToggle />} footer={<Footer wide />} onSignIn={() => void signIn()} />;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -101,10 +102,10 @@ function Logo() {
   );
 }
 
-function Footer() {
+function Footer({ wide = false }: { wide?: boolean }) {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-sm text-muted sm:px-6">
+      <div className={cn("mx-auto flex w-full flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-sm text-muted sm:px-6", wide ? "max-w-6xl" : "max-w-5xl")}>
         <p>DecisionTrail shows evidence. It never decides for you or predicts your outcome.</p>
         {CONTACT && (
           <p>
@@ -116,46 +117,6 @@ function Footer() {
         )}
       </div>
     </footer>
-  );
-}
-
-const STEPS = [
-  { title: "Ask", text: "Describe your decision in plain language." },
-  { title: "See evidence", text: "Read studies and discussions from OpenAlex, Stack Exchange, Hacker News and Wikipedia, next to your own past decisions." },
-  { title: "Decide", text: "Save your choice, your reasons and a review date." },
-  { title: "Review", text: "Record what happened and what you would do differently." },
-];
-
-function SignIn({ onSignIn }: { onSignIn: () => void }) {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
-        <Logo />
-        <ThemeToggle />
-      </header>
-      <main className="mx-auto grid w-full max-w-5xl flex-1 content-center gap-10 px-4 py-8 sm:px-6 md:grid-cols-2 md:gap-16">
-        <div className="space-y-4">
-          <h1 className="text-3xl font-semibold text-ink">Research a decision, save your reasons, then check how it turned out</h1>
-          <p className="text-base text-muted">DecisionTrail finds published evidence for the choice you face and keeps a record you can learn from. It never decides for you.</p>
-          <Button onClick={onSignIn}>Sign in with Google</Button>
-        </div>
-        <section aria-labelledby="how" className="space-y-4">
-          <h2 id="how" className="text-lg font-semibold text-ink">How it works</h2>
-          <ol className="space-y-4">
-            {STEPS.map((x, i) => (
-              <li key={x.title} className="flex gap-3">
-                <span aria-hidden className="w-5 shrink-0 font-semibold text-accent">{i + 1}</span>
-                <div>
-                  <h3 className="font-semibold text-ink">{x.title}</h3>
-                  <p className="text-sm text-muted">{x.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-      </main>
-      <Footer />
-    </div>
   );
 }
 

@@ -17,7 +17,7 @@ const variants: Record<Variant, string> = {
 /** One button shape everywhere. Links that act as buttons use this too. */
 export function buttonClass(variant: Variant = "primary", className?: string) {
   return cn(
-    "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed",
+    "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition duration-150 enabled:active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed",
     variants[variant],
     className,
   );
@@ -28,7 +28,7 @@ export function Button({ variant = "primary", className, ...p }: ButtonHTMLAttri
 }
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("rounded-lg border border-line bg-surface p-4 sm:p-6", className)}>{children}</div>;
+  return <div className={cn("enter rounded-lg border border-line bg-surface p-4 sm:p-6", className)}>{children}</div>;
 }
 
 export function CardTitle({ children, hint }: { children: ReactNode; hint?: ReactNode }) {

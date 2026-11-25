@@ -71,7 +71,7 @@ export function EvidenceBrief({ question, results }: { question: string; results
         <>
           <ul className="space-y-2">
             {out.brief.points.map((p, i) => (
-              <li key={i} className="ai-text text-sm text-ink">
+              <li key={i} style={{ animationDelay: `${i * 150}ms` }} className="enter ai-text text-sm text-ink">
                 {p.text}{" "}
                 {p.sources.map((n) => (
                   <a key={n} href={items[n - 1].url} target="_blank" rel="noreferrer noopener" title={items[n - 1].title} className="mr-1 not-italic text-accent underline">
