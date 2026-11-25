@@ -63,22 +63,24 @@ input[type="radio"], input[type="checkbox"], progress { accent-color: var(--bran
 .dark .only-dark { display: block; }
 .dark .only-light { display: none; }
 .dark .logo-mark { border-radius: 9px; outline: 1px solid var(--line); }
-/* Motion: short, plays once, and only where it shows that something arrived or changed. */
+/* Motion: the sign-in page loops. Inside the app, content arrives once so it can be read. */
 .enter { animation: enter 380ms ease-out backwards; }
 @keyframes enter { from { opacity: 0; transform: translateY(10px); } }
 .step-in { animation: step-in 420ms ease-out backwards; }
 @keyframes step-in { from { opacity: 0; transform: translateX(14px); } }
 .trail-dot { transition: opacity 400ms ease, stroke 400ms ease, fill 400ms ease; }
-.trail-ping { transform-box: fill-box; transform-origin: center; animation: trail-ping 900ms ease-out 2 forwards; }
-@keyframes trail-ping { from { opacity: 0.9; transform: scale(0.8); } to { opacity: 0; transform: scale(1.8); } }
-.trail-underline { background: linear-gradient(var(--amber), var(--amber)) 0 100% / 100% 3px no-repeat; animation: underline-in 700ms 500ms ease-out backwards; }
-@keyframes underline-in { from { background-size: 0 3px; } }
+.trail-ping { transform-box: fill-box; transform-origin: center; animation: trail-ping 1500ms ease-out infinite; }
+@keyframes trail-ping { from { opacity: 0.9; transform: scale(0.8); } 70%, to { opacity: 0; transform: scale(1.8); } }
+.trail-run { transform-box: fill-box; transform-origin: center; animation: trail-run 1800ms ease-in-out infinite; }
+@keyframes trail-run { 0%, 45%, to { transform: none; } 20% { transform: scale(1.7); } }
+.trail-underline { background: linear-gradient(var(--amber), var(--amber)) 0 100% / 100% 3px no-repeat; animation: underline-loop 4600ms ease-in-out infinite; }
+@keyframes underline-loop { 0% { background-size: 0 3px; background-position: 0 100%; } 20%, 70% { background-size: 100% 3px; background-position: 0 100%; } 71% { background-size: 100% 3px; background-position: 100% 100%; } 92%, to { background-size: 0 3px; background-position: 100% 100%; } }
 .caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 1px; vertical-align: text-bottom; background: var(--accent); animation: caret 1s steps(1) infinite; }
 @keyframes caret { 50% { opacity: 0; } }
 .pick { animation: pick 300ms 300ms ease-out forwards; }
 @keyframes pick { to { border-width: 5px; } }
 @media (prefers-reduced-motion: reduce) {
-  .enter, .step-in, .trail-ping, .trail-underline, .caret { animation: none; }
+  .enter, .step-in, .trail-ping, .trail-run, .trail-underline, .caret { animation: none; }
   .trail-ping { opacity: 0; }
   .trail-dot { transition: none; }
   .pick { animation-duration: 1ms; animation-delay: 0ms; }

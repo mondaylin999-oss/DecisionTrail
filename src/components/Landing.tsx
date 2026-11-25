@@ -1,7 +1,7 @@
 "use client";
 /**
  * Sign-in page. The trail from the logo becomes a short, playable walk through the four
- * steps. It loops by itself, holds while hovered or focused, and stays still for people who reduce motion.
+ * steps. It loops without end, holds only for keyboard focus, and stays still for people who reduce motion.
  */
 import { useEffect, useState, type ReactNode } from "react";
 import { Flag } from "./CountrySearch";
@@ -75,7 +75,7 @@ export function Landing({ logo, toggle, footer, onSignIn }: { logo: ReactNode; t
 
 function Walkthrough() {
   const [step, setStep] = useState(0);
-  // Resting on the panel, or tabbing into it, holds the step so it can be read.
+  // Keyboard users hold the step while they are inside it. Otherwise it never stops.
   const [held, setHeld] = useState(false);
 
   useEffect(() => {
@@ -89,8 +89,6 @@ function Walkthrough() {
   return (
     <section
       aria-labelledby="how"
-      onMouseEnter={() => setHeld(true)}
-      onMouseLeave={() => setHeld(false)}
       onFocus={(e) => e.target.matches(":focus-visible") && setHeld(true)}
       onBlur={() => setHeld(false)}
       className="enter overflow-hidden rounded-3xl border border-line bg-[#0f2a3d] text-white" style={{ animationDelay: "200ms" }}>
@@ -100,7 +98,7 @@ function Walkthrough() {
 
       <svg viewBox="0 8 400 126" className="w-full px-2" aria-hidden>
         {DOTS.map((d, i) => (
-          <circle key={i} cx={d.x} cy={d.y} r="3.4" className="trail-dot" fill="#fff" opacity={d.seg < step ? 1 : 0.22} style={{ transitionDelay: d.seg === step - 1 ? `${(i % 3) * 140}ms` : "0ms" }} />
+          <circle key={i} cx={d.x} cy={d.y} r="3.4" className={cn("trail-dot", d.seg < step && "trail-run")} fill="#fff" opacity={d.seg < step ? 1 : 0.22} style={{ transitionDelay: d.seg === step - 1 ? `${(i % 3) * 140}ms` : "0ms", animationDelay: `${i * 130}ms` }} />
         ))}
         {NODES.map(([x, y], i) => {
           const goal = i === NODES.length - 1;
@@ -150,7 +148,8 @@ function Walkthrough() {
 function AskDemo() {
   const [n, setN] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setN((x) => (stillPreferred() ? QUESTION.length : Math.min(QUESTION.length, x + 1))), 38);
+    // Types, rests about a second, then types again.
+    const t = setInterval(() => setN((x) => (stillPreferred() ? QUESTION.length : x >= QUESTION.length + 30 ? 0 : x + 1)), 38);
     return () => clearInterval(t);
   }, []);
   return (
