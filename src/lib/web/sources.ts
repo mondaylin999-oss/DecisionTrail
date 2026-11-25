@@ -4,6 +4,7 @@
  * No AI: every result is a real page with a link.
  */
 import type { Category } from "../vocab";
+import type { Place } from "./countries";
 import { cleanSnippet, type WebResult } from "./wikipedia";
 
 export type SourceKind = "study" | "experience" | "background";
@@ -13,6 +14,8 @@ export interface LiveResult extends WebResult {
   detail: string;
   /** What was asked, for discussions. `snippet` then holds the answer. Each is at most 150 words. */
   question?: string;
+  /** Local scope only: how close the result is to the chosen countries. */
+  place?: Place;
 }
 
 const STOP = new Set(
@@ -143,12 +146,39 @@ function studySummary(abstract: string): string {
   return found ? `What they found: ${found}` : `No result stated. About the study: ${trimWords(abstract, SUMMARY_WORDS - 7)}`;
 }
 
-export function parseOpenAlex(json: unknown): LiveResult[] {
+/** Internal fields used to judge the country; removed before results are returned. */
+export interface StudyResult extends LiveResult {
+  text: string;
+  authorCountries: string[];
+}
+
+const JUNK = /promo|coupon|\d+% (off|discount)/i;
+
+export function parseOpenAlex(json: unknown): StudyResult[] {
   return arr((json as { results?: unknown })?.results).flatMap((w) => {
     const title = cleanSnippet(str(w.display_name));
     const url = str(w.doi) || str(w.id);
-    if (!title || !url || /promo|coupon|\d+% (off|discount)/i.test(title)) return [];
-    return [{ kind: "study" as const, title, url, snippet: studySummary(abstractText(w.abstract_inverted_index)), publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
+    if (!title || !url || JUNK.test(title)) return [];
+    const text = abstractText(w.abstract_inverted_index);
+    const authorCountries = [...new Set(arr(w.authorships).flatMap((a) => (Array.isArray(a.countries) ? a.countries : [])).filter((c): c is string => typeof c === "string").map((c) => c.toLowerCase()))];
+    return [{ kind: "study" as const, title, url, snippet: studySummary(text), text, authorCountries, publisher: "OpenAlex", detail: `${num(w.publication_year) || "Year unknown"} · cited ${num(w.cited_by_count)} times` }];
+  });
+}
+
+/** Crossref has no language filter, so a text must look like English. */
+const isEnglish = (t: string) => (t.match(/\b(the|of|and|to|in|that|was|were|is|are|this|with|for)\b/gi)?.length ?? 0) > t.split(/\s+/).length * 0.15;
+
+/** Backup for studies when OpenAlex is unavailable. */
+export function parseCrossref(json: unknown): StudyResult[] {
+  return arr((json as { message?: { items?: unknown } } | null)?.message?.items).flatMap((w) => {
+    const title = htmlToText(str(Array.isArray(w.title) ? w.title[0] : ""));
+    const doi = str(w.DOI);
+    // Abstracts are JATS XML, sometimes with escaped HTML inside.
+    const raw = str(w.abstract).replace(/<\/?jats:(title|p|sec)\b[^>]*>/g, " ");
+    const text = cleanSnippet(htmlToText(raw)).replace(/^abstract[:.\s]+/i, "");
+    if (!title || !/^10\.\S+$/.test(doi) || JUNK.test(title) || text.split(" ").length < 40 || !isEnglish(text) || num(w["is-referenced-by-count"]) < 1) return [];
+    const year = (w.issued as { "date-parts"?: unknown[][] } | undefined)?.["date-parts"]?.[0]?.[0];
+    return [{ kind: "study" as const, title, url: `https://doi.org/${encodeURI(doi)}`, snippet: studySummary(text), text, authorCountries: [], publisher: "Crossref", detail: `${num(year) || "Year unknown"} · cited ${num(w["is-referenced-by-count"])} times` }];
   });
 }
 

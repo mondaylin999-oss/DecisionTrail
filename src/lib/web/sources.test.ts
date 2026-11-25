@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { abstractText, findingsOf, htmlToText, isLiveSourceUrl, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackAnswers } from "./sources";
+import { abstractText, findingsOf, htmlToText, isLiveSourceUrl, parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, topicWords, trimWords, withStackAnswers } from "./sources";
 
 describe("topicWords", () => {
   it("puts the question's subject first", () => {
@@ -33,6 +33,18 @@ describe("parsing", () => {
   it("reads discussions", () => {
     expect(parseStackExchange({ items: [{ title: "A &amp; B", link: "https://workplace.stackexchange.com/q/1", answer_count: 2, score: 5 }] }, "workplace")[0].title).toBe("A & B");
     expect(parseHackerNews({ hits: [{ title: "T", objectID: "1", num_comments: 0 }, { title: "U", objectID: "2", num_comments: 9, created_at: "2021-01-01" }] }).map((x) => x.title)).toEqual(["U"]);
+  });
+});
+
+describe("Crossref backup", () => {
+  it("keeps English, cited articles with an abstract", () => {
+    const abstract = `<jats:title>Abstract</jats:title><jats:p>We looked at the work of the students. Results show that the pay of the interns was higher in the end. ${"This is the rest of the text. ".repeat(6)}</jats:p>`;
+    const ok = { DOI: "10.1/x", title: ["Student internships"], abstract, "is-referenced-by-count": 4, issued: { "date-parts": [[2020]] } };
+    const [r, ...rest] = parseCrossref({ message: { items: [ok, { ...ok, "is-referenced-by-count": 0 }, { ...ok, abstract: "<jats:p>" + "penelitian ini bertujuan mahasiswa ".repeat(20) + "</jats:p>" }, { ...ok, DOI: "bad" }] } });
+    expect(rest).toEqual([]);
+    expect(r).toMatchObject({ url: "https://doi.org/10.1/x", publisher: "Crossref", detail: "2020 · cited 4 times" });
+    expect(r.snippet).toMatch(/^What they found: Results show/);
+    expect(parseCrossref(null)).toEqual([]);
   });
 });
 

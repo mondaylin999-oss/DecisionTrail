@@ -10,6 +10,7 @@ interface Payload {
   query: string;
   results: LiveResult[];
   unavailable: string[];
+  local?: { names: string; found: number; missing: string };
 }
 
 const GROUPS: { kind: SourceKind; title: string; hint: string }[] = [
@@ -18,20 +19,22 @@ const GROUPS: { kind: SourceKind; title: string; hint: string }[] = [
   { kind: "background", title: "Background", hint: "general information" },
 ];
 
-export function LiveResearch({ query, category }: { query: string; category: Category }) {
+/** `countries` empty means World. */
+export function LiveResearch({ query, category, countries }: { query: string; category: Category; countries: string[] }) {
   const [state, setState] = useState<{ key: string; data?: Payload; err?: string } | null>(null);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
-  const key = `${category}|${query}`;
+  const places = countries.join(",");
+  const key = `${category}|${places}|${query}`;
 
   useEffect(() => {
     let live = true;
-    api<Payload>("/api/live-research", { method: "POST", body: { q: query, category } })
+    api<Payload>("/api/live-research", { method: "POST", body: { q: query, category, countries: places ? places.split(",") : [] } })
       .then((data) => live && setState({ key, data }))
       .catch((e) => live && setState({ key, err: e instanceof Error ? e.message : String(e) }));
     return () => {
       live = false;
     };
-  }, [key, query, category]);
+  }, [key, query, category, places]);
 
   const cur = state?.key === key ? state : null;
   if (!cur)
@@ -43,7 +46,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
     );
   if (cur.err) return <Notice tone="warn">Live research didn&apos;t work this time ({cur.err}). Your decision isn&apos;t affected.</Notice>;
 
-  const { results, unavailable, query: used } = cur.data!;
+  const { results, unavailable, query: used, local } = cur.data!;
 
   async function save(r: LiveResult) {
     try {
@@ -57,6 +60,17 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
   return (
     <Card className="space-y-5">
       <CardTitle hint={`searched for “${used}”`}>Live research</CardTitle>
+      {local && (
+        <Notice tone={local.found < 3 ? "warn" : "info"}>
+          {local.found === 0
+            ? `No evidence found that mentions ${local.names}. Showing other results, closest first.`
+            : local.found < 3
+              ? `Little evidence found that mentions ${local.names} (${local.found}). Other results fill the list, closest first.`
+              : `${local.found} results mention ${local.names}.`}{" "}
+          {local.found > 0 && local.missing && `None of the results shown mention ${local.missing}. `}
+          Countries are matched by words, so it is not ensured that a result applies to your country. English sources only.
+        </Notice>
+      )}
       {results.length === 0 && <Notice tone="info">No live source matched these words. Go back with “Change question” and try simpler topic words.</Notice>}
       {GROUPS.map((g) => {
         const rows = results.filter((r) => r.kind === g.kind);
@@ -81,6 +95,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
                     <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
                     <span className="text-xs text-muted">{r.detail}</span>
                   </div>
+                  {r.place && <p className={r.place.closeness === "country" ? "mt-1 text-xs font-medium text-accent" : "mt-1 text-xs font-medium text-signal"}>{r.place.text}</p>}
                   <Summary question={r.question} text={r.snippet} />
                 </li>
               ))}

@@ -1,5 +1,6 @@
 /** Request-body validation for API routes. Never trust the client. */
 import { z } from "zod";
+import { COUNTRY_CODES, MAX_COUNTRIES } from "./web/countries";
 import { isLiveSourceUrl } from "./web/sources";
 import {
   ALTERNATIVE_TAGS,
@@ -111,7 +112,12 @@ export const AiLogZ = z.object({
   latencyMs: z.number().int().min(0).max(600000),
 });
 
-export const LiveResearchZ = z.object({ q: z.string().trim().min(2).max(120), category: z.enum(CATEGORIES) });
+export const LiveResearchZ = z.object({
+  q: z.string().trim().min(2).max(120),
+  category: z.enum(CATEGORIES),
+  /** Local scope. Empty means World. */
+  countries: z.array(z.enum(COUNTRY_CODES)).max(MAX_COUNTRIES).default([]),
+});
 
 export const WebSearchQueryZ = z.string().trim().min(2).max(120);
 

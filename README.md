@@ -30,7 +30,7 @@ Every AI result shows a **🔒 ON_DEVICE** or **☁️ IN_CLOUD** badge read fro
 - **Hybrid**: on-device first; cloud fallback for structuring is allowed and disclosed.
 - **Cloud Research**: Hybrid plus live research. Each research request needs explicit consent for the exact query.
 
-**Live research** is separate from AI. It sends up to four topic words picked from the question through the server to Wikipedia, OpenAlex, Stack Exchange and Hacker News. It runs for every new decision in every mode, and shows the words it searched for. Results are real pages with links, found by keyword and unverified.
+**Live research** is separate from AI. It sends up to four topic words picked from the question, and any countries the user chooses, through the server to Wikipedia, OpenAlex (or Crossref when OpenAlex is unavailable), Stack Exchange and Hacker News. **World** searches everywhere; **Local** puts up to three chosen countries first, then fills up with authors there, the same region and the world. Each local result says what is not ensured. It runs for every new decision in every mode, and shows the words it searched for. Results are real pages with links, found by keyword and unverified.
 
 Privacy modes govern where AI **processing** happens. Saved decisions are stored in PostgreSQL so users can access them later.
 

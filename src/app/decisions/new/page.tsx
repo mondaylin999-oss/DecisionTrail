@@ -6,6 +6,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { InferenceBadge } from "@/components/marks";
 import { LiveResearch } from "@/components/LiveResearch";
 import { MatchCard } from "@/components/MatchCard";
+import { savedScope, ScopePicker, type Scope } from "@/components/ScopePicker";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
 import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
@@ -43,6 +44,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
   const [options, setOptions] = useState(["", ""]);
+  const [scope, setScope] = useState<Scope>(savedScope);
   const [showAll, setShowAll] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<{ tone: "warn" | "error" | "info"; msg: string } | null>(null);
@@ -98,6 +100,8 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
     }
   }
 
+  const needsCountry = scope.local && scope.countries.length === 0;
+  const ready = text.trim().length >= 10 && !needsCountry;
   const searchWords = topicWords(text, options).join(" ");
 
   return (
@@ -119,7 +123,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             className="space-y-4"
             onSubmit={(e) => {
               e.preventDefault();
-              if (text.trim().length >= 10 && !busy) void ask();
+              if (ready && !busy) void ask();
             }}
           >
             <Textarea
@@ -137,8 +141,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
                 ))}
               </div>
             </Field>
+            <ScopePicker value={scope} onChange={setScope} />
             <div className="flex flex-wrap items-center gap-2">
-              <Button type="submit" disabled={!!busy || text.trim().length < 10}>
+              <Button type="submit" disabled={!!busy || !ready}>
                 {busy && <Spinner />} Find evidence
               </Button>
               {options.length < 5 && (
@@ -146,14 +151,14 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
                   + Add option
                 </Button>
               )}
-              {busy ? <span className="text-sm text-muted">{busy}</span> : text.trim().length < 10 && <span className="text-sm text-muted">Write one sentence to continue.</span>}
+              {busy ? <span className="text-sm text-muted">{busy}</span> : !ready && <span className="text-sm text-muted">{needsCountry ? "Choose at least one country to continue." : "Write one sentence to continue."}</span>}
             </div>
           </form>
           <p className="text-xs text-muted">
             {me.privacyMode === "private"
               ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
               : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked “Ran in the cloud”."}{" "}
-            Your question goes to the DecisionTrail server to check your own past decisions, and saved decisions are stored there. Up to four topic words picked from your question are sent, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News. Names typed in lowercase may be included, so leave out anything private.
+            Your question goes to the DecisionTrail server to check your own past decisions, and saved decisions are stored there. Up to four topic words picked from your question, and any countries you choose, are sent through our server to Wikipedia, OpenAlex or Crossref, Stack Exchange and Hacker News. Names typed in lowercase may be included, so leave out anything private.
           </p>
         </Card>
       )}
@@ -184,7 +189,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
           </Card>
 
           {searchWords.length >= 2 ? (
-            <LiveResearch query={searchWords} category={d.category} />
+            <LiveResearch query={searchWords} category={d.category} countries={scope.local ? scope.countries : []} />
           ) : (
             <Notice tone="warn">There were no topic words to research online. Go back with “Change question” and describe the topic.</Notice>
           )}
