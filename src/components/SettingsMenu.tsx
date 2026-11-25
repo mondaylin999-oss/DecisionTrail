@@ -70,7 +70,7 @@ export function SettingsMenu({ name, mode, onSignOut }: { name: string; mode: Pr
           )}
           <div className="grid gap-2 border-t border-line pt-4">
             <Link href="/settings" onClick={() => setOpen(false)} className={buttonClass("secondary", "w-full")}>
-              All settings
+              Privacy &amp; AI
             </Link>
             <ThemeToggle className="w-full" />
             <Button variant="secondary" className="w-full" onClick={onSignOut}>

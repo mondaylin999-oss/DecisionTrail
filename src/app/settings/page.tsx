@@ -71,7 +71,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <PageTitle title="Settings" subtitle="Control where AI runs and see what you have authorized." />
+      <PageTitle title="Privacy & AI" subtitle="Control where AI runs and see what you have authorized." />
       {msg && <Notice tone="info">{msg}</Notice>}
       <Card className="space-y-4">
         <CardTitle hint={<PrivacyPill mode={me.privacyMode} />}>Privacy mode</CardTitle>

@@ -55,7 +55,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
     setNotice(null);
     setWhere(null);
     let next = quickStructure(text, []);
-    // Never start a multi-gigabyte model download from this button; Settings does that.
+    // Never start a multi-gigabyte model download from this button; the Privacy & AI page does that.
     if (aiStatus === "available" || me!.privacyMode !== "private") {
       setBusy("Structuring your decision…");
       try {

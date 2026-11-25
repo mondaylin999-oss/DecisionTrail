@@ -49,7 +49,7 @@ export function routeFor(task: AiTask, ctx: RouteContext): Route {
     case "research":
       if (ctx.privacyMode !== "cloud_research") {
         throw new RoutingError(
-          "Live research needs Cloud Research mode. Change it in Settings.",
+          "Live research needs Cloud Research mode. Change it in Privacy & AI.",
           "research_needs_cloud_mode",
         );
       }

@@ -15,7 +15,7 @@ const NAV = [
   { href: "/decisions/new", label: "New decision" },
   { href: "/decisions", label: "My decisions" },
   { href: "/research", label: "Saved research" },
-  { href: "/settings", label: "Settings" },
+  { href: "/settings", label: "Privacy & AI" },
 ];
 
 // Set NEXT_PUBLIC_CONTACT_EMAIL to show a contact address. Nothing is invented when it's missing.

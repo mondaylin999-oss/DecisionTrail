@@ -10,7 +10,7 @@ import { ConsentZ } from "@/lib/validation";
 export async function POST(req: Request) {
   return withUser(req, async (caller, user) => {
     if (user.privacyMode !== "cloud_research") {
-      return Response.json({ error: "Switch to Cloud Research mode in Settings first." }, { status: 403 });
+      return Response.json({ error: "Switch to Cloud Research mode in Privacy & AI first." }, { status: 403 });
     }
     const body = ConsentZ.parse(await req.json());
     const row = await createConsent(caller.uid, {

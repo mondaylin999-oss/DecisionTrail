@@ -30,7 +30,7 @@ export function EvidenceBrief({ question, results }: { question: string; results
   if (isPrivate && aiStatus !== "available")
     return (
       <p className="text-sm text-muted">
-        AI explanation: on-device AI isn&apos;t ready in this browser. <Link className="text-accent underline" href="/settings">Open Settings</Link> to set it up or choose Hybrid mode. The evidence below doesn&apos;t need AI.
+        AI explanation: on-device AI isn&apos;t ready in this browser. <Link className="text-accent underline" href="/settings">Open Privacy &amp; AI</Link> to set it up or choose Hybrid mode. The evidence below doesn&apos;t need AI.
       </p>
     );
 
