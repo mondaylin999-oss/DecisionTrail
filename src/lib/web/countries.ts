@@ -85,11 +85,31 @@ export function mentions(text: string, c: Country): boolean {
   const re = new RegExp(`(?<![\\p{L}\\p{N}])(${rest})(?![\\p{L}\\p{N}])`, "gu");
   // Names that are part of another country's name or a common other place.
   const t = text.replace(/New South Wales|New Mexico|Papua New Guinea|Equatorial Guinea|Guinea-Bissau|Northern Ireland|South Sudan|American Indians?|West Indian/g, (m) => (c.words.includes(m) ? m : " "));
-  return re.test(t);
+  // "US" only counts in capitals and not as a currency; it is never used as a search word.
+  return re.test(t) || (c.code === "us" && /(?<![\p{L}\p{N}])US(?![\p{L}\p{N}$])/u.test(t));
 }
 
 export const listNames = (cs: readonly Country[]): string =>
   cs.length < 2 ? (cs[0]?.name ?? "") : `${cs.slice(0, -1).map((c) => c.name).join(", ")} or ${cs[cs.length - 1].name}`;
+
+export interface Located {
+  /** Country codes, title mentions first. Empty when nothing is stated. */
+  codes: string[];
+  basis: "title" | "text" | "authors" | "none";
+}
+
+const MAX_SHOWN = 3;
+
+/** Which country a result is about, as far as its own words or its authors' countries tell. Never certain. */
+export function locate(r: { title: string; text: string; authorCountries?: readonly string[] }): Located {
+  const inTitle = ALL.filter((c) => mentions(r.title, c));
+  const inText = ALL.filter((c) => !inTitle.includes(c) && mentions(r.text, c));
+  const codes = (cs: readonly Country[]) => cs.slice(0, MAX_SHOWN).map((c) => c.code);
+  if (inTitle.length) return { codes: codes(inTitle), basis: "title" };
+  if (inText.length) return { codes: codes(inText), basis: "text" };
+  const authors = countriesOf(r.authorCountries ?? []);
+  return authors.length ? { codes: codes(authors), basis: "authors" } : { codes: [], basis: "none" };
+}
 
 export type Closeness = "country" | "authors" | "nearby" | "world";
 

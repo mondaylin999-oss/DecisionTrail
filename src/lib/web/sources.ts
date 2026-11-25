@@ -4,7 +4,7 @@
  * No AI: every result is a real page with a link.
  */
 import type { Category } from "../vocab";
-import type { Place } from "./countries";
+import type { Located, Place } from "./countries";
 import { cleanSnippet, type WebResult } from "./wikipedia";
 
 export type SourceKind = "study" | "experience" | "background";
@@ -16,6 +16,8 @@ export interface LiveResult extends WebResult {
   question: string;
   /** Local scope only: how close the result is to the chosen countries. */
   place?: Place;
+  /** Countries the result names, for the flag line. Added by the route. */
+  located?: Located;
 }
 
 const STOP = new Set(

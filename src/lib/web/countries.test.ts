@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { closestFirst, COUNTRIES, COUNTRY_CODES, countriesOf, mentions, nearbyCountries, placeOf, searchCountries, type Closeness } from "./countries";
+import { closestFirst, COUNTRIES, COUNTRY_CODES, countriesOf, locate, mentions, nearbyCountries, placeOf, searchCountries, type Closeness } from "./countries";
 
 const [mm, th, pl, gn, gb] = ["mm", "th", "pl", "gn", "gb"].map((c) => countriesOf([c])[0]);
 
@@ -41,6 +41,17 @@ describe("countries", () => {
     expect(near).toContain("Thailand");
     expect(near).not.toContain("Myanmar");
     expect(near).not.toContain("Germany");
+  });
+});
+
+describe("locate", () => {
+  it("prefers the title, then the text, then the authors, and says when nothing is stated", () => {
+    expect(locate({ title: "Internships in Vietnam", text: "Also Germany.", authorCountries: ["th"] })).toEqual({ codes: ["vn"], basis: "title" });
+    expect(locate({ title: "Internships", text: "Vietnamese universities and German firms." }).codes.sort()).toEqual(["de", "vn"]);
+    expect(locate({ title: "Internships", text: "", authorCountries: ["th"] })).toEqual({ codes: ["th"], basis: "authors" });
+    expect(locate({ title: "Internships", text: "no place" })).toEqual({ codes: [], basis: "none" });
+    expect(locate({ title: "US students", text: "" }).codes).toEqual(["us"]);
+    expect(locate({ title: "Tell us about US$ 5 pay", text: "" }).codes).toEqual([]);
   });
 });
 

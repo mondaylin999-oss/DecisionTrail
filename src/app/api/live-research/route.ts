@@ -1,6 +1,6 @@
 import { withUser } from "@/lib/http";
 import { LiveResearchZ } from "@/lib/validation";
-import { closestFirst, countriesOf, listNames, nearbyCountries, placeOf, type Country } from "@/lib/web/countries";
+import { closestFirst, countriesOf, listNames, locate, nearbyCountries, placeOf, type Country } from "@/lib/web/countries";
 import { NO_RESULT, parseCrossref, parseHackerNews, parseIntros, parseOpenAlex, parseStackExchange, relevant, safeCorrection, stackSites, withStackAnswers, type LiveResult, type StudyResult } from "@/lib/web/sources";
 import { parseSearch } from "@/lib/web/wikipedia";
 
@@ -98,7 +98,7 @@ function publicStudy(r: StudyResult): LiveResult {
   const { text: _text, authorCountries: _countries, ...rest } = r;
   void _text;
   void _countries;
-  return rest;
+  return { ...rest, located: locate(r) };
 }
 
 /** Question-and-answer discussions from one Stack Exchange site. */
@@ -223,12 +223,13 @@ export async function POST(req: Request) {
 
     const seen = new Set<string>();
     const unique = <T extends LiveResult>(rows: T[]): T[] => rows.filter((r) => !seen.has(r.url) && seen.add(r.url));
-    const pick = (rows: LiveResult[], enough: number, max: number) => (chosen.length ? closestFirst(rows, enough, max) : rows.slice(0, max));
+    const withCountry = (r: LiveResult): LiveResult => ({ ...r, located: locate({ title: r.title, text: `${r.question} ${r.snippet}` }) });
+    const pick = <T extends LiveResult>(rows: T[], enough: number, max: number): T[] => (chosen.length ? closestFirst(rows, enough, max) : rows.slice(0, max));
     const results = [
-      ...pick(unique(studies).map(publicStudy), 4, 5),
-      ...pick(unique(stack).map(place), 3, 4),
-      ...pick(unique(hn).map(place), 2, 3),
-      ...pick(unique(background).map(place), 2, 3),
+      ...pick(unique(studies), 4, 5).map(publicStudy),
+      ...pick(unique(stack).map(place), 3, 4).map(withCountry),
+      ...pick(unique(hn).map(place), 2, 3).map(withCountry),
+      ...pick(unique(background).map(place), 2, 3).map(withCountry),
     ];
     const value: Payload = {
       query,

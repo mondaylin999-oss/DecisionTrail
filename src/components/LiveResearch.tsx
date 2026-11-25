@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import type { Category } from "@/lib/vocab";
+import { countriesOf, type Located } from "@/lib/web/countries";
 import type { LiveResult, SourceKind } from "@/lib/web/sources";
+import { Flag } from "./CountrySearch";
 import { Badge, Button, Card, CardTitle, Notice, SkeletonCard, SkeletonGroup } from "./ui";
 
 interface Payload {
@@ -95,6 +97,7 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
                     <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
                     <span className="text-xs text-muted">{r.detail}</span>
                   </div>
+                  {r.located && <CountryLine located={r.located} note={!r.place} />}
                   {r.place && <p className={r.place.closeness === "country" ? "mt-1 text-xs font-medium text-accent" : "mt-1 text-xs font-medium text-signal"}>{r.place.text}</p>}
                   <QuestionAnswer question={r.question || r.title} answer={r.snippet} />
                 </li>
@@ -108,6 +111,29 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
         Questions and answers are the source&apos;s own words, at most 150 words each. A study&apos;s question is its stated aim, or its title. Wikipedia questions are written by DecisionTrail. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>
+  );
+}
+
+const BASIS: Record<Located["basis"], string> = {
+  title: "named in the title, not ensured",
+  text: "mentioned in the text, not ensured",
+  authors: "where the authors are based, not ensured",
+  none: "",
+};
+
+/** Flag and name of the country a result seems to be about. Local results carry their own note. */
+function CountryLine({ located, note }: { located: Located; note: boolean }) {
+  const found = countriesOf(located.codes);
+  if (!found.length) return note ? <p className="mt-1 text-xs text-muted">Country: not stated</p> : null;
+  return (
+    <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+      {found.map((c) => (
+        <span key={c.code} className="inline-flex items-center gap-1.5 font-semibold text-ink">
+          <Flag code={c.code} /> {c.name}
+        </span>
+      ))}
+      {(note || located.basis === "authors") && <span className="text-xs text-muted">{BASIS[located.basis]}</span>}
+    </p>
   );
 }
 
