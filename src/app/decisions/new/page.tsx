@@ -189,7 +189,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
           </Card>
 
           {searchWords.length >= 2 ? (
-            <LiveResearch query={searchWords} category={d.category} countries={scope.local ? scope.countries : []} />
+            <LiveResearch question={d.title} query={searchWords} category={d.category} countries={scope.local ? scope.countries : []} />
           ) : (
             <Notice tone="warn">There were no topic words to research online. Go back with “Change question” and describe the topic.</Notice>
           )}

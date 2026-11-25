@@ -15,6 +15,7 @@ import {
 import { CLOUD_MODEL, firebaseAI, RESEARCH_MODEL } from "../firebase/client";
 import type { PrivacyMode } from "../vocab";
 import { ON_DEVICE_CREATE_OPTIONS } from "./availability";
+import { BRIEF_SYSTEM_PROMPT, BriefZ, briefJsonSchema, briefPrompt, cleanBrief, type Brief, type EvidenceItem } from "./brief";
 import { routeFor, type AiTask, type Route } from "./router";
 import {
   EXTRACTION_SYSTEM_PROMPT,
@@ -140,6 +141,11 @@ export function generalizeQuery(privateSummary: string): Promise<AiResult<Genera
     `Private decision:\n"""${privateSummary.slice(0, 4000)}"""`,
     (v) => GeneralizationZ.parse(v),
   );
+}
+
+/** Explains numbered evidence. Unsupported, advising or predicting points are removed before display. */
+export function explainEvidence(question: string, items: EvidenceItem[], privacyMode: PrivacyMode): Promise<AiResult<Brief>> {
+  return structured("summarize", privacyMode, BRIEF_SYSTEM_PROMPT, briefJsonSchema, briefPrompt(question, items), (v) => cleanBrief(BriefZ.parse(v), items));
 }
 
 export interface ResearchResult {

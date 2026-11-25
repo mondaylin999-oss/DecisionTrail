@@ -62,7 +62,7 @@ describe("summaries", () => {
   });
 
   it("pairs the question with an answer, each within 150 words", () => {
-    const item = (id: number) => ({ title: "T", link: `https://workplace.stackexchange.com/q/${id}`, question_id: id, answer_count: 1, score: 0, body: `<p>${"asked ".repeat(300)}</p>` });
+    const item = (id: number) => ({ title: "T", link: `https://workplace.stackexchange.com/q/${id}`, question_id: id, answer_count: 1, score: 0, body: `<p>${"asked ".repeat(300)}</p>`, owner: { display_name: "A &amp; B", link: "https://workplace.stackexchange.com/users/1/a" }, content_license: "CC BY-SA 4.0" });
     const rows = parseStackExchange({ items: [item(1), item(2), item(3)] }, "workplace");
     const out = withStackAnswers(rows, {
       items: [
@@ -78,6 +78,10 @@ describe("summaries", () => {
     expect(out[0].question).toMatch(/^asked/);
     expect(count(out[0].question!)).toBeLessThanOrEqual(150);
     expect(out[1].snippet).toContain("it led to a job");
+    expect(out[0].credits).toEqual([
+      { role: "Question", name: "A & B", url: "https://workplace.stackexchange.com/users/1/a", licence: "CC BY-SA 4.0" },
+      { role: "Answer", name: "a former user", licence: "CC BY-SA" },
+    ]);
     expect(out[0].detail).toBe("1 answer · score 0");
     expect(withStackAnswers(rows, null)).toEqual([]);
   });

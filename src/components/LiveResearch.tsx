@@ -1,11 +1,12 @@
 "use client";
-/** Live sources for the current question. Real pages with links, never AI text. */
+/** Live sources for the current question. The cards are real pages with links; AI text appears only in EvidenceBrief. */
 import { useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import type { Category } from "@/lib/vocab";
 import { countriesOf, type Located } from "@/lib/web/countries";
 import type { LiveResult, SourceKind } from "@/lib/web/sources";
 import { Flag } from "./CountrySearch";
+import { EvidenceBrief } from "./EvidenceBrief";
 import { Badge, Button, Card, CardTitle, Notice, SkeletonCard, SkeletonGroup } from "./ui";
 
 interface Payload {
@@ -22,7 +23,7 @@ const GROUPS: { kind: SourceKind; title: string; hint: string }[] = [
 ];
 
 /** `countries` empty means World. */
-export function LiveResearch({ query, category, countries }: { query: string; category: Category; countries: string[] }) {
+export function LiveResearch({ question, query, category, countries }: { question: string; query: string; category: Category; countries: string[] }) {
   const [state, setState] = useState<{ key: string; data?: Payload; err?: string } | null>(null);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const places = countries.join(",");
@@ -74,6 +75,7 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
         </Notice>
       )}
       {results.length === 0 && <Notice tone="info">No live source matched these words. Go back with “Change question” and try simpler topic words.</Notice>}
+      <EvidenceBrief key={key} question={question} results={results} />
       {GROUPS.map((g) => {
         const rows = results.filter((r) => r.kind === g.kind);
         if (!rows.length) return null;
@@ -100,6 +102,25 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
                   {r.located && <CountryLine located={r.located} note={!r.place} />}
                   {r.place && <p className={r.place.closeness === "country" ? "mt-1 text-xs font-medium text-accent" : "mt-1 text-xs font-medium text-signal"}>{r.place.text}</p>}
                   <QuestionAnswer question={r.question || r.title} answer={r.snippet} />
+                  {r.credits && (
+                    <p className="mt-2 text-xs text-muted">
+                      {r.credits.map((c, i) => (
+                        <span key={c.role}>
+                          {i > 0 && " · "}
+                          {c.role} by{" "}
+                          {c.url ? (
+                            <a href={c.url} target="_blank" rel="noreferrer noopener" className="underline">
+                              {c.name}
+                            </a>
+                          ) : (
+                            c.name
+                          )}{" "}
+                          ({c.licence})
+                        </span>
+                      ))}
+                      , shortened
+                    </p>
+                  )}
                 </li>
               ))}
             </ul>
@@ -108,7 +129,7 @@ export function LiveResearch({ query, category, countries }: { query: string; ca
       })}
       {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
       <p className="text-xs text-muted">
-        Questions and answers are the source&apos;s own words, at most 150 words each. A study&apos;s question is its stated aim, or its title. Wikipedia questions are written by DecisionTrail. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
+        Questions and answers are the source&apos;s own words, shortened to at most 150 words each (70 for studies, whose abstracts belong to their publishers). A study&apos;s question is its stated aim, or its title. Wikipedia questions are written by DecisionTrail. They show what happened to others and don&apos;t predict your outcome. Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0, shortened; its authors are listed in each page&apos;s history.
       </p>
     </Card>
   );

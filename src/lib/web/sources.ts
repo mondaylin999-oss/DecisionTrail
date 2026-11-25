@@ -7,6 +7,13 @@ import type { Category } from "../vocab";
 import type { Located, Place } from "./countries";
 import { cleanSnippet, type WebResult } from "./wikipedia";
 
+export interface Credit {
+  role: string;
+  name: string;
+  url?: string;
+  licence: string;
+}
+
 export type SourceKind = "study" | "experience" | "background";
 export interface LiveResult extends WebResult {
   kind: SourceKind;
@@ -14,6 +21,8 @@ export interface LiveResult extends WebResult {
   detail: string;
   /** What was asked. `snippet` holds the answer, or is empty. Each is at most 150 words. */
   question: string;
+  /** Authors to credit, where the licence asks for it. */
+  credits?: Credit[];
   /** Local scope only: how close the result is to the chosen countries. */
   place?: Place;
   /** Countries the result names, for the flag line. Added by the route. */
@@ -92,6 +101,8 @@ const str = (v: unknown) => (typeof v === "string" ? v : "");
 const num = (v: unknown) => (typeof v === "number" ? v : 0);
 
 export const SUMMARY_WORDS = 150;
+/** Abstracts belong to their publishers, so studies get shorter excerpts. */
+export const STUDY_WORDS = 70;
 
 /** At most `max` words. Ends on a full sentence where that keeps most of the text, otherwise with "…". */
 export function trimWords(text: string, max = SUMMARY_WORDS): string {
@@ -138,7 +149,7 @@ export function findingsOf(abstract: string): string | null {
   const sentences = body.split(/(?<=[.!?])\s+/);
   const i = sentences.findIndex((x) => FINDING.test(x) && !/\b(aims?|purpose|objective|seeks?|investigates? whether|explores? (whether|how))\b/i.test(x));
   if (i < 0) return null;
-  return trimWords(sentences.slice(i).join(" ").replace(/^(Findings?|Results?|Conclusions?|FINDINGS?|RESULTS?|CONCLUSIONS?)[:.]?\s+(?=[A-Z])/, ""), SUMMARY_WORDS);
+  return trimWords(sentences.slice(i).join(" ").replace(/^(Findings?|Results?|Conclusions?|FINDINGS?|RESULTS?|CONCLUSIONS?)[:.]?\s+(?=[A-Z])/, ""), STUDY_WORDS);
 }
 
 const AIM =
@@ -150,14 +161,14 @@ export function studyQuestion(abstract: string, title: string): string {
   const end = sentences.findIndex((x) => FINDING.test(x) && !AIM.test(x));
   const aim = sentences.slice(0, end < 0 ? sentences.length : end).find((x) => AIM.test(x) && x.split(" ").length >= 6);
   const text = (aim ?? "").replace(/^(Purpose|Aims?|Objectives?|Background|Introduction|PURPOSE|AIMS?|OBJECTIVES?|BACKGROUND|INTRODUCTION)(\/\w+)?[:.]?\s+(?=[A-Z])/, "");
-  return trimWords(text || title);
+  return trimWords(text || title, 40);
 }
 
 export const NO_RESULT = "No clear result is stated. ";
 
 /** The finding; a study that states none is marked as such. */
 function studyAnswer(abstract: string): string {
-  return findingsOf(abstract) ?? `${NO_RESULT}About the study: ${trimWords(abstract, SUMMARY_WORDS - 8)}`;
+  return findingsOf(abstract) ?? `${NO_RESULT}About the study: ${trimWords(abstract, STUDY_WORDS - 8)}`;
 }
 
 /** Internal fields used to judge the country; removed before results are returned. */
@@ -200,13 +211,25 @@ export interface StackResult extends LiveResult {
   questionId: number;
 }
 
+/** Stack Exchange content is CC BY-SA: credit each author by name, with their profile. */
+function stackCredit(role: string, post: Record<string, unknown>): Credit {
+  const owner = (post.owner ?? {}) as Record<string, unknown>;
+  const link = str(owner.link);
+  return {
+    role,
+    name: htmlToText(str(owner.display_name)) || "a former user",
+    ...(/^https:\/\/([a-z.]+\.)?stackexchange\.com\//.test(link) ? { url: link } : {}),
+    licence: /^CC BY-SA [\d.]+$/.test(str(post.content_license)) ? str(post.content_license) : "CC BY-SA",
+  };
+}
+
 export function parseStackExchange(json: unknown, site: string): StackResult[] {
   return arr((json as { items?: unknown })?.items).flatMap((q) => {
     const title = cleanSnippet(str(q.title));
     const url = str(q.link);
     if (!title || !url) return [];
     const n = num(q.answer_count);
-    return [{ kind: "experience" as const, title, url, snippet: "", question: trimWords(htmlToText(str(q.body))) || title, publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id) }];
+    return [{ kind: "experience" as const, title, url, snippet: "", question: trimWords(htmlToText(str(q.body))) || title, publisher: `Stack Exchange (${site})`, detail: `${n} ${n === 1 ? "answer" : "answers"} · score ${num(q.score)}`, questionId: num(q.question_id), credits: [stackCredit("Question", q)] }];
   });
 }
 
@@ -217,12 +240,13 @@ const EXPERIENCE = /\bin my (own )?(case|experience)\b|\bI('ve| have)? (ended up
  * what its author did is preferred. Questions without a usable answer are left out.
  */
 export function withStackAnswers(rows: StackResult[], answersJson: unknown): LiveResult[] {
-  const all = arr((answersJson as { items?: unknown })?.items).map((a) => ({ id: num(a.question_id), score: num(a.score), text: htmlToText(str(a.body)) }));
+  const all = arr((answersJson as { items?: unknown })?.items).map((a) => ({ id: num(a.question_id), score: num(a.score), text: htmlToText(str(a.body)), credit: stackCredit("Answer", a) }));
   return rows.flatMap(({ questionId, ...r }) => {
     const mine = all.filter((a) => a.id === questionId && a.score >= 0 && a.text.split(" ").length >= 8).sort((a, b) => b.score - a.score);
     if (!mine.length) return [];
     const told = mine.find((a) => a.score >= mine[0].score / 2 && EXPERIENCE.test(a.text));
-    return [{ ...r, snippet: trimWords((told ?? mine[0]).text) }];
+    const best = told ?? mine[0];
+    return [{ ...r, snippet: trimWords(best.text), credits: [...(r.credits ?? []), best.credit] }];
   });
 }
 

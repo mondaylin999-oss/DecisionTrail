@@ -2,13 +2,22 @@
 
 **Learn From the Past. Decide With Confidence.**
 
-DecisionTrail is a decision workspace. It structures a decision you're facing, finds what **you** decided before and what happened, **researches live online sources** for every question, and then holds you to a **review date** so the outcome becomes your next lesson.
+**Live demo:** https://decisiontrail-five.vercel.app (the API sleeps when idle, so the first request can take up to a minute)
 
-It never predicts outcomes and never picks an option for you.
+Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference**: Gemini Nano on the device in Chrome, with a cloud Gemini fallback only where the user's privacy mode allows it.
 
-Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hybrid inference** (Gemini Nano on-device in Chrome + cloud Gemini).
+## The problem and who it is for
 
-> **Status: starter / MVP skeleton.** The full loop works (describe → structure → precedent → research → record → review). New decisions use live online research, not the case library. The earlier 135 unverified draft case files are kept in `data/cases/` for reference only; the app no longer uses them.
+People facing a real choice, such as a student deciding on an internship or a small team deciding on pricing, forget why they chose, ignore what others learned, and never check what happened. Most AI tools answer "what should I do?". DecisionTrail answers "what happened to others, and to me last time?".
+
+## What it does
+
+1. **Ask:** describe a decision in plain language. AI turns it into a structured record.
+2. **See evidence:** studies, discussions and background pages, each as a question and an answer with a link. **World** searches everywhere; **Local** puts up to three chosen countries first. AI can explain the evidence, citing its sources.
+3. **Decide:** save the choice, the reasons as written, and a review date.
+4. **Review:** record what happened. Similar past decisions appear next time.
+
+It never predicts outcomes and never picks an option.
 
 ---
 
@@ -18,19 +27,20 @@ Built for the Firebase #BuildHybridAI Hackathon 2026 with **Firebase AI Logic hy
 |---|---|---|---|
 | Structure the decision (free text → JSON) | On-device in **Private** mode; on-device first in **Hybrid** | `ONLY_ON_DEVICE` / `PREFER_ON_DEVICE` | AI processing of private text stays on the device by default (matching and saved decisions use our server) |
 | Generalize a private decision into a research query | **Always on-device** | `ONLY_ON_DEVICE` | The input *is* the private text, so cloud fallback would defeat the purpose |
+| Explain the evidence, with numbered sources | On-device in **Private** mode; on-device first in **Hybrid** | `ONLY_ON_DEVICE` / `PREFER_ON_DEVICE` | Only when the user asks. Guards drop any point without a real source, with a number the source doesn't contain, or that advises or predicts |
 | Live research with Grounding with Google Search | Cloud only, after consent | `ONLY_IN_CLOUD` | Tools and grounding aren't supported on-device |
-| Retrieval and matching | Our server, deterministic SQL + rules | — (no AI) | Explainable, and AI can't invent cases |
+| Finding evidence and past decisions | Our server, fixed rules | — (no AI) | Cards show the sources' own words, so AI can't invent evidence |
 
-Every AI result shows a **🔒 ON_DEVICE** or **☁️ IN_CLOUD** badge read from the SDK's `response.inferenceSource`, never assumed.
+Structured decisions, AI explanations and AI research show a **Ran on this device** or **Ran in the cloud** badge read from the SDK's `response.inferenceSource`, never assumed.
 
 **Why there's a router.** In `PREFER_ON_DEVICE` mode the SDK silently sends a request to the cloud when the on-device model is unavailable. So no cloud-capable model is ever built unless the user's privacy mode allows it. All routing lives in [`src/lib/ai/router.ts`](src/lib/ai/router.ts), with unit tests proving that Private mode can't reach the cloud.
 
 ### Privacy modes
-- **Private** (default): on-device only. If Gemini Nano is unavailable, the user fills in forms manually.
-- **Hybrid**: on-device first; cloud fallback for structuring is allowed and disclosed.
+- **Private** (default): AI runs on the device only. If Gemini Nano is unavailable, simple rules structure the decision and the user can edit it.
+- **Hybrid**: on-device first; cloud fallback for structuring and explaining evidence is allowed and disclosed.
 - **Cloud Research**: Hybrid plus live research. Each research request needs explicit consent for the exact query.
 
-**Live research** is separate from AI. It sends up to four topic words picked from the question, and any countries the user chooses, through the server to Wikipedia, OpenAlex (or Crossref when OpenAlex is unavailable), Stack Exchange and Hacker News. **World** searches everywhere; **Local** puts up to three chosen countries first, then fills up with authors there, the same region and the world. Each local result says what is not ensured. It runs for every new decision in every mode, and shows the words it searched for. Results are real pages with links, found by keyword and unverified.
+**Finding evidence** uses no AI. It sends up to four topic words picked from the question, and any countries the user chooses, through the server to Wikipedia, OpenAlex (or Crossref when OpenAlex is unavailable), Stack Exchange and Hacker News. **World** searches everywhere; **Local** puts up to three chosen countries first, then fills up with authors there, the same region and the world. Each local result says what is not ensured. It runs for every new decision in every mode, and shows the words it searched for. Results are real pages with links, found by keyword and unverified.
 
 Privacy modes govern where AI **processing** happens. Saved decisions are stored in PostgreSQL so users can access them later.
 
@@ -50,14 +60,15 @@ Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Firebase Auth · Fire
 
 ```
 src/
-  lib/ai/          router.ts (where tasks may run) · tasks.ts (every AI call) · schemas.ts · redact.ts · availability.ts
+  lib/ai/          router.ts (where tasks may run) · tasks.ts (every AI call) · brief.ts (evidence explanation guards) · schemas.ts · redact.ts · availability.ts
+  lib/web/         sources.ts (parsing and relevance) · countries.ts (World / Local, "not ensured" labels)
   lib/matching/    score.ts: deterministic matching and labels (spec J)
   lib/db/          schema.ts (Drizzle) · repo.ts (owner-scoped queries) · client.ts
   lib/firebase/    client.ts (browser) · admin.ts (ID token + App Check verification)
   app/api/         route handlers: every one verifies the Firebase ID token
   app/             dashboard, decisions/new (core workspace), decisions/[id] (record + review), research, settings
-scripts/           seed-cases.ts (verified cases) · seed-demo.ts (labelled demo data)
-data/cases/        _TEMPLATE.json: add verified case files here
+scripts/           seed-cases.ts (archived cases) · seed-demo.ts (labelled demo data)
+data/cases/        archived case drafts, not used by the app
 ```
 
 ---
@@ -75,12 +86,11 @@ data/cases/        _TEMPLATE.json: add verified case files here
 2. **AI Logic:** click *Get started*, choose the **Gemini Developer API**. App Check enforcement for AI Logic is mandatory since 2 Nov 2026.
 3. **App Check:** create a **reCAPTCHA Enterprise** website key (score-based, no checkbox) for your domains, register the web app with it, and enforce App Check for Firebase AI Logic. For localhost, register a **debug token**.
 4. Recommended: enable **authenticated-users mode** for AI Logic (every user signs in anyway). **Do not** enable template-only mode, because hybrid inference doesn't support server prompt templates.
-5. **Project settings → Service accounts:** generate a private key for the Admin SDK.
 
 ### 2. Configure and run
 ```bash
 npm install
-cp .env.example .env.local      # fill in every value
+cp .env.example .env.local      # fill in the Firebase and database values
 npm run db:push                 # create tables
 npm run dev                     # http://localhost:3000
 ```
@@ -95,7 +105,7 @@ One demo record is overdue for review, so you can show the review wizard immedia
 
 ### Checks
 ```bash
-npm test          # router, matching and redaction unit tests
+npm test          # router, AI guards, evidence, countries, matching and redaction
 npm run typecheck
 npm run lint
 npm run build
@@ -127,11 +137,17 @@ For a single-origin deployment, leave `NEXT_PUBLIC_API_BASE_URL` and `FRONTEND_O
 - Email review reminders (in-app only for now)
 - Data export and account deletion endpoints
 - PostgreSQL Row-Level Security (app-level owner checks are in place; RLS would add a second layer)
-- AI-phrased similarity summaries; classifying research findings into precedent / research / opinion
-- Promoting research candidates into the curated library (editor workflow)
+- Confirming on-device AI on more computers
+- Better country matching: labels come from words and author countries, and are never certain
 
 ## Disclaimer
-DecisionTrail is not a substitute for qualified medical, legal or financial professionals. Historical similarity does not predict future outcomes.
+DecisionTrail is not a substitute for qualified medical, legal or financial professionals. What happened to others does not predict your outcome.
+
+## Built during the submission period
+The first commit is from 13 November 2026, and everything here was built during the submission period (11 to 30 November 2026), with the help of an AI coding assistant.
+
+## Third-party content
+Evidence comes from [OpenAlex](https://openalex.org), [Crossref](https://www.crossref.org), [Stack Exchange](https://stackexchange.com) (CC BY-SA, authors credited on each card), [Hacker News](https://news.ycombinator.com) and [Wikipedia](https://www.wikipedia.org) (CC BY-SA). Excerpts are short and link to the source. Flags: [country-flag-icons](https://www.npmjs.com/package/country-flag-icons) (MIT, see `public/flags/LICENSE.txt`).
 
 ## License
 MIT. See [LICENSE](LICENSE).
