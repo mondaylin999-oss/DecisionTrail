@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { OnlineSearch } from "@/components/OnlineSearch";
-import { Badge, Card, Notice, SkeletonCard, SkeletonGroup } from "@/components/ui";
+import { RowsSkeleton } from "@/components/skeletons";
+import { Badge, Card, Notice } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 
 interface Session { id: string; queryText: string; status: string; createdAt: string }
 
 export default function ResearchHistoryPage() {
-  const { me } = useAuth();
+  const { me, error } = useAuth();
   const [rows, setRows] = useState<Session[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
   useEffect(() => {
@@ -23,13 +24,7 @@ export default function ResearchHistoryPage() {
       <PageTitle title="Saved research" subtitle="Your saved online sources and AI research sessions. All unverified." />
       {err && <Notice tone="error">{err}</Notice>}
       {rows?.length === 0 && <Notice tone="info">No AI research sessions yet.</Notice>}
-      {!rows && !err && (
-        <SkeletonGroup className="space-y-2">
-          {[0, 1, 2].map((i) => (
-            <SkeletonCard key={i} lines={1} />
-          ))}
-        </SkeletonGroup>
-      )}
+      {!rows && !err && !error && <RowsSkeleton />}
       <div className="space-y-2">
         {rows?.map((r) => (
           <Card key={r.id} className="space-y-1">

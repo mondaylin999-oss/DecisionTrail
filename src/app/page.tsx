@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import { Card, CardTitle, Notice, SkeletonCard, SkeletonGroup, buttonClass } from "@/components/ui";
+import { DashboardSkeleton } from "@/components/skeletons";
+import { Card, CardTitle, Notice, buttonClass } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 
@@ -18,7 +19,7 @@ interface Stats {
 }
 
 export default function Dashboard() {
-  const { me } = useAuth();
+  const { me, error } = useAuth();
   const [s, setS] = useState<Stats | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [now] = useState(() => Date.now());
@@ -50,15 +51,7 @@ export default function Dashboard() {
           )}
         </Notice>
       )}
-      {!s && !err && (
-        <SkeletonGroup className="space-y-4">
-          <SkeletonCard lines={1} />
-          <div className="grid gap-4 md:grid-cols-2">
-            <SkeletonCard lines={4} />
-            <SkeletonCard lines={4} />
-          </div>
-        </SkeletonGroup>
-      )}
+      {!s && !err && !error && <DashboardSkeleton />}
       {s && s.total === 0 && (
         <Card className="space-y-3">
           <CardTitle>Start your trail</CardTitle>

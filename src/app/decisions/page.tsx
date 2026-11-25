@@ -20,7 +20,7 @@ interface Row {
 }
 
 export default function DecisionsPage() {
-  const { me } = useAuth();
+  const { me, error } = useAuth();
   const [rows, setRows] = useState<Row[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [q, setQ] = useState("");
@@ -82,7 +82,7 @@ export default function DecisionsPage() {
                 </td>
               </tr>
             ))}
-            {!rows && !err &&
+            {!rows && !err && !error &&
               [0, 1, 2, 3, 4].map((i) => (
                 <tr key={`sk-${i}`} aria-hidden>
                   <td className="p-3"><Skeleton className="h-4 w-48" /></td>

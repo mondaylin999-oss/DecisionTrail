@@ -5,7 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { DemoBadge, MatchBadge, OriginChip, OutcomeChip } from "@/components/marks";
-import { Badge, Button, Card, CardTitle, Field, Input, Notice, Select, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea } from "@/components/ui";
+import { DecisionSkeleton } from "@/components/skeletons";
+import { Badge, Button, Card, CardTitle, Field, Input, Notice, Select, Spinner, Textarea } from "@/components/ui";
 import { api } from "@/lib/api";
 import { reviewIcs } from "@/lib/ics";
 import type { FieldOrigin, MatchLabel } from "@/lib/types";
@@ -48,7 +49,7 @@ const PROCESS = {
 
 export default function DecisionDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const { me } = useAuth();
+  const { me, error } = useAuth();
   const [d, setD] = useState<Detail | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [now] = useState(() => Date.now());
@@ -61,14 +62,7 @@ export default function DecisionDetailPage() {
   }, [me, load]);
 
   if (err) return <Notice tone="error">{err}</Notice>;
-  if (!d)
-    return (
-      <SkeletonGroup className="space-y-4">
-        <Skeleton className="h-9 w-1/2" />
-        <SkeletonCard lines={4} />
-        <SkeletonCard lines={3} />
-      </SkeletonGroup>
-    );
+  if (!d) return error ? null : <DecisionSkeleton />;
 
   const r = d.record;
   const chosen = d.options.find((o) => o.id === r.chosenOptionId);

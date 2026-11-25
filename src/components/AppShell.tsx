@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useAuth } from "./AuthProvider";
 import { PrivacyPill } from "./marks";
+import { ShellSkeleton } from "./skeletons";
 import { ThemeToggle } from "./ThemeToggle";
-import { Button, Card, Notice, Skeleton, SkeletonGroup, cn } from "./ui";
+import { Button, Card, Notice, cn } from "./ui";
 
 const NAV = [
   { href: "/", label: "Dashboard" },
@@ -39,17 +40,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </Centered>
     );
   }
-  if (!ready) {
-    return (
-      <Centered>
-        <SkeletonGroup className="space-y-3">
-          <Skeleton className="h-10 w-2/3" />
-          <Skeleton className="h-4 w-5/6" />
-          <Skeleton className="h-10 w-full" />
-        </SkeletonGroup>
-      </Centered>
-    );
-  }
+  if (!ready) return <ShellSkeleton logo={<Logo />} />;
   if (!user) return <SignIn onSignIn={() => void signIn()} />;
 
   return (

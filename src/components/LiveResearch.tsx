@@ -7,7 +7,8 @@ import { countriesOf, type Located } from "@/lib/web/countries";
 import type { LiveResult, SourceKind } from "@/lib/web/sources";
 import { Flag } from "./CountrySearch";
 import { EvidenceBrief } from "./EvidenceBrief";
-import { Badge, Button, Card, CardTitle, Notice, SkeletonCard, SkeletonGroup } from "./ui";
+import { LiveResearchSkeleton } from "./skeletons";
+import { Badge, Button, Card, CardTitle, Notice } from "./ui";
 
 interface Payload {
   query: string;
@@ -40,13 +41,7 @@ export function LiveResearch({ question, query, category, countries }: { questio
   }, [key, query, category, places]);
 
   const cur = state?.key === key ? state : null;
-  if (!cur)
-    return (
-      <SkeletonGroup className="space-y-3">
-        <p className="text-sm text-muted">Researching live sources…</p>
-        <SkeletonCard lines={3} />
-      </SkeletonGroup>
-    );
+  if (!cur) return <LiveResearchSkeleton local={countries.length > 0} />;
   if (cur.err) return <Notice tone="warn">Live research didn&apos;t work this time ({cur.err}). Your decision isn&apos;t affected.</Notice>;
 
   const { results, unavailable, query: used, local } = cur.data!;

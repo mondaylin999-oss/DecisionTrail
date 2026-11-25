@@ -5,11 +5,12 @@ import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { InferenceBadge } from "@/components/marks";
 import { LiveResearch } from "@/components/LiveResearch";
+import { AskSkeleton, EvidenceStepSkeleton } from "@/components/skeletons";
 import { MatchCard } from "@/components/MatchCard";
 import { savedScope, ScopePicker, type Scope } from "@/components/ScopePicker";
 import { ResearchPanel } from "@/components/ResearchPanel";
 import { emptyDecision, StructureEditor } from "@/components/StructureEditor";
-import { Button, Card, CardTitle, Field, Input, Notice, Skeleton, SkeletonCard, SkeletonGroup, Spinner, Textarea, cn } from "@/components/ui";
+import { Button, Card, CardTitle, Field, Input, Notice, Spinner, Textarea, cn } from "@/components/ui";
 import { extractDecision, type Where } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
 import { quickStructure } from "@/lib/quickStructure";
@@ -25,12 +26,7 @@ export default function NewDecisionPage() {
   const [run, setRun] = useState(0);
   return (
     <Suspense
-      fallback={
-        <SkeletonGroup className="space-y-4">
-          <Skeleton className="h-9 w-1/2" />
-          <SkeletonCard lines={4} />
-        </SkeletonGroup>
-      }
+      fallback={<AskSkeleton />}
     >
       <NewDecision key={run} onSaved={() => setRun((n) => n + 1)} />
     </Suspense>
@@ -38,12 +34,11 @@ export default function NewDecisionPage() {
 }
 
 function NewDecision({ onSaved }: { onSaved: () => void }) {
-  const { me, aiStatus } = useAuth();
+  const { me, aiStatus, error } = useAuth();
   const router = useRouter();
   const past = useSearchParams().get("past") === "1";
   const [step, setStep] = useState<Step>("ask");
   const [text, setText] = useState("");
-  const [options, setOptions] = useState(["", ""]);
   const [scope, setScope] = useState<Scope>(savedScope);
   const [showAll, setShowAll] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
@@ -52,19 +47,20 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   const [d, setD] = useState<StructuredDecision>(emptyDecision());
   const [matches, setMatches] = useState<MatchResult[]>([]);
 
-  if (!me) return null;
+  // The shell already shows the error, so don't keep "loading" forever.
+  if (!me) return error ? null : <AskSkeleton />;
 
   /** Structures the text (AI when it's ready, fixed rules otherwise) and looks up past decisions in one go. */
   async function ask() {
     setNotice(null);
     setWhere(null);
-    let next = quickStructure(text, options);
+    let next = quickStructure(text, []);
     // Never start a multi-gigabyte model download from this button; Settings does that.
     if (aiStatus === "available" || me!.privacyMode !== "private") {
       setBusy("Structuring your decision…");
       try {
         const r = await extractDecision(text, me!.privacyMode);
-        next = fromAi(r.data, next, options.some((o) => o.trim()));
+        next = fromAi(r.data, next);
         setWhere(r.where);
       } catch {
         setNotice({ tone: "info", msg: "AI structuring wasn't available, so we sorted your decision with simple rules. Check the details below." });
@@ -102,7 +98,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
 
   const needsCountry = scope.local && scope.countries.length === 0;
   const ready = text.trim().length >= 10 && !needsCountry;
-  const searchWords = topicWords(text, options).join(" ");
+  const searchWords = topicWords(text).join(" ");
 
   return (
     <>
@@ -116,14 +112,15 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
       </ol>
       {notice && <Notice tone={notice.tone}>{notice.msg}</Notice>}
 
-      {step === "ask" && (
+      {step === "ask" && busy && <EvidenceStepSkeleton status={busy} local={scope.local} />}
+      {step === "ask" && !busy && (
         <Card className="space-y-4">
           <CardTitle>{past ? "What did you decide?" : "What are you deciding?"}</CardTitle>
           <form
             className="space-y-4"
             onSubmit={(e) => {
               e.preventDefault();
-              if (ready && !busy) void ask();
+              if (ready) void ask();
             }}
           >
             <Textarea
@@ -134,24 +131,12 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
               onChange={(e) => setText(e.target.value)}
               placeholder="e.g. I run a B2B SaaS for small clinics with a limited budget. Should we offer a free plan or a paid subscription?"
             />
-            <Field label="Your options (optional)">
-              <div className="space-y-2">
-                {options.map((o, i) => (
-                  <Input key={i} aria-label={`Option ${i + 1}`} maxLength={120} placeholder={`Option ${i + 1}`} value={o} onChange={(e) => setOptions(options.map((x, j) => (j === i ? e.target.value : x)))} />
-                ))}
-              </div>
-            </Field>
             <ScopePicker value={scope} onChange={setScope} />
             <div className="flex flex-wrap items-center gap-2">
-              <Button type="submit" disabled={!!busy || !ready}>
-                {busy && <Spinner />} Find evidence
+              <Button type="submit" disabled={!ready}>
+                Find evidence
               </Button>
-              {options.length < 5 && (
-                <Button type="button" variant="ghost" onClick={() => setOptions([...options, ""])}>
-                  + Add option
-                </Button>
-              )}
-              {busy ? <span className="text-sm text-muted">{busy}</span> : !ready && <span className="text-sm text-muted">{needsCountry ? "Choose at least one country to continue." : "Write one sentence to continue."}</span>}
+              {!ready && <span className="text-sm text-muted">{needsCountry ? "Choose at least one country to continue." : "Write one sentence to continue."}</span>}
             </div>
           </form>
           <p className="text-xs text-muted">
@@ -229,9 +214,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   );
 }
 
-/** Turns the AI's reading into an editable decision. Options the user typed always win. */
-function fromAi(e: Awaited<ReturnType<typeof extractDecision>>["data"], basic: StructuredDecision, typedOptions: boolean): StructuredDecision {
-  const useOwn = typedOptions || e.alternatives.length === 0;
+/** Turns the AI's reading into an editable decision. */
+function fromAi(e: Awaited<ReturnType<typeof extractDecision>>["data"], basic: StructuredDecision): StructuredDecision {
+  const useOwn = e.alternatives.length === 0;
   return {
     title: e.title || basic.title,
     category: e.category,

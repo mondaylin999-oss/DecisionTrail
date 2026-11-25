@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { PrivacyPill } from "@/components/marks";
+import { SettingsSkeleton } from "@/components/skeletons";
 import { Button, Card, CardTitle, Notice } from "@/components/ui";
 import { STATUS_TEXT } from "@/lib/ai/availability";
 import { prepareDeviceModel } from "@/lib/ai/tasks";
@@ -30,7 +31,7 @@ const MODES: { mode: PrivacyMode; title: string; body: string[] }[] = [
 interface Consent { id: string; scope: string; purpose: string; service: string; grantedAt: string; payloadText: string | null }
 
 export default function SettingsPage() {
-  const { me, setPrivacyMode, aiStatus, refreshAiStatus } = useAuth();
+  const { me, error, setPrivacyMode, aiStatus, refreshAiStatus } = useAuth();
   const [pending, setPending] = useState<PrivacyMode | null>(null);
   const [consents, setConsents] = useState<Consent[]>([]);
   const [msg, setMsg] = useState<string | null>(null);
@@ -41,7 +42,7 @@ export default function SettingsPage() {
     api<{ consents: Consent[] }>("/api/consents").then((r) => setConsents(r.consents)).catch(() => {});
   }, [me]);
 
-  if (!me) return null;
+  if (!me) return error ? null : <SettingsSkeleton />;
 
   async function choose(m: PrivacyMode) {
     const order: PrivacyMode[] = ["private", "hybrid", "cloud_research"];

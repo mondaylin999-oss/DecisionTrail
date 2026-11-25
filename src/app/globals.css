@@ -63,7 +63,9 @@ input[type="radio"], input[type="checkbox"], progress { accent-color: var(--bran
 .dark .only-dark { display: block; }
 .dark .only-light { display: none; }
 .dark .logo-mark { border-radius: 9px; outline: 1px solid var(--line); }
-.skeleton { background-color: var(--subtle); }
+.skeleton { background-color: var(--line); opacity: 0.55; animation: skeleton-pulse 1.6s ease-in-out infinite; }
+@keyframes skeleton-pulse { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
 
 /* AI interpretation: visually distinct from user-written and source-backed text */
 .ai-text {
