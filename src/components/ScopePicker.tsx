@@ -1,7 +1,8 @@
 "use client";
 /** World or Local: which countries the user wants evidence for. Location is never detected. */
-import { COUNTRIES, COUNTRY_CODES, countriesOf, MAX_COUNTRIES } from "@/lib/web/countries";
-import { Button, Select } from "./ui";
+import { COUNTRY_CODES, countriesOf, MAX_COUNTRIES } from "@/lib/web/countries";
+import { CountrySearch, Flag } from "./CountrySearch";
+import { Button } from "./ui";
 
 export interface Scope {
   local: boolean;
@@ -44,20 +45,17 @@ export function ScopePicker({ value, onChange }: { value: Scope; onChange: (s: S
               {countriesOf(value.countries).map((c) => (
                 <li key={c.code}>
                   <Button type="button" variant="secondary" aria-label={`Remove ${c.name}`} onClick={() => set({ ...value, countries: value.countries.filter((x) => x !== c.code) })}>
-                    {c.name} <span aria-hidden>×</span>
+                    <Flag code={c.code} /> {c.name} <span aria-hidden>×</span>
                   </Button>
                 </li>
               ))}
             </ul>
           )}
           {value.countries.length < MAX_COUNTRIES && (
-            <Select
-              aria-label="Add a country"
-              className="sm:max-w-xs"
-              options={["", ...COUNTRIES.filter((c) => !value.countries.includes(c.code)).map((c) => c.code)]}
-              labels={(v) => (v ? countriesOf([v])[0].name : value.countries.length ? "Add another country" : "Choose a country")}
-              value=""
-              onChange={(e) => e.target.value && set({ ...value, countries: [...value.countries, e.target.value] })}
+            <CountrySearch
+              label={value.countries.length ? "Add another country" : "Choose a country"}
+              exclude={value.countries}
+              onPick={(code) => set({ ...value, countries: [...value.countries, code] })}
             />
           )}
           <p className="text-xs text-muted">Up to {MAX_COUNTRIES}, English sources only. If there is too little, other results from the same region or the world are added. It is not ensured that a result applies to your country.</p>

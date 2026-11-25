@@ -54,6 +54,26 @@ export const COUNTRY_CODES = ALL.map((c) => c.code) as [string, ...string[]];
 
 export const countriesOf = (codes: readonly string[]): Country[] => codes.flatMap((c) => BY_CODE.get(c) ?? []);
 
+const plain = (t: string) => t.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().trim();
+
+/** Countries whose name or other words contain the text; names that start with it come first. */
+export function searchCountries(text: string): Country[] {
+  const q = plain(text);
+  if (!q) return [...COUNTRIES];
+  const rank = (c: Country) => {
+    const name = plain(c.name);
+    if (c.words.some((w) => plain(w) === q)) return -1;
+    if (name.startsWith(q)) return 0;
+    if (name.split(/[\s-]/).some((w) => w.startsWith(q))) return 1;
+    if (c.words.some((w) => plain(w).startsWith(q)) || c.code === q) return 2;
+    return q.length > 2 && name.includes(q) ? 3 : 9;
+  };
+  return COUNTRIES.map((c) => ({ c, r: rank(c) }))
+    .filter((x) => x.r < 9)
+    .sort((a, b) => a.r - b.r)
+    .map((x) => x.c);
+}
+
 /** Other countries in the same regions. */
 export function nearbyCountries(chosen: readonly Country[]): Country[] {
   return ALL.filter((c) => chosen.some((x) => x.region === c.region) && !chosen.includes(c));

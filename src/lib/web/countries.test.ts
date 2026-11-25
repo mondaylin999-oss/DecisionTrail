@@ -1,5 +1,6 @@
+import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { closestFirst, COUNTRIES, COUNTRY_CODES, countriesOf, mentions, nearbyCountries, placeOf, type Closeness } from "./countries";
+import { closestFirst, COUNTRIES, COUNTRY_CODES, countriesOf, mentions, nearbyCountries, placeOf, searchCountries, type Closeness } from "./countries";
 
 const [mm, th, pl, gn, gb] = ["mm", "th", "pl", "gn", "gb"].map((c) => countriesOf([c])[0]);
 
@@ -9,6 +10,22 @@ describe("countries", () => {
     expect(COUNTRY_CODES.every((c) => /^[a-z]{2}$/.test(c))).toBe(true);
     expect(COUNTRIES.length).toBeGreaterThan(190);
     expect(countriesOf(["zz"])).toEqual([]);
+  });
+
+  it("has a flag file for every country", () => {
+    expect(COUNTRY_CODES.filter((c) => !existsSync(`public/flags/${c}.svg`))).toEqual([]);
+  });
+
+  it("searches by name, part of a name, other names and without accents", () => {
+    const first = (t: string) => searchCountries(t)[0]?.name;
+    expect(first("mya")).toBe("Myanmar");
+    expect(first("burma")).toBe("Myanmar");
+    expect(first("korea")).toMatch(/Korea/);
+    expect(first("uk")).toBe("United Kingdom");
+    expect(searchCountries("uk").map((c) => c.name)).toContain("Ukraine");
+    expect(first("sao tome")).toBe("São Tomé and Príncipe");
+    expect(searchCountries("zzzz")).toEqual([]);
+    expect(searchCountries(" ")).toHaveLength(COUNTRIES.length);
   });
 
   it("notices mentions as whole, capitalised words", () => {
