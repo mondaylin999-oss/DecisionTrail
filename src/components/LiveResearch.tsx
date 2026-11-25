@@ -13,9 +13,9 @@ interface Payload {
 }
 
 const GROUPS: { kind: SourceKind; title: string; hint: string }[] = [
-  { kind: "study", title: "📊 What research found", hint: "check how well each study fits your situation" },
-  { kind: "experience", title: "💬 People who faced this", hint: "personal opinions, not verified" },
-  { kind: "background", title: "📖 Background", hint: "general information" },
+  { kind: "study", title: "What research found", hint: "check how well each study fits your situation" },
+  { kind: "experience", title: "People who faced this", hint: "personal opinions, not verified" },
+  { kind: "background", title: "Background", hint: "general information" },
 ];
 
 export function LiveResearch({ query, category }: { query: string; category: Category }) {
@@ -37,7 +37,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
   if (!cur)
     return (
       <SkeletonGroup className="space-y-3">
-        <p className="text-sm text-slate-600">Researching live sources…</p>
+        <p className="text-sm text-muted">Researching live sources…</p>
         <SkeletonCard lines={3} />
       </SkeletonGroup>
     );
@@ -56,7 +56,7 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
 
   return (
     <Card className="space-y-5">
-      <CardTitle hint={`searched for “${used}”`}>🌐 Live research</CardTitle>
+      <CardTitle hint={`searched for “${used}”`}>Live research</CardTitle>
       {results.length === 0 && <Notice tone="info">No live source matched these words. Go back with “Change question” and try simpler topic words.</Notice>}
       {GROUPS.map((g) => {
         const rows = results.filter((r) => r.kind === g.kind);
@@ -64,32 +64,32 @@ export function LiveResearch({ query, category }: { query: string; category: Cat
         return (
           <section key={g.kind} aria-label={g.title} className="space-y-2">
             <h3 className="font-semibold">
-              {g.title} <span className="text-xs font-normal text-slate-500">{g.hint}</span>
+              {g.title} <span className="text-xs font-normal text-muted">{g.hint}</span>
             </h3>
             <ul className="space-y-2">
               {rows.map((r) => (
-                <li key={r.url} className="rounded-2xl border border-violet-100 bg-white/70 p-3 text-sm">
+                <li key={r.url} className="rounded-lg border border-line bg-surface p-3 text-sm">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <a href={r.url} target="_blank" rel="noreferrer noopener" className="min-w-0 flex-1 font-semibold hover:underline">
-                      {r.title} ↗
+                      {r.title}
                     </a>
                     <Button variant="ghost" disabled={saved[r.url]} onClick={() => void save(r)}>
-                      {saved[r.url] ? "✓ Saved" : saved[r.url] === false ? "Try again" : "Save"}
+                      {saved[r.url] ? "Saved" : saved[r.url] === false ? "Try again" : "Save"}
                     </Button>
                   </div>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
-                    <Badge className="border-sky-300 bg-sky-50 text-sky-900">{r.publisher}</Badge>
-                    <span className="text-xs text-slate-500">{r.detail}</span>
+                    <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
+                    <span className="text-xs text-muted">{r.detail}</span>
                   </div>
-                  {r.snippet && <p className="mt-1 text-slate-600">{r.snippet}…</p>}
+                  {r.snippet && <p className="mt-1 text-muted">{r.snippet}…</p>}
                 </li>
               ))}
             </ul>
           </section>
         );
       })}
-      {unavailable.length > 0 && <p className="text-xs text-slate-500">Not available right now: {unavailable.join(", ")}.</p>}
-      <p className="text-xs text-slate-500">
+      {unavailable.length > 0 && <p className="text-xs text-muted">Not available right now: {unavailable.join(", ")}.</p>}
+      <p className="text-xs text-muted">
         Real pages found by keyword, unverified and not matched to your situation by DecisionTrail. Wikipedia text is CC BY-SA 4.0; Stack Exchange content belongs to its authors (CC BY-SA).
       </p>
     </Card>

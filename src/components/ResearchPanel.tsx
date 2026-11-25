@@ -1,8 +1,8 @@
 "use client";
 /**
  * Live research with explicit consent (spec H):
- * on-device generalization → deterministic leak check → user edits →
- * consent sheet → cloud Gemini + Google Search grounding → research candidates.
+ * on-device generalization deterministic leak check user edits
+ * consent sheet cloud Gemini + Google Search grounding research candidates.
  */
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -125,10 +125,10 @@ export function ResearchPanel({
 
   if (phase === "idle" || phase === "declined") {
     return (
-      <Card className={prominent ? "border-sky-300" : undefined}>
+      <Card className={prominent ? "border-accent" : undefined}>
         <CardTitle hint="optional · cloud · needs your consent">Research this decision using the web</CardTitle>
         {phase === "declined" && <Notice tone="info">Research declined. Nothing was sent. You can continue with the evidence you have.</Notice>}
-        <p className="mb-3 text-sm text-slate-600">Private AI first rewrites your decision into a general query on your device. You&apos;ll see and edit exactly what would be sent before anything leaves your browser.</p>
+        <p className="mb-3 text-sm text-muted">Private AI first rewrites your decision into a general query on your device. You&apos;ll see and edit exactly what would be sent before anything leaves your browser.</p>
         <Button onClick={() => void startGeneralize()}>Prepare a research query</Button>
       </Card>
     );
@@ -146,12 +146,12 @@ export function ResearchPanel({
   const supports = result?.grounding?.groundingSupports ?? [];
 
   return (
-    <Card className="space-y-4 border-sky-300">
+    <Card className="space-y-4 border-accent">
       <CardTitle hint="nothing is sent until you approve">Research preview &amp; consent</CardTitle>
       {genNote && <Notice tone="warn">{genNote}</Notice>}
 
       <div className="space-y-1">
-        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+        <div className="flex items-center gap-2 text-sm font-semibold text-ink">
           Will be sent <InferenceBadge where={genWhere} />
         </div>
         <Textarea value={query} onChange={(e) => setQuery(e.target.value)} disabled={phase !== "review"} className="font-mono text-xs" />
@@ -164,8 +164,8 @@ export function ResearchPanel({
 
       <div className="grid gap-3 text-sm md:grid-cols-2">
         <div>
-          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Will NOT be sent</div>
-          <ul className="list-inside list-disc text-slate-700">
+          <div className="text-sm font-semibold text-ink">Will NOT be sent</div>
+          <ul className="list-inside list-disc text-ink">
             <li>Your original description and context</li>
             <li>Your assumptions, reasons and notes</li>
             <li>Your personal decision history</li>
@@ -175,8 +175,8 @@ export function ResearchPanel({
           </ul>
         </div>
         <div className="space-y-1">
-          <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Processed by</div>
-          <p className="text-slate-700">Google Gemini ({RESEARCH_MODEL}) in the cloud via Firebase AI Logic, with Grounding with Google Search.</p>
+          <div className="text-sm font-semibold text-ink">Processed by</div>
+          <p className="text-ink">Google Gemini ({RESEARCH_MODEL}) in the cloud via Firebase AI Logic, with Grounding with Google Search.</p>
             <label className="flex items-center gap-2">
             <input type="checkbox" checked={saveResults} onChange={(e) => setSaveResults(e.target.checked)} disabled={phase !== "review"} />
             Save findings and source links to my private research history
@@ -207,11 +207,11 @@ export function ResearchPanel({
       )}
 
       {result && (
-        <div className="space-y-4 border-t border-slate-200 pt-4">
+        <div className="space-y-4 border-t border-line pt-4">
           <div className="flex flex-wrap items-center gap-2">
             <InferenceBadge where={result.where} />
-            <Badge className="border-amber-300 bg-amber-50 text-amber-800">Research candidates · not verified by DecisionTrail</Badge>
-            {result.saved && <Badge className="border-slate-300 text-slate-600">Saved to research history</Badge>}
+            <Badge className="border-signal bg-signal-soft text-signal">Research candidates · not verified by DecisionTrail</Badge>
+            {result.saved && <Badge className="border-line text-muted">Saved to research history</Badge>}
           </div>
 
           {!result.grounding || chunks.length === 0 ? (
@@ -228,8 +228,8 @@ export function ResearchPanel({
                     <li key={i} className="text-sm">
                       <span>{g.segment!.text}</span>{" "}
                       {(g.groundingChunkIndices ?? []).map((ci) => (
-                        <a key={ci} href={chunks[ci]?.web?.uri} target="_blank" rel="noreferrer noopener" className="ml-1 rounded bg-slate-100 px-1.5 text-xs text-slate-700 hover:underline">
-                          📄 {chunks[ci]?.web?.domain || chunks[ci]?.web?.title || `source ${ci + 1}`}
+                        <a key={ci} href={chunks[ci]?.web?.uri} target="_blank" rel="noreferrer noopener" className="ml-1 rounded bg-subtle px-1.5 text-xs text-ink hover:underline">
+                          {chunks[ci]?.web?.domain || chunks[ci]?.web?.title || `source ${ci + 1}`}
                         </a>
                       ))}
                     </li>
@@ -237,7 +237,7 @@ export function ResearchPanel({
                 </ul>
               </div>
               <details>
-                <summary className="cursor-pointer text-sm text-slate-600">Full AI answer (includes interpretation, not all of it source-backed)</summary>
+                <summary className="cursor-pointer text-sm text-muted">Full AI answer (includes interpretation, not all of it source-backed)</summary>
                 <p className="ai-text mt-2 whitespace-pre-wrap text-sm">{result.text}</p>
               </details>
               <div>
@@ -252,13 +252,13 @@ export function ResearchPanel({
                   ))}
                 </ol>
                 {result.grounding.webSearchQueries?.length ? (
-                  <p className="mt-1 text-xs text-slate-500">Searches run: {result.grounding.webSearchQueries.join(" · ")}</p>
+                  <p className="mt-1 text-xs text-muted">Searches run: {result.grounding.webSearchQueries.join(" · ")}</p>
                 ) : null}
               </div>
             </>
           )}
           <SearchSuggestions html={result.grounding?.searchEntryPoint?.renderedContent} />
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-muted">
             No outcome documented is not the same as a negative outcome. Check sources before relying on any finding.
           </p>
         </div>

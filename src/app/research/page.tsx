@@ -20,7 +20,7 @@ export default function ResearchHistoryPage() {
 
   return (
     <>
-      <PageTitle title="Research history" subtitle="Your saved online sources and AI research sessions. All unverified." />
+      <PageTitle title="Saved research" subtitle="Your saved online sources and AI research sessions. All unverified." />
       {err && <Notice tone="error">{err}</Notice>}
       {rows?.length === 0 && <Notice tone="info">No AI research sessions yet.</Notice>}
       {!rows && !err && (
@@ -34,10 +34,10 @@ export default function ResearchHistoryPage() {
         {rows?.map((r) => (
           <Card key={r.id} className="space-y-1">
             <div className="flex items-center gap-2">
-              <Badge className={r.status === "completed" ? "border-emerald-300 text-emerald-800" : "border-amber-300 text-amber-800"}>{label(r.status)}</Badge>
-              <span className="text-xs text-slate-500">{new Date(r.createdAt).toLocaleString("en-US")}</span>
+              <Badge className={r.status === "completed" ? "border-accent text-accent" : "border-signal text-signal"}>{label(r.status)}</Badge>
+              <span className="text-xs text-muted">{new Date(r.createdAt).toLocaleString("en-US")}</span>
             </div>
-            <p className="font-mono text-xs text-slate-700">{r.queryText}</p>
+            <p className="font-mono text-xs text-ink">{r.queryText}</p>
           </Card>
         ))}
       </div>

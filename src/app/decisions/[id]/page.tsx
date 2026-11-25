@@ -80,17 +80,17 @@ export default function DecisionDetailPage() {
     <>
       <PageTitle title={r.title} subtitle={`${label(r.category)} · ${label(r.decisionType)}`} actions={r.isDemo ? <DemoBadge /> : undefined} />
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid items-start gap-4 md:grid-cols-3">
         <Card className="space-y-3 md:col-span-2">
           <CardTitle hint={`v${d.versions.at(-1)?.versionNo ?? 1} · ${"original preserved"}`}>Decision record</CardTitle>
-          <p className="text-sm text-slate-700">{r.context}</p>
+          <p className="text-sm text-ink">{r.context}</p>
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Options</div>
+            <div className="text-sm font-semibold text-ink">Options</div>
             <ul className="space-y-1 text-sm">
               {d.options.map((o) => (
-                <li key={o.id} className="flex items-center gap-2">
-                  {o.id === r.chosenOptionId ? <Badge className="border-violet-600 bg-violet-600 text-white">Chosen</Badge> : <span className="w-14" />}
-                  <span className="font-medium">{o.label}</span> <span className="text-slate-500">{o.description}</span> <OriginChip origin={o.origin} />
+                <li key={o.id} className="flex flex-wrap items-center gap-2">
+                  {o.id === r.chosenOptionId ? <Badge className="border-brand bg-brand text-white">Chosen</Badge> : null}
+                  <span className="font-medium">{o.label}</span> <span className="text-muted">{o.description}</span> <OriginChip origin={o.origin} />
                 </li>
               ))}
             </ul>
@@ -99,7 +99,7 @@ export default function DecisionDetailPage() {
           <Block title="Expected outcome" text={r.expectedOutcome} />
           {r.successCriteria.length > 0 && (
             <div>
-              <div className="text-xs font-medium uppercase text-slate-500">Success criteria</div>
+              <div className="text-sm font-semibold text-ink">Success criteria</div>
               <ul className="list-inside list-disc text-sm">
                 {r.successCriteria.map((c, i) => (
                   <li key={i}>
@@ -109,32 +109,34 @@ export default function DecisionDetailPage() {
               </ul>
             </div>
           )}
+          {d.assumptions.length > 0 && (
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Assumptions</div>
+            <div className="text-sm font-semibold text-ink">Assumptions</div>
             <ul className="space-y-1 text-sm">
               {d.assumptions.map((a) => (
                 <li key={a.id} className="flex items-center gap-2">
-                  {a.reviewResult === "held" ? "✓" : a.reviewResult === "failed" ? "✗" : a.reviewResult === "unclear" ? "?" : "•"} {a.text} <OriginChip origin={a.origin} />
+                  {a.reviewResult === "held" ? "Held:" : a.reviewResult === "failed" ? "Failed:" : a.reviewResult === "unclear" ? "Unclear:" : ""} {a.text} <OriginChip origin={a.origin} />
                 </li>
               ))}
             </ul>
           </div>
+          )}
         </Card>
         <Card className="space-y-3">
           <CardTitle>Status</CardTitle>
           <p className="text-sm">{label(r.status)}</p>
-          <p className="text-sm text-slate-600">{"Decided: "}{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString("en-US") : "—"}</p>
-          <p className="text-sm text-slate-600">{"Review due: "}{due ? due.toLocaleDateString("en-US") : "—"}</p>
+          <p className="text-sm text-muted">{"Decided: "}{r.decidedAt ? new Date(r.decidedAt).toLocaleDateString("en-US") : "—"}</p>
+          <p className="text-sm text-muted">{"Review due: "}{due ? due.toLocaleDateString("en-US") : "—"}</p>
           <OutcomeChip value={latest?.outcome?.outcomeStatus} />
           {due && reviewOpen && (
             <Button variant="secondary" onClick={() => downloadReminder(r.id, r.title, due)}>
-              📅 Add review to calendar
+              Add review to calendar
             </Button>
           )}
           <div>
-            <div className="text-xs font-medium uppercase text-slate-500">Past decisions consulted</div>
+            <div className="text-sm font-semibold text-ink">Past decisions consulted</div>
             {d.matches.length === 0 ? (
-            <p className="text-sm text-slate-500">None recorded</p>
+            <p className="text-sm text-muted">None recorded</p>
             ) : (
               <ul className="space-y-1">
                 {d.matches.map((m) => (
@@ -171,17 +173,17 @@ export default function DecisionDetailPage() {
               ))}
             </ul>
           ) : null}
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="space-y-4">
             <Block title="Unexpected events" text={latest.review.unexpectedEvents} />
             <Block title="Would do differently" text={latest.review.wouldDoDifferently} />
             <Block title="Lessons" text={latest.review.lessons} />
           </div>
           {Object.keys(latest.review.processChecklist).length > 0 && (
             <div className="text-sm">
-              <div className="text-xs font-medium uppercase text-slate-500">Process quality (judged separately from the outcome)</div>
+              <div className="text-sm font-semibold text-ink">Process quality (judged separately from the outcome)</div>
               {Object.entries(PROCESS).map(([k, item]) => (
                 <div key={k}>
-                  {latest.review.processChecklist[k] ? "✓" : "–"} {item}
+                  {latest.review.processChecklist[k] ? "Yes:" : "No:"} {item}
                 </div>
               ))}
             </div>
@@ -242,7 +244,7 @@ function DecideDraft({ d, onDone }: { d: Detail; onDone: () => void }) {
         {d.options.map((o) => (
           <label key={o.id} className="flex items-center gap-2 text-sm">
             <input type="radio" name="draft-choice" checked={choice === o.id} onChange={() => setChoice(o.id)} />
-            <span className="font-medium">{o.label}</span> <span className="text-slate-500">{o.description}</span>
+            <span className="font-medium">{o.label}</span> <span className="text-muted">{o.description}</span>
           </label>
         ))}
       </div>
@@ -268,7 +270,7 @@ function DecideDraft({ d, onDone }: { d: Detail; onDone: () => void }) {
 function Block({ title, text }: { title: string; text: string }) {
   return (
     <div>
-      <div className="text-xs font-medium uppercase text-slate-500">{title}</div>
+      <div className="text-sm font-semibold text-ink">{title}</div>
       <p className="whitespace-pre-wrap text-sm">{text || "—"}</p>
     </div>
   );
@@ -313,9 +315,9 @@ function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue:
   }
 
   return (
-    <Card className={overdue ? "space-y-4 border-amber-300" : "space-y-4"}>
+    <Card className={overdue ? "space-y-4 border-signal" : "space-y-4"}>
       <CardTitle hint={`step ${page} of 3`}>{overdue ? "This decision is due for review" : "Record the outcome early"}</CardTitle>
-      <p className="text-xs text-slate-500">A good decision can have a bad outcome, and a poor one can get lucky. You&apos;ll judge outcome and process separately.</p>
+      <p className="text-xs text-muted">A good decision can have a bad outcome, and a poor one can get lucky. You&apos;ll judge outcome and process separately.</p>
 
       {page === 1 && (
         <>
@@ -335,7 +337,7 @@ function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue:
 
       {page === 2 && (
         <>
-          {d.assumptions.length === 0 && <p className="text-sm text-slate-500">No assumptions were recorded.</p>}
+          {d.assumptions.length === 0 && <p className="text-sm text-muted">No assumptions were recorded.</p>}
           {d.assumptions.map((a, i) => (
             <div key={a.id} className="grid gap-2 md:grid-cols-[1fr_10rem_1fr]">
               <span className="text-sm">{a.text}</span>
@@ -370,11 +372,11 @@ function ReviewWizard({ d, overdue, onDone, chosenLabel }: { d: Detail; overdue:
       {err && <Notice tone="error">{err}</Notice>}
       <div className="flex justify-between">
         <Button variant="secondary" disabled={page === 1} onClick={() => setPage(page - 1)}>
-          ← Back
+          Back
         </Button>
         {page < 3 ? (
           <Button disabled={page === 1 && !what.trim()} onClick={() => setPage(page + 1)}>
-            Next →
+            Next
           </Button>
         ) : (
           <Button disabled={saving} onClick={() => void submit()}>

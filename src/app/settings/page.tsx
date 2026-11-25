@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
 import { PrivacyPill } from "@/components/marks";
-import { Button, Card, CardTitle, Notice, cn } from "@/components/ui";
+import { Button, Card, CardTitle, Notice } from "@/components/ui";
 import { STATUS_TEXT } from "@/lib/ai/availability";
 import { prepareDeviceModel } from "@/lib/ai/tasks";
 import { api } from "@/lib/api";
@@ -70,24 +70,24 @@ export default function SettingsPage() {
 
   return (
     <>
-      <PageTitle title="Settings" />
+      <PageTitle title="Settings" subtitle="Control where AI runs and see what you have authorized." />
       {msg && <Notice tone="info">{msg}</Notice>}
       <Card className="space-y-4">
         <CardTitle hint={<PrivacyPill mode={me.privacyMode} />}>Privacy mode</CardTitle>
-        <p className="text-sm text-slate-600">Privacy modes control where AI processing happens. Your saved decisions are stored in your DecisionTrail account so you can access them later.</p>
-        <div className="grid gap-3 md:grid-cols-3">
+        <p className="text-sm text-muted">Privacy modes control where AI processing happens. Your saved decisions are stored in your DecisionTrail account so you can access them later.</p>
+        <div className="divide-y divide-line border-y border-line">
           {MODES.map((m) => (
-            <div key={m.mode} className={cn("space-y-2 rounded-lg border p-4", me.privacyMode === m.mode ? "border-slate-900" : "border-slate-200")}>
+            <div key={m.mode} className="grid gap-2 py-4 md:grid-cols-[10rem_1fr_auto] md:gap-6">
               <div className="font-semibold">{m.title}</div>
-              <ul className="list-inside list-disc text-sm text-slate-600">
+              <ul className="list-outside list-disc space-y-1 pl-5 text-sm text-muted">
                 {m.body.map((b) => (
                   <li key={b}>{b}</li>
                 ))}
               </ul>
               {me.privacyMode === m.mode ? (
-                <p className="text-sm font-medium">Current mode</p>
+                <p className="text-sm font-semibold text-accent">Current mode</p>
               ) : (
-                <Button variant={pending === m.mode ? "danger" : "secondary"} onClick={() => void choose(m.mode)}>
+                <Button variant={pending === m.mode ? "danger" : "secondary"} className="md:self-start" onClick={() => void choose(m.mode)}>
                   {pending === m.mode ? "Confirm: allow cloud processing" : `Switch to ${m.title}`}
                 </Button>
               )}
@@ -105,7 +105,7 @@ export default function SettingsPage() {
           </Button>
         )}
         {(aiStatus === "unavailable" || aiStatus === "unsupported_browser") && (
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-muted">
             Needs desktop Chrome (Windows 10/11, macOS 13+, Linux or Chromebook Plus), at least 22 GB free disk space, and a GPU with more than 4 GB VRAM or 16 GB RAM with 4+ CPU cores. Check{" "}
             <code>chrome://on-device-internals</code>.
           </p>
@@ -115,16 +115,16 @@ export default function SettingsPage() {
       <Card className="space-y-2">
         <CardTitle hint="what you authorized, and when">Consent history</CardTitle>
         {consents.length === 0 ? (
-          <p className="text-sm text-slate-500">No cloud consents yet.</p>
+          <p className="text-sm text-muted">No cloud consents yet.</p>
         ) : (
-          <ul className="divide-y divide-slate-100 text-sm">
+          <ul className="divide-y divide-line text-sm">
             {consents.map((c) => (
               <li key={c.id} className="py-2">
                 <div className="font-medium">{c.purpose}</div>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-muted">
                   {new Date(c.grantedAt).toLocaleString()} · {c.service}
                 </div>
-                {c.payloadText && <p className="mt-1 font-mono text-xs text-slate-600">{c.payloadText}</p>}
+                {c.payloadText && <p className="mt-1 font-mono text-xs text-muted">{c.payloadText}</p>}
               </li>
             ))}
           </ul>

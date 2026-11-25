@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PageTitle } from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import { Button, Card, CardTitle, Notice, Skeleton, SkeletonCard, SkeletonGroup, cn } from "@/components/ui";
+import { Card, CardTitle, Notice, SkeletonCard, SkeletonGroup, buttonClass } from "@/components/ui";
 import { api } from "@/lib/api";
 import { label } from "@/lib/vocab";
 
@@ -34,32 +34,25 @@ export default function Dashboard() {
         title="Dashboard"
         subtitle="Every number here is counted from your own records."
         actions={
-          <Link href="/decisions/new">
-            <Button>New decision</Button>
+          <Link href="/decisions/new" className={buttonClass()}>
+            New decision
           </Link>
         }
       />
       {err && <Notice tone="error">{err}</Notice>}
       {s && s.awaitingReview > 0 && (
         <Notice tone="warn">
-          <strong>⏰ Decisions ready for review: {s.awaitingReview}.</strong> Record what actually happened while you still remember.{" "}
+          <strong>Decisions ready for review: {s.awaitingReview}.</strong> Record what actually happened while you still remember.{" "}
           {s.upcoming[0] && (
             <Link href={`/decisions/${s.upcoming[0].id}`} className="font-semibold underline">
-              {s.upcoming[0].title} →
+              {s.upcoming[0].title}
             </Link>
           )}
         </Notice>
       )}
       {!s && !err && (
         <SkeletonGroup className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-4">
-            {[0, 1, 2, 3].map((i) => (
-              <Card key={i} className="space-y-3">
-                <Skeleton className="h-9 w-16" />
-                <Skeleton className="h-3.5 w-3/4" />
-              </Card>
-            ))}
-          </div>
+          <SkeletonCard lines={1} />
           <div className="grid gap-4 md:grid-cols-2">
             <SkeletonCard lines={4} />
             <SkeletonCard lines={4} />
@@ -69,35 +62,35 @@ export default function Dashboard() {
       {s && s.total === 0 && (
         <Card className="space-y-3">
           <CardTitle>Start your trail</CardTitle>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted">
             The most useful first step is logging a decision you&apos;ve already made and its outcome, so future decisions can learn from it.
           </p>
-          <div className="flex gap-2">
-            <Link href="/decisions/new?past=1">
-              <Button variant="secondary">Log a past decision</Button>
-            </Link>
-            <Link href="/decisions/new">
-              <Button>Start a new decision</Button>
-            </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/decisions/new?past=1" className={buttonClass("secondary")}>
+            Log a past decision
+          </Link>
+            <Link href="/decisions/new" className={buttonClass()}>
+            Start a new decision
+          </Link>
           </div>
         </Card>
       )}
       {s && (
-        <div className="grid gap-4 md:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-y border-line py-4 md:grid-cols-4">
           <Stat n={s.total} label="Recorded decisions" />
           <Stat n={s.awaitingReview} label="Awaiting review" tone={s.awaitingReview > 0 ? "warn" : undefined} />
           <Stat n={s.outcomes.reduce((a, o) => a + Number(o.n), 0)} label="Completed reviews" />
-          <Stat n={s.researchSessions} label="Research sessions" />
-        </div>
+          <Stat n={s.researchSessions} label="AI research sessions" />
+        </dl>
       )}
       {s && s.total > 0 && (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid items-start gap-4 md:grid-cols-2">
           <Card>
             <CardTitle hint="pending reviews first">Upcoming reviews</CardTitle>
             {s.upcoming.length === 0 ? (
-              <p className="text-sm text-slate-500">No scheduled reviews.</p>
+              <p className="text-sm text-muted">No scheduled reviews.</p>
             ) : (
-              <ul className="divide-y divide-slate-100">
+              <ul className="divide-y divide-line">
                 {s.upcoming.map((u) => {
                   const due = u.reviewDueAt ? new Date(u.reviewDueAt) : null;
                   const overdue = due && due.getTime() <= now;
@@ -106,7 +99,7 @@ export default function Dashboard() {
                       <Link href={`/decisions/${u.id}`} className="hover:underline">
                         {u.title}
                       </Link>
-                      <span className={overdue ? "font-medium text-amber-700" : "text-slate-500"}>
+                      <span className={overdue ? "font-medium text-signal" : "text-muted"}>
                         {due ? (overdue ? "Review now" : due.toLocaleDateString("en-US")) : "No date"}
                       </span>
                     </li>
@@ -131,24 +124,23 @@ export default function Dashboard() {
 
 function Stat({ n, label, tone }: { n: number; label: string; tone?: "warn" }) {
   return (
-    <Card className={cn("pop relative overflow-hidden", tone === "warn" && "border-amber-300")}>
-      <span aria-hidden className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-violet-400/40 to-fuchsia-400/40 blur-xl" />
-      <div className="gradient-text relative text-4xl font-black">{n}</div>
-      <div className="relative mt-1 text-sm font-medium text-slate-600">{label}</div>
-    </Card>
+    <div className="flex flex-col-reverse justify-end">
+      <dt className="text-sm text-muted">{label}</dt>
+      <dd className={tone === "warn" ? "text-2xl font-semibold text-signal" : "text-2xl font-semibold text-ink"}>{n}</dd>
+    </div>
   );
 }
 
 function Bars({ rows, empty }: { rows: { k: string; n: number }[]; empty: string }) {
-  if (!rows.length) return <p className="text-sm text-slate-500">{empty}</p>;
+  if (!rows.length) return <p className="text-sm text-muted">{empty}</p>;
   const max = Math.max(...rows.map((r) => r.n), 1);
   return (
     <ul className="space-y-1.5">
       {rows.map((r) => (
         <li key={r.k} className="flex items-center gap-2 text-sm">
-          <span className="w-40 shrink-0 text-slate-700">{r.k}</span>
-          <span className="h-2.5 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500" style={{ width: `${(r.n / max) * 60}%` }} />
-          <span className="text-slate-500">{r.n}</span>
+          <span className="w-28 shrink-0 sm:w-40 text-ink">{r.k}</span>
+          <span className="h-2.5 bg-brand" style={{ width: `${(r.n / max) * 60}%` }} />
+          <span className="text-muted">{r.n}</span>
         </li>
       ))}
     </ul>

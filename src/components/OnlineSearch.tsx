@@ -82,7 +82,7 @@ export function OnlineSearch() {
   return (
     <div className="space-y-4">
       <Card className="space-y-3">
-        <CardTitle hint="live from Wikipedia">🌐 Search online</CardTitle>
+        <CardTitle hint="live from Wikipedia">Search online</CardTitle>
         <form onSubmit={search} className="flex flex-wrap gap-2">
           <Input
             aria-label="Search online"
@@ -93,35 +93,35 @@ export function OnlineSearch() {
             className="min-w-60 flex-1"
           />
           <Button type="submit" disabled={searching || q.trim().length < 2}>
-            {searching ? <Spinner /> : "🔎"} Search
+            {searching && <Spinner />} Search
           </Button>
         </form>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-muted">
           Only the words you type are sent, to Wikipedia. Results are real pages with links, not AI summaries, and are unverified until you check them.
         </p>
         {err && <Notice tone="error">{err}</Notice>}
         {searching && (
           <SkeletonGroup className="space-y-2">
-            <SkeletonCard lines={2} className="shadow-none" />
-            <SkeletonCard lines={2} className="shadow-none" />
+            <SkeletonCard lines={2} />
+            <SkeletonCard lines={2} />
           </SkeletonGroup>
         )}
         {!searching && results && results.length === 0 && <Notice tone="info">No pages found. Try different words.</Notice>}
         {!searching && results && results.length > 0 && (
           <ul className="space-y-2">
             {results.map((r) => (
-              <li key={r.url} className="rounded-2xl border border-violet-100 bg-white/70 p-3">
+              <li key={r.url} className="rounded-lg border border-line bg-surface p-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge className="border-sky-300 bg-sky-50 text-sky-800">🌐 {r.publisher}</Badge>
-                  <Badge className="border-amber-300 bg-amber-50 text-amber-800">Unverified</Badge>
+                  <Badge className="border-accent bg-subtle text-accent">{r.publisher}</Badge>
+                  <Badge className="border-signal bg-signal-soft text-signal">Unverified</Badge>
                 </div>
                 <a href={r.url} target="_blank" rel="noreferrer noopener" className="mt-1 block font-semibold hover:underline">
-                  {r.title} ↗
+                  {r.title}
                 </a>
-                {r.snippet && <p className="text-sm text-slate-600">{r.snippet}…</p>}
+                {r.snippet && <p className="text-sm text-muted">{r.snippet}…</p>}
                 <div className="mt-2 flex flex-wrap gap-2">
                   <Button variant="secondary" disabled={busyUrl === r.url || savedUrls.has(r.url)} onClick={() => void save(r)}>
-                    {savedUrls.has(r.url) ? "✓ Saved" : "Save reference"}
+                    {savedUrls.has(r.url) ? "Saved" : "Save reference"}
                   </Button>
                 </div>
               </li>
@@ -129,18 +129,18 @@ export function OnlineSearch() {
           </ul>
         )}
         {results && results.length > 0 && (
-          <p className="text-xs text-slate-500">Snippets are from Wikipedia and available under CC BY-SA 4.0.</p>
+          <p className="text-xs text-muted">Snippets are from Wikipedia and available under CC BY-SA 4.0.</p>
         )}
       </Card>
 
       {saved && saved.length > 0 && (
         <Card className="space-y-2">
           <CardTitle hint="private to you">Saved references</CardTitle>
-          <ul className="divide-y divide-slate-100">
+          <ul className="divide-y divide-line">
             {saved.map((s) => (
               <li key={s.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm">
                 <a href={s.url} target="_blank" rel="noreferrer noopener" className="font-medium hover:underline">
-                  {s.title} ↗
+                  {s.title}
                 </a>
                 <span className="flex gap-1">
                   <Button variant="ghost" disabled={busyUrl === s.id} onClick={() => void remove(s.id)}>

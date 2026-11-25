@@ -44,7 +44,7 @@ export function StructureEditor({
   value,
   onChange,
   onApprove,
-  approveLabel = "Approve structure & find precedent →",
+  approveLabel = "Approve structure & find precedent",
 }: {
   value: StructuredDecision;
   onChange: (d: StructuredDecision) => void;
@@ -68,15 +68,15 @@ export function StructureEditor({
     };
     return (
       <Field label={title} aside={k !== "assumptions" ? <OriginChip origin={origin(k)} /> : undefined}>
-        {hint && <p className="text-xs text-slate-500">{hint}</p>}
+        {hint && <p className="text-xs text-muted">{hint}</p>}
         <ul className="space-y-1.5">
           {items.map((text, i) => (
             <li key={i} className="flex items-center gap-2">
               {k === "assumptions" && <OriginChip origin={d.assumptions[i]?.origin} />}
-              {k === "assumptions" && <span className="text-xs text-amber-700">unverified</span>}
+              {k === "assumptions" && <span className="text-xs text-signal">unverified</span>}
               <Input value={text} onChange={(e) => update(items.map((x, j) => (j === i ? e.target.value : x)))} />
               <Button variant="ghost" type="button" aria-label="Remove" onClick={() => update(items.filter((_, j) => j !== i))}>
-                ✕
+                Remove
               </Button>
             </li>
           ))}
@@ -124,12 +124,12 @@ export function StructureEditor({
       <Field label="Alternatives" aside={<OriginChip origin={origin("alternatives")} />}>
         <div className="space-y-2">
           {d.alternatives.map((a, i) => (
-            <div key={i} className="grid gap-2 rounded-md border border-slate-200 p-2 md:grid-cols-[1fr_1.5fr_12rem_auto]">
+            <div key={i} className="grid gap-2 rounded-lg border border-line p-2 md:grid-cols-[1fr_1.5fr_12rem_auto]">
               <Input placeholder="Option" value={a.label} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, label: e.target.value, origin: x.origin === "ai_extracted" ? "user_confirmed" : x.origin } : x)))} />
               <Input placeholder="Short description" value={a.description} onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, description: e.target.value } : x)))} />
               <Select options={ALTERNATIVE_TAGS} labels={label} value={a.tag} aria-label="Option type (used for matching)" onChange={(e) => set("alternatives", d.alternatives.map((x, j) => (j === i ? { ...x, tag: e.target.value as AlternativeTag } : x)))} />
               <Button variant="ghost" type="button" aria-label="Remove option" onClick={() => set("alternatives", d.alternatives.filter((_, j) => j !== i))}>
-                ✕
+                Remove
               </Button>
             </div>
           ))}
@@ -160,18 +160,18 @@ export function StructureEditor({
         {listEditor("expected_benefits", "Expected benefits")}
         {d.missing_information.length > 0 && (
           <Field label="Missing information" aside={<OriginChip origin="ai_extracted" />}>
-            <ul className="list-inside list-disc text-sm text-slate-700">
+            <ul className="list-inside list-disc text-sm text-ink">
               {d.missing_information.map((m) => (
                 <li key={m}>{m}</li>
               ))}
             </ul>
-            <p className="text-xs text-slate-500">Consider adding these to the context.</p>
+            <p className="text-xs text-muted">Consider adding these to the context.</p>
           </Field>
         )}
       </div>
 
       <div className="flex flex-wrap items-center justify-end gap-3">
-        {!valid && <span className="text-sm text-amber-700">Add a title and at least one option name.</span>}
+        {!valid && <span className="text-sm text-signal">Add a title and at least one option name.</span>}
         <Button onClick={onApprove} disabled={!valid}>
           {approveLabel}
         </Button>

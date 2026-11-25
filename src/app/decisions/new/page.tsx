@@ -103,9 +103,9 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
   return (
     <>
       <PageTitle title={past ? "Log a past decision" : "New decision"} subtitle="DecisionTrail shows evidence. It never decides for you or predicts your outcome." />
-      <ol className="flex gap-2 text-sm">
+      <ol className="flex gap-6 text-sm">
         {(["ask", "decide"] as Step[]).map((x, i) => (
-          <li key={x} aria-current={step === x ? "step" : undefined} className={cn("rounded-full px-3 py-1", step === x ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 font-semibold text-white" : "bg-slate-200 text-slate-600")}>
+          <li key={x} aria-current={step === x ? "step" : undefined} className={cn("border-b-2 pb-1", step === x ? "border-brand font-semibold text-ink" : "border-transparent text-muted")}>
             {i + 1}. {x === "ask" ? "Ask" : "See evidence & decide"}
           </li>
         ))}
@@ -139,20 +139,20 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             </Field>
             <div className="flex flex-wrap items-center gap-2">
               <Button type="submit" disabled={!!busy || text.trim().length < 10}>
-                {busy ? <Spinner /> : "🔎"} Find evidence
+                {busy && <Spinner />} Find evidence
               </Button>
               {options.length < 5 && (
                 <Button type="button" variant="ghost" onClick={() => setOptions([...options, ""])}>
                   + Add option
                 </Button>
               )}
-              {busy ? <span className="text-sm text-slate-600">{busy}</span> : text.trim().length < 10 && <span className="text-sm text-slate-500">Write one sentence to continue.</span>}
+              {busy ? <span className="text-sm text-muted">{busy}</span> : text.trim().length < 10 && <span className="text-sm text-muted">Write one sentence to continue.</span>}
             </div>
           </form>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-muted">
             {me.privacyMode === "private"
               ? "Private mode: AI runs only on this device. If it isn't ready, simple rules are used instead."
-              : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked ☁️ IN_CLOUD."}{" "}
+              : "Hybrid mode: on-device first; if that isn't possible, your text is sent to cloud Gemini, and the result is marked “Ran in the cloud”."}{" "}
             Your question goes to the DecisionTrail server to check your own past decisions, and saved decisions are stored there. Up to four topic words picked from your question are sent, through our server, to Wikipedia, OpenAlex, Stack Exchange and Hacker News. Names typed in lowercase may be included, so leave out anything private.
           </p>
         </Card>
@@ -164,20 +164,20 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <CardTitle>{d.title}</CardTitle>
               <Button variant="ghost" onClick={() => setStep("ask")}>
-                ← Change question
+                Change question
               </Button>
             </div>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-muted">
               {label(d.category)} · {d.alternatives.map((a) => a.label).filter(Boolean).join(" / ")} {where && <InferenceBadge where={where} />}
             </p>
             <details>
-              <summary className="cursor-pointer text-sm font-medium text-violet-700">Not right? Edit details</summary>
+              <summary className="cursor-pointer text-sm font-medium text-accent">Not right? Edit details</summary>
               <div className="mt-3">
                 <StructureEditor value={d} onChange={setD} onApprove={() => void findPrecedent(d)} approveLabel="Update evidence" />
               </div>
             </details>
             {busy && (
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-muted">
                 <Spinner /> {busy}
               </p>
             )}
@@ -190,7 +190,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
           )}
           {matches.length > 0 && (
             <section className="space-y-3" aria-label="Your past decisions">
-              <h2 className="font-semibold">🧭 Your past decisions on this</h2>
+              <h2 className="font-semibold">Your past decisions on this</h2>
               {matches.slice(0, showAll ? matches.length : 3).map((m) => (
                 <MatchCard key={m.targetId} m={m} current={{ title: d.title, context: d.context }} />
               ))}
@@ -202,7 +202,7 @@ function NewDecision({ onSaved }: { onSaved: () => void }) {
             </section>
           )}
           <details>
-            <summary className="cursor-pointer text-sm font-medium text-violet-700">AI research (optional)</summary>
+            <summary className="cursor-pointer text-sm font-medium text-accent">AI research (optional)</summary>
             <div className="mt-3">
               <ResearchPanel decision={d} privateText={text} privacyMode={me.privacyMode} prominent={false} />
             </div>
@@ -307,10 +307,10 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
           {options.map((o, i) => (
             <label key={i} className="flex items-center gap-2 text-sm">
               <input type="radio" name="chosen" checked={chosen === i} onChange={() => setChosen(i)} />
-              <span className="font-medium">{o.label}</span> <span className="text-slate-500">{o.description}</span>
+              <span className="font-medium">{o.label}</span> <span className="text-muted">{o.description}</span>
             </label>
           ))}
-          <label className="flex items-center gap-2 text-sm text-slate-600">
+          <label className="flex items-center gap-2 text-sm text-muted">
             <input type="radio" name="chosen" checked={chosen === null} onChange={() => setChosen(null)} /> Not decided yet (save as draft)
           </label>
         </div>
@@ -319,7 +319,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
         <Textarea value={reasons} onChange={(e) => setReasons(e.target.value)} />
       </Field>
       <details>
-        <summary className="cursor-pointer text-sm font-medium text-violet-700">Add expectation and success criteria (optional)</summary>
+        <summary className="cursor-pointer text-sm font-medium text-accent">Add expectation and success criteria (optional)</summary>
         <div className="mt-3 space-y-4">
       <Field label="What do you expect to happen?">
         <Textarea value={expected} onChange={(e) => setExpected(e.target.value)} />
@@ -332,7 +332,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
               <Input placeholder="Target (e.g. 20)" value={c.target} onChange={(e) => setCriteria(criteria.map((x, j) => (j === i ? { ...x, target: e.target.value } : x)))} />
               <Input type="date" value={c.by} onChange={(e) => setCriteria(criteria.map((x, j) => (j === i ? { ...x, by: e.target.value } : x)))} />
               <Button variant="ghost" aria-label="Remove criterion" onClick={() => setCriteria(criteria.filter((_, j) => j !== i))}>
-                ✕
+                Remove
               </Button>
             </div>
           ))}
@@ -350,7 +350,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
           </Field>
         )}
         <Field label="Review date">
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} />
             {[14, 30, 90].map((n) => (
               <Button key={n} variant="secondary" onClick={() => setReviewDate(addDays(n))}>
@@ -358,7 +358,7 @@ function RecordStep({ d, past, matchesShown, onSaved }: { d: StructuredDecision;
               </Button>
             ))}
           </div>
-          {past && <p className="text-xs text-slate-500">Logging a past decision? Set the review date to today and record the outcome on the next screen.</p>}
+          {past && <p className="text-xs text-muted">Logging a past decision? Set the review date to today and record the outcome on the next screen.</p>}
         </Field>
       </div>
       {err && <Notice tone="error">{err}</Notice>}

@@ -1,142 +1,73 @@
 @import "tailwindcss";
 
+/* Three brand colours from the logo: navy, teal and amber. Everything else is a tint of navy. */
 :root {
-  --background: #faf7ff;
-  --foreground: #1b1740;
-  --brand: #7c3aed;
-  --brand-2: #ec4899;
-  --brand-3: #06b6d4;
+  --navy: #0f2a3d;
+  --teal: #1e7b8d;
+  --amber: #f49e0b;
+
+  --background: #f5f7f9;
+  --surface: #ffffff;
+  --subtle: #edf1f4;
+  --line: #ccd6dd;
+  --ink: var(--navy);
+  --muted: #4b6070;
+  --brand: var(--teal);
+  --brand-hover: #19697a;
+  --accent: #19697a;
+  --signal: #855200;
+  --signal-line: var(--amber);
+  --signal-soft: #fef5e4;
   color-scheme: light;
+}
+
+.dark {
+  --background: #0a1d2b;
+  --surface: var(--navy);
+  --subtle: #193a50;
+  --line: #375468;
+  --ink: #f3f6f8;
+  --muted: #b3c3ce;
+  --accent: #6fc1d0;
+  --signal: #fbc158;
+  --signal-soft: #2c2c28;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-accent: var(--accent);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --border-color-signal: var(--signal-line);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background-color: var(--background);
-  /* Soft colour mesh behind everything: violet, pink and cyan glows. */
-  background-image:
-    radial-gradient(60rem 40rem at -10% -10%, rgb(167 139 250 / 0.28), transparent 60%),
-    radial-gradient(50rem 36rem at 110% 0%, rgb(244 114 182 / 0.22), transparent 60%),
-    radial-gradient(44rem 34rem at 50% 115%, rgb(34 211 238 / 0.18), transparent 60%);
-  background-attachment: fixed;
-  color: var(--foreground);
+  color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  letter-spacing: -0.005em;
 }
 
-h1, h2, h3 { letter-spacing: -0.02em; }
-
-::selection { background: rgb(167 139 250 / 0.35); }
-
-/* Brand helpers */
-.gradient-text {
-  background-image: linear-gradient(90deg, #7c3aed, #ec4899 55%, #f97316);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.glass {
-  background-color: rgb(255 255 255 / 0.72);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  backdrop-filter: blur(14px) saturate(160%);
-}
-.pop { transition: transform 160ms ease, box-shadow 160ms ease; }
-.pop:hover { transform: translateY(-2px); }
-.pop:active { transform: translateY(0) scale(0.98); }
-
-/* Skeleton loading: a soft violet-to-pink shimmer */
-.skeleton {
-  background-image: linear-gradient(90deg, rgb(139 92 246 / 0.1) 25%, rgb(236 72 153 / 0.2) 50%, rgb(139 92 246 / 0.1) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s ease-in-out infinite;
-}
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pop, .pop:hover, .pop:active { transition: none; transform: none; }
-  .skeleton { animation: none; }
-}
-
-.dark {
-  --background: #0d0a1f;
-  --foreground: #f1edff;
-  color-scheme: dark;
-}
-.dark body {
-  background-image:
-    radial-gradient(60rem 40rem at -10% -10%, rgb(124 58 237 / 0.35), transparent 60%),
-    radial-gradient(50rem 36rem at 110% 0%, rgb(219 39 119 / 0.25), transparent 60%),
-    radial-gradient(44rem 34rem at 50% 115%, rgb(8 145 178 / 0.22), transparent 60%);
-}
-.dark .glass { background-color: rgb(23 18 50 / 0.7); }
-
-.dark .bg-white { background-color: #171232; }
-.dark .bg-white\/70, .dark .bg-white\/80, .dark .bg-white\/90 { background-color: rgb(23 18 50 / 0.8); }
-.dark .bg-slate-50 { background-color: #120e29; }
-.dark .bg-slate-100 { background-color: #221b45; }
-.dark .bg-slate-200 { background-color: #2f2760; }
-.dark .bg-slate-700 { background-color: #8b82c4; }
-.dark .text-slate-900 { color: #f8f6ff; }
-.dark .text-slate-700 { color: #e5e0ff; }
-.dark .text-slate-600 { color: #cfc8f5; }
-.dark .text-slate-500 { color: #a49bd6; }
-.dark .text-slate-400 { color: #a49bd6; }
-.dark .border-slate-900 { border-color: #8b82c4; }
-.dark .border-slate-500 { border-color: #8b82c4; }
-.dark .border-slate-300 { border-color: #4b4190; }
-.dark .border-slate-200 { border-color: #2f2760; }
-.dark .divide-slate-200 > :not(:last-child) { border-color: #2f2760; }
-.dark .divide-slate-100 > :not(:last-child) { border-color: #221b45; }
-.dark .hover\:bg-slate-100:hover { background-color: #2f2760; }
-.dark .hover\:bg-slate-700:hover { background-color: #4b4190; }
-
-/* violet accents used by the new components */
-.dark .bg-violet-50 { background-color: #221b45; }
-.dark .bg-violet-100 { background-color: #2f2760; }
-.dark .border-violet-100 { border-color: #2f2760; }
-.dark .border-violet-200 { border-color: #4b4190; }
-.dark .hover\:bg-violet-50:hover { background-color: #2a2257; }
-.dark .hover\:bg-violet-100:hover { background-color: #2f2760; }
-.dark .text-violet-700 { color: #c4b5fd; }
-
-.dark .bg-sky-50 { background-color: #082f49; }
-.dark .border-sky-200 { border-color: #0369a1; }
-.dark .text-sky-900 { color: #bae6fd; }
-.dark .bg-emerald-50 { background-color: #052e24; }
-.dark .border-emerald-200 { border-color: #047857; }
-.dark .border-emerald-300 { border-color: #059669; }
-.dark .text-emerald-800,
-.dark .text-emerald-900 { color: #a7f3d0; }
-.dark .bg-amber-50 { background-color: #3b2c0b; }
-.dark .border-amber-200,
-.dark .border-amber-300 { border-color: #92400e; }
-.dark .text-amber-700,
-.dark .text-amber-800,
-.dark .text-amber-900 { color: #fde68a; }
-.dark .bg-red-50 { background-color: #3f1017; }
-.dark .border-red-200,
-.dark .border-red-300 { border-color: #991b1b; }
-.dark .text-red-800,
-.dark .text-red-900 { color: #fecaca; }
-.dark .text-violet-800 { color: #c4b5fd; }
-
-.dark input,
-.dark textarea,
-.dark select { background-color: #171232; color: #f1edff; }
-.dark input::placeholder,
-.dark textarea::placeholder { color: #a49bd6; }
+h1, h2, h3 { letter-spacing: -0.01em; text-wrap: balance; }
+input[type="radio"], input[type="checkbox"], progress { accent-color: var(--brand); }
+.only-dark { display: none; }
+.dark .only-dark { display: block; }
+.dark .only-light { display: none; }
+.dark .logo-mark { border-radius: 9px; outline: 1px solid var(--line); }
+.skeleton { background-color: var(--subtle); }
 
 /* AI interpretation: visually distinct from user-written and source-backed text */
 .ai-text {
   font-style: italic;
-  border-left: 3px dashed #a78bfa;
+  border-left: 3px dashed var(--accent);
   padding-left: 0.6rem;
 }

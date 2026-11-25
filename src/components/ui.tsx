@@ -8,52 +8,48 @@ export function cn(...c: (string | false | null | undefined)[]) {
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-md shadow-violet-500/30 hover:shadow-lg hover:shadow-fuchsia-500/30 disabled:from-slate-400 disabled:to-slate-400 disabled:shadow-none",
-  secondary: "bg-white text-slate-900 border border-violet-200 hover:bg-violet-50 disabled:text-slate-400",
-  ghost: "text-slate-700 hover:bg-violet-100",
-  danger: "bg-gradient-to-r from-rose-600 to-red-500 text-white shadow-md shadow-red-500/25",
+  primary: "border-brand bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-50",
+  secondary: "border-line bg-surface text-ink enabled:hover:bg-subtle disabled:text-muted",
+  ghost: "border-line bg-surface text-ink enabled:hover:bg-subtle disabled:text-muted",
+  danger: "border-brand bg-brand text-white enabled:hover:bg-brand-hover disabled:opacity-50",
 };
 
-export function Button({ variant = "primary", className, ...p }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
-  const content = p.children;
-  return (
-    <button
-      {...p}
-      className={cn(
-        "pop inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:hover:transform-none",
-        variants[variant],
-        className,
-      )}
-    >
-      {content}
-    </button>
+/** One button shape everywhere. Links that act as buttons use this too. */
+export function buttonClass(variant: Variant = "primary", className?: string) {
+  return cn(
+    "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed",
+    variants[variant],
+    className,
   );
 }
 
+export function Button({ variant = "primary", className, ...p }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
+  return <button {...p} className={buttonClass(variant, className)} />;
+}
+
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("rounded-3xl border border-violet-100 bg-white/90 p-5 shadow-lg shadow-violet-200/40", className)}>{children}</div>;
+  return <div className={cn("rounded-lg border border-line bg-surface p-4 sm:p-6", className)}>{children}</div>;
 }
 
 export function CardTitle({ children, hint }: { children: ReactNode; hint?: ReactNode }) {
   return (
-    <div className="mb-3 flex items-baseline justify-between gap-2">
-      <h2 className="text-base font-bold text-slate-900">{children}</h2>
-      {hint && <span className="text-xs text-slate-500">{hint}</span>}
+    <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+      <h2 className="text-lg font-semibold text-ink">{children}</h2>
+      {hint && <span className="text-xs text-muted">{hint}</span>}
     </div>
   );
 }
 
 export function Badge({ className, children, title }: { className?: string; children: ReactNode; title?: string }) {
   return (
-    <span title={title ? title : undefined} className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium", className)}>
+    <span title={title ? title : undefined} className={cn("inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs font-medium", className)}>
       {children}
     </span>
   );
 }
 
 const field =
-  "w-full rounded-2xl border border-violet-200 bg-white px-3.5 py-2.5 text-sm transition-shadow placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-200/70";
+  "w-full rounded-lg border border-line bg-surface px-3 py-2.5 text-base text-ink placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40 sm:text-sm";
 
 export function Input(p: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...p} placeholder={p.placeholder ? p.placeholder : undefined} className={cn(field, p.className)} />;
@@ -83,7 +79,7 @@ export function Select({
 export function Field({ label, children, aside }: { label: string; children: ReactNode; aside?: ReactNode }) {
   return (
     <label className="block space-y-1">
-      <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+      <span className="flex items-center gap-2 text-sm font-semibold text-ink">
         {label} {aside}
       </span>
       {children}
@@ -93,17 +89,17 @@ export function Field({ label, children, aside }: { label: string; children: Rea
 
 export function Notice({ tone = "info", children }: { tone?: "info" | "warn" | "error" | "ok"; children: ReactNode }) {
   const tones = {
-    info: "border-sky-200 bg-sky-50 text-sky-900",
-    warn: "border-amber-200 bg-amber-50 text-amber-900",
-    error: "border-red-200 bg-red-50 text-red-900",
-    ok: "border-emerald-200 bg-emerald-50 text-emerald-900",
+    info: "border-accent bg-subtle text-ink",
+    warn: "border-signal bg-signal-soft text-signal",
+    error: "border-2 border-signal bg-signal-soft font-medium text-signal",
+    ok: "border-accent bg-subtle text-accent",
   };
-  return <div role="status" className={cn("rounded-2xl border px-4 py-2.5 text-sm", tones[tone])}>{children}</div>;
+  return <div role="status" className={cn("rounded-lg border px-4 py-2.5 text-sm", tones[tone])}>{children}</div>;
 }
 
 /** Placeholder block shown while data loads. Decorative: wrap groups in <SkeletonGroup>. */
 export function Skeleton({ className }: { className?: string }) {
-  return <div aria-hidden className={cn("skeleton rounded-xl", className)} />;
+  return <div aria-hidden className={cn("skeleton rounded-lg", className)} />;
 }
 
 /** Announces "Loading" once to screen readers while its skeleton children render. */
