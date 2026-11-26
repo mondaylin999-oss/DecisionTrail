@@ -91,29 +91,29 @@ function Walkthrough() {
       aria-labelledby="how"
       onFocus={(e) => e.target.matches(":focus-visible") && setHeld(true)}
       onBlur={() => setHeld(false)}
-      className="enter overflow-hidden rounded-3xl border border-line bg-[#0f2a3d] text-white" style={{ animationDelay: "200ms" }}>
+      className="enter overflow-hidden rounded-3xl border border-line bg-surface text-ink" style={{ animationDelay: "200ms" }}>
       <h2 id="how" className="px-5 pt-4 text-lg font-semibold">
         How it works
       </h2>
 
-      <svg viewBox="0 8 400 126" className="w-full px-2" aria-hidden>
+      <svg viewBox="0 8 400 126" className="trail-band w-full px-2" aria-hidden>
         {DOTS.map((d, i) => (
-          <circle key={i} cx={d.x} cy={d.y} r="3.4" className={cn("trail-dot", d.seg < step && "trail-run")} fill="#fff" opacity={d.seg < step ? 1 : 0.22} style={{ transitionDelay: d.seg === step - 1 ? `${(i % 3) * 140}ms` : "0ms", animationDelay: `${i * 130}ms` }} />
+          <circle key={i} cx={d.x} cy={d.y} r="3.4" className={cn("trail-dot", d.seg < step && "trail-run")} style={{ fill: "var(--ink)", transitionDelay: d.seg === step - 1 ? `${(i % 3) * 140}ms` : "0ms", animationDelay: `${i * 130}ms` }} opacity={d.seg < step ? 1 : 0.22} />
         ))}
         {NODES.map(([x, y], i) => {
           const goal = i === NODES.length - 1;
           const on = i <= step;
           return (
             <g key={i}>
-              {i === step && <circle key={step} cx={x} cy={y} r="16" className="trail-ping" fill="none" stroke="#f49e0b" strokeWidth="2" />}
-              <circle cx={x} cy={y} r={goal ? 16 : 12} fill="#0f2a3d" stroke={goal || i === step ? "#f49e0b" : "#fff"} strokeWidth="3.5" opacity={on ? 1 : 0.4} className="trail-dot" />
-              <circle cx={x} cy={y} r={goal ? 9 : 5} fill={goal || i === step ? "#f49e0b" : "#fff"} opacity={on ? 1 : 0.22} className="trail-dot" />
+              {i === step && <circle key={step} cx={x} cy={y} r="16" className="trail-ping" fill="none" style={{ stroke: "var(--amber)" }} strokeWidth="2" />}
+              <circle cx={x} cy={y} r={goal ? 16 : 12} style={{ fill: "var(--surface)", stroke: goal || i === step ? "var(--amber)" : "var(--ink)" }} strokeWidth="3.5" opacity={on ? 1 : 0.4} className="trail-dot" />
+              <circle cx={x} cy={y} r={goal ? 9 : 5} style={{ fill: goal || i === step ? "var(--amber)" : "var(--ink)" }} opacity={on ? 1 : 0.22} className="trail-dot" />
             </g>
           );
         })}
       </svg>
 
-      <div role="tablist" aria-label="Steps" className="grid grid-cols-4 border-y border-white/15">
+      <div role="tablist" aria-label="Steps" className="grid grid-cols-4 border-y border-line">
         {STEPS.map((s, i) => (
           <button
             key={s.title}
@@ -124,11 +124,11 @@ function Walkthrough() {
             aria-controls="step-panel"
             onClick={() => setStep(i)}
             className={cn(
-              "border-b-2 px-1 py-3 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white sm:text-sm",
-              i === step ? "border-[#f49e0b] text-white" : "border-transparent text-white/70 hover:text-white",
+              "border-b-2 px-1 py-3 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent sm:text-sm",
+              i === step ? "border-[#f49e0b] text-ink" : "border-transparent text-muted hover:text-ink",
             )}
           >
-            <span className="block text-[#8fd3df]">{i + 1}</span>
+            <span className="block text-accent">{i + 1}</span>
             {s.title}
           </button>
         ))}
@@ -136,10 +136,10 @@ function Walkthrough() {
 
       <div id="step-panel" role="tabpanel" aria-labelledby={`step-${step}`} className="min-h-72 space-y-3 p-5 sm:min-h-60">
         <div key={step} className="step-in space-y-4">
-          <p className="text-sm text-white/85">{STEPS[step].text}</p>
+          <p className="text-sm text-muted">{STEPS[step].text}</p>
           <div className="rounded-2xl border border-line bg-subtle p-4 text-sm text-ink">{step === 0 ? <AskDemo /> : step === 1 ? <EvidenceDemo /> : step === 2 ? <DecideDemo /> : <ReviewDemo />}</div>
         </div>
-        <p className="text-xs text-white/70">Example only. Your own results will differ.</p>
+        <p className="text-xs text-muted">Example only. Your own results will differ.</p>
       </div>
     </section>
   );
